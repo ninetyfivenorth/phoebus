@@ -18,7 +18,7 @@ $stringFirefoxID = '{ec8030f7-c20a-464f-9b0e-13a3a9e97384}';
 $sringFirefoxVersion = '24.9';
 
 $arrayIncludes = array(
-    'aus' => 'aus.php',
+    'aus' => './modules/aus.php',
     'download' => './modules/download.php',
     'integration' => './modules/integration.php',
     'metadata' => './modules/metadata.php',
