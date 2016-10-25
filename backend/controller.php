@@ -25,7 +25,7 @@ $arrayIncludes = array(
     'discover' => './modules/discover.php',
     'database' => './modules/database.php',
     'vc' => '../lib/vc/nsIVersionComparator.php'
-)
+);
 
 // ============================================================================
 
