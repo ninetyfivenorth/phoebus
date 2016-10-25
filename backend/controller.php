@@ -39,7 +39,7 @@ function funcError($_value) {
 
 // == | Main | ================================================================
 
-if (isset($_GET['function'])) {
+if (isset($_GET['function']) == true) {
     if (array_key_exists($_GET['function'], $arrayIncludes)) {
         if ($_GET['function'] == 'database' || $_GET['function'] == 'vc') {
             funcError('Unauthorized controller function');
