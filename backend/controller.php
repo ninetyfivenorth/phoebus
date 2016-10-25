@@ -49,7 +49,7 @@ if (isset($_GET['function'])) {
         }
     }
     else {
-        funcError($_GET['function'] . ' is an unknown function');
+        funcError($_GET['function'] . ' is an unknown controller function');
     }
 }
 else {
