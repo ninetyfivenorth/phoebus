@@ -6,7 +6,7 @@ $arrayDatabases = array(
     'dbLangPacks' => '../../backend/modules/dbLangPacks.php',
     'dbSearchPlugins' => '../../backend/modules/dbSearchPlugins.php',
     'dbExternals' => '../../backend/modules/dbExternals.php'
-)
+);
 
 foreach($arrayDatabases as $_key => $_value) {
     include_once($_value);
