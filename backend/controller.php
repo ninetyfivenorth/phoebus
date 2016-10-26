@@ -13,9 +13,9 @@ ini_set("display_errors", "on");
 
 // == | Vars | ================================================================
 
-$stringPaleMoonID = '{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}';
-$stringFirefoxID = '{ec8030f7-c20a-464f-9b0e-13a3a9e97384}';
-$sringFirefoxVersion = '24.9';
+$strPaleMoonID = '{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}';
+$strFirefoxID = '{ec8030f7-c20a-464f-9b0e-13a3a9e97384}';
+$strFirefoxVersion = '24.9';
 
 $arrayIncludes = array(
     'aus' => './modules/aus.php',
@@ -37,19 +37,29 @@ function funcError($_value) {
 
 // ============================================================================
 
+// == | Function: funcHTTPGetValue |===============================================
+
+function funcHTTPGetValue($_value) {
+    if (!isset($_GET[$_value]) || $_GET[$_value] === '' || $_GET[$_value] === null || empty($_GET[$_value])) {
+        return null;
+    }
+    else {    
+        return $_GET[$_value];
+    }
+}
+
+// ============================================================================
+
 // == | Main | ================================================================
 
-if (isset($_GET['function']) == true) {
-    if (array_key_exists($_GET['function'], $arrayIncludes)) {
-        if ($_GET['function'] == 'database' || $_GET['function'] == 'vc') {
-            funcError('Unauthorized controller function');
-        }
-        else {
-            include_once($arrayIncludes[$_GET['function']]);
-        }
+$strRequestFunction = funcHTTPGetValue('function');
+
+if (!$strRequestFunction) {
+    if ((array_key_exists($strRequestFunction, $arrayIncludes)) && ($strRequestFunction != 'database' || $strRequestFunction != 'vc')) {
+        include_once($arrayIncludes[$strRequestFunction]);
     }
     else {
-        funcError($_GET['function'] . ' is an unknown controller function');
+        funcError($strRequestFunction . ' is an unknown controller function');
     }
 }
 else {
