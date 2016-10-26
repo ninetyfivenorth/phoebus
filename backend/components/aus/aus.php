@@ -16,7 +16,7 @@ function funcReadAddonManifest($_addonType, $_addonSlug, $_isAUS) {
         funcError('Unable to read manifest ini file');
     }
     else {
-        if ($_isAUS = true) {
+        if ($_isAUS == true) {
             unset($_addonManifest['id']);
             unset($_addonManifest['compat']);
             unset($_addonManifest['name']);
