@@ -62,8 +62,8 @@ function funcGenerateUpdateXML($_addonManifest) {
             '@ADDON_MINVERSION@' => $_addonManifest["minVer"],
             '@ADDON_MAXVERSION@' => $_addonManifest["maxVer"],
             '@ADDON_XPI@' => $_addonManifest["baseurl"],
-            '@ADDON_HASH@' => $_addonManifest["hash"],
-        )
+            '@ADDON_HASH@' => $_addonManifest["hash"]
+        );
         
         foreach ($_arrayFilterSubstitute as $_key => $_value) {
             $_strUpdateXMLBody = $_key, $_value, $_strUpdateXMLBody);
