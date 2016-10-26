@@ -5,8 +5,6 @@
 
 // == | Vars | ================================================================
 
-
-
 // ============================================================================
 
 // == | funcReadAddonManifest | ===============================================
@@ -54,7 +52,10 @@ function funcGenerateUpdateXML($_addonManifest) {
     print($strUpdateXMLHead);
 
     if ($_addonManifest != null) {
+        print("\n");
+        
         $strUpdateXMLBody = file_get_contents('./components/aus/update-body.xml');
+        
         str_replace('@ADDON_TYPE@', $_addonManifest["type"], $strUpdateXMLBody);
         str_replace('@ADDON_ID@', $_addonManifest["guid"], $strUpdateXMLBody);
         str_replace('@PALEMOON_ID@', $GLOBALS['strPaleMoonID'], $strUpdateXMLBody);
@@ -63,6 +64,7 @@ function funcGenerateUpdateXML($_addonManifest) {
         str_replace('@ADDON_XPI@', $_addonManifest["baseurl"] . $_addonManifest["xpi"], $strUpdateXMLBody);
         str_replace('@ADDON_HASH@', $_addonManifest["hash"], $strUpdateXMLBody);
         
+        print("\n");
         print($strUpdateXMLBody);
     }
     
