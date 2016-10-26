@@ -47,7 +47,7 @@ function funcGenerateUpdateXML($_addonManifest) {
 
     header('Content-Type: text/xml');
 
-    print($strUpdateXMLHead);
+    print($_strUpdateXMLHead);
 
     if ($_addonManifest != null) {
         print("\n");
@@ -66,11 +66,11 @@ function funcGenerateUpdateXML($_addonManifest) {
         );
         
         foreach ($_arrayFilterSubstitute as $_key => $_value) {
-            
+
         }
         
         print("\n");
-        print($strUpdateXMLBody);
+        print($_strUpdateXMLBody);
     }
     
     print($strUpdateXMLTail);
