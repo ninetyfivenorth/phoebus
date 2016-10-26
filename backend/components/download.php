@@ -22,7 +22,7 @@ $strRequestAddonID = funcHTTPGetValue('id');
 
 // == | funcDownloadXPI | ===============================================
 
-function funcGenerateUpdateXML($_addonManifest) {
+function funcDownloadXPI($_addonManifest) {
     $_addonFile = $_addonManifest['basepath'] . $_addonManifest['xpi'];
     
     if (file_exists($_addonFile)) {
