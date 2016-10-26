@@ -12,7 +12,7 @@
 // == | funcReadAddonManifest | ===============================================
 
 function funcReadAddonManifest($_addonType, $_addonSlug, $_isAUS) {
-    $_addonManifest = parse_ini_file('../datastore/' . $_addonType . '/' . $_addonSlug . '/manifest.ini');
+    $_addonManifest = parse_ini_file('../datastore/' . $_addonType . 's/' . $_addonSlug . '/manifest.ini');
     
     if ($_addonManifest == false) {
         funcError('Unable to read manifest ini file');
