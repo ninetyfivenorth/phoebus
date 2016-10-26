@@ -9,10 +9,10 @@ $boolAMOKillSwitch = true;
 $boolAMOWhiteList = false;
 
 $arrayDatabases = array(
-    'dbExtensions' => '../../backend/modules/dbExtensions.php',
-    'dbThemes' => '../../backend/modules/dbThemes.php',
-    'dbLangPacks' => '../../backend/modules/dbLangPacks.php',
-    'dbExternals' => '../../backend/modules/dbExternals.php'
+    'dbExtensions' => './modules/dbExtensions.php',
+    'dbThemes' => './modules/dbThemes.php',
+    'dbLangPacks' => './modules/dbLangPacks.php',
+    'dbExternals' => './modules/dbExternals.php'
 );
 
 $strRequestAddonID = funcHTTPGetValue('id');
