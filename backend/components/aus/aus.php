@@ -56,13 +56,13 @@ function funcGenerateUpdateXML($_addonManifest) {
         
         $strUpdateXMLBody = file_get_contents('./components/aus/update-body.xml');
         
-        str_replace('@ADDON_TYPE@', $_addonManifest["type"], $strUpdateXMLBody);
-        str_replace('@ADDON_ID@', $_addonManifest["guid"], $strUpdateXMLBody);
-        str_replace('@PALEMOON_ID@', $GLOBALS['strPaleMoonID'], $strUpdateXMLBody);
-        str_replace('@ADDON_MINVERSION@', $_addonManifest["minVer"], $strUpdateXMLBody);
-        str_replace('@ADDON_MAXVERSION@', $_addonManifest["maxVer"], $strUpdateXMLBody);
-        str_replace('@ADDON_XPI@', $_addonManifest["baseurl"] . $_addonManifest["xpi"], $strUpdateXMLBody);
-        str_replace('@ADDON_HASH@', $_addonManifest["hash"], $strUpdateXMLBody);
+        $strUpdateXMLBody = str_replace('@ADDON_TYPE@', $_addonManifest["type"], $strUpdateXMLBody);
+        $strUpdateXMLBody = str_replace('@ADDON_ID@', $_addonManifest["guid"], $strUpdateXMLBody);
+        $strUpdateXMLBody = str_replace('@PALEMOON_ID@', $GLOBALS['strPaleMoonID'], $strUpdateXMLBody);
+        $strUpdateXMLBody = str_replace('@ADDON_MINVERSION@', $_addonManifest["minVer"], $strUpdateXMLBody);
+        $strUpdateXMLBody = str_replace('@ADDON_MAXVERSION@', $_addonManifest["maxVer"], $strUpdateXMLBody);
+        $strUpdateXMLBody = str_replace('@ADDON_XPI@', $_addonManifest["baseurl"] . $_addonManifest["xpi"], $strUpdateXMLBody);
+        $strUpdateXMLBody = str_replace('@ADDON_HASH@', $_addonManifest["hash"], $strUpdateXMLBody);
         
         print("\n");
         print($strUpdateXMLBody);
