@@ -22,22 +22,22 @@ $arrayModules = array(
     'vc' => './modules/nsIVersionComparator.php'
 );
 
-$strRequestFunction = funcHTTPGetValue('function');
+$strRequestComponent = funcHTTPGetValue('component');
 
 // ============================================================================
 
 // == | Main | ================================================================
 
-if ($strRequestFunction != null) {
-    if (array_key_exists($strRequestFunction, $arrayComponents)) {
-        include_once($arrayComponents[$strRequestFunction]);
+if ($strRequestComponent != null) {
+    if (array_key_exists($strRequestComponent, $arrayComponents)) {
+        include_once($arrayComponents[$strRequestComponent]);
     }
     else {
-        funcError($strRequestFunction . ' is an unknown controller function');
+        funcError($strRequestComponent . ' is an unknown component');
     }
 }
 else {
-    funcError('You did not specify a controller function');
+    funcError('You did not specify a component');
 }
 
 // ============================================================================
