@@ -73,7 +73,7 @@ function funcGenerateUpdateXML($_addonManifest) {
         print($_strUpdateXMLBody);
     }
     
-    print($strUpdateXMLTail);
+    print($_strUpdateXMLTail);
     
     // We are done here...
     exit();
