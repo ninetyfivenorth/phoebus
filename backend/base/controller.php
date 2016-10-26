@@ -6,11 +6,11 @@
 // == | Vars | ================================================================
 
 $arrayComponents = array(
-    'aus' => './components/aus.php',
+    'aus' => './components/aus/aus.php',
     'download' => './components/download.php',
     'integration' => './components/integration.php',
     'metadata' => './components/metadata.php',
-    'discover' => './components/discover.php',
+    'discover' => './components/discover/discover.php',
 );
 
 $arrayModules = array(
