@@ -29,14 +29,13 @@ function funcReadAddonManifest($_addonType, $_addonSlug, $_isAUS) {
                 $_addonManifest["baseurl"] = 'https://addons.palemoon.org/phoebus/datastore/' . $_addonType . 's/' . $_addonSlug . '/';
             }
             else {
-                $_addonManifest["baseurl"] = 'https://addons.palemoon.org/datastore/' . $_addonType . 's/' . $_addonSlug . '/';
+                $_addonManifest["baseurl"] = 'https://dev.addons.palemoon.org/datastore/' . $_addonType . 's/' . $_addonSlug . '/';
             }
         }
 
         return $_addonManifest;
     }
 }
-
 
 // ============================================================================
 
