@@ -38,7 +38,7 @@ function funcGeneratePage($_arrayPage) {
         $_strHTMLPage = str_replace($_key, $_value, $_strHTMLPage);
     }
     
-    print($_strUpdateHTMLTail);
+    print($_strHTMLPage);
     
     // We are done here...
     exit();
