@@ -5,7 +5,7 @@
 
 // == | Vars | ================================================================
 
-$boolAMOKillSwitch = false;
+$boolAMOKillSwitch = true;
 $boolAMOWhiteList = false;
 
 $arrayDatabases = array(
