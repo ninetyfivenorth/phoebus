@@ -16,7 +16,6 @@ $arrayPermaXPI = array(
     'devtools' => 'devtools@addons.palemoon.org'
 );
 
-$strRequestSource = funcHTTPGetValue('source');
 $strRequestAddonID = funcHTTPGetValue('id');
 
 // ============================================================================
@@ -68,7 +67,7 @@ function funcDownloadSearchPlugin($_searchPluginName) {
 // == | Main | ================================================================
 
 // Sanity
-if ($strRequestSource == null || $strRequestAddonID == null) {
+if ($strRequestAddonID == null) {
     funcError('Missing minimum required arguments.');
 }
 
@@ -77,10 +76,10 @@ foreach($arrayDatabases as $_key => $_value) {
     include_once($_value);
 }
 
-if ($strRequestSource == 'permaxpi') {
-    if (array_key_exists($strRequestAddonID, $arrayPermaXPI)) {
-        $strRequestAddonID = $arrayPermaXPI[$strRequestAddonID];
-    }
+// Special case for PermaXPI links
+// Override $strRequestAddonID
+if (array_key_exists($strRequestAddonID, $arrayPermaXPI)) {
+    $strRequestAddonID = $arrayPermaXPI[$strRequestAddonID];
 }
 
 // Search for add-ons in our databases
