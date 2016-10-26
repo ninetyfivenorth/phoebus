@@ -27,7 +27,7 @@ function funcReadAddonManifest($_addonType, $_addonSlug, $_mode) {
             $_addonManifest["hash"] = hash_file('sha256', '../datastore/' . $_addonType . 's/' . $_addonSlug . '/' . $_addonManifest["xpi"]);
 
             if ($_SERVER["HTTP_X_FORWARDED_HOST"] == 'dev.addons.palemoon.org') {
-                $_addonManifest["baseurl"] = 'https://addons.palemoon.org/datastore/' . $_addonType . 's/' . $_addonSlug . '/';
+                $_addonManifest["baseurl"] = 'https://dev.addons.palemoon.org/datastore/' . $_addonType . 's/' . $_addonSlug . '/';
             }
             else {
                 $_addonManifest["baseurl"] = 'https://addons.palemoon.org/phoebus/datastore/' . $_addonType . 's/' . $_addonSlug . '/';
