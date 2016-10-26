@@ -28,6 +28,9 @@ function funcHTTPGetValue($_value) {
 
 function funcRedirect($varURL) {
 	header('Location: ' . $varURL , true, 302);
+    
+    // We are done here
+    exit();
 }
 
 // ============================================================================
