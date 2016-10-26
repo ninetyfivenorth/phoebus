@@ -11,6 +11,4 @@ $arrayDatabases = array(
 foreach($arrayDatabases as $_key => $_value) {
     include_once($_value);
 }
-
-var_dump $arrayExtensionsDB;
 ?>
