@@ -23,6 +23,9 @@ $arrayIncludes = array(
     'integration' => './modules/integration.php',
     'metadata' => './modules/metadata.php',
     'discover' => './modules/discover.php',
+);
+
+$arrayInternalIncludes = array(
     'database' => './modules/database.php',
     'vc' => '../lib/vc/nsIVersionComparator.php'
 );
@@ -37,7 +40,7 @@ function funcError($_value) {
 
 // ============================================================================
 
-// == | Function: funcHTTPGetValue |===============================================
+// == | Function: funcHTTPGetValue |===========================================
 
 function funcHTTPGetValue($_value) {
     if (!isset($_GET[$_value]) || $_GET[$_value] === '' || $_GET[$_value] === null || empty($_GET[$_value])) {
@@ -55,7 +58,7 @@ function funcHTTPGetValue($_value) {
 $strRequestFunction = funcHTTPGetValue('function');
 
 if ($strRequestFunction != null) {
-    if ($strRequestFunction != 'database' || $strRequestFunction != 'vc') {
+    if (array_key_exists($strRequestFunction, $arrayIncludes)) {
         include_once($arrayIncludes[$strRequestFunction]);
     }
     else {
