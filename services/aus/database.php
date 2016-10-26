@@ -9,8 +9,8 @@ $arrayDatabases = array(
 );
 
 foreach($arrayDatabases as $_key => $_value) {
-    echo $_value;
     include_once($_value);
 }
 
+var_dump $arrayExtensionsDB;
 ?>
