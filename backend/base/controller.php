@@ -6,16 +6,16 @@
 // == | Vars | ================================================================
 
 $arrayComponents = array(
-    'aus' => '../components/aus.php',
-    'download' => '../components/download.php',
-    'integration' => '../components/integration.php',
-    'metadata' => '../components/metadata.php',
-    'discover' => '../components/discover.php',
+    'aus' => './components/aus.php',
+    'download' => './components/download.php',
+    'integration' => './components/integration.php',
+    'metadata' => './components/metadata.php',
+    'discover' => './components/discover.php',
 );
 
 $arrayModules = array(
-    'database' => '../modules/database.php',
-    'vc' => '../modules/nsIVersionComparator.php'
+    'database' => './modules/database.php',
+    'vc' => './modules/nsIVersionComparator.php'
 );
 
 $strRequestFunction = funcHTTPGetValue('function');
