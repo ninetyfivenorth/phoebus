@@ -12,7 +12,7 @@
         </form>
         <hr>
         <?php
-            require_once('../lib/vc/nsIVersionComparator.php');
+            require_once('../backend/modules/nsIVersionComparator.php');
             if (array_key_exists('currVersion', $_POST) && array_key_exists('compVersion', $_POST)) {
                 
                 $vcResult = ToolkitVersionComparator::compare($_POST['currVersion'], $_POST['compVersion']);
