@@ -45,7 +45,8 @@ function funcReadAddonManifest($_addonType, $_addonSlug, $_isAUS) {
 // == | funcGenerateUpdateXML | ===============================================
 
 function funcGenerateUpdateXML($_addonManifest) {
-    $strUpdateXMLHead = '<?xml version="1.0" encoding="UTF-8"?>\n<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">';
+    $strUpdateXMLHead = '<?xml version="1.0" encoding="UTF-8"?>
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">';
     $strUpdateXMLTail = '</RDF:RDF>';
 
     header('Content-Type: text/xml');
@@ -54,8 +55,8 @@ function funcGenerateUpdateXML($_addonManifest) {
 
     if ($_addonManifest != null) {
         $strUpdateXMLBody = file_get_contents('./components/aus/update-body.xml');
-        str_replace('@ADDON_TYPE@', $$_addonManifest["type"], $strUpdateXMLBody);
-        str_replace('@ADDON_ID@', $$_addonManifest["guid"], $strUpdateXMLBody);
+        str_replace('@ADDON_TYPE@', $_addonManifest["type"], $strUpdateXMLBody);
+        str_replace('@ADDON_ID@', $_addonManifest["guid"], $strUpdateXMLBody);
         str_replace('@PALEMOON_ID@', $GLOBALS['strPaleMoonID'], $strUpdateXMLBody);
         str_replace('@ADDON_MINVERSION@', $_addonManifest["minVer"], $strUpdateXMLBody);
         str_replace('@ADDON_MAXVERSION@', $_addonManifest["maxVer"], $strUpdateXMLBody);
