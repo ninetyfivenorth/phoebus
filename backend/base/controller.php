@@ -14,7 +14,11 @@ $arrayComponents = array(
 );
 
 $arrayModules = array(
-    'database' => './modules/database.php',
+    'dbExtensions' => './modules/dbExtensions.php',
+    'dbThemes' => './modules/dbThemes.php',
+    'dbLangPacks' => './modules/dbLangPacks.php',
+    'dbSearchPlugins' => './modules/dbSearchPlugins.php',
+    'dbExternals' => './modules/dbExternals.php',
     'vc' => './modules/nsIVersionComparator.php'
 );
 
