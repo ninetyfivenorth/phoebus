@@ -74,7 +74,7 @@ function funcReadAddonManifest($_addonType, $_addonSlug, $_mode) {
             unset($_addonManifest['author']);
             unset($_addonManifest['description']);
             
-            $_addonManifest[basepath] = '../datastore/' . $_addonType . 's/' . $_addonSlug . '/';
+            $_addonManifest['basepath'] = '../datastore/' . $_addonType . 's/' . $_addonSlug . '/';
         }
 
         return $_addonManifest;
