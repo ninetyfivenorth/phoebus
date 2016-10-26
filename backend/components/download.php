@@ -27,7 +27,7 @@ function funcDownloadXPI($_addonManifest) {
     
     if (file_exists($_addonFile)) {
         header('Content-Type: application/x-xpinstall');
-        header('Content-Disposition: attachment; filename="' . $_addonManifest['xpi'] .'"');
+        header('Content-Disposition: inline; filename="' . $_addonManifest['xpi'] .'"');
         header('Content-Length: ' . filesize($_addonFile));
         header('Cache-Control: no-cache');
         
