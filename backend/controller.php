@@ -55,7 +55,7 @@ function funcHTTPGetValue($_value) {
 $strRequestFunction = funcHTTPGetValue('function');
 
 if ($strRequestFunction != null) {
-    if ((array_key_exists($strRequestFunction, $arrayIncludes)) && ($strRequestFunction != 'database' || $strRequestFunction != 'vc')) {
+    if (array_key_exists($strRequestFunction, $arrayIncludes) && ($strRequestFunction != 'database' || $strRequestFunction != 'vc')) {
         include_once($arrayIncludes[$strRequestFunction]);
     }
     else {
