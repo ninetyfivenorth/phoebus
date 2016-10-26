@@ -66,7 +66,7 @@ function funcGenerateUpdateXML($_addonManifest) {
         );
         
         foreach ($_arrayFilterSubstitute as $_key => $_value) {
-            $_strUpdateXMLBody = str_replace($_key, $_value, $_strUpdateXMLBody);
+            
         }
         
         print("\n");
