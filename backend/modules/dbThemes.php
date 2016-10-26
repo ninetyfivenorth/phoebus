@@ -38,4 +38,3 @@ $arrayThemesDB = array(
     'phoenity-rebirth@lootyhoof-pm' => 'phoenity-rebirth'
 );
 ?>
-
