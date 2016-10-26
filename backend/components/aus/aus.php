@@ -5,6 +5,22 @@
 
 // == | Vars | ================================================================
 
+$boolAMOKillSwitch = false;
+$boolAMOWhiteList = false;
+
+$arrayDatabases = array(
+    'dbExtensions' => '../../backend/modules/dbExtensions.php',
+    'dbThemes' => '../../backend/modules/dbThemes.php',
+    'dbLangPacks' => '../../backend/modules/dbLangPacks.php',
+    'dbExternals' => '../../backend/modules/dbExternals.php'
+);
+
+$strRequestAddonID = funcHTTPGetValue('id');
+$strRequestAddonVersion = funcHTTPGetValue('version');
+$strRequestAppID = funcHTTPGetValue('appID');
+$strRequestAppVersion = funcHTTPGetValue('appVersion');
+$strRequestCompatMode = funcHTTPGetValue('compatMode');
+
 // ============================================================================
 
 // == | funcGenerateUpdateXML | ===============================================
@@ -29,7 +45,7 @@ function funcGenerateUpdateXML($_addonManifest) {
             '@PALEMOON_ID@' => $GLOBALS['strPaleMoonID'],
             '@ADDON_MINVERSION@' => $_addonManifest["minVer"],
             '@ADDON_MAXVERSION@' => $_addonManifest["maxVer"],
-            '@ADDON_XPI@' => $_addonManifest["baseurl"],
+            '@ADDON_XPI@' => $_addonManifest["baseurl"] . $_addonManifest['xpi'],
             '@ADDON_HASH@' => $_addonManifest["hash"]
         );
         
@@ -51,7 +67,77 @@ function funcGenerateUpdateXML($_addonManifest) {
 
 // == | Main | ================================================================
 
-funcGenerateUpdateXML(funcReadAddonManifest('extension', 'adblock-latitude', 1));
+// funcGenerateUpdateXML(funcReadAddonManifest('extension', 'adblock-latitude', 1));
+
+// Sanity
+if ($strRequestAddonID == null || $strRequestAddonVersion == null ||
+    $strRequestAppID == null || $strRequestAppVersion == null ||
+    $strRequestCompatMode == null) {
+    funcError('Missing minimum required arguments.');
+}
+
+if ($strReqestAppID != $strPaleMoonID) {
+    funcError('Invalid Application ID');
+}
+
+// Include the database arrays
+foreach($arrayDatabases as $_key => $_value) {
+    include_once($_value);
+}
+
+// Search for add-ons in our databases
+// Extensions
+if (array_key_exists($strRequestAddonID, $arrayExtensionsDB)) {
+    funcGenerateUpdateXML(funcReadAddonManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 1));
+}
+// Themes
+elseif (array_key_exists($strRequestAddonID, $arrayThemesDB)) {
+    funcGenerateUpdateXML(funcReadAddonManifest('theme', $arrayThemesDB[$strRequestAddonID], 1));
+}
+// Language Packs
+elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {
+    $arrayLangPack = array(
+        'type' => 'item',
+        'guid' => $strRequestAddonID,
+        'xpi' => $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi',
+        'version' => $arrayLangPackDB[$strRequestAddonID]['version'],
+        'minVer' => '26.0.0a1',
+        'maxVer' => '26.*',
+        'baseurl' => 'http://relmirror.palemoon.org/langpacks/26.x/',
+        'hash' => $arrayLangPackDB[$strRequestAddonID]['hash']
+    );
+    
+    funcGenerateUpdateXML($arrayLangPack);
+}
+// Externals
+elseif (array_key_exists($strRequestAddonID, $arrayExternalsDB)) {
+    funcRedirect($strRequestAddonID);
+}
+// Unknown - Send to AMO or to 'bad' update xml
+else {
+    if ($boolAMOKillSwitch == false) {
+        include_once('./modules/nsIVersionComparator.php');
+        $intVcResult = ToolkitVersionComparator::compare($strRequestAppVersion, '27.0.0a1');
+        $_strFirefoxVersion = $strFirefoxVersion;
+        
+        if ($intVcResult < 0) {
+            $_strFirefoxVersion = '24.9';
+        }
+        
+        $strAMOLink = 'https://versioncheck.addons.mozilla.org/update/VersionCheck.php?reqVersion=2' .
+        '&id=' . $strRequestAddonID .
+        '&version=' . $strRequestAddonVersion .
+        '&appID=' . $strFirefoxID .
+        '&appVersion=' . $_strFirefoxVersion .
+        '&compatMode=' . $strRequestCompatMode;
+        
+        funcRedirect($strAMOLink);
+    }
+    else {
+        funcGenerateUpdateXML(null);
+    }
+
+}
 
 // ============================================================================
 ?>
