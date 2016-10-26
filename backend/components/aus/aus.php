@@ -76,7 +76,7 @@ if ($strRequestAddonID == null || $strRequestAddonVersion == null ||
     funcError('Missing minimum required arguments.');
 }
 
-if ($strReqestAppID != $strPaleMoonID) {
+if ($strRequestAppID != $strPaleMoonID) {
     funcError('Invalid Application ID');
 }
 
