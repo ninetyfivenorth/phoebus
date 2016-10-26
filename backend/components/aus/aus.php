@@ -42,9 +42,8 @@ function funcReadAddonManifest($_addonType, $_addonSlug, $_isAUS) {
 // == | funcGenerateUpdateXML | ===============================================
 
 function funcGenerateUpdateXML($_addonManifest) {
-    $strUpdateXMLHead = '<?xml version="1.0"?>
-<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">';
-    $strUpdateXMLTail = '</RDF:RDF>';
+    $_strUpdateXMLHead = '<?xml version="1.0"?>' . "\n" . '<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">';
+    $_strUpdateXMLTail = '</RDF:RDF>';
 
     header('Content-Type: text/xml');
 
@@ -53,15 +52,22 @@ function funcGenerateUpdateXML($_addonManifest) {
     if ($_addonManifest != null) {
         print("\n");
         
-        $strUpdateXMLBody = file_get_contents('./components/aus/update-body.xml');
+        $_strUpdateXMLBody = file_get_contents('./components/aus/update-body.xml');
+
+        $_arrayFilterSubstitute = array(
+            '@ADDON_TYPE@' => $_addonManifest["type"],
+            '@ADDON_ID@' => $_addonManifest["guid"],
+            '@ADDON_VERSION@' => $_addonManifest["version"],
+            '@PALEMOON_ID@' => $GLOBALS['strPaleMoonID'],
+            '@ADDON_MINVERSION@' => $_addonManifest["minVer"],
+            '@ADDON_MAXVERSION@' => $_addonManifest["maxVer"],
+            '@ADDON_XPI@' => $_addonManifest["baseurl"],
+            '@ADDON_HASH@' => $_addonManifest["hash"],
+        )
         
-        $strUpdateXMLBody = str_replace('@ADDON_TYPE@', $_addonManifest["type"], $strUpdateXMLBody);
-        $strUpdateXMLBody = str_replace('@ADDON_ID@', $_addonManifest["guid"], $strUpdateXMLBody);
-        $strUpdateXMLBody = str_replace('@PALEMOON_ID@', $GLOBALS['strPaleMoonID'], $strUpdateXMLBody);
-        $strUpdateXMLBody = str_replace('@ADDON_MINVERSION@', $_addonManifest["minVer"], $strUpdateXMLBody);
-        $strUpdateXMLBody = str_replace('@ADDON_MAXVERSION@', $_addonManifest["maxVer"], $strUpdateXMLBody);
-        $strUpdateXMLBody = str_replace('@ADDON_XPI@', $_addonManifest["baseurl"] . $_addonManifest["xpi"], $strUpdateXMLBody);
-        $strUpdateXMLBody = str_replace('@ADDON_HASH@', $_addonManifest["hash"], $strUpdateXMLBody);
+        foreach ($_arrayFilterSubstitute as $_key => $_value) {
+            $_strUpdateXMLBody = $_key, $_value, $_strUpdateXMLBody);
+        }
         
         print("\n");
         print($strUpdateXMLBody);
