@@ -42,7 +42,7 @@ function funcReadAddonManifest($_addonType, $_addonSlug, $_isAUS) {
 // == | funcGenerateUpdateXML | ===============================================
 
 function funcGenerateUpdateXML($_addonManifest) {
-    $strUpdateXMLHead = '<?xml version="1.0" encoding="UTF-8"?>
+    $strUpdateXMLHead = '<?xml version="1.0"?>
 <RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">';
     $strUpdateXMLTail = '</RDF:RDF>';
 

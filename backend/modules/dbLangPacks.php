@@ -38,6 +38,4 @@ $arrayLangPackDB = array(
     'langpack-zh-CN@palemoon.org' => array( 'locale' => 'zh-CN', 'version' => '26.0', 'hash' => 'ea2cb8bc5b2a4af9e6451c08a0f87f3c214dcb8ada20b5d72c44e2f69c313359'),
     'langpack-zh-TW@palemoon.org' => array( 'locale' => 'zh-TW', 'version' => '26.0', 'hash' => '75f9e08f0ddd4969bfeebc6ea96bcd21b62f3b1d56ad23b3d9c87c7c9b1cbb49')
 );
-
 ?>
-

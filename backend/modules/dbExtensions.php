@@ -47,6 +47,4 @@ $arrayExtensionsDB = array(
     'devtools@addons.palemoon.org' => 'devtools',
     '{AF445D67-154C-4c69-A17B-7F392BCC36A3}' => 'complete-yt-saver'
 );
-
 ?>
-

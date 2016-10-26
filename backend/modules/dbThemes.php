@@ -37,6 +37,5 @@ $arrayThemesDB = array(
     'darkmoon@lootyhoof-pm' => 'darkmoon',
     'phoenity-rebirth@lootyhoof-pm' => 'phoenity-rebirth'
 );
-
 ?>
 

@@ -38,6 +38,4 @@ $arraySearchPlugins = array(
     '131' => 'wiktionary',
     '132' => 'yandex'
 );
-
 ?>
-

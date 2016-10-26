@@ -6,6 +6,4 @@
 $arrayExternalsDB = array(
     'firefox-tabgroups@mozilla.com' => 'https://www.palemoon.org/extensions/tabgroups-update.xml'
 );
-
 ?>
-
