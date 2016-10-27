@@ -6,6 +6,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
     $_addonBasePath = '../datastore/' . $_addonDirectory;
     $_addonManifestINIFile = '/manifest.ini';
     $_addonPhoebusManifestFile = '/phoebus.manifest';
+    $_addonPhoebusContentFile = '/phoebus.content';
     
     if ($_useNewManifest == true && file_exists($_addonBasePath . $_addonPhoebusManifestFile)) {
         $_addonManifest = parse_ini_file($_addonBasePath . $_addonPhoebusManifestFile, true);
@@ -19,6 +20,13 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                 $_addonManifest['xpi'][$_key] = $_value;
             }
             unset($_addonManifestVersions_);
+            
+            if (file_exists($_addonBasePath . $_addonPhoebusContentFile)) {
+                $_addonManifest['metadata']['LongDescription'] = file_get_contents($_addonPhoebusContentFile, ENT_XML1);
+            }
+            else {
+                $_addonManifest['metadata']['LongDescription'] = $_addonManifest['metadata']['shortDescription']
+            }
             
             $_addonManifest['isNewManifest'] = true;
             return $_addonManifest;
