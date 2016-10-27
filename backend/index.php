@@ -11,13 +11,8 @@ ini_set("display_errors", "on");
 
 // ============================================================================
 
-// == | Vars | ================================================================
-
-$strPaleMoonID = '{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}';
-$strFirefoxID = '{ec8030f7-c20a-464f-9b0e-13a3a9e97384}';
-$strFirefoxVersion = '28.9';
-
-// ============================================================================
+const isController = true;
+const notController = 'Error -1';
 
 include_once('./modules/common.php');
 include_once('./base/controller.php');
