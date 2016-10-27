@@ -23,7 +23,6 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
             
             if (file_exists($_addonBasePath . $_addonPhoebusContentFile)) {
                 $_addonPhoebusContent = file_get_contents($_addonBasePath . $_addonPhoebusContentFile);
-                $_addonPhoebusContent = preg_replace('/[^-a-zA-Z0-9_]/', '', $_addonPhoebusContent);
                 $_addonPhoebusContent = htmlentities($_addonPhoebusContent, ENT_XHTML);
                 $_addonPhoebusContent = str_replace('<?', '<invalid_?', $_addonPhoebusContent);
                 $_addonPhoebusContent = str_replace('<script', '<invalid_script', $_addonPhoebusContent);
