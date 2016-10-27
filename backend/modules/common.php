@@ -43,12 +43,8 @@ function funcRedirect($_strURL) {
 function funcReadAddonManifest($_addonType, $_addonSlug, $_mode) {
     $_addonManifest = parse_ini_file('../datastore/' . $_addonType . 's/' . $_addonSlug . '/manifest.ini');
     
-    if ($_addonManifest == false) {
-        funcError('Unable to read manifest ini file');
-    }
-    else {
-        // $_mode 0 = undefined (future for fe) 1 = aus, 2 = download
-        
+    if ($_addonManifest != false) {
+        // $_mode 0 = (future for fe) 1 = aus, 2 = download
         switch ($_mode) {
             case 0:
                 $_arrayUnsetKeys = null;
@@ -65,12 +61,12 @@ function funcReadAddonManifest($_addonType, $_addonSlug, $_mode) {
                         break;
                 }
                 break;
-            case 3:
+            case 2:
                 $_arrayUnsetKeys = array('id', 'compat', 'minVer', 'maxVer', 'name', 'author'. 'description');
                 $_addonManifest['basepath'] = '../datastore/' . $_addonType . 's/' . $_addonSlug . '/';
                 break;
         }
-        
+
         if ($_arrayUnsetKeys != null) {
             foreach ($_arrayUnsetKeys as $_value) {
                 unset($_addonManifest[$_value]);
@@ -78,6 +74,9 @@ function funcReadAddonManifest($_addonType, $_addonSlug, $_mode) {
         }
 
         return $_addonManifest;
+    }
+    else {
+        funcError('Unable to read manifest ini file');
     }
 }
 
