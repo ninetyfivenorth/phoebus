@@ -12,7 +12,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
         if ($_addonManifest != false) {
             $_addonManifestVersions = $_addonManifest;
             unset($_addonManifestVersions['addon']);
-            unset($_addonManifestVersions['phoebus']);
+            unset($_addonManifestVersions['metadata']);
             
             foreach ($_addonManifestVersions as $_key => $_value) {
                 unset($_addonManifest[$_key]);
