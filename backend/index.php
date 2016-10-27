@@ -11,9 +11,6 @@ ini_set("display_errors", "on");
 
 // ============================================================================
 
-define('isController', 'true');
-define('notController', 'Error -1');
-
 include_once('./modules/common.php');
 include_once('./base/controller.php');
 
