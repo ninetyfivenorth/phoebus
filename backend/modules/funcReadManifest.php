@@ -26,8 +26,8 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                     break;
                 case 1:
                     $_arrayUnsetKeys = array('id', 'compat', 'name', 'author', 'description');
-                    if (file_exists($_addonFile)) {    
-                        $_addonManifest["hash"] = hash_file('sha256', '../datastore/' . $_addonBasePath . $_addonManifest["xpi"]);
+                    if (file_exists($_addonBasePath . $_addonManifest["xpi"]))) {    
+                        $_addonManifest["hash"] = hash_file('sha256', $_addonBasePath . $_addonManifest["xpi"]);
                     }
                     else {
                         funcError('Could not find ' . $_addonManifest["xpi"]);
@@ -35,10 +35,10 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                     
                     switch($_SERVER["HTTP_X_FORWARDED_HOST"]) {
                         case 'dev.addons.palemoon.org':
-                            $_addonManifest["baseurl"] = 'http://dev.addons.palemoon.org/datastore/' . $_addonType . 's/' . $_addonSlug . '/';
+                            $_addonManifest["baseurl"] = 'http://dev.addons.palemoon.org/datastore/' . $_addonDirectory;
                             break;
                         default:
-                            $_addonManifest["baseurl"] = 'https://addons.palemoon.org/phoebus/datastore/' . $_addonType . 's/' . $_addonSlug . '/';
+                            $_addonManifest["baseurl"] = 'https://addons.palemoon.org/phoebus/datastore/' . $_addonDirectory;
                             break;
                     }
                     break;
