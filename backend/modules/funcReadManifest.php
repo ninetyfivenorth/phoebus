@@ -16,11 +16,6 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                     $_addonManifestVersions[$_key] = $_value;
                 }
             }
-            foreach ($_addonManifestVersions as $_key) {
-                unset($_addonManifest[$_key]);
-                $_addonManifest['versions'] = [$_key];
-            }
-            
             $_addonManifest['isNewManifest'] = true;
             return $_addonManifestVersions;
         }
