@@ -90,6 +90,9 @@ foreach($arrayDatabases as $_key => $_value) {
 if (array_key_exists($strRequestAddonID, $arrayExtensionsDB)) {
     funcGenerateUpdateXML(funcReadAddonManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 1));
 }
+elseif(array_key_exists($strRequestAddonID, $arrayExtensionsOverrideDB)) {
+    funcGenerateUpdateXML(funcReadAddonManifest('extension', $arrayExtensionsOverrideDB[$strRequestAddonID], 1));
+}
 // Themes
 elseif (array_key_exists($strRequestAddonID, $arrayThemesDB)) {
     funcGenerateUpdateXML(funcReadAddonManifest('theme', $arrayThemesDB[$strRequestAddonID], 1));

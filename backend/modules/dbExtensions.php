@@ -16,7 +16,6 @@ $arrayExtensionsDB = array(
     'mozext_zinglocale@gooeysoftware.com' => 'zing-locale-switcher',
     'mozext_encodr@gooeysoftware.com' => 'encodr',
     'guerilla@ketmar.no-ip.org' => 'guerilla-scripting',
-    'colormytabs@jetpack' => 'color-my-tabs',
     'color-my-tabs@wsdfhjxc' => 'color-my-tabs',
     'crush-those-cookies@wsdfhjxc' => 'crush-those-cookies',
     '{d49bc111-8359-4a82-8738-db3f9a411f58}' => 'history-menu-button',
@@ -24,7 +23,6 @@ $arrayExtensionsDB = array(
     '{2db74bf0-e2ce-4412-a47c-ec6de1449db1}' => 'space-advance',
     '{f60dcfb5-358d-498e-9f2e-1b53eba4dde7}' => 'searchload-options-revived',
     'jid1-IDCACPalemoon@jetpack' => 'i-dont-care-about-cookies',
-    'jid1-KKzOGWgsW3Ao4Q@jetpack' => 'i-dont-care-about-cookies',
     'mozarchiver@lootyhoof-pm' => 'mozarchiver',
     '{98a2ae55-3a75-4354-a460-9176594d05c3}' => 'open-about-config',
     'printPages2Pdf@reinhold.ripper' => 'print-pages-to-pdf',
@@ -46,5 +44,13 @@ $arrayExtensionsDB = array(
     '{6075f33c-14bf-48b3-9aa0-aa0e607640b9}' => 'tiny-menu',
     'devtools@addons.palemoon.org' => 'devtools',
     '{AF445D67-154C-4c69-A17B-7F392BCC36A3}' => 'complete-yt-saver'
+);
+
+// Override for Firefox Specific IDs or Changed IDs
+// We put this in a separate array to prevent duplicate entries
+// in the main array.. Always with the developer's permission
+$arrayExtensionsOverrideDB = array(
+    'colormytabs@jetpack' => 'color-my-tabs',
+    'jid1-KKzOGWgsW3Ao4Q@jetpack' => 'i-dont-care-about-cookies'
 );
 ?>
