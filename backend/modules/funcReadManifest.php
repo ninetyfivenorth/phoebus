@@ -8,12 +8,13 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
     $_addonPhoebusManifestFile = '/phoebus.manifest';
     
     if ($_useNewManifest == true && file_exists($_addonBasePath . $_addonPhoebusManifestFile)) {
-        $_addonManifest = parse_ini_file($_addonBasePath . $_addonManifestINIFile);
+        $_addonManifest = parse_ini_file($_addonBasePath . $_addonManifestINIFile, true);
         if ($_addonManifest != false) {
             $_addonManifest['isNewManifest'] = true;
+            
         }
         else {
-            funcError('Unable to read manifest ini file');
+            funcError('Unable to read manifest file');
         }
     }
     elseif ($_useNewManifest == false && file_exists($_addonBasePath . $_addonManifestINIFile)) {
@@ -56,11 +57,11 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
             return $_addonManifest;
         }
         else {
-            funcError('Unable to read manifest ini file');
+            funcError('Unable to read manifest file');
         }
     }
     else {
-        funcError('Unable to find manifest ini file');
+        funcError('Unable to find manifest file');
     }
 }
 

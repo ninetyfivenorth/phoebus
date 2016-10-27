@@ -20,7 +20,7 @@ if ($strRequestMode == null) {
 if ($strRequestMode == 'manifest') {
     header('Content-Type: text/plain');
     
-    var_dump(funcReadManifest('extension', 'adblock-latitude', 0, false));
+    var_dump(funcReadManifest('extension', 'adblock-latitude', 0, true));
 }
 
 // ============================================================================
