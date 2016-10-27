@@ -7,7 +7,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
     $_addonManifestINIFile = '/manifest.ini';
     $_addonPhoebusManifestFile = '/phoebus.manifest';
     
-    if ($_addonManifestType == true && file_exists($_addonBasePath . $_addonPhoebusManifestFile)) {
+    if ($_useNewManifest == true && file_exists($_addonBasePath . $_addonPhoebusManifestFile)) {
         $_addonManifest = parse_ini_file($_addonBasePath . $_addonManifestINIFile);
         if ($_addonManifest != false) {
             $_addonManifest['isNewManifest'] = true;
@@ -16,7 +16,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
             funcError('Unable to read manifest ini file');
         }
     }
-    elseif ($_addonManifestType == false && file_exists($_addonBasePath . $_addonManifestINIFile)) {
+    elseif ($_useNewManifest == false && file_exists($_addonBasePath . $_addonManifestINIFile)) {
         $_addonManifest = parse_ini_file($_addonBasePath . $_addonManifestINIFile);
         if ($_addonManifest != false) {
             // $_mode 0 = (future for fe) 1 = aus, 2 = download
