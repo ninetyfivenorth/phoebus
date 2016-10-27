@@ -26,9 +26,10 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                 $_addonPhoebusContent = htmlentities($_addonPhoebusContent, ENT_XHTML);
                 $_addonPhoebusContent = str_replace("\n", "<br />\n", $_addonPhoebusContent);
                 $_addonPhoebusContent = str_replace('&lt;img', '<img', $_addonPhoebusContent);
-                $_addonPhoebusContent = str_replace('/&gt', '/>', $_addonPhoebusContent);  
-                $_addonPhoebusContent = str_replace('&lt;a', '<a', $_addonPhoebusContent);
-                $_addonPhoebusContent = str_replace('/a&gt', '/a>', $_addonPhoebusContent);
+                $_addonPhoebusContent = str_replace('&lt;/&gt', '/>', $_addonPhoebusContent); 
+                $_addonPhoebusContent = preg_replace('&lt;', 
+                $_addonPhoebusContent = str_replace('/&lt;a (.*)&gt/', '<a $1>', $_addonPhoebusContent);
+                $_addonPhoebusContent = str_replace('&lt;/a&gt', '</a>', $_addonPhoebusContent);
                 $_addonManifest['metadata']['LongDescription'] = $_addonPhoebusContent;
             }
             else {
