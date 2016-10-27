@@ -11,7 +11,7 @@ $strRequestMode = funcHTTPGetValue('mode');
 
 // ============================================================================
 
-include_once(arrayModules['readManifest']);
+include_once($arrayModules['readManifest']);
 
 if ($strRequestMode == null) {
     funcError('Mode is null.. Dumbass');
