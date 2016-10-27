@@ -24,9 +24,12 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
             if (file_exists($_addonBasePath . $_addonPhoebusContentFile)) {
                 $_addonPhoebusContent = file_get_contents($_addonBasePath . $_addonPhoebusContentFile);
                 $_addonPhoebusContent = htmlentities($_addonPhoebusContent, ENT_XHTML);
-                $_addonPhoebusContent = str_replace('<?', '<invalid_?', $_addonPhoebusContent);
-                $_addonPhoebusContent = str_replace('<script', '<invalid_script', $_addonPhoebusContent);
-                $_addonPhoebusContent = str_replace('<iframe', '<invalid_iframe', $_addonPhoebusContent);
+                $_addonPhoebusContent = str_replace("\n", '<br />', $_addonPhoebusContent);
+                $_addonPhoebusContent = str_replace('&lt;img', '<img', $_addonPhoebusContent);
+                $_addonPhoebusContent = str_replace('/image&gt', '/image>', $_addonPhoebusContent);
+                $_addonPhoebusContent = str_replace('&lt;a', '<img', $_addonPhoebusContent);
+                $_addonPhoebusContent = str_replace('/a&gt', '/a>', $_addonPhoebusContent);
+                $_addonPhoebusContent = str_replace('/&gt', '/>', $_addonPhoebusContent);
                 $_addonManifest['metadata']['LongDescription'] = $_addonPhoebusContent;
             }
             else {
