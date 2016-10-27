@@ -16,7 +16,7 @@ if ($strRequestMode == null) {
 }
 
 if ($strRequestMode == 'manifest') {
-    header('Content-Type: text/plaintext');
+    header('Content-Type: text/plain');
     
     var_dump(funcReadAddonManifest('extension', 'adblock-latitude', 1));
 }
