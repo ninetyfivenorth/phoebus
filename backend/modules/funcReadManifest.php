@@ -25,7 +25,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                 $_addonManifest['metadata']['LongDescription'] = file_get_contents($_addonPhoebusContentFile, ENT_XML1);
             }
             else {
-                $_addonManifest['metadata']['LongDescription'] = $_addonManifest['metadata']['shortDescription']
+                $_addonManifest['metadata']['LongDescription'] = $_addonManifest['metadata']['shortDescription'];
             }
             
             $_addonManifest['isNewManifest'] = true;
