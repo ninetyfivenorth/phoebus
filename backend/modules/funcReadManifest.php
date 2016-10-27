@@ -24,9 +24,9 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
             if (file_exists($_addonBasePath . $_addonPhoebusContentFile)) {
                 $_addonPhoebusContent = file_get_contents($_addonBasePath . $_addonPhoebusContentFile);
                 $_addonPhoebusContent = html_entity_decode($_addonPhoebusContent, ENT_QUOTES, ENT_XHTML);
-                $_addonPhoebusContent = str_replace('<?', '<invalidtag?', $_addonPhoebusContent)
-                $_addonPhoebusContent = str_replace('<script', '<invalidtag', $_addonPhoebusContent)
-                $_addonPhoebusContent = str_replace('<iframe', '<invalidtag', $_addonPhoebusContent)
+                $_addonPhoebusContent = str_replace('<?', '<invalidtag?', $_addonPhoebusContent);
+                $_addonPhoebusContent = str_replace('<script', '<invalidtag', $_addonPhoebusContent);
+                $_addonPhoebusContent = str_replace('<iframe', '<invalidtag', $_addonPhoebusContent);
                 $_addonManifest['metadata']['LongDescription'] = $_addonPhoebusContent;
             }
             else {
