@@ -41,40 +41,40 @@ function funcRedirect($_strURL) {
 // == | funcReadAddonManifest | ===============================================
 
 function funcReadAddonManifest($_addonType, $_addonSlug, $_mode) {
-    $_addonManifest = parse_ini_file('../datastore/' . $_addonType . 's/' . $_addonSlug . '/manifest.ini', true);
+    $_addonManifest = parse_ini_file('../datastore/' . $_addonType . 's/' . $_addonSlug . '/manifest.ini');
     
     if ($_addonManifest == false) {
         funcError('Unable to read manifest ini file');
     }
     else {
         // $_mode 0 = undefined (future for fe) 1 = aus, 2 = download
-        if ($_mode == 1) {
-            unset($_addonManifest['id']);
-            unset($_addonManifest['compat']);
-            unset($_addonManifest['name']);
-            unset($_addonManifest['author']);
-            unset($_addonManifest['description']);
-
-            $_addonManifest["hash"] = hash_file('sha256', '../datastore/' . $_addonType . 's/' . $_addonSlug . '/' . $_addonManifest["xpi"]);
-
-            if ($_SERVER["HTTP_X_FORWARDED_HOST"] == 'dev.addons.palemoon.org') {
-                $_addonManifest["baseurl"] = 'https://dev.addons.palemoon.org/datastore/' . $_addonType . 's/' . $_addonSlug . '/';
-            }
-            else {
-                $_addonManifest["baseurl"] = 'https://addons.palemoon.org/phoebus/datastore/' . $_addonType . 's/' . $_addonSlug . '/';
-            }
+        
+        switch ($_mode) {
+            case 0:
+                $_arrayUnsetKeys = null;
+                break;
+            case 1:
+                $_arrayUnsetKeys = array('id', 'compat', 'name', 'author', 'description');
+                $_addonManifest["hash"] = hash_file('sha256', '../datastore/' . $_addonType . 's/' . $_addonSlug . '/' . $_addonManifest["xpi"]);
+                switch($_SERVER["HTTP_X_FORWARDED_HOST"]) {
+                    case 'dev.addons.palemoon.org':
+                        $_addonManifest["baseurl"] = 'https://dev.addons.palemoon.org/datastore/' . $_addonType . 's/' . $_addonSlug . '/';
+                        break;
+                    default:
+                        $_addonManifest["baseurl"] = 'https://addons.palemoon.org/phoebus/datastore/' . $_addonType . 's/' . $_addonSlug . '/';
+                        break;
+                }
+                break;
+            case 3:
+                $_arrayUnsetKeys = array('id', 'compat', 'minVer', 'maxVer', 'name', 'author'. 'description');
+                $_addonManifest['basepath'] = '../datastore/' . $_addonType . 's/' . $_addonSlug . '/';
+                break;
         }
-        elseif ($_mode == 2) {
-            unset($_addonManifest['id']);
-            unset($_addonManifest['type']);
-            unset($_addonManifest['compat']);
-            unset($_addonManifest['minVer']);
-            unset($_addonManifest['maxVer']);
-            unset($_addonManifest['name']);
-            unset($_addonManifest['author']);
-            unset($_addonManifest['description']);
-            
-            $_addonManifest['basepath'] = '../datastore/' . $_addonType . 's/' . $_addonSlug . '/';
+        
+        if ($_arrayUnsetKeys != null {
+            foreach ($_arrayUnsetKeys as $_value) {
+                unset($_addonManifest[$_value]);
+            }
         }
 
         return $_addonManifest;
