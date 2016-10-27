@@ -5,10 +5,11 @@
 
 // == | Vars | ================================================================
 
-$arrayDatabases = array(
-    'dbExtensions' => './modules/dbExtensions.php',
-    'dbThemes' => './modules/dbThemes.php',
-    'dbSearchPlugins' => './modules/dbSearchPlugins.php',
+$arrayIncludes = array(
+    $arrayModules['dbExtensions'],
+    $arrayModules['dbThemes'],
+    $arrayModules['dbLangPacks'],
+    $arrayModules['readManifest'],
 );
 
 $arrayPermaXPI = array(
@@ -23,22 +24,24 @@ $strRequestAddonID = funcHTTPGetValue('id');
 // == | funcDownloadXPI | ===============================================
 
 function funcDownloadXPI($_addonManifest) {
-    $_addonFile = $_addonManifest['basepath'] . $_addonManifest['xpi'];
-    
-    if (file_exists($_addonFile)) {
-        header('Content-Type: application/x-xpinstall');
-        header('Content-Disposition: inline; filename="' . $_addonManifest['xpi'] .'"');
-        header('Content-Length: ' . filesize($_addonFile));
-        header('Cache-Control: no-cache');
+    if ($_addonManifest['isNewManifest'] == false) {
+        $_addonFile = $_addonManifest['basepath'] . $_addonManifest['xpi'];
         
-        readfile($_addonFile);
-    }
-    else {
-        funcError('XPI file not found');
-    }
+        if (file_exists($_addonFile)) {
+            header('Content-Type: application/x-xpinstall');
+            header('Content-Disposition: inline; filename="' . $_addonManifest['xpi'] .'"');
+            header('Content-Length: ' . filesize($_addonFile));
+            header('Cache-Control: no-cache');
+            
+            readfile($_addonFile);
+        }
+        else {
+            funcError('XPI file not found');
+        }
 
-    // We are done here
-    exit();
+        // We are done here
+        exit();
+    }
 }
 
 // ============================================================================
@@ -71,8 +74,8 @@ if ($strRequestAddonID == null) {
     funcError('Missing minimum required arguments.');
 }
 
-// Include the database arrays
-foreach($arrayDatabases as $_key => $_value) {
+// Includes
+foreach($arrayIncludes as $_value) {
     include_once($_value);
 }
 
@@ -85,11 +88,11 @@ if (array_key_exists($strRequestAddonID, $arrayPermaXPI)) {
 // Search for add-ons in our databases
 // Extensions
 if (array_key_exists($strRequestAddonID, $arrayExtensionsDB)) {
-    funcDownloadXPI(funcReadAddonManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 2));
+    funcDownloadXPI(funcReadAddonManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 2, false));
 }
 // Themes
 elseif (array_key_exists($strRequestAddonID, $arrayThemesDB)) {
-    funcDownloadXPI(funcReadAddonManifest('theme', $arrayThemesDB[$strRequestAddonID], 2));
+    funcDownloadXPI(funcReadAddonManifest('theme', $arrayThemesDB[$strRequestAddonID], 2, false));
 }
 // Search Plugins
 elseif (array_key_exists($strRequestAddonID, $arraySearchPlugins)) {

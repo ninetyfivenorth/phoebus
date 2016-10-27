@@ -8,11 +8,13 @@
 $boolAMOKillSwitch = false;
 $boolAMOWhiteList = false;
 
-$arrayDatabases = array(
-    'dbExtensions' => './modules/dbExtensions.php',
-    'dbThemes' => './modules/dbThemes.php',
-    'dbLangPacks' => './modules/dbLangPacks.php',
-    'dbExternals' => './modules/dbExternals.php'
+$arrayIncludes = array(
+    $arrayModules['dbExtensions'],
+    $arrayModules['dbThemes'],
+    $arrayModules['dbLangPacks'],
+    $arrayModules['dbExternals'],
+    $arrayModules['readManifest'],
+    $arrayModules['vc']
 );
 
 $strRequestAddonID = funcHTTPGetValue('id');
@@ -34,27 +36,29 @@ function funcGenerateUpdateXML($_addonManifest) {
     print($_strUpdateXMLHead);
 
     if ($_addonManifest != null) {
-        print("\n");
-        
-        $_strUpdateXMLBody = file_get_contents('./components/aus/update-body.xml');
+        if ($_addonManifest['isNewManifest'] == false) {
+            print("\n");
+            
+            $_strUpdateXMLBody = file_get_contents('./components/aus/update-body.xml');
 
-        $_arrayFilterSubstitute = array(
-            '@ADDON_TYPE@' => $_addonManifest["type"],
-            '@ADDON_ID@' => $_addonManifest["guid"],
-            '@ADDON_VERSION@' => $_addonManifest["version"],
-            '@PALEMOON_ID@' => $GLOBALS['strPaleMoonID'],
-            '@ADDON_MINVERSION@' => $_addonManifest["minVer"],
-            '@ADDON_MAXVERSION@' => $_addonManifest["maxVer"],
-            '@ADDON_XPI@' => $_addonManifest["baseurl"] . $_addonManifest['xpi'],
-            '@ADDON_HASH@' => $_addonManifest["hash"]
-        );
-        
-        foreach ($_arrayFilterSubstitute as $_key => $_value) {
-            $_strUpdateXMLBody = str_replace($_key, $_value, $_strUpdateXMLBody);
+            $_arrayFilterSubstitute = array(
+                '@ADDON_TYPE@' => $_addonManifest["type"],
+                '@ADDON_ID@' => $_addonManifest["guid"],
+                '@ADDON_VERSION@' => $_addonManifest["version"],
+                '@PALEMOON_ID@' => $GLOBALS['strPaleMoonID'],
+                '@ADDON_MINVERSION@' => $_addonManifest["minVer"],
+                '@ADDON_MAXVERSION@' => $_addonManifest["maxVer"],
+                '@ADDON_XPI@' => $_addonManifest["baseurl"] . $_addonManifest['xpi'],
+                '@ADDON_HASH@' => $_addonManifest["hash"]
+            );
+            
+            foreach ($_arrayFilterSubstitute as $_key => $_value) {
+                $_strUpdateXMLBody = str_replace($_key, $_value, $_strUpdateXMLBody);
+            }
+            
+            print("\n");
+            print($_strUpdateXMLBody);
         }
-        
-        print("\n");
-        print($_strUpdateXMLBody);
     }
     
     print($_strUpdateXMLTail);
@@ -80,8 +84,8 @@ if ($strRequestAppID != $strPaleMoonID) {
     funcError('Invalid Application ID');
 }
 
-// Include the database arrays
-foreach($arrayDatabases as $_key => $_value) {
+// Include modules
+foreach($arrayIncludes as $_value) {
     include_once($_value);
 }
 
@@ -119,7 +123,6 @@ elseif (array_key_exists($strRequestAddonID, $arrayExternalsDB)) {
 // Unknown - Send to AMO or to 'bad' update xml
 else {
     if ($boolAMOKillSwitch == false) {
-        include_once('./modules/nsIVersionComparator.php');
         $intVcResult = ToolkitVersionComparator::compare($strRequestAppVersion, '27.0.0a1');
         $_strFirefoxVersion = $strFirefoxVersion;
         

@@ -24,6 +24,7 @@ $arrayModules = array(
     'dbLangPacks' => './modules/dbLangPacks.php',
     'dbSearchPlugins' => './modules/dbSearchPlugins.php',
     'dbExternals' => './modules/dbExternals.php',
+    'readManifest' => './modules/funcReadManifest.php',
     'vc' => './modules/nsIVersionComparator.php'
 );
 
