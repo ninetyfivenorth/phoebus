@@ -16,7 +16,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
             
             foreach ($_addonManifestVersions as $_key => $_value) {
                 unset($_addonManifest[$_key]);
-                $_addonManifestVersions['version'][$_key] = $_value;
+                $_addonManifest['xpi'][$_key] = $_value;
             }
             unset($_addonManifestVersions_);
             
