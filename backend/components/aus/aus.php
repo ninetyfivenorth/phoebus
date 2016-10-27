@@ -92,14 +92,14 @@ foreach($arrayIncludes as $_value) {
 // Search for add-ons in our databases
 // Extensions
 if (array_key_exists($strRequestAddonID, $arrayExtensionsDB)) {
-    funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 1));
+    funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 1, false));
 }
 elseif(array_key_exists($strRequestAddonID, $arrayExtensionsOverrideDB)) {
-    funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsOverrideDB[$strRequestAddonID], 1));
+    funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsOverrideDB[$strRequestAddonID], 1, false));
 }
 // Themes
 elseif (array_key_exists($strRequestAddonID, $arrayThemesDB)) {
-    funcGenerateUpdateXML(funcReadManifest('theme', $arrayThemesDB[$strRequestAddonID], 1));
+    funcGenerateUpdateXML(funcReadManifest('theme', $arrayThemesDB[$strRequestAddonID], 1, false));
 }
 // Language Packs
 elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {
