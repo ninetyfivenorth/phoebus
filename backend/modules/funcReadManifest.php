@@ -10,6 +10,17 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
     if ($_useNewManifest == true && file_exists($_addonBasePath . $_addonPhoebusManifestFile)) {
         $_addonManifest = parse_ini_file($_addonBasePath . $_addonPhoebusManifestFile, true);
         if ($_addonManifest != false) {
+            $_addonManifestVersions = null;
+            foreach ($_addonManifest as $_key) {
+                if ($_key != 'add-on' || $_key != 'phoebus') {
+                    $_addonManifestVersions['$_key'] = $_key;
+                }
+            }
+            foreach ($_addonManifestVersions as $_key) {
+                unset($_addonManifest[$_key]);
+                $_addonManifest['versions'][$_key];
+            }
+            
             $_addonManifest['isNewManifest'] = true;
             return $_addonManifest;
         }
