@@ -62,7 +62,7 @@ function funcReadAddonManifest($_addonType, $_addonSlug, $_mode) {
                 }
                 break;
             case 2:
-                $_arrayUnsetKeys = array('id', 'compat', 'minVer', 'maxVer', 'name', 'author'. 'description');
+                $_arrayUnsetKeys = array('id', 'compat', 'minVer', 'maxVer', 'name', 'author', 'description');
                 $_addonManifest['basepath'] = '../datastore/' . $_addonType . 's/' . $_addonSlug . '/';
                 break;
         }
