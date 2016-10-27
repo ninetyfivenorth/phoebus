@@ -111,7 +111,8 @@ elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {
         'minVer' => '26.0.0a1',
         'maxVer' => '26.*',
         'baseurl' => 'http://relmirror.palemoon.org/langpacks/26.x/',
-        'hash' => $arrayLangPackDB[$strRequestAddonID]['hash']
+        'hash' => $arrayLangPackDB[$strRequestAddonID]['hash'],
+        'isNewManifest' => false
     );
     
     funcGenerateUpdateXML($arrayLangPack);
