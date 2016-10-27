@@ -11,8 +11,8 @@ ini_set("display_errors", "on");
 
 // ============================================================================
 
-const isController = true;
-const notController = 'Error -1';
+define('isController', 'true');
+define('notController', 'Error -1');
 
 include_once('./modules/common.php');
 include_once('./base/controller.php');
