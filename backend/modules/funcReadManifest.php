@@ -10,14 +10,18 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
     if ($_useNewManifest == true && file_exists($_addonBasePath . $_addonPhoebusManifestFile)) {
         $_addonManifest = parse_ini_file($_addonBasePath . $_addonPhoebusManifestFile, true);
         if ($_addonManifest != false) {
-            $_addonManifestVersions = array();
-            foreach ($_addonManifest as $_key => $_value) {
-                if ($_key != 'add-on' || $_key != 'phoebus') {
-                    $_addonManifestVersions[$_key] = $_value;
-                }
+            $_addonManifestVersions = $_addonManifest;
+            unset($_addonManifestVersions['add-on']);
+            unset($_addonManifestVersions['phoebus']);
+            
+            foreach ($_addonManifestVersions as $_key => $_value) {
+                unset($_addonManifest[$_key]);
+                $_addonManifestVersions['version'][$_key] = $_value;
             }
+            unset($_addonManifestVersions_);
+            
             $_addonManifest['isNewManifest'] = true;
-            return $_addonManifestVersions;
+            return $_addonManifest;
         }
         else {
             funcError('Unable to read manifest file');
