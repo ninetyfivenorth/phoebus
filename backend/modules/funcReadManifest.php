@@ -30,7 +30,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
             }
             
             $_addonManifest['isNewManifest'] = true;
-            return file_get_contents($_addonBasePath . $_addonPhoebusContentFile);
+            return $_addonManifest;
         }
         else {
             funcError('Unable to read manifest file');
