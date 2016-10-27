@@ -22,7 +22,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
             unset($_addonManifestVersions_);
             
             if (file_exists($_addonBasePath . $_addonPhoebusContentFile)) {
-                $_addonManifest['metadata']['LongDescription'] = file_get_contents($_addonPhoebusContentFile, ENT_XML1);
+                $_addonManifest['metadata']['LongDescription'] = file_get_contents($_addonBasePath . $_addonPhoebusContentFile, ENT_XML1);
             }
             else {
                 $_addonManifest['metadata']['LongDescription'] = $_addonManifest['metadata']['shortDescription'];
