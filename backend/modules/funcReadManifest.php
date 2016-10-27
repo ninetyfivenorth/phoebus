@@ -4,9 +4,9 @@
 function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
     $_addonDirectory = $_addonType . 's/' . $_addonSlug . '/';
     $_addonBasePath = '../datastore/' . $_addonDirectory;
-    $_addonManifestINIFile = '/manifest.ini';
-    $_addonPhoebusManifestFile = '/phoebus.manifest';
-    $_addonPhoebusContentFile = '/phoebus.content';
+    $_addonManifestINIFile = 'manifest.ini';
+    $_addonPhoebusManifestFile = 'phoebus.manifest';
+    $_addonPhoebusContentFile = 'phoebus.content';
     
     if ($_useNewManifest == true && file_exists($_addonBasePath . $_addonPhoebusManifestFile)) {
         $_addonManifest = parse_ini_file($_addonBasePath . $_addonPhoebusManifestFile, true);
