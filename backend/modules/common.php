@@ -41,7 +41,7 @@ function funcRedirect($_strURL) {
 // == | funcReadAddonManifest | ===============================================
 
 function funcReadAddonManifest($_addonType, $_addonSlug, $_mode) {
-    $_addonManifest = parse_ini_file('../datastore/' . $_addonType . 's/' . $_addonSlug . '/manifest.ini');
+    $_addonManifest = parse_ini_file('../datastore/' . $_addonType . 's/' . $_addonSlug . '/manifest.ini', true);
     
     if ($_addonManifest == false) {
         funcError('Unable to read manifest ini file');
