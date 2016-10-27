@@ -8,7 +8,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
     $_addonPhoebusManifestFile = '/phoebus.manifest';
     
     if ($_useNewManifest == true && file_exists($_addonBasePath . $_addonPhoebusManifestFile)) {
-        $_addonManifest = parse_ini_file($_addonBasePath . $_addonManifestINIFile, true);
+        $_addonManifest = parse_ini_file($_addonBasePath . $_addonPhoebusManifestFile, true);
         if ($_addonManifest != false) {
             $_addonManifest['isNewManifest'] = true;
             
