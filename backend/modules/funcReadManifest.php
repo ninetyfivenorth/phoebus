@@ -11,7 +11,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
         $_addonManifest = parse_ini_file($_addonBasePath . $_addonPhoebusManifestFile, true);
         if ($_addonManifest != false) {
             $_addonManifest['isNewManifest'] = true;
-            
+            return $_addonManifest;
         }
         else {
             funcError('Unable to read manifest file');
