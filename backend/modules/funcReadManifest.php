@@ -26,7 +26,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                     break;
                 case 1:
                     $_arrayUnsetKeys = array('id', 'compat', 'name', 'author', 'description');
-                    if (file_exists($_addonBasePath . $_addonManifest["xpi"]))) {    
+                    if (file_exists($_addonBasePath . $_addonManifest["xpi"])) {    
                         $_addonManifest["hash"] = hash_file('sha256', $_addonBasePath . $_addonManifest["xpi"]);
                     }
                     else {
