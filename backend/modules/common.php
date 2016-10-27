@@ -71,7 +71,7 @@ function funcReadAddonManifest($_addonType, $_addonSlug, $_mode) {
                 break;
         }
         
-        if ($_arrayUnsetKeys != null {
+        if ($_arrayUnsetKeys != null) {
             foreach ($_arrayUnsetKeys as $_value) {
                 unset($_addonManifest[$_value]);
             }
