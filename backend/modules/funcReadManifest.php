@@ -13,7 +13,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
             $_addonManifestVersions = null;
             foreach ($_addonManifest as $_key) {
                 if ($_key != 'add-on' || $_key != 'phoebus') {
-                    $_addonManifestVersions['$_key'] = $_key;
+                    $_addonManifestVersions[$_key] = $_key;
                 }
             }
             var_dump($_addonManifestVersions);
