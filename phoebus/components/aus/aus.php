@@ -38,7 +38,7 @@ function funcGenerateUpdateXML($_addonManifest) {
     if ($_addonManifest != null) {
             print("\n");
             
-            $_strUpdateXMLBody = file_get_contents('./components/aus/update-body.xml');
+            $_strUpdateXMLBody = file_get_contents('./phoebus/components/aus/update-body.xml');
             
             if ($_addonManifest['isNewManifest'] == true) {
                 $_arrayFilterSubstitute = array(
