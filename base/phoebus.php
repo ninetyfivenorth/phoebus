@@ -36,7 +36,7 @@ $strArgs = implode('&',array_unique(explode('&', parse_url($_SERVER['REQUEST_URI
 
 // == | Main | ================================================================
 
-var_dump($_GET);
+var_dump($strArgs);
 
 if ($_SERVER['REQUEST_URI'] == '/') {
     $strRequestComponent = 'site';
