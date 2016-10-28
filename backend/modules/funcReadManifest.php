@@ -36,13 +36,13 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
             }
             
             if (file_exists($_addonBasePath . $_addonManifest['addon']['release'])) {    
-                $_addonManifest['addon']['hash'] = hash_file('sha256', $_addonBasePath . $_addonManifest["xpi"]);
+                $_addonManifest['addon']['hash'] = hash_file('sha256', $_addonBasePath . $_addonManifest['addon']['release']);
             }
             else {
                 funcError('Could not find ' . $_addonManifest["xpi"]);
             }
             
-            $_addonManifest["baseurl"] = 'https://addons.palemoon.org/phoebus/datastore/' . $_addonDirectory;
+            $_addonManifest['addon']["baseurl"] = 'https://addons.palemoon.org/phoebus/datastore/' . $_addonDirectory;
             $_addonManifest['isNewManifest'] = true;
             return $_addonManifest;
         }
