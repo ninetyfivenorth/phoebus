@@ -54,6 +54,7 @@ else {
     print($_SERVER['REQUEST_URI'] . "\n" . $strRequestPage . "\n");
     $exploded = explode('/', $strRequestPage);
     $exploded[0] = '/';
+    $exploded = implode('/', explode('/', $strRequestPage))
     $exploded = array_filter($exploded);
     var_dump($exploded);
 }
