@@ -53,8 +53,8 @@ else {
     header('Content-Type: text/plain');
     print($_SERVER['REQUEST_URI'] . "\n" . $strRequestPage . "\n");
     $exploded = explode('/', $strRequestPage);
-    $exploded[0] = '/';
-    $exploded = implode('/', explode('/', $strRequestPage))
+    $exploded = implode('/', explode('/', $exploded))
+    //$exploded[0] = '/';
     $exploded = array_filter($exploded);
     var_dump($exploded);
 }
