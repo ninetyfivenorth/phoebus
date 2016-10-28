@@ -51,7 +51,9 @@ if ($strRequestPage == null) {
 }
 else {
     header('Content-Type: text/plain');
-    print($_SERVER['REQUEST_URI'] . "\n" . $strRequestPage);
+    print($_SERVER['REQUEST_URI'] . "\n" . $strRequestPage . "\n");
+    $exploded = explode('/', $strRequestPage);
+    var_dump($exploded);
 }
 // ============================================================================
 ?>
