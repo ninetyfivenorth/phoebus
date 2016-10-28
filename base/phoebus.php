@@ -52,7 +52,7 @@ if ($strRequestPage == null) {
 else {
     header('Content-Type: text/plain');
     print($_SERVER['REQUEST_URI'] . "\n" . $strRequestPage . "\n");
-    $exploded = explode('/', implode('/', explode('/', $strRequestPage)));
+    $exploded = explode('/', implode('/', array_filter(explode('/', $strRequestPage))));
     //$exploded[0] = '/';
     //$exploded = array_filter($exploded);
     var_dump($exploded);
