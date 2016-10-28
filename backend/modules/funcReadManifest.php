@@ -23,12 +23,19 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
             
             if (file_exists($_addonBasePath . $_addonPhoebusContentFile)) {
                 $_addonPhoebusContent = file_get_contents($_addonBasePath . $_addonPhoebusContentFile);
-                // Don't touch this it is fragile as hell
                 $_addonPhoebusContent = htmlentities($_addonPhoebusContent, ENT_XHTML);
                 $_addonPhoebusContent = str_replace("\r\n", "\n", $_addonPhoebusContent);
                 $_addonPhoebusContent = str_replace("\n", "<br />\n", $_addonPhoebusContent);
-                $_addonPhoebusContent = preg_replace('/\[url="(.*)"\](.*)\[\/url\]/iU', '<a href="$1" target="_blank">$2</a>', $_addonPhoebusContent);
-                $_addonPhoebusContent = preg_replace('/\[img="(.*)"(.*)\]/iU', '<img src="$1"$2 />', $_addonPhoebusContent);
+                
+                $arrayPhoebusCode = array(
+                    '\[url="(.*)"\](.*)\[\/url\]' => '<a href="$1" target="_blank">$2</a>',
+                    '\[img="(.*)"\](.*)\[\/img\]' => '<img src="$2"$1 />'
+                )
+
+                foreach ($arrayPhoebusCode as $_key => $_value) {
+                    $_addonPhoebusContent = preg_replace('/' . $_key . '/iU', $_value, $_addonPhoebusContent);
+                }
+
                 $_addonManifest['metadata']['longDescription'] = $_addonPhoebusContent;
             }
             else {
