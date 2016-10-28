@@ -56,7 +56,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                 }
                 
                 // Clear the temporary array out of memory
-                unset($_arrayPhoebusCode)
+                unset($_arrayPhoebusCode);
                 
                 // Assign parsed phoebus.content to the add-on manifest array
                 $_addonManifest['metadata']['longDescription'] = $_addonPhoebusContent;
