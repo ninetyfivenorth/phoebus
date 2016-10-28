@@ -42,7 +42,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                 funcError('Could not find ' . $_addonManifest["xpi"]);
             }
             
-            $_addonManifest['addon']["baseurl"] = 'https://addons.palemoon.org/phoebus/datastore/' . $_addonDirectory;
+            $_addonManifest['addon']["baseURL"] = 'https://dev.addons.palemoon.org/datastore/' . $_addonDirectory;
             $_addonManifest['isNewManifest'] = true;
             return $_addonManifest;
         }
