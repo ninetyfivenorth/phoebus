@@ -30,7 +30,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                 $arrayPhoebusCode = array(
                     '\[url="(.*)"\](.*)\[\/url\]' => '<a href="$1" target="_blank">$2</a>',
                     '\[img="(.*)"\](.*)\[\/img\]' => '<img src="$2"$1 />'
-                )
+                );
 
                 foreach ($arrayPhoebusCode as $_key => $_value) {
                     $_addonPhoebusContent = preg_replace('/' . $_key . '/iU', $_value, $_addonPhoebusContent);
