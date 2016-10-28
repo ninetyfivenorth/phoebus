@@ -39,7 +39,7 @@ $strRequestComponent = funcHTTPGetValue('component');
 if ($_SERVER['REQUEST_URI'] == '/') {
     $strRequestComponent = "site";
 }
-var_dump($strRequestComponent);
+var_dump($_GET);
 // Load component based on strRequestComponent
 if ($strRequestComponent != null) {
     if (array_key_exists($strRequestComponent, $arrayComponents)) {
