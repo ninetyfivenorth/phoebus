@@ -35,6 +35,11 @@ $strRequestComponent = funcHTTPGetValue('component');
 
 // == | Main | ================================================================
 
+
+if ($_SERVER['REQUEST_URI'] == '/') {
+    $strRequestComponent = "site";
+}
+
 // Load component based on strRequestComponent
 if ($strRequestComponent != null) {
     if (array_key_exists($strRequestComponent, $arrayComponents)) {
@@ -45,7 +50,6 @@ if ($strRequestComponent != null) {
     }
 }
 else {
-    var_dump($_GET);
     funcError('You did not specify a component');
 }
 
