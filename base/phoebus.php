@@ -29,23 +29,28 @@ $arrayModules = array(
 );
 
 $strRequestComponent = funcHTTPGetValue('component');
+$strRequestPage = fucHTTPGetValue('page');
 
 // ============================================================================
 
 // == | Main | ================================================================
 
 // Load component based on strRequestComponent
-if ($strRequestComponent != null) {
-    if (array_key_exists($strRequestComponent, $arrayComponents)) {
-        include_once($arrayComponents[$strRequestComponent]);
+if ($strRequestPage == null) {
+    if ($strRequestComponent != null) {
+        if (array_key_exists($strRequestComponent, $arrayComponents)) {
+            include_once($arrayComponents[$strRequestComponent]);
+        }
+        else {
+            funcError($strRequestComponent . ' is an unknown component' . "\n" . $_SERVER['REQUEST_URI'] );
+        }
     }
     else {
-        funcError($strRequestComponent . ' is an unknown component');
+        funcError('You did not specify a component');
     }
 }
 else {
-    funcError('You did not specify a component');
+    print($_SERVER['REQUEST_URI'] . "\n" . $strRequestPage);
 }
-
 // ============================================================================
 ?>
