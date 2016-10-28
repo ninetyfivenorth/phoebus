@@ -46,7 +46,7 @@ if ($strRequestPage == null) {
         }
     }
     else {
-        funcError('You did not specify a component');
+        funcError('You did not specify a page request or component');
     }
 }
 else {
