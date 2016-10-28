@@ -24,7 +24,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
             if (file_exists($_addonBasePath . $_addonPhoebusContentFile)) {
                 $_addonPhoebusContent = file_get_contents($_addonBasePath . $_addonPhoebusContentFile);
                 $_addonPhoebusContent = htmlentities($_addonPhoebusContent, ENT_XHTML);
-                $_addonPhoebusContent = str_replace("\r\n", "\n"), $_addonPhoebusContent);
+                $_addonPhoebusContent = str_replace("\r\n", "\n", $_addonPhoebusContent);
                 $_addonPhoebusContent = str_replace("\n", "<br />\n", $_addonPhoebusContent);
                 $_addonPhoebusContent = str_replace('&lt;img', '<img', $_addonPhoebusContent);
                 $_addonPhoebusContent = preg_replace('/&lt;a (.*)&gt;(.*)&lt;\/a&gt;/', '<a $1>$2</a>', $_addonPhoebusContent);
