@@ -31,7 +31,7 @@ $arrayModules = array(
 
 $strRequestComponent = funcHTTPGetValue('component');
 $strRequestPath = funcHTTPGetValue('path');
-$strArgs = implode('&',array_unique(explode('&', parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY))));
+$strArgs = array_unique(explode('&', parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY)));
 // ============================================================================
 
 // == | Main | ================================================================
