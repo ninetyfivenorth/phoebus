@@ -45,7 +45,7 @@ if ($strRequestComponent != null) {
     }
 }
 else {
-    var_dump(&_GET);
+    var_dump($_GET);
     funcError('You did not specify a component');
 }
 
