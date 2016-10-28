@@ -11,8 +11,8 @@ ini_set("display_errors", "on");
 
 // ============================================================================
 
-include_once('./modules/common.php');
-include_once('./base/phoebus.php');
+include_once('./phoebus/modules/common.php');
+include_once('./phoebus/base/phoebus.php');
 
 // ============================================================================
 ?>

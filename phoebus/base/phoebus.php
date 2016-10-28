@@ -10,23 +10,23 @@ $strFirefoxID = '{ec8030f7-c20a-464f-9b0e-13a3a9e97384}';
 $strFirefoxVersion = '28.9';
 
 $arrayComponents = array(
-    'site' => './components/site/site.php',
-    'aus' => './components/aus/aus.php',
-    'download' => './components/download.php',
-    'integration' => './components/integration.php',
-    'metadata' => './components/metadata.php',
-    'discover' => './components/discover/discover.php',
-    'playground' => './components/playground.php'
+    'site' => './phoebus/components/site/site.php',
+    'aus' => './phoebus/components/aus/aus.php',
+    'download' => './phoebus/components/download.php',
+    'integration' => './phoebus/components/integration.php',
+    'metadata' => './phoebus/components/metadata.php',
+    'discover' => './phoebus/components/discover/discover.php',
+    'playground' => './phoebus/components/playground.php'
 );
 
 $arrayModules = array(
-    'dbExtensions' => './modules/dbExtensions.php',
-    'dbThemes' => './modules/dbThemes.php',
-    'dbLangPacks' => './modules/dbLangPacks.php',
-    'dbSearchPlugins' => './modules/dbSearchPlugins.php',
-    'dbExternals' => './modules/dbExternals.php',
-    'readManifest' => './modules/funcReadManifest.php',
-    'vc' => './modules/nsIVersionComparator.php'
+    'dbExtensions' => './phoebus/modules/dbExtensions.php',
+    'dbThemes' => './phoebus/modules/dbThemes.php',
+    'dbLangPacks' => './phoebus/modules/dbLangPacks.php',
+    'dbSearchPlugins' => './phoebus/modules/dbSearchPlugins.php',
+    'dbExternals' => './phoebus/modules/dbExternals.php',
+    'readManifest' => './phoebus/modules/funcReadManifest.php',
+    'vc' => './phoebus/modules/nsIVersionComparator.php'
 );
 
 $strRequestComponent = funcHTTPGetValue('component');
