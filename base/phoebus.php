@@ -30,6 +30,7 @@ $arrayModules = array(
 );
 
 $strRequestComponent = funcHTTPGetValue('component');
+$strRequestPath = funcHTTPGetValue('path');
 
 // ============================================================================
 
@@ -37,9 +38,14 @@ $strRequestComponent = funcHTTPGetValue('component');
 
 
 if ($_SERVER['REQUEST_URI'] == '/') {
-    $strRequestComponent = "site";
+    $strRequestComponent = 'site';
+    $strRequestPath = '/';
 }
-var_dump($_GET);
+elseif ($strRequestComponent != 'site' && $strRequestPath != null) {
+    header("HTTP/1.0 404 Not Found");
+    exit();
+}
+
 // Load component based on strRequestComponent
 if ($strRequestComponent != null) {
     if (array_key_exists($strRequestComponent, $arrayComponents)) {
