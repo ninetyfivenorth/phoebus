@@ -31,12 +31,11 @@ $arrayModules = array(
 
 $strRequestComponent = funcHTTPGetValue('component');
 $strRequestPath = funcHTTPGetValue('path');
-
+$strArgs = implode('&',array_unique(explode('&', parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY))));
 // ============================================================================
 
 // == | Main | ================================================================
 
-var_dump(array_search("component",array_keys($_GET)));
 var_dump($_GET);
 
 if ($_SERVER['REQUEST_URI'] == '/') {
