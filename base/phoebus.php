@@ -37,7 +37,7 @@ $strRequestPath = funcHTTPGetValue('path');
 
 // == | Main | ================================================================
 
-var_dump($strArgs);
+var_dump($arrayArgs);
 
 if ($_SERVER['REQUEST_URI'] == '/') {
     $strRequestComponent = 'site';
