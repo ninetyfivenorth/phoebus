@@ -28,7 +28,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                 $_addonPhoebusContent = str_replace("\n", "<br />\n", $_addonPhoebusContent);
                 $_addonPhoebusContent = preg_replace('/&lt;img (.*)\/&gt;', '<img $1 />', $_addonPhoebusContent);
                 $_addonPhoebusContent = preg_replace('/&lt;a (.*)&gt;', '<a $1>', $_addonPhoebusContent);
-                $_addonPhoebusContent = str_replace(';&lt;/a&gt;', '</a>', $_addonPhoebusContent)
+                $_addonPhoebusContent = str_replace(';&lt;/a&gt;', '</a>', $_addonPhoebusContent);
                 $_addonManifest['metadata']['longDescription'] = $_addonPhoebusContent;
             }
             else {
