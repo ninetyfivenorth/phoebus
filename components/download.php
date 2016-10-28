@@ -49,7 +49,7 @@ function funcDownloadXPI($_addonManifest) {
 // == | funcDownloadSearchPlugin | ============================================
 
 function funcDownloadSearchPlugin($_searchPluginName) {
-    $_SearchPluginFile = '../datastore/searchplugins/' . $_searchPluginName . '.xml';
+    $_SearchPluginFile = './datastore/searchplugins/' . $_searchPluginName . '.xml';
     
     if (file_exists($_SearchPluginFile)) {
         header('Content-Type: text/xml');
