@@ -29,7 +29,7 @@ $arrayModules = array(
 );
 
 $strRequestComponent = funcHTTPGetValue('component');
-$strRequestPage = fucHTTPGetValue('page');
+$strRequestPage = funcHTTPGetValue('page');
 
 // ============================================================================
 
