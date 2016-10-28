@@ -16,12 +16,12 @@ function funcError($_value) {
 
 // == | Function: funcHTTPGetValue |===========================================
 
-function funcHTTPGetValue($_value) {
+function funcHTTPGetValue($_value,) {
     if (!isset($_GET[$_value]) || $_GET[$_value] === '' || $_GET[$_value] === null || empty($_GET[$_value])) {
         return null;
     }
     else {    
-        $_finalValue = preg_replace('/[^-a-zA-Z0-9_]/', '', $_GET[$_value]);
+        $_finalValue = preg_replace('/[^-a-zA-Z0-9_\-\{\}\[\]]/', '', $_GET[$_value]);
         return $_finalValue;
     }
 }
