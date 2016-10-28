@@ -48,6 +48,6 @@ if ($strRequestComponent != null) {
 else {
     funcError('You did not specify a page request or component');
 }
-}
+
 // ============================================================================
 ?>
