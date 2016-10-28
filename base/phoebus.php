@@ -30,7 +30,6 @@ $arrayModules = array(
 );
 
 $strRequestComponent = funcHTTPGetValue('component');
-$strRequestPage = funcHTTPGetValue('page');
 
 // ============================================================================
 
@@ -46,7 +45,8 @@ if ($strRequestComponent != null) {
     }
 }
 else {
-    funcError('You did not specify a page request or component');
+    var_dump(&_GET);
+    funcError('You did not specify a component');
 }
 
 // ============================================================================
