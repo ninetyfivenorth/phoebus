@@ -41,6 +41,7 @@ function funcGenerateUpdateXML($_addonManifest) {
             $_strUpdateXMLBody = file_get_contents('./components/aus/update-body.xml');
             
             if ($_addonManifest['isNewManifest'] == true) {
+                $_arrayFilterSubstitute = array(
                     '@ADDON_TYPE@' => $_addonManifest['addon']['type'],
                     '@ADDON_ID@' => $_addonManifest['addon']['id'],
                     '@ADDON_VERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['version'],
@@ -49,6 +50,7 @@ function funcGenerateUpdateXML($_addonManifest) {
                     '@ADDON_MAXVERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['maxAppVersion'],
                     '@ADDON_XPI@' => $_addonManifest['baseurl'] . $_addonManifest['xpi'],
                     '@ADDON_HASH@' => $_addonManifest['addon']['hash']
+            );
             }
             elseif ($_addonManifest['isNewManifest'] == false) {
                 $_arrayFilterSubstitute = array(
