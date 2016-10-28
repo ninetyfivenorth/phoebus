@@ -30,8 +30,9 @@ $arrayModules = array(
 );
 
 $strRequestComponent = funcHTTPGetValue('component');
+$arrayArgs = explode('$', implode('$', preg_grep('/^component=(.*)/', explode('&', parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY)))));
 $strRequestPath = funcHTTPGetValue('path');
-$strArgs = explode('$', implode('$', preg_grep('/^component=(.*)/', explode('&', parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY)))));
+
 // ============================================================================
 
 // == | Main | ================================================================
@@ -42,7 +43,7 @@ if ($_SERVER['REQUEST_URI'] == '/') {
     $strRequestComponent = 'site';
     $strRequestPath = '/';
 }
-elseif ($strRequestComponent != 'site' && $strRequestPath != null) {
+elseif ($arrayArgs[1] != null && $arrayArgs[0] != $arrayArgs[1]) {
     header("HTTP/1.0 404 Not Found");
     exit();
 }
