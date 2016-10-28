@@ -53,7 +53,7 @@ else {
     header('Content-Type: text/plain');
     print($_SERVER['REQUEST_URI'] . "\n" . $strRequestPage . "\n");
     $exploded = explode('/', implode('/', array_filter(explode('/', $strRequestPage))));
-    if ($exploded == '' || $exploded == null) {
+    if ($exploded[0] == '' || $exploded[0] == null) {
         print('And I think to myself, what a wonderful world.. WHY ARE YOU HERE?!' . "\n");
     }
     var_dump($exploded);
