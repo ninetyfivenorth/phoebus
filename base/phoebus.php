@@ -43,6 +43,10 @@ if ($_SERVER['REQUEST_URI'] == '/') {
     $strRequestComponent = 'site';
     $strRequestPath = '/';
 }
+elseif ($arrayArgs[1] != null && $arrayArgs[0] != $arrayArgs[1]) {
+    header("HTTP/1.0 404 Not Found");
+    exit();
+}
 elseif (isset($arrayArgs[1]) && $arrayArgs[0] != $arrayArgs[1]) {
     header("HTTP/1.0 404 Not Found");
     exit();
