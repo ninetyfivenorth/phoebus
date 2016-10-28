@@ -10,6 +10,7 @@ $strFirefoxID = '{ec8030f7-c20a-464f-9b0e-13a3a9e97384}';
 $strFirefoxVersion = '28.9';
 
 $arrayComponents = array(
+    'site' => './components/site/site.php',
     'aus' => './components/aus/aus.php',
     'download' => './components/download.php',
     'integration' => './components/integration.php',
@@ -36,24 +37,17 @@ $strRequestPage = funcHTTPGetValue('page');
 // == | Main | ================================================================
 
 // Load component based on strRequestComponent
-if ($strRequestPage == null) {
-    if ($strRequestComponent != null) {
-        if (array_key_exists($strRequestComponent, $arrayComponents)) {
-            include_once($arrayComponents[$strRequestComponent]);
-        }
-        else {
-            funcError($strRequestComponent . ' is an unknown component');
-        }
+if ($strRequestComponent != null) {
+    if (array_key_exists($strRequestComponent, $arrayComponents)) {
+        include_once($arrayComponents[$strRequestComponent]);
     }
     else {
-        funcError('You did not specify a page request or component');
+        funcError($strRequestComponent . ' is an unknown component');
     }
 }
 else {
-    header('Content-Type: text/plain');
-    print( $_SERVER['REQUEST_URI'] . "\n" . $strRequestPage . "\n");
-    $parsed = parse_url($_SERVER['REQUEST_URI']);
-    var_dump($parsed);
+    funcError('You did not specify a page request or component');
+}
 }
 // ============================================================================
 ?>
