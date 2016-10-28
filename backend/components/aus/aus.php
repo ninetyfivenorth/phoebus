@@ -36,29 +36,38 @@ function funcGenerateUpdateXML($_addonManifest) {
     print($_strUpdateXMLHead);
 
     if ($_addonManifest != null) {
-        if ($_addonManifest['isNewManifest'] == false) {
             print("\n");
             
             $_strUpdateXMLBody = file_get_contents('./components/aus/update-body.xml');
-
-            $_arrayFilterSubstitute = array(
-                '@ADDON_TYPE@' => $_addonManifest["type"],
-                '@ADDON_ID@' => $_addonManifest["guid"],
-                '@ADDON_VERSION@' => $_addonManifest["version"],
-                '@PALEMOON_ID@' => $GLOBALS['strPaleMoonID'],
-                '@ADDON_MINVERSION@' => $_addonManifest["minVer"],
-                '@ADDON_MAXVERSION@' => $_addonManifest["maxVer"],
-                '@ADDON_XPI@' => $_addonManifest["baseurl"] . $_addonManifest['xpi'],
-                '@ADDON_HASH@' => $_addonManifest["hash"]
-            );
             
+            if ($_addonManifest['isNewManifest'] == true) {
+                    '@ADDON_TYPE@' => $_addonManifest['addon']['type'],
+                    '@ADDON_ID@' => $_addonManifest['addon']['id'],
+                    '@ADDON_VERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['version'],
+                    '@PALEMOON_ID@' => $GLOBALS['strPaleMoonID'],
+                    '@ADDON_MINVERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['minAppVersion'],
+                    '@ADDON_MAXVERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['maxAppVersion'],
+                    '@ADDON_XPI@' => $_addonManifest['baseurl'] . $_addonManifest['xpi'],
+                    '@ADDON_HASH@' => $_addonManifest['addon']['hash']
+            }
+            elseif ($_addonManifest['isNewManifest'] == false) {
+                $_arrayFilterSubstitute = array(
+                    '@ADDON_TYPE@' => $_addonManifest['type'],
+                    '@ADDON_ID@' => $_addonManifest['guid'],
+                    '@ADDON_VERSION@' => $_addonManifest['version'],
+                    '@PALEMOON_ID@' => $GLOBALS['strPaleMoonID'],
+                    '@ADDON_MINVERSION@' => $_addonManifest['minVer'],
+                    '@ADDON_MAXVERSION@' => $_addonManifest['maxVer'],
+                    '@ADDON_XPI@' => $_addonManifest['baseurl'] . $_addonManifest['xpi'],
+                    '@ADDON_HASH@' => $_addonManifest['hash']
+                );
+            }
             foreach ($_arrayFilterSubstitute as $_key => $_value) {
                 $_strUpdateXMLBody = str_replace($_key, $_value, $_strUpdateXMLBody);
             }
             
             print("\n");
             print($_strUpdateXMLBody);
-        }
     }
     
     print($_strUpdateXMLTail);
@@ -88,6 +97,7 @@ if ($strRequestAppID != $strPaleMoonID) {
 foreach($arrayIncludes as $_value) {
     include_once($_value);
 }
+unset($arrayIncludes);
 
 // Search for add-ons in our databases
 // Extensions

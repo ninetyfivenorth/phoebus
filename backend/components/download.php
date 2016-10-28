@@ -78,6 +78,7 @@ if ($strRequestAddonID == null) {
 foreach($arrayIncludes as $_value) {
     include_once($_value);
 }
+unset($arrayIncludes);
 
 // Special case for PermaXPI links
 // Override $strRequestAddonID
