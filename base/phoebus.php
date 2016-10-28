@@ -42,7 +42,7 @@ if ($strRequestPage == null) {
             include_once($arrayComponents[$strRequestComponent]);
         }
         else {
-            funcError($strRequestComponent . ' is an unknown component' . "\n" . $_SERVER['REQUEST_URI'] );
+            funcError($strRequestComponent . ' is an unknown component');
         }
     }
     else {
@@ -50,6 +50,7 @@ if ($strRequestPage == null) {
     }
 }
 else {
+    header('Content-Type: text/plain');
     print($_SERVER['REQUEST_URI'] . "\n" . $strRequestPage);
 }
 // ============================================================================
