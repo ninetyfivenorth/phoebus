@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_URI'] == '/') {
     $strRequestPath = '/';
 }
 elseif (isset($arrayArgs[1]) && $arrayArgs[0] != $arrayArgs[1]) {
-    header("HTTP/1.0 404 Not Found");
+    header('HTTP/1.0 400 Bad Request');
     exit();
 }
 
