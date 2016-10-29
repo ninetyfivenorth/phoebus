@@ -26,8 +26,8 @@ elseif ($strRequestMode == 'convert') {
     header('Content-Type: text/plain');
     
     $addonManifest = funcReadManifest('extension', 'adblock-latitude', 0, false);
-    var_dump($addonManifest);
-    print("\n");
+    //var_dump($addonManifest);
+    //print("\n");
     $addonNewManifest = array(
         'addon' => array(
                     'type' => $addonManifest['type'],
@@ -69,12 +69,12 @@ version="' . $addonManifest['version'] . '"
 minAppVersion="' . $addonManifest['minVer'] . '"
 maxAppVersion="' . $addonManifest['maxVer'] . '"';
     print($addonNewManifestINI);
-    print("\n\n");
+    //print("\n\n");
     $addonContent = $addonManifest["description"];
     $addonContent = str_replace('<p>', '', $addonContent);
     $addonContent = str_replace('<br />', "\n", $addonContent);
     $addonContent = str_replace('</p>', "\n", $addonContent);
-    var_dump($addonContent);
+    //var_dump($addonContent);
 }
 else {
     funcError('Invalid Mode');
