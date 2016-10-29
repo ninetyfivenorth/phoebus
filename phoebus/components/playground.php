@@ -69,7 +69,7 @@ version="' . $addonManifest['version'] . '"
 minAppVersion="' . $addonManifest['minVer'] . '"
 maxAppVersion="' . $addonManifest['maxVer'] . '"';
     print($addonNewManifestINI);
-    print("\n");
+    print("\n\n");
     $addonContent = $addonManifest["description"];
     $addonContent = str_replace('<p>', '', $addonContent);
     $addonContent = str_replace('<br />', "\n", $addonContent);
