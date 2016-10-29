@@ -42,7 +42,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                 
                 // automagically turn newlines into <br />
                 $_addonPhoebusContent = str_replace("\n", "<br />\n", $_addonPhoebusContent);
-                
+            
                 // create a temporary array that contains the strs to simple pseudo-bbcode to real html
                 $_arrayPhoebusCodeSimple = array(
                     '[b]' => '<strong>',

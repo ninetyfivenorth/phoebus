@@ -67,7 +67,12 @@ if ($strRequestMode == null) {
     funcError('Mode is null.. Dumbass');
 }
 
-if ($strRequestMode == 'convert') {
+if ($strRequestMode == 'manifest') {
+    header('Content-Type: text/plain');
+    
+    var_dump(funcReadManifest('extension', 'adblock-latitude', 0, true));
+}
+elseif ($strRequestMode == 'convert') {
     include_once($arrayModules['readManifest']);
     include_once($arrayModules['dbExtensions']);
     include_once($arrayModules['dbThemes']);
