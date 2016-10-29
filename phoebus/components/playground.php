@@ -33,6 +33,7 @@ minAppVersion="' . $addonManifest['minVer'] . '"
 maxAppVersion="' . $addonManifest['maxVer'] . '"';
 
     $addonContent = $addonManifest["description"];
+    $addonContent = str_replace('\'', '\"', $addonContent);
     $addonContent = str_replace('<p>', '', $addonContent);
     $addonContent = str_replace('<br />', "\n", $addonContent);
     $addonContent = str_replace('<br>', "\n", $addonContent);
@@ -53,7 +54,9 @@ maxAppVersion="' . $addonManifest['maxVer'] . '"';
     $addonContent = str_replace('</em>', "[/i]", $addonContent);
     $addonContent = str_replace('<u>', "[/u]", $addonContent);
     $addonContent = str_replace('</u>', "[/u]", $addonContent);
-    $addonContent = preg_replace('/<a href=(.*) (.*)>(.*)<\/a>/Ui', '[url="$1"]$3[/url]', $addonContent);
+    $addonContent = str_replace('</a>', "[/url]", $addonContent);
+
+    $addonContent = preg_replace('/<a href=(.*)>(.*)<\/a>/Ui', '[url="$1"]$3[/url]', $addonContent);
     return array($addonNewManifestINI, $addonContent);
 
 }
