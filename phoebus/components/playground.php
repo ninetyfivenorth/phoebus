@@ -28,7 +28,26 @@ elseif ($strRequestMode == 'convert') {
     $addonManifest = funcReadManifest('extension', 'adblock-latitude', 0, false);
     var_dump($addonManifest);
     print("\n\n\n");
-
+    $addonNewManifest = array(
+        'addon' => array(
+                    'type' => $addonManifest['type'],
+                    'id' => $addonManifest['guid'],
+                    'release' => $addonManifest['xpi'],
+                    'unstable' => 'none')
+        'metadata' => array(
+                    'name' => $addonManifest['name'],
+                    'slug' => 'unknown',
+                    'author' => ,
+                    'shortDescription' => 'none',
+                    'licence' => 'none',
+                    'homepageURL' => 'none',
+                    'supportURL' => 'none')
+        'xpi' => array(
+                    $addonManifest['xpi'] => array(
+                        'version' => $addonManifest['version'],
+                        'minAppVersion' => $addonManifest['minVer'],
+                        'maxAppVersion' => $addonManifest['minVer'])),
+    );
     print("\n\n\n");
     
 }
