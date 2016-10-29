@@ -116,15 +116,18 @@ elseif (array_key_exists($strRequestAddonID, $arrayThemesDB)) {
 // Language Packs
 elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {
     $arrayLangPack = array(
-        'type' => 'item',
-        'guid' => $strRequestAddonID,
-        'xpi' => $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi',
-        'version' => $arrayLangPackDB[$strRequestAddonID]['version'],
-        'minVer' => '26.0.0a1',
-        'maxVer' => '26.*',
-        'baseurl' => 'http://relmirror.palemoon.org/langpacks/26.x/',
-        'hash' => $arrayLangPackDB[$strRequestAddonID]['hash'],
-        'isNewManifest' => false
+        'addon' => array(
+                    'type' => 'item',
+                    'id' => $strRequestAddonID,
+                    'release' => $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi',
+                    'baseURL' => 'http://relmirror.palemoon.org/langpacks/26.x/',
+                    'hash' => $arrayLangPackDB[$strRequestAddonID]['hash']),
+        'xpi' => array(
+                    $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi' => array(
+                    'version' => $arrayLangPackDB[$strRequestAddonID]['version'],
+                    'minAppVersion' => '26.0.0a1',
+                    'maxAppVersion' => '26.*')),
+        'isNewManifest' => true
     );
     
     funcGenerateUpdateXML($arrayLangPack);
