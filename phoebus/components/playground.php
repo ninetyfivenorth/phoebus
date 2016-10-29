@@ -35,6 +35,7 @@ maxAppVersion="' . $addonManifest['maxVer'] . '"';
     $addonContent = $addonManifest["description"];
     $addonContent = str_replace('<p>', '', $addonContent);
     $addonContent = str_replace('<br />', "\n", $addonContent);
+    $addonContent = str_replace('<br>', "\n", $addonContent);
     $addonContent = str_replace('</p>', "\n", $addonContent);
     $addonContent = str_replace('<ul>', "[ul]", $addonContent);
     $addonContent = str_replace('</ul>', "[/ul]", $addonContent);
@@ -43,6 +44,16 @@ maxAppVersion="' . $addonManifest['maxVer'] . '"';
     $addonContent = str_replace('<h3>', "[section]", $addonContent);
     $addonContent = str_replace('</h3>', "[/section]", $addonContent);
     $addonContent = str_replace('<h3>', "[/h3]", $addonContent);
+    $addonContent = str_replace('<b>', "[b]", $addonContent);
+    $addonContent = str_replace('</b>', "[/b]", $addonContent);
+    $addonContent = str_replace('<strong>', "[/b]", $addonContent);
+    $addonContent = str_replace('<i>', "[i]", $addonContent);
+    $addonContent = str_replace('</i>', "[/i]", $addonContent);
+    $addonContent = str_replace('<em>', "[i]", $addonContent);
+    $addonContent = str_replace('</em>', "[/i]", $addonContent);
+    $addonContent = str_replace('<u>', "[/u]", $addonContent);
+    $addonContent = str_replace('</u>', "[/u]", $addonContent);
+    $addonContent = str_replace('/<a href="(.*)"(.*)>(.*)<\/a>/Ui', '<a href="$1" target="_blank">$3</a>', $addonContent);
     return array($addonNewManifestINI, $addonContent);
 
 }
