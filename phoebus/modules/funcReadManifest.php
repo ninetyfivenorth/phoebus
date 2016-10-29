@@ -45,7 +45,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                 
                 // create a temporary array that contains the regex to convert pseudo-bbcode to real html
                 $_arrayPhoebusCode = array(
-                    '\[url="(.*)"\](.*)\[\/url\]' => '<a href="$1" target="_blank">$2</a>',
+                    '\[url=(.*)\](.*)\[\/url\]' => '<a href="$1" target="_blank">$2</a>',
                     '\[url\](.*)\[\/url\]' => '<a href="$1" target="_blank">$1</a>',
                     '\[img(.*)\](.*)\[\/img\]' => '<img src="$2"$1 />'
                 );
