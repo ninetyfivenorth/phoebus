@@ -37,7 +37,7 @@ elseif ($strRequestMode == 'convert') {
         'metadata' => array(
                     'name' => $addonManifest['name'],
                     'slug' => 'unknown',
-                    'author' => ,
+                    'author' => $addonManifest['author'],
                     'shortDescription' => 'none',
                     'licence' => 'none',
                     'homepageURL' => 'none',
