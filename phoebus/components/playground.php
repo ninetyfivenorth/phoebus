@@ -37,8 +37,8 @@ maxAppVersion="' . $addonManifest['maxVer'] . '"';
     $addonContent = str_replace('<br />', "\n", $addonContent);
     $addonContent = str_replace('</p>', "\n", $addonContent);
     
-    $returnArray = array($addonNewManifestINI, $addonContent);
-    return $returnArray;
+    var_dump(array($addonNewManifestINI, $addonContent));
+
 }
 
 // ============================================================================
@@ -51,7 +51,7 @@ if ($strRequestMode == null) {
 
 if ($strRequestMode == 'manifest') {
     header('Content-Type: text/plain');
-    var_dump(fumcConvertAddon('extension', 'adblock-latitude'));
+    funcConvertAddon('extension', 'adblock-latitude');
 
 }
 elseif ($strRequestMode == 'convert') {
