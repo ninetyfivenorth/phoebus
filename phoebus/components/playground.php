@@ -36,7 +36,13 @@ maxAppVersion="' . $addonManifest['maxVer'] . '"';
     $addonContent = str_replace('<p>', '', $addonContent);
     $addonContent = str_replace('<br />', "\n", $addonContent);
     $addonContent = str_replace('</p>', "\n", $addonContent);
-    
+    $addonContent = str_replace('<ul>', "[ul]", $addonContent);
+    $addonContent = str_replace('</ul>', "[/ul]", $addonContent);
+    $addonContent = str_replace('<li>', "[li]", $addonContent);
+    $addonContent = str_replace('</li>', "[/li]", $addonContent);
+    $addonContent = str_replace('<h3>', "[section]", $addonContent);
+    $addonContent = str_replace('</h3>', "[/section]", $addonContent);
+    $addonContent = str_replace('<h3>', "[/h3]", $addonContent);
     return array($addonNewManifestINI, $addonContent);
 
 }
