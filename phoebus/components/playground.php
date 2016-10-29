@@ -43,16 +43,29 @@ maxAppVersion="' . $addonManifest['maxVer'] . '"';
 
 // ============================================================================
 
-include_once($arrayModules['readManifest']);
-
 if ($strRequestMode == null) {
     funcError('Mode is null.. Dumbass');
 }
 
 if ($strRequestMode == 'convert') {
+    include_once($arrayModules['readManifest']);
+    include_once($arrayModules['dbExtensions']);
+    include_once($arrayModules['dbthemes']);
+    
     header('Content-Type: text/plain');
-    $arrayOut = funcConvertAddon('extension', 'adblock-latitude');
-    print('phoebus.manifest:' . "\n" . $arrayOut[0] . "\n\n" . 'phoebus.content:' . "\n" . $arrayOut[1]);
+    foreach ($arrayExtensionsDB as $_key => $_value) {
+        print('== | ' . $_value . ' | =============' . "\n")
+        $arrayOut = funcConvertAddon('extension', $_value);
+        print('phoebus.manifest:' . "\n" . $arrayOut[0] . "\n\n" . 'phoebus.content:' . "\n" . $arrayOut[1] . "\n");
+        print('===================================' . "\n\n");
+
+    }
+    foreach ($arrayThemesDB as $_key => $_value) {
+        print('== | ' . $_value . ' | =============' . "\n")
+        $arrayOut = funcConvertAddon('theme', $_value);
+        print('phoebus.manifest:' . "\n" . $arrayOut[0] . "\n\n" . 'phoebus.content:' . "\n" . $arrayOut[1] . "\n");
+        print('===================================' . "\n\n");
+    }
 }
 else {
     funcError('Invalid Mode');
