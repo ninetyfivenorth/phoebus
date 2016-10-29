@@ -55,8 +55,8 @@ maxAppVersion="' . $addonManifest['maxVer'] . '"';
     $addonContent = str_replace('<u>', "[/u]", $addonContent);
     $addonContent = str_replace('</u>', "[/u]", $addonContent);
     $addonContent = str_replace('</a>', "[/url]", $addonContent);
-    $addonContent = str_replace(' target="_blank"', "", $addonContent);
-    $addonContent = preg_replace('/<a href=(.*)>(.*)<\/a>/Ui', '[url=$1]$3[/url]', $addonContent);
+    $addonContent = str_replace(' target="_blank"', '', $addonContent);
+    //$addonContent = preg_replace('/<a href=(.*)>(.*)<\/a>/Ui', '[url=$1]$3[/url]', $addonContent);
     return array($addonNewManifestINI, $addonContent);
 
 }
