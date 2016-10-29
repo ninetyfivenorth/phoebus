@@ -54,14 +54,14 @@ if ($strRequestMode == 'convert') {
     
     header('Content-Type: text/plain');
     foreach ($arrayExtensionsDB as $_key => $_value) {
-        print('== | ' . $_value . ' | =============' . "\n")
+        print('== | ' . $_value . ' | =============' . "\n");
         $arrayOut = funcConvertAddon('extension', $_value);
         print('phoebus.manifest:' . "\n" . $arrayOut[0] . "\n\n" . 'phoebus.content:' . "\n" . $arrayOut[1] . "\n");
         print('===================================' . "\n\n");
 
     }
     foreach ($arrayThemesDB as $_key => $_value) {
-        print('== | ' . $_value . ' | =============' . "\n")
+        print('== | ' . $_value . ' | =============' . "\n");
         $arrayOut = funcConvertAddon('theme', $_value);
         print('phoebus.manifest:' . "\n" . $arrayOut[0] . "\n\n" . 'phoebus.content:' . "\n" . $arrayOut[1] . "\n");
         print('===================================' . "\n\n");
