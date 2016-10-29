@@ -37,7 +37,7 @@ maxAppVersion="' . $addonManifest['maxVer'] . '"';
     $addonContent = str_replace('<br />', "\n", $addonContent);
     $addonContent = str_replace('</p>', "\n", $addonContent);
     
-    return array($addonNewManifestINI, $addonContent));
+    return array($addonNewManifestINI, $addonContent);
 
 }
 
