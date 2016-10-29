@@ -10,7 +10,7 @@ $strRequestMode = funcHTTPGetValue('mode');
 // ============================================================================
 
 function fumcConvertAddon($_type, $_slug) {
-    $addonManifest = funcReadManifest('extension', 'adblock-latitude', 0, false);
+    $addonManifest = funcReadManifest($_type, $_slug, 0, false);
     
     $addonNewManifestINI = '[addon]
 type="' . $addonManifest['type'] . '"
@@ -37,7 +37,8 @@ maxAppVersion="' . $addonManifest['maxVer'] . '"';
     $addonContent = str_replace('<br />', "\n", $addonContent);
     $addonContent = str_replace('</p>', "\n", $addonContent);
     
-    return array($addonNewManifestINI, $addonContent);
+    $returnArray = array($addonNewManifestINI, $addonContent);
+    return $returnArray;
 }
 
 // ============================================================================
