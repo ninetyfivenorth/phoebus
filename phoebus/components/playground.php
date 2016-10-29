@@ -49,6 +49,7 @@ elseif ($strRequestMode == 'convert') {
                         'maxAppVersion' => $addonManifest['minVer'])),
     );
     print("\n\n\n");
+    var_dump($addonNewManifest);
     
 }
 else {
