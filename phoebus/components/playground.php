@@ -9,7 +9,7 @@ $strRequestMode = funcHTTPGetValue('mode');
 
 // ============================================================================
 
-function fumcConvertAddon($_type, $_slug) {
+function funcConvertAddon($_type, $_slug) {
     $addonManifest = funcReadManifest($_type, $_slug, 0, false);
     
     $addonNewManifestINI = '[addon]
