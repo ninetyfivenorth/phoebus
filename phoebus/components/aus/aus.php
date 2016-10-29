@@ -12,7 +12,7 @@ $arrayIncludes = array(
     $arrayModules['dbExtensions'],
     $arrayModules['dbThemes'],
     $arrayModules['dbLangPacks'],
-    $arrayModules['dbExternals'],
+    $arrayModules['dbAUSExternals'],
     $arrayModules['readManifest'],
     $arrayModules['vc']
 );

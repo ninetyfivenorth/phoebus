@@ -14,17 +14,17 @@ $arrayComponents = array(
     'aus' => './phoebus/components/aus/aus.php',
     'download' => './phoebus/components/download.php',
     'integration' => './phoebus/components/integration.php',
-    'metadata' => './phoebus/components/metadata.php',
     'discover' => './phoebus/components/discover/discover.php',
     'playground' => './phoebus/components/playground.php'
 );
 
 $arrayModules = array(
-    'dbExtensions' => './phoebus/modules/dbExtensions.php',
-    'dbThemes' => './phoebus/modules/dbThemes.php',
-    'dbLangPacks' => './phoebus/modules/dbLangPacks.php',
-    'dbSearchPlugins' => './phoebus/modules/dbSearchPlugins.php',
-    'dbExternals' => './phoebus/modules/dbExternals.php',
+    'dbExtensions' => './phoebus/modules/db/extensions.php',
+    'dbThemes' => './phoebus/modules/db/themes.php',
+    'dbLangPacks' => './phoebus/modules/db/langPacks.php',
+    'dbSearchPlugins' => './phoebus/modules/db/searchPlugins.php',
+    'dbAUSExternals' => './phoebus/modules/db/ausExternals.php',
+    'dbSiteExternals' => './phoebus/modules/db/siteExternals.php',
     'readManifest' => './phoebus/modules/funcReadManifest.php',
     'vc' => './phoebus/modules/nsIVersionComparator.php'
 );
