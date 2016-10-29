@@ -33,7 +33,7 @@ elseif ($strRequestMode == 'convert') {
                     'type' => $addonManifest['type'],
                     'id' => $addonManifest['guid'],
                     'release' => $addonManifest['xpi'],
-                    'unstable' => 'none')
+                    'unstable' => 'none'),
         'metadata' => array(
                     'name' => $addonManifest['name'],
                     'slug' => 'unknown',
