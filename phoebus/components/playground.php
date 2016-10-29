@@ -48,7 +48,27 @@ elseif ($strRequestMode == 'convert') {
                         'minAppVersion' => $addonManifest['minVer'],
                         'maxAppVersion' => $addonManifest['minVer'])),
     );
-    var_dump($addonNewManifest);
+    
+    $addonNewManifestINI = '[addon]
+type="' . $addonManifest['type'] . '"
+id="' . $addonManifest['guid'] . '"
+release="' . $addonManifest['xpi'] . '"
+unstable="none"
+
+[metadata]
+name="' . $addonManifest['name'] . '"
+slug="' . 'unknown' . '"
+author="' . $addonManifest['author'] . '"
+shortDescription="' . 'unknown' . '"
+licence="none"
+homepageURL="none"
+supportURL="none"
+
+[' . $addonManifest['xpi'] . ']
+version="' . $addonManifest['version'] . '"
+minAppVersion="' . $addonManifest['minVer'] . '"
+maxAppVersion="' . $addonManifest['maxVer'] . '"';
+    print($addonNewManifestINI);
     print("\n");
     $addonContent = $addonManifest["description"];
     $addonContent = str_replace('<p>', '', $addonContent);
