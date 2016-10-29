@@ -43,20 +43,42 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                 // automagically turn newlines into <br />
                 $_addonPhoebusContent = str_replace("\n", "<br />\n", $_addonPhoebusContent);
                 
+                // create a temporary array that contains the strs to simple pseudo-bbcode to real html
+                $_arrayPhoebusCodeSimple = array(
+                    '[b]' => '<strong>',
+                    '[/b]' => '</strong>',
+                    '[i]' => '<em>',
+                    '[/i]' => '</em>',
+                    '[u]' => '<u>',
+                    '[/u]' => '</u>',
+                    '[ul]' => '<ul>',
+                    '[/ul]' => '</ul>',
+                    '[li]' => '<li>',
+                    '[/li]' => '</li>',
+                    '[section]' => '<h3>',
+                    '[/section]' => '</h3>'
+                );
+                
                 // create a temporary array that contains the regex to convert pseudo-bbcode to real html
-                $_arrayPhoebusCode = array(
+                $_arrayPhoebusCodeRegex = array(
                     '\[url=(.*)\](.*)\[\/url\]' => '<a href="$1" target="_blank">$2</a>',
                     '\[url\](.*)\[\/url\]' => '<a href="$1" target="_blank">$1</a>',
                     '\[img(.*)\](.*)\[\/img\]' => '<img src="$2"$1 />'
                 );
                 
-                // Regex replace pseudo-bbcode with real html
-                foreach ($_arrayPhoebusCode as $_key => $_value) {
+                // str replace pseudo-bbcode with real html
+                foreach ($_arrayPhoebusCodeSimple as $_key => $_value) {
                     $_addonPhoebusContent = preg_replace('/' . $_key . '/iU', $_value, $_addonPhoebusContent);
                 }
                 
-                // Clear the temporary array out of memory
-                unset($_arrayPhoebusCode);
+                // Regex replace pseudo-bbcode with real html
+                foreach ($_arrayPhoebusCodeRegex as $_key => $_value) {
+                    $_addonPhoebusContent = preg_replace('/' . $_key . '/iU', $_value, $_addonPhoebusContent);
+                }
+                
+                // Clear the temporary arrays out of memory
+                unset($_arrayPhoebusCodeSimple);
+                unset($_arrayPhoebusCodeRegex);
                 
                 // Assign parsed phoebus.content to the add-on manifest array
                 $_addonManifest['metadata']['longDescription'] = $_addonPhoebusContent;
