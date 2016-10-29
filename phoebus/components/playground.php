@@ -49,15 +49,9 @@ if ($strRequestMode == null) {
     funcError('Mode is null.. Dumbass');
 }
 
-if ($strRequestMode == 'manifest') {
+if ($strRequestMode == 'convert') {
     header('Content-Type: text/plain');
-    funcConvertAddon('extension', 'adblock-latitude');
-
-}
-elseif ($strRequestMode == 'convert') {
-    header('Content-Type: text/plain');
-    
-
+    funcConvertAddon('extension', 'adblock-latitude');    
 }
 else {
     funcError('Invalid Mode');
