@@ -124,9 +124,9 @@ elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {
                     'hash' => $arrayLangPackDB[$strRequestAddonID]['hash']),
         'xpi' => array(
                     $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi' => array(
-                    'version' => $arrayLangPackDB[$strRequestAddonID]['version'],
-                    'minAppVersion' => '26.0.0a1',
-                    'maxAppVersion' => '26.*')),
+                        'version' => $arrayLangPackDB[$strRequestAddonID]['version'],
+                        'minAppVersion' => '26.0.0a1',
+                        'maxAppVersion' => '26.*')),
         'isNewManifest' => true
     );
     
