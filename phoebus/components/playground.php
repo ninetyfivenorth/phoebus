@@ -52,7 +52,7 @@ if ($strRequestMode == null) {
 if ($strRequestMode == 'convert') {
     header('Content-Type: text/plain');
     $arrayOut = funcConvertAddon('extension', 'adblock-latitude');
-    print('phoebus.manifest:' . "\n" . $arrayOut[0] . "\n" . 'phoebus.content:' .  $arrayOut[1]);
+    print('phoebus.manifest:' . "\n" . $arrayOut[0] . "\n\n" . 'phoebus.content:' . "\n" . $arrayOut[1]);
 }
 else {
     funcError('Invalid Mode');
