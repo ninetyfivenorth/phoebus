@@ -23,6 +23,8 @@ if ($strRequestMode == 'manifest') {
     var_dump(funcReadManifest('extension', 'adblock-latitude', 0, true));
 }
 elseif ($strRequestMode == 'convert') {
+    header('Content-Type: text/plain');
+    
     $addonManifest = funcReadManifest('extension', 'adblock-latitude', 0, false);
     var_dump($addonManifest);
     print("\n\n\n");
