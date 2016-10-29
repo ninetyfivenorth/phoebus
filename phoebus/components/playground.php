@@ -41,7 +41,7 @@ elseif ($strRequestMode == 'convert') {
                     'shortDescription' => 'none',
                     'licence' => 'none',
                     'homepageURL' => 'none',
-                    'supportURL' => 'none')
+                    'supportURL' => 'none'),
         'xpi' => array(
                     $addonManifest['xpi'] => array(
                         'version' => $addonManifest['version'],
