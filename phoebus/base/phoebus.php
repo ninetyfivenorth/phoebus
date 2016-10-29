@@ -42,14 +42,15 @@ if ($_SERVER['REQUEST_URI'] == '/') {
     $strRequestComponent = 'site';
     $strRequestPath = '/';
 }
+elseif (count($arrayArgs) > 1) {
+    header("HTTP/1.0 404 Not Found");
+    exit();
+}
 elseif ($strRequestComponent != 'site' && $strRequestPath != null) {
     header("HTTP/1.0 404 Not Found");
     exit();
 }
-elseif (isset($arrayArgs[1]) && $arrayArgs[0] != $arrayArgs[1]) {
-    header("HTTP/1.0 404 Not Found");
-    exit();
-}
+
 
 // Load component based on strRequestComponent
 if ($strRequestComponent != null) {
