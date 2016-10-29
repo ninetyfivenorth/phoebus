@@ -104,7 +104,7 @@ unset($arrayIncludes);
 // Search for add-ons in our databases
 // Extensions
 if (array_key_exists($strRequestAddonID, $arrayExtensionsDB)) {
-    funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 1, true));
+    funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 1, false));
 }
 elseif(array_key_exists($strRequestAddonID, $arrayExtensionsOverrideDB)) {
     funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsOverrideDB[$strRequestAddonID], 1, false));
