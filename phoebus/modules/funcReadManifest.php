@@ -68,7 +68,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                 
                 // str replace pseudo-bbcode with real html
                 foreach ($_arrayPhoebusCodeSimple as $_key => $_value) {
-                    $_addonPhoebusContent = str_replace('/' . $_key . '/iU', $_value, $_addonPhoebusContent);
+                    $_addonPhoebusContent = str_replace($_key, $_value, $_addonPhoebusContent);
                 }
                 
                 // Regex replace pseudo-bbcode with real html
