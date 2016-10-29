@@ -27,6 +27,7 @@ elseif ($strRequestMode == 'convert') {
     
     $addonManifest = funcReadManifest('extension', 'adblock-latitude', 0, false);
     var_dump($addonManifest);
+    print("\n");
     $addonNewManifest = array(
         'addon' => array(
                     'type' => $addonManifest['type'],
@@ -48,6 +49,7 @@ elseif ($strRequestMode == 'convert') {
                         'maxAppVersion' => $addonManifest['minVer'])),
     );
     var_dump($addonNewManifest);
+    print("\n");
     $addonContent = $addonManifest["description"];
     $addonContent = str_replace('<p>', '', $addonContent);
     $addonContent = str_replace('<br />', "\n", $addonContent);
