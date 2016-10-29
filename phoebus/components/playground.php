@@ -22,6 +22,17 @@ if ($strRequestMode == 'manifest') {
     
     var_dump(funcReadManifest('extension', 'adblock-latitude', 0, true));
 }
+elseif ($strRequestMode == 'convert') {
+    $addonManifest = funcReadManifest('extension', 'adblock-latitude', 0, false);
+    var_dump($addonManifest);
+    print("\n\n\n");
+
+    print("\n\n\n");
+    
+}
+else {
+    funcError('Invalid Mode');
+}
 
 // ============================================================================
 ?>
