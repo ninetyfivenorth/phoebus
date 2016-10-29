@@ -52,8 +52,7 @@ elseif ($strRequestMode == 'convert') {
     $addonContent = str_replace('<p>', '', $addonContent);
     $addonContent = str_replace('<br />', "\n", $addonContent);
     $addonContent = str_replace('</p>', "\n", $addonContent);
-    var_dump($addonContent)
-    
+    var_dump($addonContent);
 }
 else {
     funcError('Invalid Mode');
