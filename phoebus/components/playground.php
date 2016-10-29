@@ -37,7 +37,7 @@ maxAppVersion="' . $addonManifest['maxVer'] . '"';
     $addonContent = str_replace('<br />', "\n", $addonContent);
     $addonContent = str_replace('</p>', "\n", $addonContent);
     
-    var_dump(array($addonNewManifestINI, $addonContent));
+    return array($addonNewManifestINI, $addonContent));
 
 }
 
@@ -51,7 +51,8 @@ if ($strRequestMode == null) {
 
 if ($strRequestMode == 'convert') {
     header('Content-Type: text/plain');
-    funcConvertAddon('extension', 'adblock-latitude');    
+    $arrayOut = funcConvertAddon('extension', 'adblock-latitude');
+    print('phoebus.manifest:' . "\n" . $arrayOut[0] . "\n" . 'phoebus.content:' .  $arrayOut[1]);
 }
 else {
     funcError('Invalid Mode');
