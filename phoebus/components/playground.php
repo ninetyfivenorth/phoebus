@@ -50,7 +50,7 @@ if ($strRequestMode == null) {
 if ($strRequestMode == 'convert') {
     include_once($arrayModules['readManifest']);
     include_once($arrayModules['dbExtensions']);
-    include_once($arrayModules['dbthemes']);
+    include_once($arrayModules['dbThemes']);
     
     header('Content-Type: text/plain');
     foreach ($arrayExtensionsDB as $_key => $_value) {
