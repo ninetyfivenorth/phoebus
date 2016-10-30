@@ -41,7 +41,6 @@ function funcDownloadXPI($_addonManifest) {
 
     // We are done here
     exit();
-
 }
 
 // ============================================================================

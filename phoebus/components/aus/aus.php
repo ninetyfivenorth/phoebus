@@ -69,8 +69,6 @@ function funcGenerateUpdateXML($_addonManifest) {
 
 // == | Main | ================================================================
 
-// funcGenerateUpdateXML(funcReadAddonManifest('extension', 'adblock-latitude', 1));
-
 // Sanity
 if ($strRequestAddonID == null || $strRequestAddonVersion == null ||
     $strRequestAppID == null || $strRequestAppVersion == null ||
