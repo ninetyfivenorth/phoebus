@@ -10,35 +10,34 @@ $arrayExtCategoriesDB = array(
         'locale22',
         'externals' => array(
             'flagfox' => array(
-                    'id' => 'fx-5791',
-                    'name' => 'FlagFox',
-                    'shortDescription' => 'Displays a country flag depicting the location of the current website\'s server.',
-                    'url' => 'https://addons.mozilla.org/firefox/addon/flagfox/'
-                ),
+                'id' => 'fx-5791',
+                'name' => 'FlagFox',
+                'shortDescription' => 'Displays a country flag depicting the location of the current website\'s server.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/flagfox/'
+            ),
             'gmail-watcher' => array(
-                    'id' => 'ex-001',
-                    'name' => 'Gmail Watcher',
-                    'shortDescription' => 'Monitors your Gmail account(s) and notifies you when you have new mail.',
-                    'url' => 'https://sites.google.com/site/sonthakit/gmailwatcher'
-                ),
+                'id' => 'ex-001',
+                'name' => 'Gmail Watcher',
+                'shortDescription' => 'Monitors your Gmail account(s) and notifies you when you have new mail.',
+                'url' => 'https://sites.google.com/site/sonthakit/gmailwatcher'
+            ),
             'hotmail-watcher' => array(
-                    'id' => 'ex-002',
-                    'name' => 'Hotmail Watcher',
-                    'shortDescription' => 'Monitors your Hotmail account(s) and notifies you when you have new mail.',
-                    'url' => 'https://sites.google.com/site/sonthakit/hotmailwatcher'
-                ),
+                'id' => 'ex-002',
+                'name' => 'Hotmail Watcher',
+                'shortDescription' => 'Monitors your Hotmail account(s) and notifies you when you have new mail.',
+                'url' => 'https://sites.google.com/site/sonthakit/hotmailwatcher'
+            ),
             'yahoo-mail-watcher' => array(
-                    'id' => 'ex-003',
-                    'name' => 'Yahoo! Mail Watcher',
-                    'shortDescription' => 'Monitors your Yahoo! Mail account(s) and notifies you when you have new mail.',
-                    'url' => 'https://sites.google.com/site/sonthakit/yahoomailwatcher'
-                ),
+                'id' => 'ex-003',
+                'name' => 'Yahoo! Mail Watcher',
+                'shortDescription' => 'Monitors your Yahoo! Mail account(s) and notifies you when you have new mail.',
+                'url' => 'https://sites.google.com/site/sonthakit/yahoomailwatcher'
+            ),
             'yandex-mail-watcher' => array(
-                    'id' => 'ex-004',
-                    'name' => 'Yandex Mail Watcher',
-                    'shortDescription' => 'Monitors your Yandex Mail account(s) and notifies you when you have new mail.',
-                    'url' => 'https://sites.google.com/site/sonthakit/yandexmailwatcher'
-                ),
+                'id' => 'ex-004',
+                'name' => 'Yandex Mail Watcher',
+                'shortDescription' => 'Monitors your Yandex Mail account(s) and notifies you when you have new mail.',
+                'url' => 'https://sites.google.com/site/sonthakit/yandexmailwatcher'
             ),
         ),
     ),
