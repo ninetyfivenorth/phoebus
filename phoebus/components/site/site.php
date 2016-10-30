@@ -21,8 +21,28 @@ if ($strRequestPath == '/') {
     print('homepage');
 }
 elseif (startsWith($strRequestPath, '/extensions/')) {
-    header('Content-Type: text/plain');
-    print('extensions');
+    include_once($arrayModules['dbExtensions']);
+    if ($strRequestPath == '/extensions/') {
+        header('Content-Type: text/plain');
+        print('extensions main page');
+    }
+    elseif ($strRequestPath == '/extensions/all/') {
+        header('Content-Type: text/plain');
+        foreach ($arrayExtensionsDB as $_key => $_value) {
+            var_dump(funcReadManifest('extension', $_value, true, false, false, false, false));
+        }
+    }
+    else {
+        $strStrippedPath = str_replace('/extensions/', '', str_replace('/', '', $strRequestPath));
+        $ArrayDBFlip = array_flip($arrayExtensionsDB);
+        if (array_key_exists($strStrippedPath,$$ArrayDBFlip)) {
+            header('Content-Type: text/plain');
+            var_dump(funcReadManifest('extension', $arrayExtensionsDB[$strStrippedPath], true, false, false, false, false));
+        }
+        else {
+            header("HTTP/1.0 404 Not Found");
+        }
+    }
 }
 elseif (startsWith($strRequestPath, '/themes/')) {
     header('Content-Type: text/plain');
