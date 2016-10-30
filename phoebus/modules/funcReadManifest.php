@@ -52,14 +52,14 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                     '[/b]' => '</strong>',
                     '[i]' => '<em>',
                     '[/i]' => '</em>',
-                    '[u]' => '<u>',
-                    '[/u]' => '</u>',
+                    '[u]' => '</p><u>',
+                    '[/u]' => '</u><p>',
                     '[ul]' => '<ul>',
                     '[/ul]' => '</ul>',
                     '[li]' => '<li>',
                     '[/li]' => '</li>',
-                    '[section]' => '<h3>',
-                    '[/section]' => '</h3>'
+                    '[section]' => '</p><h3>',
+                    '[/section]' => '</h3><p>'
                 );
                 
                 // create a temporary array that contains the regex to convert pseudo-bbcode to real html
