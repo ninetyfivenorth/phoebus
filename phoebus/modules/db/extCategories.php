@@ -245,7 +245,7 @@ $arrayExtCategoriesDB = array(
             'history-submenus-2' => array(
                 'id' => 'fx-337408',
                 'name' => 'History Submenus II',
-                'shortDescription' => 'Add submenus to the History menu for previous days' history.',
+                'shortDescription' => 'Add submenus to the History menu for previous days history.',
                 'url' => 'https://addons.mozilla.org/firefox/addon/history-submenus-2/'
             ),
             'remove-it-permanently' => array(
