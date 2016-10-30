@@ -1,7 +1,7 @@
 <?php
 // == | funcProcessContent | ==================================================
 
-function funcProcessContent ($_input);
+function funcProcessContent ($_input) {
     // Parse phoebus.content
     if (file_exists($_input)) {
         // Read phoebus.content
@@ -55,6 +55,6 @@ function funcProcessContent ($_input);
     else {
         return null;
     }
-
+};
 // ============================================================================
 ?>
