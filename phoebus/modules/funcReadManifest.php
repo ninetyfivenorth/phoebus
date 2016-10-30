@@ -53,8 +53,9 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                 funcError('Could not find ' . $_addonManifest["xpi"]);
             }
             
-            // assign the baseURL to the add-on manifest array
+            // assign the baseURL and basePath to the add-on manifest array
             $_addonManifest['addon']["baseURL"] = 'https://dev.addons.palemoon.org/datastore/' . $_addonDirectory;
+            $_addonManifest['addon']['basePath'] = $_addonBasePath
             
             // We are using the new manifest
             $_addonManifest['isNewManifest'] = true;
