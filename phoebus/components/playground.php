@@ -30,6 +30,8 @@ if ($strRequestMode == 'manifest') {
 elseif ($strRequestMode == 'extensions') {
     include_once($arrayModules['dbExtensions']);
     
+    header('Content-Type: text/plain');
+    
     foreach ($arrayExtensionsDB as $_key => $_value) {
         var_dump(funcReadManifest('extension', $_value, false, false, true, true));
     }
