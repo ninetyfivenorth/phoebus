@@ -31,7 +31,7 @@ elseif ($strRequestMode == 'extensions') {
     include_once($arrayModules['dbExtensions']);
     
     foreach ($arrayExtensionsDB as $_key => $_value) {
-        var_dump(funcReadManifest('extension', $strRequestSlug, false, false, true, true));
+        var_dump(funcReadManifest('extension', $_value, false, false, true, true));
     }
 
 }
