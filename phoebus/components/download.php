@@ -9,6 +9,7 @@ $arrayIncludes = array(
     $arrayModules['dbExtensions'],
     $arrayModules['dbThemes'],
     $arrayModules['dbLangPacks'],
+    $arrayModules'dbSearchPlugins'],
     $arrayModules['readManifest'],
 );
 
@@ -96,8 +97,8 @@ elseif (array_key_exists($strRequestAddonID, $arrayThemesDB)) {
     funcDownloadXPI(funcReadManifest('theme', $arrayThemesDB[$strRequestAddonID], 2, false));
 }
 // Search Plugins
-elseif (array_key_exists($strRequestAddonID, $arraySearchPlugins)) {
-    funcDownloadSearchPlugin($arraySearchPlugins[$strRequestAddonID]);
+elseif (array_key_exists($strRequestAddonID, $arraySearchPluginsDB)) {
+    funcDownloadSearchPlugin($arraySearchPluginsDB[$strRequestAddonID]);
 }
 else {
     funcError('Add-on could not be found in our database');

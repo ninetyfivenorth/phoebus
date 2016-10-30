@@ -3,7 +3,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-$arraySearchPlugins = array(
+$arraySearchPluginsDB = array(
     '100' => 'google',
     '101' => 'youtube',
     '102' => 'google-play',
