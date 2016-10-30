@@ -37,9 +37,7 @@ elseif (startsWith($strRequestPath, '/extensions/')) {
     else {
         $strStrippedPath = str_replace('/', '', str_replace('/extensions/', '', $strRequestPath));
         $ArrayDBFlip = array_flip($arrayExtensionsDB);
-        //var_dump($strStrippedPath);
-        //var_dump($ArrayDBFlip);
-        //exit();
+
         if (array_key_exists($strStrippedPath,$ArrayDBFlip)) {
             header('Content-Type: text/plain');
             var_dump(funcReadManifest('extension', $strStrippedPath, true, true, false, false, false));
@@ -50,12 +48,32 @@ elseif (startsWith($strRequestPath, '/extensions/')) {
     }
 }
 elseif (startsWith($strRequestPath, '/themes/')) {
-    header('Content-Type: text/plain');
-    print('themes');
+    include_once($arrayModules['dbThemes']);
+    if ($strRequestPath == '/themes/') {
+        header('Content-Type: text/plain');
+        foreach ($arrayThemesDB as $_key => $_value) {
+            var_dump(funcReadManifest('themes', $_value, true, false, false, false, false));
+        }
+    }
+    else {
+        $strStrippedPath = str_replace('/', '', str_replace('/extensions/', '', $strRequestPath));
+        $ArrayDBFlip = array_flip($arrayThemesDB);
+
+        if (array_key_exists($strStrippedPath,$ArrayDBFlip)) {
+            header('Content-Type: text/plain');
+            var_dump(funcReadManifest('themes', $strStrippedPath, true, true, false, false, false));
+        }
+        else {
+            header("HTTP/1.0 404 Not Found");
+        }
+    }
 }
 elseif (startsWith($strRequestPath, '/searchplugins/')) {
+    include_once($arrayModules['dbSearchPlugins']);
     header('Content-Type: text/plain');
-    print('searchplugins');
+    foreach ($arraySearchPluginsDB as $_key => $_value) {
+        var_dump($arraySearchPluginsDB);
+    }
 }
 else {
     header("HTTP/1.0 404 Not Found");
