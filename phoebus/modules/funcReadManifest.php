@@ -11,6 +11,9 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
     if ($_useNewManifest == true && file_exists($_addonBasePath . $_addonPhoebusManifestFile)) {
         $_addonManifest = parse_ini_file($_addonBasePath . $_addonPhoebusManifestFile, true);
         if ($_addonManifest != false) {
+            // shortDescription should be html entity'd
+            $_addonManifest['metadata']['shortDescription'] = htmlentities($_addonManifest['metadata']['shortDescription'], ENT_XHTML);
+            
             // INI has depth and identical section name issues so we need to mangle it
             // Create a temporary array that we can easily manipulate
             $_addonManifestVersions = $_addonManifest;
