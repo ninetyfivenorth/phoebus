@@ -80,7 +80,7 @@ if ($strRequestMode == 'manifest') {
 
     header('Content-Type: text/plain');
     
-    var_dump(funcReadManifest('extension', $strRequestSlug, 0, true));
+    var_dump(funcReadManifest('extension', $strRequestSlug, true, true, true, true));
 }
 else {
     funcError('Invalid Mode');
