@@ -89,7 +89,7 @@ if (array_key_exists($strRequestAddonID, $arrayPermaXPI)) {
 // Search for add-ons in our databases
 // Extensions
 if (array_key_exists($strRequestAddonID, $arrayExtensionsDB)) {
-    funcDownloadXPI(funcReadManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 'aus');
+    funcDownloadXPI(funcReadManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 'aus'));
 }
 // Themes
 elseif (array_key_exists($strRequestAddonID, $arrayThemesDB)) {
