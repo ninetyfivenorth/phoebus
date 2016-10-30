@@ -26,6 +26,7 @@ $arrayModules = array(
     'dbAUSExternals' => './phoebus/modules/db/ausExternals.php',
     'dbSiteExternals' => './phoebus/modules/db/siteExternals.php',
     'readManifest' => './phoebus/modules/funcReadManifest.php',
+    'processContent' => './phoebus/modules/funcProcessContent.php',
     'vc' => './phoebus/modules/nsIVersionComparator.php'
 );
 

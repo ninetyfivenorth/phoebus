@@ -32,58 +32,11 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
             // clear the temporary array out of memory
             unset($_addonManifestVersions_);
             
-            // Parse phoebus.content
-            if (file_exists($_addonBasePath . $_addonPhoebusContentFile)) {
-                // Read phoebus.content
-                $_addonPhoebusContent = file_get_contents($_addonBasePath . $_addonPhoebusContentFile);
-                
-                // html encode phoebus.content
-                $_addonPhoebusContent = htmlentities($_addonPhoebusContent, ENT_XHTML);
-                
-                // normalize line endings
-                $_addonPhoebusContent = str_replace("\r\n", "\n", $_addonPhoebusContent);
-                
-                // automagically turn newlines into <br />
-                $_addonPhoebusContent = str_replace("\n", "<br />\n", $_addonPhoebusContent);
+            // Deal with phoebus.content
+            include_once($arrayModules['processContent']);
+            $_addonPhoebusContent = funcProcessContent($_addonBasePath . $_addonPhoebusContentFile);
             
-                // create a temporary array that contains the strs to simple pseudo-bbcode to real html
-                $_arrayPhoebusCodeSimple = array(
-                    '[b]' => '<strong>',
-                    '[/b]' => '</strong>',
-                    '[i]' => '<em>',
-                    '[/i]' => '</em>',
-                    '[u]' => '</p><u>',
-                    '[/u]' => '</u><p>',
-                    '[ul]' => '<ul>',
-                    '[/ul]' => '</ul>',
-                    '[li]' => '<li>',
-                    '[/li]' => '</li>',
-                    '[section]' => '</p><h3>',
-                    '[/section]' => '</h3><p>'
-                );
-                
-                // create a temporary array that contains the regex to convert pseudo-bbcode to real html
-                $_arrayPhoebusCodeRegex = array(
-                    '\<(ul|\/ul|li|\/li)\><br \/>' => '<$1>',
-                    '\[url=(.*)\](.*)\[\/url\]' => '<a href="$1" target="_blank">$2</a>',
-                    '\[url\](.*)\[\/url\]' => '<a href="$1" target="_blank">$1</a>',
-                    '\[img(.*)\](.*)\[\/img\]' => '<img src="$2"$1 />'
-                );
-                
-                // str replace pseudo-bbcode with real html
-                foreach ($_arrayPhoebusCodeSimple as $_key => $_value) {
-                    $_addonPhoebusContent = str_replace($_key, $_value, $_addonPhoebusContent);
-                }
-                
-                // Regex replace pseudo-bbcode with real html
-                foreach ($_arrayPhoebusCodeRegex as $_key => $_value) {
-                    $_addonPhoebusContent = preg_replace('/' . $_key . '/iU', $_value, $_addonPhoebusContent);
-                }
-                
-                // Clear the temporary arrays out of memory
-                unset($_arrayPhoebusCodeSimple);
-                unset($_arrayPhoebusCodeRegex);
-                
+            if ($_addonPhoebusContent != null) {
                 // Assign parsed phoebus.content to the add-on manifest array
                 $_addonManifest['metadata']['longDescription'] = $_addonPhoebusContent;
             }
