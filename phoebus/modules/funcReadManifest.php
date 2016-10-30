@@ -65,11 +65,11 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode) {
                 $_addonManifest["baseURL"] = 'https://addons.palemoon.org/phoebus/datastore/' . $_addonDirectory;
             }
             
-            $_arrayUnsetKeys = array('meta');
+            $_arrayUnsetKeys = array('metadata');
         }
         elseif ($_mode = 'download') {
             $_addonManifest['addon']['basePath'] = $_addonBasePath;
-            $_arrayUnsetKeys = array('meta');
+            $_arrayUnsetKeys = array('metadata');
         }
         else {
             funcError('Invalid mode');
