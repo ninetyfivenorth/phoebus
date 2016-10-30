@@ -6,7 +6,7 @@
 // == | Vars | ================================================================
 
 $strRequestMode = funcHTTPGetValue('mode');
-$strRequestMode = funcHTTPGetValue('slug');
+$strRequestSlug = funcHTTPGetValue('slug');
 
 // ============================================================================
 
