@@ -108,13 +108,104 @@ $arrayExtCategoriesDB = array(
         ),
     ),
     'download-management' => array(
-        'beer',
+        'base64-encoder',
+        'image-toolbox',
+        'mozarchiver',
+        'complete-yt-saver',
+        'externals' => array(
+            'imagehost-grabber' => array(
+                'id' => 'ex-005',
+                'name' => 'ImageHost Grabber',
+                'shortDescription' => 'Download entire galleries of hosted images with just a few clicks.',
+                'url' => 'http://imagehost-grabber.org/index.php?topic=3457.0'
+            ),
+            'opendownload2' => array(
+                'id' => 'fx-10902',
+                'name' => 'OpenDownload²',
+                'shortDescription' => 'OpenDownload² extends the "Save" dialog by a "Run" button to open the file directly.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/opendownload-10902/'
+            ),
+        ),
     ),
     'feeds-news-and-blogging' => array(
-        'billy',
+        'externals' => array(
+            'bamboo-feed-reader' => array(
+                'id' => 'fx-337410',
+                'name' => 'Bamboo Feed Reader',
+                'shortDescription' => 'Feed reader | RSS - ATOM - OPML',
+                'url' => 'https://addons.mozilla.org/firefox/addon/bamboo-feed-reader/'
+            ),
+            'forecastfox' => array(
+                'id' => 'fx-583250',
+                'name' => 'Forecastfox (fix version)',
+                'shortDescription' => 'Get international weather forecasts.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/forecastfox-fix-version/'
+            ),
+            'newsfox' => array(
+                'id' => 'fx-629',
+                'name' => 'NewsFox',
+                'shortDescription' => 'NewsFox is an efficient 3-pane (email) style Atom/RSS feed reader.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/newsfox/'
+            ),
+            'social-fixer-for-facebook' => array(
+                'id' => 'ex-007',
+                'name' => 'Social Fixer for Facebook',
+                'shortDescription' => 'Fixes annoyances, adds features and enhances existing functionality to make FB more fun and efficient.',
+                'url' => 'http://socialfixer.com/'
+            ),
+        ),
     ),
     'privacy-and-security' => array(
-        'beer',
+        'adblock-latitude',
+        'change-referer-button',
+        'cipherfox',
+        'crush-those-cookies',
+        'decentraleyes',
+        'encrypted-web',
+        'externals' => array(
+            'clean-links' => array(
+                'id' => 'fx-317263',
+                'name' => 'Clean Links',
+                'shortDescription' => 'Converts obfuscated or nested links to genuine clean links.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/clean-links/'
+            ),
+            'cookiekeeper' => array(
+                'id' => 'fx-481410',
+                'name' => 'CookieKeeper',
+                'shortDescription' => 'Extended Cookie Manager - Keep only wanted cookies.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/cookiekeeper/'
+            ),
+            'foxyproxy-basic' => array(
+                'id' => 'fx-15023',
+                'name' => 'FoxyProxy Basic',
+                'shortDescription' => 'A simple on/off proxy switcher',
+                'url' => 'https://addons.mozilla.org/firefox/addon/foxyproxy-basic/'
+            ),
+            'foxyproxy-standard' => array(
+                'id' => 'fx-2464',
+                'name' => 'FoxyProxy Standard',
+                'shortDescription' => 'An advanced proxy management tool that completely replaces Pale Moon\'s built-in proxy manager',
+                'url' => 'https://addons.mozilla.org/firefox/addon/foxyproxy-standard/'
+            ),
+            'js-switch' => array(
+                'id' => 'fx-5757',
+                'name' => 'JS Switch',
+                'shortDescription' => 'Adds a toolbar button and an option in the Tools menu to enable/disable JavaScript.',
+                'url' => 'https://addons.mozilla.org/en-US/firefox/addon/js-switch/'
+            ),
+            'secret-agent' => array(
+                'id' => 'ex-006',
+                'name' => 'Secret Agent',
+                'shortDescription' => 'Continuously randomizes your HTTP user agent to suppress device fingerprinting and resist web tracking.',
+                'url' => 'https://www.dephormation.org.uk/?page=81'
+            ),
+            'yesscript' => array(
+                'id' => 'fx-4922',
+                'name' => 'YesScript',
+                'shortDescription' => 'YesScript lets you make a blacklist of sites that aren\'t allowed to run JavaScript.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/yesscript/'
+            ),
+        ),
     ),
     'search-tools' => array(
         'duff',
@@ -129,4 +220,13 @@ $arrayExtCategoriesDB = array(
         'beer',
     ),
 );
+
+/*
+            'slug' => array(
+                'id' => 'idid',
+                'name' => 'name',
+                'shortDescription' => 'dec',
+                'url' => 'url'
+            ),
+*/
 ?>
