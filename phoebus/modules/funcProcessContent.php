@@ -18,14 +18,14 @@ function funcProcessContent ($_input) {
             '[/b]' => '</strong>',
             '[i]' => '<em>',
             '[/i]' => '</em>',
-            '[u]' => '</p><u>',
-            '[/u]' => '</u><p>',
+            '[u]' => '</p>' . "\n" . '<u>',
+            '[/u]' => '</u>' . "\n" . '<p>',
             '[ul]' => '<ul>',
             '[/ul]' => '</ul>',
             '[li]' => '<li>',
             '[/li]' => '</li>',
-            '[section]' => '</p><h3>',
-            '[/section]' => '</h3><p>'
+            '[section]' => '</p>' . "\n" . '<h3>',
+            '[/section]' => '</h3>' . "\n" . '<p>'
         );
         
         // create a temporary array that contains the regex to convert pseudo-bbcode to real html
