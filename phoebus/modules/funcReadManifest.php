@@ -1,7 +1,7 @@
 <?php
 // == | funcReadManifest | ===============================================
 
-function funcReadManifest($_addonType, $_addonSlug, $_mode) {
+function funcReadManifest($_addonType, $_addonSlug, $_addonMetadata, $_addonHash, $_addonBaseURL, $_addonBasePath) {
     $_addonDirectory = $_addonType . 's/' . $_addonSlug . '/';
     $_addonBasePath = './datastore/' . $_addonDirectory;
     $_addonManifestINIFile = 'manifest.ini';
@@ -28,8 +28,8 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode) {
         
         // clear the temporary array out of memory
         unset($_addonManifestVersions_);
-
-        if ($_mode == 'site') {
+        
+        if ($_addonMetadata == true) {
             // shortDescription should be html entity'd
             $_addonManifest['metadata']['shortDescription'] = htmlentities($_addonManifest['metadata']['shortDescription'], ENT_XHTML);
 
@@ -45,41 +45,34 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode) {
                 // Since there is no phoebus.content use the short description
                 $_addonManifest['metadata']['longDescription'] = $_addonManifest['metadata']['shortDescription'];
             }
-            
-            $_arrayUnsetKeys = null;
         }
-        elseif ($_mode == 'aus') {
-            // Generate a sha256 hash on the fly for the add-on
+        else {
+            unset($_addonManifest['metadata']);
+        }
+
+        // Generate a sha256 hash on the fly for the add-on
+        if ($_addonHash == true) {
             if (file_exists($_addonBasePath . $_addonManifest['addon']['release'])) {    
                 $_addonManifest['addon']['hash'] = hash_file('sha256', $_addonBasePath . $_addonManifest['addon']['release']);
             }
             else {
                 funcError('Could not find ' . $_addonManifest["xpi"]);
             }
-            
-            // assign the baseURL and basePath to the add-on manifest array           
+        }
+
+        // assign the baseURL to the add-on manifest array
+        if ($_addonBaseURL == true) {
             if ($_SERVER["HTTP_X_FORWARDED_HOST"] = 'dev.addons.palemoon.org') {
                 $_addonManifest['addon']["baseURL"] = 'http://dev.addons.palemoon.org/datastore/' . $_addonDirectory;
             }
             else {
                 $_addonManifest['addon']["baseURL"] = 'https://addons.palemoon.org/phoebus/datastore/' . $_addonDirectory;
             }
-            
-            $_arrayUnsetKeys = array('metadata');
-        }
-        elseif ($_mode = 'download') {
-            $_addonManifest['addon']['basePath'] = $_addonBasePath;
-            $_arrayUnsetKeys = array('metadata');
-        }
-        else {
-            funcError('Invalid mode');
         }
 
-        // Remove parts of the array the caller doesn't need
-        if ($_arrayUnsetKeys != null) {
-            foreach ($_arrayUnsetKeys as $_value) {
-                unset($_addonManifest[$_value]);
-            }
+        // assign the basePath to the add-on manifest array
+        if ($_addonBasePath == true) {
+            $_addonManifest['addon']['basePath'] = $_addonBasePath;
         }
         
         return $_addonManifest;
