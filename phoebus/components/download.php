@@ -25,24 +25,23 @@ $strRequestAddonID = funcHTTPGetValue('id');
 // == | funcDownloadXPI | ===============================================
 
 function funcDownloadXPI($_addonManifest) {
-    if ($_addonManifest['isNewManifest'] == false) {
-        $_addonFile = $_addonManifest['basepath'] . $_addonManifest['xpi'];
+    $_addonFile = $_addonManifest['addon']['basePath'] . $_addonManifest['addon']['release'];
+    
+    if (file_exists($_addonFile)) {
+        header('Content-Type: application/x-xpinstall');
+        header('Content-Disposition: inline; filename="' . $_addonManifest['addon']['release'] .'"');
+        header('Content-Length: ' . filesize($_addonFile));
+        header('Cache-Control: no-cache');
         
-        if (file_exists($_addonFile)) {
-            header('Content-Type: application/x-xpinstall');
-            header('Content-Disposition: inline; filename="' . $_addonManifest['xpi'] .'"');
-            header('Content-Length: ' . filesize($_addonFile));
-            header('Cache-Control: no-cache');
-            
-            readfile($_addonFile);
-        }
-        else {
-            funcError('XPI file not found');
-        }
-
-        // We are done here
-        exit();
+        readfile($_addonFile);
     }
+    else {
+        funcError('XPI file not found');
+    }
+
+    // We are done here
+    exit();
+
 }
 
 // ============================================================================
@@ -90,11 +89,11 @@ if (array_key_exists($strRequestAddonID, $arrayPermaXPI)) {
 // Search for add-ons in our databases
 // Extensions
 if (array_key_exists($strRequestAddonID, $arrayExtensionsDB)) {
-    funcDownloadXPI(funcReadManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 2, false));
+    funcDownloadXPI(funcReadManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 2, true));
 }
 // Themes
 elseif (array_key_exists($strRequestAddonID, $arrayThemesDB)) {
-    funcDownloadXPI(funcReadManifest('theme', $arrayThemesDB[$strRequestAddonID], 2, false));
+    funcDownloadXPI(funcReadManifest('theme', $arrayThemesDB[$strRequestAddonID], 2, true));
 }
 // Search Plugins
 elseif (array_key_exists($strRequestAddonID, $arraySearchPluginsDB)) {

@@ -40,30 +40,16 @@ function funcGenerateUpdateXML($_addonManifest) {
             
             $_strUpdateXMLBody = file_get_contents('./phoebus/components/aus/update-body.xml');
             
-            if ($_addonManifest['isNewManifest'] == true) {
-                $_arrayFilterSubstitute = array(
-                    '@ADDON_TYPE@' => $_addonManifest['addon']['type'],
-                    '@ADDON_ID@' => $_addonManifest['addon']['id'],
-                    '@ADDON_VERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['version'],
-                    '@PALEMOON_ID@' => $GLOBALS['strPaleMoonID'],
-                    '@ADDON_MINVERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['minAppVersion'],
-                    '@ADDON_MAXVERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['maxAppVersion'],
-                    '@ADDON_XPI@' => $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['release'],
-                    '@ADDON_HASH@' => $_addonManifest['addon']['hash']
-            );
-            }
-            elseif ($_addonManifest['isNewManifest'] == false) {
-                $_arrayFilterSubstitute = array(
-                    '@ADDON_TYPE@' => $_addonManifest['type'],
-                    '@ADDON_ID@' => $_addonManifest['guid'],
-                    '@ADDON_VERSION@' => $_addonManifest['version'],
-                    '@PALEMOON_ID@' => $GLOBALS['strPaleMoonID'],
-                    '@ADDON_MINVERSION@' => $_addonManifest['minVer'],
-                    '@ADDON_MAXVERSION@' => $_addonManifest['maxVer'],
-                    '@ADDON_XPI@' => $_addonManifest['baseurl'] . $_addonManifest['xpi'],
-                    '@ADDON_HASH@' => $_addonManifest['hash']
-                );
-            }
+            $_arrayFilterSubstitute = array(
+                '@ADDON_TYPE@' => $_addonManifest['addon']['type'],
+                '@ADDON_ID@' => $_addonManifest['addon']['id'],
+                '@ADDON_VERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['version'],
+                '@PALEMOON_ID@' => $GLOBALS['strPaleMoonID'],
+                '@ADDON_MINVERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['minAppVersion'],
+                '@ADDON_MAXVERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['maxAppVersion'],
+                '@ADDON_XPI@' => $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['release'],
+                '@ADDON_HASH@' => $_addonManifest['addon']['hash']
+
             foreach ($_arrayFilterSubstitute as $_key => $_value) {
                 $_strUpdateXMLBody = str_replace($_key, $_value, $_strUpdateXMLBody);
             }
