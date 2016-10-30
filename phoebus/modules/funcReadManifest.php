@@ -1,7 +1,7 @@
 <?php
 // == | funcReadManifest | ===============================================
 
-function funcReadManifest($_addonType, $_addonSlug, $_addonMetadata, $_addonHash, $_addonBaseURL, $_addonBasePath) {
+function funcReadManifest($_addonType, $_addonSlug, $_addonMetadata, $_addonContent, $_addonHash, $_addonBaseURL, $_addonBasePath) {
     $_addonDirectory = $_addonType . 's/' . $_addonSlug . '/';
     $_addonBasePath = './datastore/' . $_addonDirectory;
     $_addonManifestINIFile = 'manifest.ini';
@@ -32,7 +32,12 @@ function funcReadManifest($_addonType, $_addonSlug, $_addonMetadata, $_addonHash
         if ($_addonMetadata == true) {
             // shortDescription should be html entity'd
             $_addonManifest['metadata']['shortDescription'] = htmlentities($_addonManifest['metadata']['shortDescription'], ENT_XHTML);
+        }
+        else {
+            unset($_addonManifest['metadata']);
+        }
 
+        if ($_addonMetadata == true && $_addonContent == true) {
             // Deal with phoebus.content
             include_once($GLOBALS['arrayModules']['processContent']);
             $_addonPhoebusContent = funcProcessContent($_addonBasePath . $_addonPhoebusContentFile);
@@ -46,10 +51,6 @@ function funcReadManifest($_addonType, $_addonSlug, $_addonMetadata, $_addonHash
                 $_addonManifest['metadata']['longDescription'] = $_addonManifest['metadata']['shortDescription'];
             }
         }
-        else {
-            unset($_addonManifest['metadata']);
-        }
-
         // Generate a sha256 hash on the fly for the add-on
         if ($_addonHash == true) {
             if (file_exists($_addonBasePath . $_addonManifest['addon']['release'])) {    
