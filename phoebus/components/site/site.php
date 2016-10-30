@@ -71,7 +71,7 @@ elseif (startsWith($strRequestPath, '/themes/')) {
 elseif (startsWith($strRequestPath, '/searchplugins/')) {
     include_once($arrayModules['dbSearchPlugins']);
     header('Content-Type: text/plain');
-    var_dump($arraySearchPluginsDB);
+    var_dump(asort($arraySearchPluginsDB));
 }
 else {
     header("HTTP/1.0 404 Not Found");
