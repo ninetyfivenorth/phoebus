@@ -9,7 +9,7 @@ $arrayExtCategoriesDB = array(
             'flagfox' => array(
                 'id' => 'fx-5791',
                 'name' => 'FlagFox',
-                'shortDescription' => 'Displays a country flag depicting the location of the current website\'s server.',
+                'shortDescription' => 'Displays a country flag depicting the location of the current website&amp;s server.',
                 'url' => 'https://addons.mozilla.org/firefox/addon/flagfox/'
             ),
             'gmail-watcher' => array(
@@ -162,6 +162,8 @@ $arrayExtCategoriesDB = array(
         'crush-those-cookies',
         'decentraleyes',
         'encrypted-web',
+        'i-dont-care-about-cookies',
+        'show-my-password',
         'externals' => array(
             'clean-links' => array(
                 'id' => 'fx-317263',
@@ -184,7 +186,7 @@ $arrayExtCategoriesDB = array(
             'foxyproxy-standard' => array(
                 'id' => 'fx-2464',
                 'name' => 'FoxyProxy Standard',
-                'shortDescription' => 'An advanced proxy management tool that completely replaces Pale Moon\'s built-in proxy manager',
+                'shortDescription' => 'An advanced proxy management tool that completely replaces Pale Moon&amp;s built-in proxy manager',
                 'url' => 'https://addons.mozilla.org/firefox/addon/foxyproxy-standard/'
             ),
             'js-switch' => array(
@@ -202,31 +204,134 @@ $arrayExtCategoriesDB = array(
             'yesscript' => array(
                 'id' => 'fx-4922',
                 'name' => 'YesScript',
-                'shortDescription' => 'YesScript lets you make a blacklist of sites that aren\'t allowed to run JavaScript.',
+                'shortDescription' => 'YesScript lets you make a blacklist of sites that aren&amp;t allowed to run JavaScript.',
                 'url' => 'https://addons.mozilla.org/firefox/addon/yesscript/'
             ),
         ),
     ),
     'search-tools' => array(
-        'duff',
+        'add-to-search-bar',
+        'finderbar-tweak',
+        'searchload-options-revived',
+        'externals' => array(
+            'context-search-x' => array(
+                'id' => 'fx-337150',
+                'name' => 'Context Search X',
+                'shortDescription' => 'Expands the context menu&amp;s "Search for" item into a list of search engines you can choose from.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/context-search-x/'
+            ),
+            'who-stole-my-pictures' => array(
+                'id' => 'fx-266838',
+                'name' => 'Who stole my pictures?',
+                'shortDescription' => 'Search for copies of images using Yandex.ru, Tineye.com, Google.com and VK.com via the right-click menu.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/who-stole-my-pictures/'
+            ),
+        ),
     ),
     'social-and-communication' => array(
-        'beer',
+        'chatzilla',
+        'foxclocks',
+    ),
+    'tools-and-utilities' => array(
+        'date-picker',
+        'extension-preferences-menu',
+        'guerilla-scripting',
+        'open-about-config',
+        'pm-commander',
+        'print-pages-to-pdf',
+        'pm-promises',
+        'zing-locale-switcher',
+        'externals' => array(
+            'history-submenus-2' => array(
+                'id' => 'fx-337408',
+                'name' => 'History Submenus II',
+                'shortDescription' => 'Add submenus to the History menu for previous days' history.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/history-submenus-2/'
+            ),
+            'remove-it-permanently' => array(
+                'id' => 'default',
+                'name' => 'Remove It Permanently',
+                'shortDescription' => 'Permanently hide content from web pages via the context menu.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/remove-it-permanently/'
+            ),
+            'restart-manager' => array(
+                'id' => 'fx-545420',
+                'name' => 'Restart manager',
+                'shortDescription' => 'Restarts Pale Moon on demand and lets you fine-tune the way normal restart/exit requests are handled.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/restart-manager/'
+            ),
+            'wheelclear' => array(
+                'id' => 'default',
+                'name' => 'WheelClear',
+                'shortDescription' => 'Clear any text field by rolling the mousewheel over it.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/wheelclear/'
+            ),
+        ),
     ),
     'web-development' => array(
-        'fudd',
+        'devtools',
+        'encodr',
+        'externals' => array(
+            'alertip' => array(
+                'id' => 'default',
+                'name' => 'AlertIP',
+                'shortDescription' => 'Show the IP address of the currently loaded web page on demand in an alert prompt.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/alertip/'
+            ),
+            'dom-inspector' => array(
+                'id' => 'default',
+                'name' => 'DOM Inspector',
+                'shortDescription' => 'A tool that can be used to inspect and edit the live DOM of any web document or XUL application',
+                'url' => 'https://addons.mozilla.org/firefox/addon/dom-inspector-6622'
+            ),
+            'element-inspector' => array(
+                'id' => 'default',
+                'name' => 'Element Inspector',
+                'shortDescription' => 'Shift-right-click any element to open it in DOM Inspector.',
+                'url' => '"https://addons.mozilla.org/firefox/addon/element-inspector/'
+            ),
+            'screengrab' => array(
+                'id' => 'fx-355813',
+                'name' => 'Screengrab (fix version)',
+                'shortDescription' => 'Screengrab! saves webpages as images.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/screengrab-fix-version/'
+            ),
         ),
+    ),
     'other' => array(
-        'beer',
+        'space-advance',
+        'externals' => array(
+            'epubreader' => array(
+                'id' => 'fx-45281',
+                'name' => 'EPUBReader',
+                'shortDescription' => 'With EPUBReader you can read ePub files right inside Pale Moon. No additional software needed!',
+                'url' => 'https://addons.mozilla.org/firefox/addon/epubreader/'
+            ),
+            'fire-ie' => array(
+                'id' => 'fx-372869',
+                'name' => 'Fire IE',
+                'shortDescription' => 'Embeds Internet Explorer (IE) in Pale Moon to use the powerful add-ons.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/fire-ie/'
+            ),
+            's3google-translator' => array(
+                'id' => 'fx-285546',
+                'name' => 'S3.Google Translator',
+                'shortDescription' => 'S3.Google Translator adds the power of Google Translate’s automatic translations to your browser! ',
+                'url' => 'https://addons.mozilla.org/firefox/addon/s3google-translator/'
+            ),
+            'tab-groups-helper' => array(
+                'id' => 'fx-473368',
+                'name' => 'Tab Groups Helper',
+                'shortDescription' => 'Provides an alternative interface for the Tab Groups feature. (Requires the Tab Groups add-on!)',
+                'url' => 'https://addons.mozilla.org/firefox/addon/tab-groups-helper/'
+            ),
+            'thumbnail-zoom-plus' => array(
+                'id' => 'fx-337643',
+                'name' => 'Thumbnail Zoom Plus',
+                'shortDescription' => 'Shows the full image when you hover over a thumbnail.',
+                'url' => 'https://addons.mozilla.org/firefox/addon/thumbnail-zoom-plus/'
+            ),
+        ),
     ),
 );
-
-/*
-            'slug' => array(
-                'id' => 'idid',
-                'name' => 'name',
-                'shortDescription' => 'dec',
-                'url' => 'url'
-            ),
-*/
 ?>
