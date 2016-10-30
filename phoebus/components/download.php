@@ -93,7 +93,7 @@ if (array_key_exists($strRequestAddonID, $arrayExtensionsDB)) {
 }
 // Themes
 elseif (array_key_exists($strRequestAddonID, $arrayThemesDB)) {
-    funcDownloadXPI(funcReadManifest('theme', $arrayThemesDB[$strRequestAddonID], 'aus');
+    funcDownloadXPI(funcReadManifest('theme', $arrayThemesDB[$strRequestAddonID], 'aus'));
 }
 // Search Plugins
 elseif (array_key_exists($strRequestAddonID, $arraySearchPluginsDB)) {
