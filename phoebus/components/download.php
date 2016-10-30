@@ -53,6 +53,7 @@ function funcDownloadSearchPlugin($_searchPluginName) {
     
     if (file_exists($_SearchPluginFile)) {
         header('Content-Type: text/xml');
+        header('Content-Disposition: inline; filename="' . $_searchPluginName . '.xml' .'"');
         header('Cache-Control: no-cache');
         
         readfile($_SearchPluginFile);
