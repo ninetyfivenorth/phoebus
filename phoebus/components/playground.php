@@ -27,14 +27,14 @@ if ($strRequestMode == 'manifest') {
     
     var_dump(funcReadManifest('extension', $strRequestSlug, true, true, true, true, true));
 }
-elseif ($strRequestMode == 'extensions') {
-    include_once($arrayModules['dbExtensions']);
+elseif ($strRequestMode == 'cat') {
+    include_once($arrayModules['dbExtCategories']);
     
     header('Content-Type: text/plain');
     
-    foreach ($arrayExtensionsDB as $_key => $_value) {
-        var_dump(funcReadManifest('extension', $_value, true, false, false, false, false));
-    }
+    var_dump($arrayExtCategoriesDB);
+    
+
 
 }
 else {
