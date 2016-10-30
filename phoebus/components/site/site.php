@@ -16,6 +16,8 @@ $arraySections = array(
 
 // == | Main | ================================================================
 
+include_once($arrayModules['readManifest']);
+
 if ($strRequestPath == '/') {
     header('Content-Type: text/plain');
     print('homepage');
@@ -40,7 +42,7 @@ elseif (startsWith($strRequestPath, '/extensions/')) {
         //exit();
         if (array_key_exists($strStrippedPath,$ArrayDBFlip)) {
             header('Content-Type: text/plain');
-            var_dump(funcReadManifest('extension', $arrayExtensionsDB[$strStrippedPath], true, false, false, false, false));
+            var_dump(funcReadManifest('extension', $arrayExtensionsDB[$strStrippedPath], true, true, false, false, false));
         }
         else {
             header("HTTP/1.0 404 Not Found");
