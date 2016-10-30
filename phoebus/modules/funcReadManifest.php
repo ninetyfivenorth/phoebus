@@ -1,7 +1,7 @@
 <?php
 // == | funcReadManifest | ===============================================
 
-function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
+function funcReadManifest($_addonType, $_addonSlug, $_mode) {
     $_addonDirectory = $_addonType . 's/' . $_addonSlug . '/';
     $_addonBasePath = './datastore/' . $_addonDirectory;
     $_addonManifestINIFile = 'manifest.ini';
@@ -10,28 +10,29 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
     
     if ($_useNewManifest == true && file_exists($_addonBasePath . $_addonPhoebusManifestFile)) {
         $_addonManifest = parse_ini_file($_addonBasePath . $_addonPhoebusManifestFile, true);
-        if ($_addonManifest != false) {
+       
+        // INI has depth and identical section name issues so we need to mangle it
+        // Create a temporary array that we can easily manipulate
+        $_addonManifestVersions = $_addonManifest;
+        
+        // Drop the addon and metadata keys off the temporary array
+        unset($_addonManifestVersions['addon']);
+        unset($_addonManifestVersions['metadata']);
+        
+        // mangle filename.xpi sections into a subkey
+        // we are now working on the add-on manifest array
+        foreach ($_addonManifestVersions as $_key => $_value) {
+            unset($_addonManifest[$_key]);
+            $_addonManifest['xpi'][$_key] = $_value;
+        }
+        
+        // clear the temporary array out of memory
+        unset($_addonManifestVersions_);
+
+        if ($_mode == 'site') {
             // shortDescription should be html entity'd
             $_addonManifest['metadata']['shortDescription'] = htmlentities($_addonManifest['metadata']['shortDescription'], ENT_XHTML);
-            
-            // INI has depth and identical section name issues so we need to mangle it
-            // Create a temporary array that we can easily manipulate
-            $_addonManifestVersions = $_addonManifest;
-            
-            // Drop the addon and metadata keys off the temporary array
-            unset($_addonManifestVersions['addon']);
-            unset($_addonManifestVersions['metadata']);
-            
-            // mangle filename.xpi sections into a subkey
-            // we are now working on the add-on manifest array
-            foreach ($_addonManifestVersions as $_key => $_value) {
-                unset($_addonManifest[$_key]);
-                $_addonManifest['xpi'][$_key] = $_value;
-            }
-            
-            // clear the temporary array out of memory
-            unset($_addonManifestVersions_);
-            
+
             // Deal with phoebus.content
             include_once($GLOBALS['arrayModules']['processContent']);
             $_addonPhoebusContent = funcProcessContent($_addonBasePath . $_addonPhoebusContentFile);
@@ -45,6 +46,9 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                 $_addonManifest['metadata']['longDescription'] = $_addonManifest['metadata']['shortDescription'];
             }
             
+            $_arrayUnsetKeys = null;
+        }
+        elseif ($_mode == 'aus') {
             // Generate a sha256 hash on the fly for the add-on
             if (file_exists($_addonBasePath . $_addonManifest['addon']['release'])) {    
                 $_addonManifest['addon']['hash'] = hash_file('sha256', $_addonBasePath . $_addonManifest['addon']['release']);
@@ -53,18 +57,39 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                 funcError('Could not find ' . $_addonManifest["xpi"]);
             }
             
-            // assign the baseURL and basePath to the add-on manifest array
-            $_addonManifest['addon']["baseURL"] = 'https://dev.addons.palemoon.org/datastore/' . $_addonDirectory;
-            $_addonManifest['addon']['basePath'] = $_addonBasePath;
+            // assign the baseURL and basePath to the add-on manifest array           
+            if ($_SERVER["HTTP_X_FORWARDED_HOST"] = 'dev.addons.palemoon.org') {
+                $_addonManifest["baseURL"] = 'http://dev.addons.palemoon.org/datastore/' . $_addonDirectory;
+            }
+            else {
+                $_addonManifest["baseURL"] = 'https://addons.palemoon.org/phoebus/datastore/' . $_addonDirectory;
+            }
             
-            // We are using the new manifest
-            $_addonManifest['isNewManifest'] = true;
-            return $_addonManifest;
+            $_arrayUnsetKeys = array('meta');
+        }
+        elseif ($_mode = 'download') {
+            $_addonManifest['addon']['basePath'] = $_addonBasePath;
+            $_arrayUnsetKeys = array('meta');
         }
         else {
-            funcError('Unable to read manifest file');
+            funcError('Invalid mode');
         }
+
+        // Remove parts of the array the caller doesn't need
+        if ($_arrayUnsetKeys != null) {
+            foreach ($_arrayUnsetKeys as $_value) {
+                unset($_addonManifest[$_value]);
+            }
+        }
+        
+        return $_addonManifest;
     }
+    else {
+        funcError('Unable to read manifest file');
+    }
+
+        
+        ///old
     elseif ($_useNewManifest == false && file_exists($_addonBasePath . $_addonManifestINIFile)) {
         $_addonManifest = parse_ini_file($_addonBasePath . $_addonManifestINIFile);
         if ($_addonManifest != false) {
@@ -82,14 +107,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
                         funcError('Could not find ' . $_addonManifest["xpi"]);
                     }
                     
-                    switch($_SERVER["HTTP_X_FORWARDED_HOST"]) {
-                        case 'dev.addons.palemoon.org':
-                            $_addonManifest["baseurl"] = 'http://dev.addons.palemoon.org/datastore/' . $_addonDirectory;
-                            break;
-                        default:
-                            $_addonManifest["baseurl"] = 'https://addons.palemoon.org/phoebus/datastore/' . $_addonDirectory;
-                            break;
-                    }
+
                     break;
                 case 2:
                     $_arrayUnsetKeys = array('id', 'compat', 'minVer', 'maxVer', 'name', 'author', 'description');

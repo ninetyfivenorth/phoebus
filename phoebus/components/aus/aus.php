@@ -90,14 +90,14 @@ unset($arrayIncludes);
 // Search for add-ons in our databases
 // Extensions
 if (array_key_exists($strRequestAddonID, $arrayExtensionsDB)) {
-    funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 1, true));
+    funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 1));
 }
 elseif(array_key_exists($strRequestAddonID, $arrayExtensionsOverrideDB)) {
-    funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsOverrideDB[$strRequestAddonID], 1, true));
+    funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsOverrideDB[$strRequestAddonID], 1));
 }
 // Themes
 elseif (array_key_exists($strRequestAddonID, $arrayThemesDB)) {
-    funcGenerateUpdateXML(funcReadManifest('theme', $arrayThemesDB[$strRequestAddonID], 1, true));
+    funcGenerateUpdateXML(funcReadManifest('theme', $arrayThemesDB[$strRequestAddonID], 1));
 }
 // Language Packs
 elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {
@@ -112,8 +112,7 @@ elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {
                     $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi' => array(
                         'version' => $arrayLangPackDB[$strRequestAddonID]['version'],
                         'minAppVersion' => '26.0.0a1',
-                        'maxAppVersion' => '26.*')),
-        'isNewManifest' => true
+                        'maxAppVersion' => '26.*'))
     );
     
     funcGenerateUpdateXML($arrayLangPack);
