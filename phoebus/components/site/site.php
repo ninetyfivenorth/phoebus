@@ -33,8 +33,10 @@ elseif (startsWith($strRequestPath, '/extensions/')) {
         }
     }
     else {
-        $strStrippedPath = str_replace('/extensions/', '', str_replace('/', '', $strRequestPath));
+        $strStrippedPath = str_replace('/', '', str_replace('/extensions/', '', $strRequestPath));
         $ArrayDBFlip = array_flip($arrayExtensionsDB);
+        var_dump($ArrayDBFlip);
+        
         if (array_key_exists($strStrippedPath,$$ArrayDBFlip)) {
             header('Content-Type: text/plain');
             var_dump(funcReadManifest('extension', $arrayExtensionsDB[$strStrippedPath], true, false, false, false, false));
