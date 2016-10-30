@@ -52,7 +52,7 @@ elseif (startsWith($strRequestPath, '/themes/')) {
     if ($strRequestPath == '/themes/') {
         header('Content-Type: text/plain');
         foreach ($arrayThemesDB as $_key => $_value) {
-            var_dump(funcReadManifest('themes', $_value, true, false, false, false, false));
+            var_dump(funcReadManifest('theme', $_value, true, false, false, false, false));
         }
     }
     else {
@@ -61,7 +61,7 @@ elseif (startsWith($strRequestPath, '/themes/')) {
 
         if (array_key_exists($strStrippedPath,$ArrayDBFlip)) {
             header('Content-Type: text/plain');
-            var_dump(funcReadManifest('themes', $strStrippedPath, true, true, false, false, false));
+            var_dump(funcReadManifest('theme', $strStrippedPath, true, true, false, false, false));
         }
         else {
             header("HTTP/1.0 404 Not Found");
