@@ -83,17 +83,26 @@ elseif ($strRequestMode == 'convert') {
     
     header('Content-Type: text/plain');
     foreach ($arrayExtensionsDB as $_key => $_value) {
-        print('== | ' . $_value . ' | =============' . "\n");
+        print($_value . "\n");
         $arrayOut = funcConvertAddon('extension', $_value);
-        print('phoebus.manifest:' . "\n" . $arrayOut[0] . "\n\n" . 'phoebus.content:' . "\n" . $arrayOut[1] . "\n");
-        print('===================================' . "\n\n");
-
+        
+        $file1 = fopen("./datastore/extensions/" . $_value . "/phoebus.manifest","w");
+        $file2 = fopen("./datastore/extensions/" . $_value . "/phoebus.content","w");
+        fwrite($file1, $arrayOut[0]);
+        fwrite($file2, $arrayOut[1]);
+        fclose($file1);
+        fclose($file2);
     }
     foreach ($arrayThemesDB as $_key => $_value) {
-        print('== | ' . $_value . ' | =============' . "\n");
+        print($_value . "\n");
         $arrayOut = funcConvertAddon('theme', $_value);
-        print('phoebus.manifest:' . "\n" . $arrayOut[0] . "\n\n" . 'phoebus.content:' . "\n" . $arrayOut[1] . "\n");
-        print('===================================' . "\n\n");
+        
+        $file1 = fopen("./datastore/themes/" . $_value . "/phoebus.manifest","w");
+        $file2 = fopen("./datastore/themes/" . $_value . "/phoebus.content","w");
+        fwrite($file1, $arrayOut[0]);
+        fwrite($file2, $arrayOut[1]);
+        fclose($file1);
+        fclose($file2);
     }
 }
 else {
