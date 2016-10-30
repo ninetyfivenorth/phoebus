@@ -5,6 +5,9 @@
 
 $arrayExtCategoriesDB = array(
     'alerts-and-updates' => array(
+        'locale',
+        'locale2',
+        'locale22',
         'externals' => array(
             'flagfox' => array(
                     'id' => 'fx-5791',
@@ -40,28 +43,30 @@ $arrayExtCategoriesDB = array(
         ),
     ),
     'appearance' => array(
-            'locale',
+        'locale',
+        'locale2',
+        'locale22',
     ),
     'download-management' => array(
-            'locale',
+        'locale',
     ),
     'feeds-news-and-blogging' => array(
-            'locale',
+        'locale',
     ),
     'privacy-and-security' => array(
-            'locale',
+        'locale',
     ),
     'search-tools' => array(
-            'locale',
+        'locale',
     ),
     'social-and-communication' => array(
-            'locale',
+        'locale',
     ),
     'web-development' => array(
-            'locale',
+        'locale',
         ),
     'other' => array(
-            'locale',
+        'locale',
     ),
 );
 ?>
