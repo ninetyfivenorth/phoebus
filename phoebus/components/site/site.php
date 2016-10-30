@@ -16,7 +16,7 @@ $arraySections = array(
 
 // == | Main | ================================================================
 
-if (startsWith($strRequestPath, '/') ) {
+if ($strRequestPath == '/') ) {
     header('Content-Type: text/plain');
     print('homepage');
 }
