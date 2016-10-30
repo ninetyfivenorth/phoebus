@@ -71,7 +71,7 @@ elseif (startsWith($strRequestPath, '/themes/')) {
 elseif (startsWith($strRequestPath, '/searchplugins/')) {
     include_once($arrayModules['dbSearchPlugins']);
     header('Content-Type: text/plain');
-    $arraySearchPluginsDB = array_flip(asort($arraySearchPluginsDB));
+    asort($arraySearchPluginsDB);
     var_dump($arraySearchPluginsDB);
 }
 else {
