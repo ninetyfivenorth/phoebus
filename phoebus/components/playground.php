@@ -6,6 +6,7 @@
 // == | Vars | ================================================================
 
 $strRequestMode = funcHTTPGetValue('mode');
+$strRequestMode = funcHTTPGetValue('slug');
 
 // ============================================================================
 
@@ -73,37 +74,13 @@ if ($strRequestMode == null) {
     include_once($arrayModules['readManifest']);
 
 if ($strRequestMode == 'manifest') {
+    if ($strRequestSlug == null) {
+        funcError('Slug is null.. Dumbass');
+    }
+
     header('Content-Type: text/plain');
     
-    var_dump(funcReadManifest('extension', 'adblock-latitude', 0, true));
-}
-elseif ($strRequestMode == 'convert') {
-    include_once($arrayModules['dbExtensions']);
-    include_once($arrayModules['dbThemes']);
-    
-    header('Content-Type: text/plain');
-    foreach ($arrayExtensionsDB as $_key => $_value) {
-        print($_value . "\n");
-        $arrayOut = funcConvertAddon('extension', $_value);
-        
-        $file1 = fopen("./datastore/extensions/" . $_value . "/phoebus.manifest","w");
-        $file2 = fopen("./datastore/extensions/" . $_value . "/phoebus.content","w");
-        fwrite($file1, $arrayOut[0]);
-        fwrite($file2, $arrayOut[1]);
-        fclose($file1);
-        fclose($file2);
-    }
-    foreach ($arrayThemesDB as $_key => $_value) {
-        print($_value . "\n");
-        $arrayOut = funcConvertAddon('theme', $_value);
-        
-        $file1 = fopen("./datastore/themes/" . $_value . "/phoebus.manifest","w");
-        $file2 = fopen("./datastore/themes/" . $_value . "/phoebus.content","w");
-        fwrite($file1, $arrayOut[0]);
-        fwrite($file2, $arrayOut[1]);
-        fclose($file1);
-        fclose($file2);
-    }
+    var_dump(funcReadManifest('extension', $strRequestSlug, 0, true));
 }
 else {
     funcError('Invalid Mode');
