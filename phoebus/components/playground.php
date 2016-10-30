@@ -27,6 +27,14 @@ if ($strRequestMode == 'manifest') {
     
     var_dump(funcReadManifest('extension', $strRequestSlug, true, true, true, true));
 }
+elseif ($strRequestMode == 'extensions') {
+    include_once($arrayModules['dbExtensions']);
+    
+    foreach ($arrayExtensionsDB as $_key => $_value) {
+        var_dump(funcReadManifest('extension', $strRequestSlug, true, true, true, true));
+    }
+
+}
 else {
     funcError('Invalid Mode');
 }
