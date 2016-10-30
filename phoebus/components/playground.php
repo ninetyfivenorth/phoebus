@@ -33,7 +33,7 @@ elseif ($strRequestMode == 'extensions') {
     header('Content-Type: text/plain');
     
     foreach ($arrayExtensionsDB as $_key => $_value) {
-        var_dump(funcReadManifest('extension', $_value, false, true, false, false, false));
+        var_dump(funcReadManifest('extension', $_value, true, false, false, false, false));
     }
 
 }
