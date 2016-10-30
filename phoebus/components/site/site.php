@@ -56,7 +56,7 @@ elseif (startsWith($strRequestPath, '/themes/')) {
         }
     }
     else {
-        $strStrippedPath = str_replace('/', '', str_replace('/extensions/', '', $strRequestPath));
+        $strStrippedPath = str_replace('/', '', str_replace('/themes/', '', $strRequestPath));
         $ArrayDBFlip = array_flip($arrayThemesDB);
 
         if (array_key_exists($strStrippedPath,$ArrayDBFlip)) {
