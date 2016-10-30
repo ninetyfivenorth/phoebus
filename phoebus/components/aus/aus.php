@@ -90,14 +90,14 @@ unset($arrayIncludes);
 // Search for add-ons in our databases
 // Extensions
 if (array_key_exists($strRequestAddonID, $arrayExtensionsDB)) {
-    funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 1));
+    funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 'aus'));
 }
 elseif(array_key_exists($strRequestAddonID, $arrayExtensionsOverrideDB)) {
-    funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsOverrideDB[$strRequestAddonID], 1));
+    funcGenerateUpdateXML(funcReadManifest('extension', $arrayExtensionsOverrideDB[$strRequestAddonID], 'aus'));
 }
 // Themes
 elseif (array_key_exists($strRequestAddonID, $arrayThemesDB)) {
-    funcGenerateUpdateXML(funcReadManifest('theme', $arrayThemesDB[$strRequestAddonID], 1));
+    funcGenerateUpdateXML(funcReadManifest('theme', $arrayThemesDB[$strRequestAddonID], 'aus'));
 }
 // Language Packs
 elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {
@@ -124,7 +124,7 @@ elseif (array_key_exists($strRequestAddonID, $arrayExternalsDB)) {
 // Unknown - Send to AMO or to 'bad' update xml
 else {
     if ($boolAMOKillSwitch == false) {
-        $intVcResult = ToolkitVersionComparator::compare($strRequestAppVersion, '27.0.0a1');
+        $intVcResult = ToolkitVersionComparator::compare($strRequestAppVersion, '27.0.0b3');
         $_strFirefoxVersion = $strFirefoxVersion;
         
         if ($intVcResult < 0) {

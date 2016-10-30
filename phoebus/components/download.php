@@ -89,11 +89,11 @@ if (array_key_exists($strRequestAddonID, $arrayPermaXPI)) {
 // Search for add-ons in our databases
 // Extensions
 if (array_key_exists($strRequestAddonID, $arrayExtensionsDB)) {
-    funcDownloadXPI(funcReadManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 2,);
+    funcDownloadXPI(funcReadManifest('extension', $arrayExtensionsDB[$strRequestAddonID], 'aus',);
 }
 // Themes
 elseif (array_key_exists($strRequestAddonID, $arrayThemesDB)) {
-    funcDownloadXPI(funcReadManifest('theme', $arrayThemesDB[$strRequestAddonID], 2);
+    funcDownloadXPI(funcReadManifest('theme', $arrayThemesDB[$strRequestAddonID], 'aus');
 }
 // Search Plugins
 elseif (array_key_exists($strRequestAddonID, $arraySearchPluginsDB)) {
