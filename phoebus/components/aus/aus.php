@@ -49,6 +49,7 @@ function funcGenerateUpdateXML($_addonManifest) {
                 '@ADDON_MAXVERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['maxAppVersion'],
                 '@ADDON_XPI@' => $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['release'],
                 '@ADDON_HASH@' => $_addonManifest['addon']['hash']
+            );
 
             foreach ($_arrayFilterSubstitute as $_key => $_value) {
                 $_strUpdateXMLBody = str_replace($_key, $_value, $_strUpdateXMLBody);
