@@ -48,7 +48,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_addonMetadata, $_addonHash
         }
         else {
             $_arrayUnsetMetadata = array('licence', 'homepageURL', 'supportURL');
-            foreach ($_addonManifest['metadata'] as $_key => $_value) { unset($_addonManifest['metadata'][$_value]; }
+            foreach ($_addonManifest['metadata'] as $_key => $_value) { unset($_addonManifest['metadata'][$_value]); }
         }
 
         // Generate a sha256 hash on the fly for the add-on
