@@ -9,7 +9,7 @@ $arrayIncludes = array(
     $arrayModules['dbExtensions'],
     $arrayModules['dbThemes'],
     $arrayModules['dbLangPacks'],
-    $arrayModules'dbSearchPlugins'],
+    $arrayModules['dbSearchPlugins'],
     $arrayModules['readManifest'],
 );
 
