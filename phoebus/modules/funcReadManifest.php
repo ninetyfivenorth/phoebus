@@ -33,7 +33,7 @@ function funcReadManifest($_addonType, $_addonSlug, $_mode, $_useNewManifest) {
             unset($_addonManifestVersions_);
             
             // Deal with phoebus.content
-            include_once($GLOBALS['arrayModules']['processContent']]);
+            include_once($GLOBALS['arrayModules']['processContent']);
             $_addonPhoebusContent = funcProcessContent($_addonBasePath . $_addonPhoebusContentFile);
             
             if ($_addonPhoebusContent != null) {
