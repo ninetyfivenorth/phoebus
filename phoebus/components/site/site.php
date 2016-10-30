@@ -57,16 +57,21 @@ elseif (startsWith($strRequestPath, '/themes/')) {
     }
     else {
         $strStrippedPath = str_replace('/', '', str_replace('/themes/', '', $strRequestPath));
-        header('Content-Type: text/plain');
-        var_dump(funcReadManifest('theme', $strStrippedPath, true, true, false, false, false));
+        $ArrayDBFlip = array_flip($arrayThemesDB);
+
+        if (array_key_exists($strStrippedPath,$ArrayDBFlip)) {
+            header('Content-Type: text/plain');
+            var_dump(funcReadManifest('theme', $strStrippedPath, true, true, false, false, false));
+        }
+        else {
+            header("HTTP/1.0 404 Not Found");
+        }
     }
 }
 elseif (startsWith($strRequestPath, '/searchplugins/')) {
     include_once($arrayModules['dbSearchPlugins']);
     header('Content-Type: text/plain');
-    foreach ($arraySearchPluginsDB as $_key => $_value) {
-        var_dump($arraySearchPluginsDB);
-    }
+    var_dump($arraySearchPluginsDB);
 }
 else {
     header("HTTP/1.0 404 Not Found");
