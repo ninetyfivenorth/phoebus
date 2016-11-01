@@ -61,9 +61,9 @@ if (startsWith($strRequestPath, '/extensions/') == true ||
 else {
     if (array_key_exists($strRequestPath, $arrayStaticPages)) {
         funcSendHeader('html');
-        print('<html><head><title>Pale Moon - Add-ons - ' . $arrayPages[$strRequestPath]['title'] . '</title></head><body>');
+        print('<html><head><title>Pale Moon - Add-ons - ' . $arrayStaticPages[$strRequestPath]['title'] . '</title></head><body>');
         readfile($strContentBasePath . 'site-menu.xhtml');
-        readfile($arrayPages[$strRequestPath]['content']);
+        readfile($arrayStaticPages[$strRequestPath]['content']);
         print('</body></html>');
         exit();
     }
