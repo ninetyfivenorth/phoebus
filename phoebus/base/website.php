@@ -6,10 +6,8 @@
 // == | Vars | ================================================================
 
 $arraySections = array(
-    'pages' => './phoebus/components/site/pages.php',
-    'extensions' => './phoebus/components/site/extensions.php',
-    'themes' => './phoebus/components/site/themes.php',
-    'searchplugins' => './phoebus/components/site/searchplugins.php'
+    'pages' => './phoebus/base/content/pages.php',
+    'addons' => './phoebus/base/content/addons.php',
 );
 
 // ============================================================================

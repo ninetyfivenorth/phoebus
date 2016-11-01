@@ -12,7 +12,7 @@ ini_set("display_errors", "on");
 // ============================================================================
 
 include_once('./phoebus/modules/common.php');
-include_once('./phoebus/base/phoebus.php');
+include_once('./phoebus/base/controller.php');
 
 // ============================================================================
 ?>

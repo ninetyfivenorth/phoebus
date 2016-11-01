@@ -10,7 +10,7 @@ $strFirefoxID = '{ec8030f7-c20a-464f-9b0e-13a3a9e97384}';
 $strFirefoxVersion = '28.9';
 
 $arrayComponents = array(
-    'site' => './phoebus/components/site/site.php',
+    'site' => './phoebus/base/website.php',
     'aus' => './phoebus/components/aus/aus.php',
     'download' => './phoebus/components/download.php',
     'integration' => './phoebus/components/integration.php',
@@ -48,7 +48,6 @@ elseif ((count($arrayArgsComponent) > 1) || ($strRequestComponent != 'site' && $
     header("HTTP/1.0 404 Not Found");
     exit();
 }
-
 
 // Load component based on strRequestComponent
 if ($strRequestComponent != null) {
