@@ -5,9 +5,28 @@
 
 // == | Vars | ================================================================
 
-$arraySections = array(
-    'pages' => './phoebus/base/content/pages.php',
-    'addons' => './phoebus/base/content/addons.php',
+$strContentBasePath = './phoebus/base/content/';
+$strSkinBasePath = './phoebus/skin/palemoon/';
+
+$arrayAddonPaths = array(
+    '/extensions/',
+    '/themes/',
+    '/search-plugins/'
+);
+
+$arrayStaticPages = array(
+    '/' => array(
+        'title' => 'Your browser, your way!',
+        'content' => $strContentBasePath . 'pages/frontpage.xhtml',
+    ),
+    '/search/' => array(
+        'title' => 'Search',
+        'content' => $strContentBasePath . 'pages/search.xhtml',
+    ),
+    '/incompatible/' => array(
+        'title' => 'Known Incompatible Add-ons',
+        'content' => $strContentBasePath . 'pages/incompatible.xhtml',
+    ),
 );
 
 // ============================================================================
@@ -37,10 +56,20 @@ function funcSendHeader($_value) {
 if (startsWith($strRequestPath, '/extensions/') == true ||
     startsWith($strRequestPath, '/themes/') == true ||
     startsWith($strRequestPath, '/search-plugins/') == true) {
-    include_once($arraySections['addons']);
+    include_once('./phoebus/base/addons.php');
 }
 else {
-    include_once($arraySections['pages']);
+    if (array_key_exists($strRequestPath, $arrayStaticPages)) {
+        funcSendHeader('html');
+        print('<html><head><title>Pale Moon - Add-ons - ' . $arrayPages[$strRequestPath]['title'] . '</title></head><body>');
+        readfile($strContentBasePath . 'site-menu.xhtml');
+        readfile($arrayPages[$strRequestPath]['content']);
+        print('</body></html>');
+        exit();
+    }
+    else {
+        funcSendHeader('404');
+    }
 }
 
 // ============================================================================
