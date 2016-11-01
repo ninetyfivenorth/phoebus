@@ -60,7 +60,7 @@ function funcGeneratePage($_arrayPage) {
         }
         
         if (array_key_exists('subContent', $_arrayPage)) {
-            $_strHTMLPage = str_replace('@SUB_CONTENT@', $_arrayPage['subContent'], $_strHTMLPage);
+            $_strHTMLPage = str_replace('@PAGE_SUBCONTENT@', $_arrayPage['subContent'], $_strHTMLPage);
         }
         
         funcSendHeader('html');
