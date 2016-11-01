@@ -79,7 +79,7 @@ elseif ($strRequestPath == '/search-plugins/') {
         }
         $strSearchPluginsContent = implode($strSearchPluginsContent);
         return $strSearchPluginsContent;
-    )
+    }
     print(funcGenSearchPluginsContent());
 }
 else {
