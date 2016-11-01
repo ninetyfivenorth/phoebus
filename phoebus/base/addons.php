@@ -59,9 +59,23 @@ elseif (startsWith($strRequestPath, '/themes/')) {
 }
 elseif ($strRequestPath == '/search-plugins/') {
     include_once($arrayModules['dbSearchPlugins']);
-    funcSendHeader('text');
+    funcSendHeader('html');
     asort($arraySearchPluginsDB);
-    var_dump($arraySearchPluginsDB);
+    $strSearchPluginsContent = array();
+    $strSearchPluginsContentCatList = file_get_contents($strContentBasePath . 'addons/category-list-search-plugins.xhtml';
+    foreach ($arraySearchPluginsDB as $_key => $_valueKey) {
+        $_strSearchPluginsContentCatList = $strSearchPluginsContentCatList;
+        $_arrayFilterSubstitute = array(
+            '@SEARCH_ID@' => $_valueKey['slug'],
+            '@SEARCH_TITLE@' => $_strPageMenu['title'],
+        );
+        
+        foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
+            $_strHTMLPage = str_replace($_fkey, $_fvalue, $_strSearchPluginsContentCatList);
+        }
+        print($_strSearchPluginsContentCatList);
+    }
+    
 }
 else {
     funcSendHeader('404');
