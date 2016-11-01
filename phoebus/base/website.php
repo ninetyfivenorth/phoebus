@@ -41,8 +41,8 @@ function funcGenerateStaticPage($_arrayPage) {
     $_strHTMLStyle = file_get_contents($_strSkinBasePath . 'style.css');
     $_strPageMenu = file_get_contents($_strSkinBasePath . 'menubar.xhtml');
     
-    if (file_exists($_array['content'])) {
-        $_strHTMLContent = file_get_contents($_array['content']);
+    if (file_exists($_arrayPage['content'])) {
+        $_strHTMLContent = file_get_contents($_arrayPage['content']);
         $_strHTMLPage = $_strHTMLTemplate;
 
         $_arrayFilterSubstitute = array(
@@ -50,7 +50,7 @@ function funcGenerateStaticPage($_arrayPage) {
             '@SITE_MENU@' => $_strPageMenu,
             '@SITE_STYLESHEET@' => $_strHTMLStyle,
             '@SITE_NAME@' => 'Pale Moon - Add-ons',
-            '@PAGE_TITLE@' => $_array['title'],
+            '@PAGE_TITLE@' => $_arrayPage['title'],
             '@BASE_PATH@' => substr($_strSkinBasePath, 1),
         );
         
