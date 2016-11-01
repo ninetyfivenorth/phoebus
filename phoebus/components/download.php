@@ -87,7 +87,6 @@ if (endsWith('/', $strRequestAddonID)) {
 
 // Special case for PermaXPI links
 // Override $strRequestAddonID
-if (endsWith('/', $strRequestAddonID) {
 if (array_key_exists($strRequestAddonID, $arrayPermaXPI)) {
     $strRequestAddonID = $arrayPermaXPI[$strRequestAddonID];
 }
