@@ -81,11 +81,17 @@ foreach($arrayIncludes as $_value) {
 }
 unset($arrayIncludes);
 
+if (endsWith('/', $strRequestAddonID) {
+    $strRequestAddonID = rtrim($strRequestAddonID);
+}
+
 // Special case for PermaXPI links
 // Override $strRequestAddonID
+if (endsWith('/', $strRequestAddonID) {
 if (array_key_exists($strRequestAddonID, $arrayPermaXPI)) {
     $strRequestAddonID = $arrayPermaXPI[$strRequestAddonID];
 }
+
 
 // Search for add-ons in our databases
 // Extensions
