@@ -12,10 +12,39 @@ $arraySections = array(
 
 // ============================================================================
 
+// == | funcHeader | ================================================================
+
+function funcSendHeader($_value) {
+    if ($_value == '404') {
+        header("HTTP/1.0 404 Not Found");
+    }
+    elseif ($_value == 'html') {
+        header('Content-Type: text/html');
+    }
+    elseif ($_value == 'text') {
+        header('Content-Type: text/plain');
+    }
+    elseif ($_value == 'xml') {
+        header('Content-Type: text/xml');
+    }
+}
+
+// ============================================================================
+
 // == | Main | ================================================================
 
 include_once($arrayModules['readManifest']);
 
+if (startsWith($strRequestPath, '/extensions/') == true ||
+    startsWith($strRequestPath, '/themes/') == true ||
+    startsWith($strRequestPath, '/searchplugins/') == true) {
+    include_once($arraySections['addons'])
+}
+else {
+    include_once($arraySections['pages']);
+}
+
+/* 
 if ($strRequestPath == '/') {
     header('Content-Type: text/plain');
     print('homepage');
@@ -75,6 +104,7 @@ elseif ($strRequestPath == '/searchplugins/') {
 else {
     header("HTTP/1.0 404 Not Found");
 }
+*/
 
 // ============================================================================
 ?>
