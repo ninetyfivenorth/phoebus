@@ -42,7 +42,7 @@ function funcGeneratePage($_arrayPage) {
     $_strPageMenu = file_get_contents($_strSkinBasePath . 'menubar.xhtml');
     
     if (file_exists($_arrayPage['content']) || is_array($_arrayPage['content'])) {
-        if (!is_array($_arrayPage['content'])$_arrayPage['content']) {
+        if (!is_array($_arrayPage['content'])) {
             $_strHTMLContent = file_get_contents($_arrayPage['content']);
         }
         
