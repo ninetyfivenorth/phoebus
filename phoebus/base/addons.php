@@ -62,7 +62,7 @@ elseif ($strRequestPath == '/search-plugins/') {
     funcSendHeader('html');
     asort($arraySearchPluginsDB);
     $strSearchPluginsContent = array();
-    $strSearchPluginsContentCatList = file_get_contents($strContentBasePath . 'addons/category-list-search-plugins.xhtml';
+    $strSearchPluginsContentCatList = file_get_contents($strContentBasePath . 'addons/category-list-search-plugins.xhtml');
     foreach ($arraySearchPluginsDB as $_key => $_valueKey) {
         $_strSearchPluginsContentCatList = $strSearchPluginsContentCatList;
         $_arrayFilterSubstitute = array(
