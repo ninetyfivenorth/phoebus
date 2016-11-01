@@ -71,7 +71,7 @@ elseif ($strRequestPath == '/search-plugins/') {
         );
         
         foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
-            print( $_value['slug']);
+            print( $_value['name']);
             //$_strHTMLPage = str_replace($_fkey, $_fvalue, $_strSearchPluginsContentCatList);
         }
         //print($_strSearchPluginsContentCatList);
