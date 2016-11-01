@@ -31,6 +31,51 @@ $arrayStaticPages = array(
 
 // ============================================================================
 
+// == | funcGeneratePage | ====================================================
+
+function funcGeneratePage($_mode, $_title, $_content, $_filterSubstitute) {
+    $_strContentBasePath = $GLOBALS['strContentBasePath'];
+    $_strSkinBasePath = $GLOBALS['strSkinBasePath'];
+
+    $_strHTMLTemplate = file_get_contents($_strSkinBasePath . 'template.xhtml');
+    $_strHTMLStyle = file_get_contents($_strSkinBasePath . 'style.css');
+    $_strPageMenu = file_get_contents($_strSkinBasePath . 'menubar.xhtml');
+    
+    if ($_mode == 'addons') {
+    
+    }
+    else {
+        if (file_exists($_content)) {
+            $_strHTMLContent = file_get_contents($_content);
+            $_strHTMLPage = $_strHTMLTemplate;
+
+            $_arrayFilterSubstitute = array(
+                '@PAGE_CONTENT@' => $_strHTMLContent,
+                '@SITE_MENU@' => $_strPageMenu,
+                '@SITE_STYLESHEET@' => $_strHTMLStyle,
+                '@SITE_NAME@' => 'Pale Moon - Add-ons',
+                '@PAGE_TITLE@' => $_title,
+                '@BASE_PATH@' => substr($_strContentBasePath, 1),
+            );
+            
+            foreach ($_arrayFilterSubstitute as $_key => $_value) {
+                $_strHTMLPage = str_replace($_key, $_value, $_strHTMLPage);
+            }
+            
+            funcSendHeader('html');
+            print($_strHTMLPage);
+            
+            // We are done here...
+            exit();
+        }
+        else {
+            funcError('Could not find content file ' . $_content)
+        }
+    }
+}
+
+// ============================================================================
+
 // == | funcSendHeader | ======================================================
 
 function funcSendHeader($_value) {
@@ -60,12 +105,8 @@ if (startsWith($strRequestPath, '/extensions/') == true ||
 }
 else {
     if (array_key_exists($strRequestPath, $arrayStaticPages)) {
-        funcSendHeader('html');
-        print('<html><head><title>Pale Moon - Add-ons - ' . $arrayStaticPages[$strRequestPath]['title'] . '</title></head><body>');
-        readfile($strContentBasePath . 'site-menu.xhtml');
-        readfile($arrayStaticPages[$strRequestPath]['content']);
-        print('</body></html>');
-        exit();
+        funcGeneratePage('static', $arrayStaticPages[$strRequestPath]['title'],
+                 $arrayStaticPages[$strRequestPath]['content'], false);
     }
     else {
         funcSendHeader('404');
