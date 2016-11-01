@@ -13,12 +13,6 @@ $arrayIncludes = array(
     $arrayModules['readManifest'],
 );
 
-$arrayPermaXPI = array(
-    'permaxpi-abl' => '{016acf6d-e5c0-4768-9376-3763d1ad1978}',
-    'permaxpi-ablng' => 'adblocklatitude@addons.palemoon.org',
-    'permaxpi-devtools' => 'devtools@addons.palemoon.org'
-);
-
 $strRequestAddonID = funcHTTPGetValue('id');
 
 // ============================================================================
@@ -80,17 +74,6 @@ foreach($arrayIncludes as $_value) {
     include_once($_value);
 }
 unset($arrayIncludes);
-
-if (endsWith('/', $strRequestAddonID)) {
-    $strRequestAddonID = rtrim($strRequestAddonID, '/');
-}
-
-// Special case for PermaXPI links
-// Override $strRequestAddonID
-if (array_key_exists($strRequestAddonID, $arrayPermaXPI)) {
-    $strRequestAddonID = $arrayPermaXPI[$strRequestAddonID];
-}
-
 
 // Search for add-ons in our databases
 // Extensions
