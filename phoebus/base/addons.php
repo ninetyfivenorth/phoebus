@@ -60,15 +60,14 @@ elseif (startsWith($strRequestPath, '/themes/')) {
 elseif ($strRequestPath == '/search-plugins/') {
     include_once($arrayModules['dbSearchPlugins']);
     funcSendHeader('text');
-    var_dump(array_flip($arraySearchPluginsDB));
-    die();
     asort($arraySearchPluginsDB);
     $strSearchPluginsContent = array();
     $strSearchPluginsContentCatList = file_get_contents($strContentBasePath . 'addons/category-list-search-plugins.xhtml');
     foreach ($arraySearchPluginsDB as $_key => $_value) {
         $_strSearchPluginsContentCatList = $strSearchPluginsContentCatList;
         $_arrayFilterSubstitute = array(
-            '@SEARCH_ID@' => $_value['slug'],
+            '@SEARCH_ID@' => $_key
+            '@SEARCH_SLUG@' => $_value['slug'],
             '@SEARCH_TITLE@' => $_value['name'],
         );
         
