@@ -36,7 +36,7 @@ function funcSendHeader($_value) {
 
 if (startsWith($strRequestPath, '/extensions/') == true ||
     startsWith($strRequestPath, '/themes/') == true ||
-    startsWith($strRequestPath, '/searchplugins/') == true) {
+    startsWith($strRequestPath, '/search-plugins/') == true) {
     include_once($arraySections['addons']);
 }
 else {
