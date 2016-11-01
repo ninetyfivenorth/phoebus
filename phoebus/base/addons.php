@@ -61,24 +61,26 @@ elseif ($strRequestPath == '/search-plugins/') {
     include_once($arrayModules['dbSearchPlugins']);
     funcSendHeader('html');
     asort($arraySearchPluginsDB);
-    $strSearchPluginsContent = array();
-    $strSearchPluginsContentCatList = file_get_contents($strContentBasePath . 'addons/category-list-search-plugins.xhtml');
-    foreach ($arraySearchPluginsDB as $_key => $_value) {
-        $_strSearchPluginsContentCatList = $strSearchPluginsContentCatList;
-        $_arrayFilterSubstitute = array(
-            '@SEARCH_ID@' => $_key,
-            '@SEARCH_SLUG@' => $_value['slug'],
-            '@SEARCH_TITLE@' => $_value['name'],
-        );
-        
-        foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
-            $_strSearchPluginsContentCatList = str_replace($_fkey, $_fvalue, $_strSearchPluginsContentCatList);
+    function funcGenSearchPluginsContent() {
+        $strSearchPluginsContent = array();
+        $strSearchPluginsContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-search-plugins.xhtml');
+        foreach ($GLOBALS['arraySearchPluginsDB'] as $_key => $_value) {
+            $_strSearchPluginsContentCatList = $strSearchPluginsContentCatList;
+            $_arrayFilterSubstitute = array(
+                '@SEARCH_ID@' => $_key,
+                '@SEARCH_SLUG@' => $_value['slug'],
+                '@SEARCH_TITLE@' => $_value['name'],
+            );
+            
+            foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
+                $_strSearchPluginsContentCatList = str_replace($_fkey, $_fvalue, $_strSearchPluginsContentCatList);
+            }
+            array_push($strSearchPluginsContent, $_strSearchPluginsContentCatList);
         }
-        array_push($strSearchPluginsContent, $_strSearchPluginsContentCatList);
-    }
-    
-        print(implode($strSearchPluginsContent));
-    
+            $strSearchPluginsContent = implode($strSearchPluginsContent);
+            return($strSearchPluginsContent);
+    )
+    print(funcGenSearchPluginsContent());
 }
 else {
     funcSendHeader('404');
