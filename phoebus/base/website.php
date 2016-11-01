@@ -74,18 +74,22 @@ function funcGenerateStaticPage($_arrayPage) {
 // == | funcSendHeader | ======================================================
 
 function funcSendHeader($_value) {
-    if ($_value == '404') {
-        header("HTTP/1.0 404 Not Found");
-        exit();
-    }
-    elseif ($_value == 'html') {
-        header('Content-Type: text/html');
-    }
-    elseif ($_value == 'text') {
-        header('Content-Type: text/plain');
-    }
-    elseif ($_value == 'xml') {
-        header('Content-Type: text/xml');
+    $_arrayHeaders = array(
+        '404' => 'HTTP/1.0 404 Not Found',
+        'html' => 'Content-Type: text/html',
+        'text' => 'Content-Type: text/plain',
+        'xml' => 'Content-Type: text/xml',
+        'phoebus' => 'X-Phoebus: https://github.com/Pale-Moon-Addons-Team/phoebus/',
+    );
+    
+    if (array_key_exists($_value, $_arrayHeaders)) {
+        header($_arrayHeaders['phoebus']);
+        header($_arrayHeaders[$_value]);
+        
+        if ($_value == '404') {
+            // We are done here
+            exit();
+        }
     }
 }
 
