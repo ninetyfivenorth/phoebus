@@ -14,8 +14,9 @@ $arrayIncludes = array(
 );
 
 $arrayPermaXPI = array(
-    'abl' => '{016acf6d-e5c0-4768-9376-3763d1ad1978}',
-    'devtools' => 'devtools@addons.palemoon.org'
+    'permaxpi-abl' => '{016acf6d-e5c0-4768-9376-3763d1ad1978}',
+    'permaxpi-ablng' => 'adblocklatitude@addons.palemoon.org',
+    'permaxpi-devtools' => 'devtools@addons.palemoon.org'
 );
 
 $strRequestAddonID = funcHTTPGetValue('id');
