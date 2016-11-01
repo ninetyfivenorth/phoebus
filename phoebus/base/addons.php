@@ -77,7 +77,7 @@ elseif ($strRequestPath == '/search-plugins/') {
         array_push($strSearchPluginsContent, $_strSearchPluginsContentCatList);
     }
     
-    foreach(strSearchPluginsContent as $_contentValue) {
+    foreach($strSearchPluginsContent as $_contentValue) {
         print($_contentValue);
     }
     
