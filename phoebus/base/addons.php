@@ -84,8 +84,10 @@ elseif ($strRequestPath == '/search-plugins/') {
     
     $arrayPage = array(
         'title' => 'Search Plugins',
-        'content' => funcGenSearchPluginsContent(),
+        'content' => $strContentBasePath . 'addons/category-page-search-plugins.xhtml',
+        'subContent' => funcGenSearchPluginsContent(),
     );
+    
     funcGeneratePage($arrayPage);
 }
 else {

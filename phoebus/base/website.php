@@ -41,11 +41,9 @@ function funcGeneratePage($_arrayPage) {
     $_strHTMLStyle = file_get_contents($_strSkinBasePath . 'style.css');
     $_strPageMenu = file_get_contents($_strSkinBasePath . 'menubar.xhtml');
     
-    if (file_exists($_arrayPage['content']) == true || is_array($_arrayPage['content']) == true) {
-        if (!is_array($_arrayPage['content'])) {
-            $_strHTMLContent = file_get_contents($_arrayPage['content']);
-        }
-        
+    if (file_exists($_arrayPage['content']) || is_array($_arrayPage['content'])) {
+        $_strHTMLContent = file_get_contents($_arrayPage['content']);
+
         $_strHTMLPage = $_strHTMLTemplate;
 
         $_arrayFilterSubstitute = array(
@@ -59,6 +57,10 @@ function funcGeneratePage($_arrayPage) {
         
         foreach ($_arrayFilterSubstitute as $_key => $_value) {
             $_strHTMLPage = str_replace($_key, $_value, $_strHTMLPage);
+        }
+        
+        if (array_key_exists('subContent', $_arrayPage) {
+            $_strHTMLPage = str_replace('@SUB_CONTENT@', $_arrayPage['subContent'], $_strHTMLPage);
         }
         
         funcSendHeader('html');
