@@ -55,7 +55,7 @@ function funcGeneratePage($_mode, $_title, $_content, $_filterSubstitute) {
                 '@SITE_STYLESHEET@' => $_strHTMLStyle,
                 '@SITE_NAME@' => 'Pale Moon - Add-ons',
                 '@PAGE_TITLE@' => $_title,
-                '@BASE_PATH@' => substr($_strContentBasePath, 1),
+                '@BASE_PATH@' => substr($_strSkinBasePath, 1),
             );
             
             foreach ($_arrayFilterSubstitute as $_key => $_value) {
