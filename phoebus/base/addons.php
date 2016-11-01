@@ -64,18 +64,16 @@ elseif ($strRequestPath == '/search-plugins/') {
     $strSearchPluginsContent = array();
     $strSearchPluginsContentCatList = file_get_contents($strContentBasePath . 'addons/category-list-search-plugins.xhtml');
     foreach ($arraySearchPluginsDB as $_key => $_value) {
-        foreach($_value as $_key2) {
-            $_strSearchPluginsContentCatList = $strSearchPluginsContentCatList;
-            $_arrayFilterSubstitute = array(
-                '@SEARCH_ID@' => $_key2['slug'],
-                '@SEARCH_TITLE@' => $_value2['name'],
-            );
-            
-            foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
-                $_strHTMLPage = str_replace($_fkey, $_fvalue, $_strSearchPluginsContentCatList);
-            }
-            print($_strSearchPluginsContentCatList);
+        $_strSearchPluginsContentCatList = $strSearchPluginsContentCatList;
+        $_arrayFilterSubstitute = array(
+            '@SEARCH_ID@' => $_value['slug'],
+            '@SEARCH_TITLE@' => $_value['name'],
+        );
+        
+        foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
+            $_strHTMLPage = str_replace($_fkey, $_fvalue, $_strSearchPluginsContentCatList);
         }
+        print($_strSearchPluginsContentCatList);
     }
     
 }
