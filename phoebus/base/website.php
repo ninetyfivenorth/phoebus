@@ -100,7 +100,7 @@ if (startsWith($strRequestPath, '/extensions/') == true ||
 }
 else {
     if (array_key_exists($strRequestPath, $arrayStaticPages)) {
-        funcGenerateStaticPage($arrayStaticPages[strRequestPath]);
+        funcGenerateStaticPage($arrayStaticPages[$strRequestPath]);
     }
     else {
         funcSendHeader('404');
