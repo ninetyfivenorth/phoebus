@@ -15,7 +15,7 @@ $arrayPages = array(
         'title' => 'Search',
         'content' => $strPageBasePath . 'search.xhtml',
     ),
-    '/resources/incompatible/' => array(
+    '/incompatible/' => array(
         'title' => 'Known Incompatible Add-ons',
         'content' => $strPageBasePath . 'incompatible.xhtml',
     ),
