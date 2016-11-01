@@ -33,7 +33,7 @@ $arrayStaticPages = array(
 
 // == | funcGenerateStaticPage | ==============================================
 
-function funcGenerateStaticPage($_arrayPage) {
+function funcGeneratePage($_arrayPage) {
     $_strContentBasePath = $GLOBALS['strContentBasePath'];
     $_strSkinBasePath = $GLOBALS['strSkinBasePath'];
 
@@ -41,8 +41,11 @@ function funcGenerateStaticPage($_arrayPage) {
     $_strHTMLStyle = file_get_contents($_strSkinBasePath . 'style.css');
     $_strPageMenu = file_get_contents($_strSkinBasePath . 'menubar.xhtml');
     
-    if (file_exists($_arrayPage['content'])) {
-        $_strHTMLContent = file_get_contents($_arrayPage['content']);
+    if (file_exists($_arrayPage['content']) || is_array($_arrayPage['content'])) {
+        if (!is_array($_arrayPage['content'])$_arrayPage['content']) {
+            $_strHTMLContent = file_get_contents($_arrayPage['content']);
+        }
+        
         $_strHTMLPage = $_strHTMLTemplate;
 
         $_arrayFilterSubstitute = array(
@@ -65,7 +68,7 @@ function funcGenerateStaticPage($_arrayPage) {
         exit();
     }
     else {
-        funcError('Could not find static content file ' . $_content);
+        funcError('Could not read content ' . $_arrayPage['content']);
     }
 }
 
@@ -104,7 +107,7 @@ if (startsWith($strRequestPath, '/extensions/') == true ||
 }
 else {
     if (array_key_exists($strRequestPath, $arrayStaticPages)) {
-        funcGenerateStaticPage($arrayStaticPages[$strRequestPath]);
+        funcGeneratePage($arrayStaticPages[$strRequestPath]);
     }
     else {
         funcSendHeader('404');

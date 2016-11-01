@@ -61,6 +61,7 @@ elseif ($strRequestPath == '/search-plugins/') {
     include_once($arrayModules['dbSearchPlugins']);
     funcSendHeader('html');
     asort($arraySearchPluginsDB);
+    
     function funcGenSearchPluginsContent() {
         $strSearchPluginsContent = array();
         $strSearchPluginsContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-search-plugins.xhtml');
@@ -80,7 +81,12 @@ elseif ($strRequestPath == '/search-plugins/') {
         $strSearchPluginsContent = implode($strSearchPluginsContent);
         return $strSearchPluginsContent;
     }
-    print(funcGenSearchPluginsContent());
+    
+    $arrayPage = array(
+        'title' => 'Search Plugins',
+        'content' => funcGenSearchPluginsContent(),
+    )
+    funcGeneratePage($arrayPage);
 }
 else {
     funcSendHeader('404');
