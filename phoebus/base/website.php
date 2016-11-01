@@ -31,9 +31,9 @@ $arrayStaticPages = array(
 
 // ============================================================================
 
-// == | funcGeneratePage | ====================================================
+// == | funcGenerateStaticPage | ==============================================
 
-function funcGeneratePage($_mode, $_title, $_content, $_filterSubstitute) {
+function funcGenerateStaticPage($_arrayPage) {
     $_strContentBasePath = $GLOBALS['strContentBasePath'];
     $_strSkinBasePath = $GLOBALS['strSkinBasePath'];
 
@@ -41,36 +41,31 @@ function funcGeneratePage($_mode, $_title, $_content, $_filterSubstitute) {
     $_strHTMLStyle = file_get_contents($_strSkinBasePath . 'style.css');
     $_strPageMenu = file_get_contents($_strSkinBasePath . 'menubar.xhtml');
     
-    if ($_mode == 'addons') {
-    
+    if (file_exists($_array['content'])) {
+        $_strHTMLContent = file_get_contents($_array['content']);
+        $_strHTMLPage = $_strHTMLTemplate;
+
+        $_arrayFilterSubstitute = array(
+            '@PAGE_CONTENT@' => $_strHTMLContent,
+            '@SITE_MENU@' => $_strPageMenu,
+            '@SITE_STYLESHEET@' => $_strHTMLStyle,
+            '@SITE_NAME@' => 'Pale Moon - Add-ons',
+            '@PAGE_TITLE@' => $_array['title'],
+            '@BASE_PATH@' => substr($_strSkinBasePath, 1),
+        );
+        
+        foreach ($_arrayFilterSubstitute as $_key => $_value) {
+            $_strHTMLPage = str_replace($_key, $_value, $_strHTMLPage);
+        }
+        
+        funcSendHeader('html');
+        print($_strHTMLPage);
+        
+        // We are done here...
+        exit();
     }
     else {
-        if (file_exists($_content)) {
-            $_strHTMLContent = file_get_contents($_content);
-            $_strHTMLPage = $_strHTMLTemplate;
-
-            $_arrayFilterSubstitute = array(
-                '@PAGE_CONTENT@' => $_strHTMLContent,
-                '@SITE_MENU@' => $_strPageMenu,
-                '@SITE_STYLESHEET@' => $_strHTMLStyle,
-                '@SITE_NAME@' => 'Pale Moon - Add-ons',
-                '@PAGE_TITLE@' => $_title,
-                '@BASE_PATH@' => substr($_strSkinBasePath, 1),
-            );
-            
-            foreach ($_arrayFilterSubstitute as $_key => $_value) {
-                $_strHTMLPage = str_replace($_key, $_value, $_strHTMLPage);
-            }
-            
-            funcSendHeader('html');
-            print($_strHTMLPage);
-            
-            // We are done here...
-            exit();
-        }
-        else {
-            funcError('Could not find content file ' . $_content);
-        }
+        funcError('Could not find static content file ' . $_content);
     }
 }
 
@@ -105,8 +100,7 @@ if (startsWith($strRequestPath, '/extensions/') == true ||
 }
 else {
     if (array_key_exists($strRequestPath, $arrayStaticPages)) {
-        funcGeneratePage('static', $arrayStaticPages[$strRequestPath]['title'],
-                 $arrayStaticPages[$strRequestPath]['content'], false);
+        funcGenerateStaticPage($arrayStaticPages[strRequestPath]);
     }
     else {
         funcSendHeader('404');
