@@ -67,7 +67,7 @@ elseif ($strRequestPath == '/search-plugins/') {
         $_strSearchPluginsContentCatList = $strSearchPluginsContentCatList;
         $_arrayFilterSubstitute = array(
             '@SEARCH_ID@' => $_valueKey['slug'],
-            '@SEARCH_TITLE@' => $_strPageMenu['title'],
+            '@SEARCH_TITLE@' => $_valueKey['title'],
         );
         
         foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
