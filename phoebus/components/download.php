@@ -81,7 +81,7 @@ foreach($arrayIncludes as $_value) {
 }
 unset($arrayIncludes);
 
-if (endsWith('/', $strRequestAddonID) {
+if (endsWith('/', $strRequestAddonID)) {
     $strRequestAddonID = rtrim($strRequestAddonID);
 }
 
