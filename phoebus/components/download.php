@@ -86,7 +86,7 @@ elseif (array_key_exists($strRequestAddonID, $arrayThemesDB)) {
 }
 // Search Plugins
 elseif (array_key_exists($strRequestAddonID, $arraySearchPluginsDB)) {
-    funcDownloadSearchPlugin($arraySearchPluginsDB[$strRequestAddonID]);
+    funcDownloadSearchPlugin($arraySearchPluginsDB[$strRequestAddonID]['slug']);
 }
 else {
     funcError('Add-on could not be found in our database');
