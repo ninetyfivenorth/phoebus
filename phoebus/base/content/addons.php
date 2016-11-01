@@ -57,7 +57,7 @@ elseif (startsWith($strRequestPath, '/themes/')) {
         }
     }
 }
-elseif ($strRequestPath == '/searchplugins/') {
+elseif ($strRequestPath == '/search-plugins/') {
     include_once($arrayModules['dbSearchPlugins']);
     funcSendHeader('text');
     asort($arraySearchPluginsDB);
