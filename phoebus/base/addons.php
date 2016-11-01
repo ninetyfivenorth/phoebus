@@ -59,7 +59,7 @@ elseif (startsWith($strRequestPath, '/themes/')) {
 }
 elseif ($strRequestPath == '/search-plugins/') {
     include_once($arrayModules['dbSearchPlugins']);
-    funcSendHeader('html');
+    funcSendHeader('text');
     asort($arraySearchPluginsDB);
     $strSearchPluginsContent = array();
     $strSearchPluginsContentCatList = file_get_contents($strContentBasePath . 'addons/category-list-search-plugins.xhtml');
@@ -71,9 +71,10 @@ elseif ($strRequestPath == '/search-plugins/') {
         );
         
         foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
-            $_strHTMLPage = str_replace($_fkey, $_fvalue, $_strSearchPluginsContentCatList);
+            print( $_value['slug']);
+            //$_strHTMLPage = str_replace($_fkey, $_fvalue, $_strSearchPluginsContentCatList);
         }
-        print($_strSearchPluginsContentCatList);
+        //print($_strSearchPluginsContentCatList);
     }
     
 }
