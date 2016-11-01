@@ -82,7 +82,7 @@ foreach($arrayIncludes as $_value) {
 unset($arrayIncludes);
 
 if (endsWith('/', $strRequestAddonID)) {
-    $strRequestAddonID = rtrim($strRequestAddonID);
+    $strRequestAddonID = rtrim($strRequestAddonID, '/');
 }
 
 // Special case for PermaXPI links
