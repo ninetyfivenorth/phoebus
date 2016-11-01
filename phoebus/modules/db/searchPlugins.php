@@ -124,12 +124,12 @@ $arraySearchPluginsDB = array(
         'name' => 'Urban Dictionary'
     ),
     'search-130' => array(
-        'slug' => 'Webopedia',
-        'name' => 'Google'
+        'slug' => 'webopedia',
+        'name' => 'Webopedia'
     ),
     'search-131' => array(
-        'slug' => 'Wiktionary',
-        'name' => 'Google'
+        'slug' => 'wiktionary',
+        'name' => 'Wiktionary'
     ),
     'search-132' => array(
         'slug' => 'yandex',
