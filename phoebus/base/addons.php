@@ -59,7 +59,9 @@ elseif (startsWith($strRequestPath, '/themes/')) {
 }
 elseif ($strRequestPath == '/search-plugins/') {
     include_once($arrayModules['dbSearchPlugins']);
-    funcSendHeader('html');
+    funcSendHeader('text');
+    var_dump(array_flip($arraySearchPluginsDB));
+    die();
     asort($arraySearchPluginsDB);
     $strSearchPluginsContent = array();
     $strSearchPluginsContentCatList = file_get_contents($strContentBasePath . 'addons/category-list-search-plugins.xhtml');
