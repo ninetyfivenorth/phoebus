@@ -38,7 +38,7 @@ include_once($arrayModules['readManifest']);
 if (startsWith($strRequestPath, '/extensions/') == true ||
     startsWith($strRequestPath, '/themes/') == true ||
     startsWith($strRequestPath, '/searchplugins/') == true) {
-    include_once($arraySections['addons'])
+    include_once($arraySections['addons']);
 }
 else {
     include_once($arraySections['pages']);
