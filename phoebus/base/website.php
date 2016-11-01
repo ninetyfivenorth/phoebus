@@ -69,7 +69,7 @@ function funcGeneratePage($_mode, $_title, $_content, $_filterSubstitute) {
             exit();
         }
         else {
-            funcError('Could not find content file ' . $_content)
+            funcError('Could not find content file ' . $_content);
         }
     }
 }
