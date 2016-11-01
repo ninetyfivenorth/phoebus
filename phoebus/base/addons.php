@@ -77,8 +77,8 @@ elseif ($strRequestPath == '/search-plugins/') {
             }
             array_push($strSearchPluginsContent, $_strSearchPluginsContentCatList);
         }
-            $strSearchPluginsContent = implode($strSearchPluginsContent);
-            return($strSearchPluginsContent);
+        $strSearchPluginsContent = implode($strSearchPluginsContent);
+        return $strSearchPluginsContent;
     )
     print(funcGenSearchPluginsContent());
 }
