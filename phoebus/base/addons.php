@@ -82,7 +82,7 @@ if (startsWith($strRequestPath, '/extensions/')) {
             var_dump(funcReadManifest('extension', $strStrippedPath, true, true, false, false, false));
         }
         else {
-            header("HTTP/1.0 404 Not Found");
+            funcSendHeader('404');
         }
     }
 }
@@ -107,7 +107,7 @@ elseif (startsWith($strRequestPath, '/themes/')) {
             var_dump(funcReadManifest('theme', $strStrippedPath, true, true, false, false, false));
         }
         else {
-            header("HTTP/1.0 404 Not Found");
+            funcSendHeader('404');
         }
     }
 }
