@@ -18,6 +18,7 @@ function funcGenThemesCategoryContent() {
         $_arrayFilterSubstitute = array(
             '@THEME_SLUG@' => $_arrayThemeMetadata['metadata']['slug'],
             '@THEME_NAME@' => $_arrayThemeMetadata['metadata']['name'],
+            '@THEME_AUTHOR@' => $_arrayThemeMetadata['metadata']['author'],
             '@THEME_SHORTDESCRIPTION@' => $_arrayThemeMetadata['metadata']['shortDescription'],
         );
         
