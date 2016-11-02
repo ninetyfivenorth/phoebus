@@ -17,15 +17,15 @@ $arrayAddonPaths = array(
 $arrayStaticPages = array(
     '/' => array(
         'title' => 'Your browser, your way!',
-        'content' => $strContentBasePath . 'pages/frontpage.xhtml',
+        'contentFile' => $strContentBasePath . 'pages/frontpage.xhtml',
     ),
     '/search/' => array(
         'title' => 'Search',
-        'content' => $strContentBasePath . 'pages/search.xhtml',
+        'contentFile' => $strContentBasePath . 'pages/search.xhtml',
     ),
     '/incompatible/' => array(
         'title' => 'Known Incompatible Add-ons',
-        'content' => $strContentBasePath . 'pages/incompatible.xhtml',
+        'contentFile' => $strContentBasePath . 'pages/incompatible.xhtml',
     ),
 );
 
@@ -41,37 +41,40 @@ function funcGeneratePage($_arrayPage) {
     $_strHTMLStyle = file_get_contents($_strSkinBasePath . 'style.css');
     $_strPageMenu = file_get_contents($_strSkinBasePath . 'menubar.xhtml');
     
-    if (file_exists($_arrayPage['content']) || is_array($_arrayPage['content'])) {
+    if (array_key_exists('contentFile', $_arrayPage) && file_exists($_arrayPage['contentFile'])) {
+        $_strHTMLContent = file_get_contents($_arrayPage['contentFile']);
+    }
+    elseif (array_key_exists('content', $_arrayPage) {
         $_strHTMLContent = file_get_contents($_arrayPage['content']);
-
-        $_strHTMLPage = $_strHTMLTemplate;
-
-        $_arrayFilterSubstitute = array(
-            '@PAGE_CONTENT@' => $_strHTMLContent,
-            '@SITE_MENU@' => $_strPageMenu,
-            '@SITE_STYLESHEET@' => $_strHTMLStyle,
-            '@SITE_NAME@' => 'Pale Moon - Add-ons',
-            '@PAGE_TITLE@' => $_arrayPage['title'],
-            '@BASE_PATH@' => substr($_strSkinBasePath, 1),
-        );
-        
-        foreach ($_arrayFilterSubstitute as $_key => $_value) {
-            $_strHTMLPage = str_replace($_key, $_value, $_strHTMLPage);
-        }
-        
-        if (array_key_exists('subContent', $_arrayPage)) {
-            $_strHTMLPage = str_replace('@PAGE_SUBCONTENT@', $_arrayPage['subContent'], $_strHTMLPage);
-        }
-        
-        funcSendHeader('html');
-        print($_strHTMLPage);
-        
-        // We are done here...
-        exit();
     }
     else {
-        funcError('Could not read content ' . $_arrayPage['content']);
+        funcError('Could not properly read content');
     }
+
+    $_strHTMLPage = $_strHTMLTemplate;
+
+    $_arrayFilterSubstitute = array(
+        '@PAGE_CONTENT@' => $_strHTMLContent,
+        '@SITE_MENU@' => $_strPageMenu,
+        '@SITE_STYLESHEET@' => $_strHTMLStyle,
+        '@SITE_NAME@' => 'Pale Moon - Add-ons',
+        '@PAGE_TITLE@' => $_arrayPage['title'],
+        '@BASE_PATH@' => substr($_strSkinBasePath, 1),
+    );
+    
+    foreach ($_arrayFilterSubstitute as $_key => $_value) {
+        $_strHTMLPage = str_replace($_key, $_value, $_strHTMLPage);
+    }
+    
+    if (array_key_exists('subContent', $_arrayPage)) {
+        $_strHTMLPage = str_replace('@PAGE_SUBCONTENT@', $_arrayPage['subContent'], $_strHTMLPage);
+    }
+    
+    funcSendHeader('html');
+    print($_strHTMLPage);
+    
+    // We are done here...
+    exit();
 }
 
 // ============================================================================

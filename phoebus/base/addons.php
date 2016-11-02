@@ -3,18 +3,53 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL
 
-// == | Vars | ================================================================
+// == | funcGenAddonContent | =================================================
+
+function funcGenAddonContent($_isTheme, $_arrayAddonMetadata) {
+
+    if ($_isTheme == true) {
+        $strAddonContent = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/single-page-theme.xhtml');
+    }
+    else {
+        $strAddonContent = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/single-page-extension.xhtml');
+    }
+    
+    $_arrayFilterSubstitute = array(
+        '@ADDON_TYPE@' => $_arrayAddonMetadata['addon']['type'],
+        '@ADDON_ID@' => $_arrayAddonMetadata['metadata']['id'],
+        '@ADDON_SLUG@' => $_arrayAddonMetadata['metadata']['slug'],
+        '@ADDON_NAME@' => $_arrayAddonMetadata['metadata']['name'],
+        '@ADDON_AUTHOR@' => $_arrayAddonMetadata['metadata']['author'],
+        '@ADDON_LONGDESCRIPTION@' => $_arrayAddonMetadata['metadata']['shortDescription'],
+        '@ADDON_BASEPATH@' => substr($_arrayAddonMetadata['addon']['basePath'], 1)
+        '@ADDON_XPI_FILE@' => $_arrayAddonMetadata['addon']['release'],
+        '@ADDON_XPI_VERSION@' => $_arrayAddonMetadata['xpi'][$_arrayAddonMetadata['addon']['release']]['version'],
+        '@ADDON_XPI_MINVERSION@' => $_arrayAddonMetadata['xpi'][$_arrayAddonMetadata['addon']['release']]['minVersion'],
+        '@ADDON_XPI_MAXVERSION@' => $_arrayAddonMetadata['xpi'][$_arrayAddonMetadata['addon']['release']]['maxVersion'],
+    );
+    
+    foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
+        $strAddonContent = str_replace($_fkey, $_fvalue, $strAddonContent);
+    }
+    
+    $arrayPage = array(
+        'title' => $_arrayAddonMetadata['metadata']['name'],
+        'content' => $strAddonContent,
+    );
+    
+    return $arrayPage;
+}
 
 // ============================================================================
 
 // == | funcGenThemesCategoryContent | ========================================
 
 function funcGenThemesCategoryContent() {
-    $strSearchPluginsContent = array();
-    $strSearchPluginsContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-themes.xhtml');
+    $strThemeContent = array();
+    $strThemeContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-themes.xhtml');
     foreach ($GLOBALS['arrayThemesDB'] as $_key => $_value) {
         $_arrayThemeMetadata = funcReadManifest('theme', $_value, true, false, false, false, false);
-        $_strSearchPluginsContentCatList = $strSearchPluginsContentCatList;
+        $_strThemeContentCatList = $strSearchPluginsContentCatList;
         $_arrayFilterSubstitute = array(
             '@THEME_SLUG@' => $_arrayThemeMetadata['metadata']['slug'],
             '@THEME_NAME@' => $_arrayThemeMetadata['metadata']['name'],
@@ -23,12 +58,14 @@ function funcGenThemesCategoryContent() {
         );
         
         foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
-            $_strSearchPluginsContentCatList = str_replace($_fkey, $_fvalue, $_strSearchPluginsContentCatList);
+            $_strThemeContentCatList = str_replace($_fkey, $_fvalue, $_strThemeContentCatList);
         }
-        array_push($strSearchPluginsContent, $_strSearchPluginsContentCatList);
+        array_push($strThemeContent, $_strThemeContentCatList);
     }
-    $strSearchPluginsContent = implode($strSearchPluginsContent);
-    return $strSearchPluginsContent;
+    $strThemeContent = implode($strThemeContent);
+    
+    
+    return $strThemeContent;
 }
 
 // ============================================================================
@@ -92,7 +129,7 @@ elseif (startsWith($strRequestPath, '/themes/')) {
         asort($arrayThemesDB);
         $arrayPage = array(
             'title' => 'Themes',
-            'content' => $strContentBasePath . 'addons/category-page-themes.xhtml',
+            'contentFile' => $strContentBasePath . 'addons/category-page-themes.xhtml',
             'subContent' => funcGenThemesCategoryContent(),
         );
         
@@ -103,8 +140,7 @@ elseif (startsWith($strRequestPath, '/themes/')) {
         $ArrayDBFlip = array_flip($arrayThemesDB);
 
         if (array_key_exists($strStrippedPath,$ArrayDBFlip)) {
-           funcSendHeader('text');
-            var_dump(funcReadManifest('theme', $strStrippedPath, true, true, false, false, false));
+            funcGeneratePage(funcGenAddonContent(true, funcReadManifest('theme', $strStrippedPath, true, true, false, false, false)));
         }
         else {
             funcSendHeader('404');
@@ -118,7 +154,7 @@ elseif ($strRequestPath == '/search-plugins/') {
    
     $arrayPage = array(
         'title' => 'Search Plugins',
-        'content' => $strContentBasePath . 'addons/category-page-search-plugins.xhtml',
+        'contentFile' => $strContentBasePath . 'addons/category-page-search-plugins.xhtml',
         'subContent' => funcGenSearchPluginsCategoryContent(),
     );
     
