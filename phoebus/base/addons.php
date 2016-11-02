@@ -17,15 +17,15 @@ function funcGenAddonContent($_isTheme, $_arrayAddonMetadata) {
     $_arrayFilterSubstitute = array(
         '@ADDON_TYPE@' => $_arrayAddonMetadata['addon']['type'],
         '@ADDON_ID@' => $_arrayAddonMetadata['addon']['id'],
-        '@ADDON_SLUG@' => $_arrayAddonMetadata['addon']['slug'],
+        '@ADDON_SLUG@' => $_arrayAddonMetadata['metadata']['slug'],
         '@ADDON_NAME@' => $_arrayAddonMetadata['metadata']['name'],
         '@ADDON_AUTHOR@' => $_arrayAddonMetadata['metadata']['author'],
-        '@ADDON_LONGDESCRIPTION@' => $_arrayAddonMetadata['metadata']['shortDescription'],
+        '@ADDON_DESCRIPTION@' => $_arrayAddonMetadata['metadata']['longDescription'],
         '@ADDON_BASEPATH@' => substr($_arrayAddonMetadata['addon']['basePath'], 1),
         '@ADDON_XPI_FILE@' => $_arrayAddonMetadata['addon']['release'],
         '@ADDON_XPI_VERSION@' => $_arrayAddonMetadata['xpi'][$_arrayAddonMetadata['addon']['release']]['version'],
-        '@ADDON_XPI_MINVERSION@' => $_arrayAddonMetadata['xpi'][$_arrayAddonMetadata['addon']['release']]['minVersion'],
-        '@ADDON_XPI_MAXVERSION@' => $_arrayAddonMetadata['xpi'][$_arrayAddonMetadata['addon']['release']]['maxVersion'],
+        '@ADDON_XPI_MINVERSION@' => $_arrayAddonMetadata['xpi'][$_arrayAddonMetadata['addon']['release']]['minAppVersion'],
+        '@ADDON_XPI_MAXVERSION@' => $_arrayAddonMetadata['xpi'][$_arrayAddonMetadata['addon']['release']]['maxAppVersion'],
     );
     
     foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
