@@ -12,7 +12,7 @@
 function funcGenThemesCategoryContent() {
     $strSearchPluginsContent = array();
     $strSearchPluginsContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-themes.xhtml');
-    foreach ($GLOBALS['arraySearchPluginsDB'] as $_key => $_value) {
+    foreach ($GLOBALS['arrayThemesDB'] as $_key => $_value) {
         $_arrayThemeMetadata = funcReadManifest('theme', $_value, true, false, false, false, false);
         $_strSearchPluginsContentCatList = $strSearchPluginsContentCatList;
         $_arrayFilterSubstitute = array(
