@@ -240,7 +240,6 @@ $arrayExtCategoriesDB = array(
         'pm-commander',
         'print-pages-to-pdf',
         'pm-promises',
-        'zing-locale-switcher',
         'externals' => array(
             'history-submenus-2' => array(
                 'id' => 'fx-337408',
@@ -270,7 +269,6 @@ $arrayExtCategoriesDB = array(
     ),
     'web-development' => array(
         'devtools',
-        'encodr',
         'externals' => array(
             'alertip' => array(
                 'id' => 'default',
