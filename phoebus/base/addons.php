@@ -49,7 +49,7 @@ function funcGenThemesCategoryContent() {
     $strThemeContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-themes.xhtml');
     foreach ($GLOBALS['arrayThemesDB'] as $_key => $_value) {
         $_arrayThemeMetadata = funcReadManifest('theme', $_value, true, false, false, false, false);
-        $_strThemeContentCatList = $strSearchPluginsContentCatList;
+        $_strThemeContentCatList = $strThemeContentCatList;
         $_arrayFilterSubstitute = array(
             '@THEME_SLUG@' => $_arrayThemeMetadata['metadata']['slug'],
             '@THEME_NAME@' => $_arrayThemeMetadata['metadata']['name'],
