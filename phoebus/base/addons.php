@@ -7,6 +7,31 @@
 
 // ============================================================================
 
+// == | funcGenThemesContent | =========================================
+
+function funcGenSearchPluginsContent() {
+    $strSearchPluginsContent = array();
+    $strSearchPluginsContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-themes.xhtml');
+    foreach ($GLOBALS['arraySearchPluginsDB'] as $_key => $_value) {
+        $_arrayThemeMetadata = funcReadManifest('theme', $_value, true, false, false, false, false);
+        $_strSearchPluginsContentCatList = $strSearchPluginsContentCatList;
+        $_arrayFilterSubstitute = array(
+            '@THEME_SLUG@' => $_arrayThemeMetadata['metadata']['slug'],
+            '@THEME_NAME@' => $_arrayThemeMetadata['metadata']['name'],
+            '@THEME_SHORTDESCRIPTION@' => $_arrayThemeMetadata['metadata']['shortDescription'],
+        );
+        
+        foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
+            $_strSearchPluginsContentCatList = str_replace($_fkey, $_fvalue, $_strSearchPluginsContentCatList);
+        }
+        array_push($strSearchPluginsContent, $_strSearchPluginsContentCatList);
+    }
+    $strSearchPluginsContent = implode($strSearchPluginsContent);
+    return $strSearchPluginsContent;
+}
+
+// ============================================================================
+
 // == | funcGenSearchPluginsContent | =========================================
 
 function funcGenSearchPluginsContent() {
@@ -63,10 +88,13 @@ if (startsWith($strRequestPath, '/extensions/')) {
 elseif (startsWith($strRequestPath, '/themes/')) {
     include_once($arrayModules['dbThemes']);
     if ($strRequestPath == '/themes/') {
-        funcSendHeader('text');
-        foreach ($arrayThemesDB as $_key => $_value) {
-            var_dump(funcReadManifest('theme', $_value, true, false, false, false, false));
-        }
+        $arrayPage = array(
+            'title' => 'Themes',
+            'content' => $strContentBasePath . 'addons/category-page-themes.xhtml',
+            'subContent' => funcGenSearchPluginsContent(),
+        );
+        
+        funcGeneratePage($arrayPage);
     }
     else {
         $strStrippedPath = str_replace('/', '', str_replace('/themes/', '', $strRequestPath));
