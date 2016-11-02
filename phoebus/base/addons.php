@@ -7,9 +7,9 @@
 
 // ============================================================================
 
-// == | funcGenThemesContent | =========================================
+// == | funcGenThemesCategoryContent | ========================================
 
-function funcGenSearchPluginsContent() {
+function funcGenThemesCategoryContent() {
     $strSearchPluginsContent = array();
     $strSearchPluginsContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-themes.xhtml');
     foreach ($GLOBALS['arraySearchPluginsDB'] as $_key => $_value) {
@@ -32,9 +32,9 @@ function funcGenSearchPluginsContent() {
 
 // ============================================================================
 
-// == | funcGenSearchPluginsContent | =========================================
+// == | funcGenSearchPluginsCategoryContent | =================================
 
-function funcGenSearchPluginsContent() {
+function funcGenSearchPluginsCategoryContent() {
     $strSearchPluginsContent = array();
     $strSearchPluginsContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-search-plugins.xhtml');
     foreach ($GLOBALS['arraySearchPluginsDB'] as $_key => $_value) {
@@ -91,7 +91,7 @@ elseif (startsWith($strRequestPath, '/themes/')) {
         $arrayPage = array(
             'title' => 'Themes',
             'content' => $strContentBasePath . 'addons/category-page-themes.xhtml',
-            'subContent' => funcGenSearchPluginsContent(),
+            'subContent' => funcGenThemesCategoryContent(),
         );
         
         funcGeneratePage($arrayPage);
@@ -117,7 +117,7 @@ elseif ($strRequestPath == '/search-plugins/') {
     $arrayPage = array(
         'title' => 'Search Plugins',
         'content' => $strContentBasePath . 'addons/category-page-search-plugins.xhtml',
-        'subContent' => funcGenSearchPluginsContent(),
+        'subContent' => funcGenSearchPluginsCategoryContent(),
     );
     
     funcGeneratePage($arrayPage);
