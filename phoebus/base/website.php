@@ -44,7 +44,7 @@ function funcGeneratePage($_arrayPage) {
     if (array_key_exists('contentFile', $_arrayPage) && file_exists($_arrayPage['contentFile'])) {
         $_strHTMLContent = file_get_contents($_arrayPage['contentFile']);
     }
-    elseif (array_key_exists('content', $_arrayPage) {
+    elseif (array_key_exists('content', $_arrayPage)) {
         $_strHTMLContent = file_get_contents($_arrayPage['content']);
     }
     else {
