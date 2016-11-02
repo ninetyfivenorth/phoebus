@@ -7,6 +7,30 @@
 
 // ============================================================================
 
+// == | funcGenSearchPluginsContent | =========================================
+
+function funcGenSearchPluginsContent() {
+    $strSearchPluginsContent = array();
+    $strSearchPluginsContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-search-plugins.xhtml');
+    foreach ($GLOBALS['arraySearchPluginsDB'] as $_key => $_value) {
+        $_strSearchPluginsContentCatList = $strSearchPluginsContentCatList;
+        $_arrayFilterSubstitute = array(
+            '@SEARCH_ID@' => $_key,
+            '@SEARCH_SLUG@' => $_value['slug'],
+            '@SEARCH_TITLE@' => $_value['name'],
+        );
+        
+        foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
+            $_strSearchPluginsContentCatList = str_replace($_fkey, $_fvalue, $_strSearchPluginsContentCatList);
+        }
+        array_push($strSearchPluginsContent, $_strSearchPluginsContentCatList);
+    }
+    $strSearchPluginsContent = implode($strSearchPluginsContent);
+    return $strSearchPluginsContent;
+}
+
+// ============================================================================
+
 // == | Main | ================================================================
 
 include_once($arrayModules['readManifest']);
@@ -61,27 +85,7 @@ elseif ($strRequestPath == '/search-plugins/') {
     include_once($arrayModules['dbSearchPlugins']);
     funcSendHeader('html');
     asort($arraySearchPluginsDB);
-    
-    function funcGenSearchPluginsContent() {
-        $strSearchPluginsContent = array();
-        $strSearchPluginsContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-search-plugins.xhtml');
-        foreach ($GLOBALS['arraySearchPluginsDB'] as $_key => $_value) {
-            $_strSearchPluginsContentCatList = $strSearchPluginsContentCatList;
-            $_arrayFilterSubstitute = array(
-                '@SEARCH_ID@' => $_key,
-                '@SEARCH_SLUG@' => $_value['slug'],
-                '@SEARCH_TITLE@' => $_value['name'],
-            );
-            
-            foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
-                $_strSearchPluginsContentCatList = str_replace($_fkey, $_fvalue, $_strSearchPluginsContentCatList);
-            }
-            array_push($strSearchPluginsContent, $_strSearchPluginsContentCatList);
-        }
-        $strSearchPluginsContent = implode($strSearchPluginsContent);
-        return $strSearchPluginsContent;
-    }
-    
+   
     $arrayPage = array(
         'title' => 'Search Plugins',
         'content' => $strContentBasePath . 'addons/category-page-search-plugins.xhtml',
