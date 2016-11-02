@@ -101,14 +101,7 @@ include_once($arrayModules['readManifest']);
 if (startsWith($strRequestPath, '/extensions/')) {
     include_once($arrayModules['dbExtensions']);
     if ($strRequestPath == '/extensions/') {
-        funcSendHeader('text');
-        print('extensions main page');
-    }
-    elseif ($strRequestPath == '/extensions/all/') {
-        funcSendHeader('text');
-        foreach ($arrayExtensionsDB as $_key => $_value) {
-            var_dump(funcReadManifest('extension', $_value, true, false, false, false, false));
-        }
+        funcSendHeader('404');
     }
     else {
         $strStrippedPath = str_replace('/', '', str_replace('/extensions/', '', $strRequestPath));
@@ -116,7 +109,7 @@ if (startsWith($strRequestPath, '/extensions/')) {
 
         if (array_key_exists($strStrippedPath,$ArrayDBFlip)) {
             header('Content-Type: text/plain');
-            var_dump(funcReadManifest('extension', $strStrippedPath, true, true, false, false, false));
+            funcGeneratePage(funcGenAddonContent(false, funcReadManifest('extension', $strStrippedPath, true, true, false, false, false)));
         }
         else {
             funcSendHeader('404');
