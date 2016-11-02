@@ -45,7 +45,7 @@ function funcGeneratePage($_arrayPage) {
         $_strHTMLContent = file_get_contents($_arrayPage['contentFile']);
     }
     elseif (array_key_exists('content', $_arrayPage)) {
-        $_strHTMLContent = file_get_contents($_arrayPage['content']);
+        $_strHTMLContent = $_arrayPage['content'];
     }
     else {
         funcError('Could not properly read content');

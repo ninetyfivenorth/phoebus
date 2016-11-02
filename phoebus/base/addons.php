@@ -16,8 +16,8 @@ function funcGenAddonContent($_isTheme, $_arrayAddonMetadata) {
     
     $_arrayFilterSubstitute = array(
         '@ADDON_TYPE@' => $_arrayAddonMetadata['addon']['type'],
-        '@ADDON_ID@' => $_arrayAddonMetadata['metadata']['id'],
-        '@ADDON_SLUG@' => $_arrayAddonMetadata['metadata']['slug'],
+        '@ADDON_ID@' => $_arrayAddonMetadata['addon']['id'],
+        '@ADDON_SLUG@' => $_arrayAddonMetadata['addon']['slug'],
         '@ADDON_NAME@' => $_arrayAddonMetadata['metadata']['name'],
         '@ADDON_AUTHOR@' => $_arrayAddonMetadata['metadata']['author'],
         '@ADDON_LONGDESCRIPTION@' => $_arrayAddonMetadata['metadata']['shortDescription'],
