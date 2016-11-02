@@ -88,6 +88,7 @@ if (startsWith($strRequestPath, '/extensions/')) {
 elseif (startsWith($strRequestPath, '/themes/')) {
     include_once($arrayModules['dbThemes']);
     if ($strRequestPath == '/themes/') {
+        asort($arrayThemesDB);
         $arrayPage = array(
             'title' => 'Themes',
             'content' => $strContentBasePath . 'addons/category-page-themes.xhtml',
