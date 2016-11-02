@@ -21,7 +21,7 @@ function funcGenAddonContent($_isTheme, $_arrayAddonMetadata) {
         '@ADDON_NAME@' => $_arrayAddonMetadata['metadata']['name'],
         '@ADDON_AUTHOR@' => $_arrayAddonMetadata['metadata']['author'],
         '@ADDON_LONGDESCRIPTION@' => $_arrayAddonMetadata['metadata']['shortDescription'],
-        '@ADDON_BASEPATH@' => substr($_arrayAddonMetadata['addon']['basePath'], 1)
+        '@ADDON_BASEPATH@' => substr($_arrayAddonMetadata['addon']['basePath'], 1),
         '@ADDON_XPI_FILE@' => $_arrayAddonMetadata['addon']['release'],
         '@ADDON_XPI_VERSION@' => $_arrayAddonMetadata['xpi'][$_arrayAddonMetadata['addon']['release']]['version'],
         '@ADDON_XPI_MINVERSION@' => $_arrayAddonMetadata['xpi'][$_arrayAddonMetadata['addon']['release']]['minVersion'],
