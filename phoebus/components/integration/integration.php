@@ -50,7 +50,7 @@ if ($strRequestScope == 'internal') {
             '/all/10/' .
             $strRequestOS .
             '/24.9'
-            );
+        );
     }
     elseif ($strRequestReq == 'recommended') {
         funcRedirect(
@@ -60,10 +60,10 @@ if ($strRequestScope == 'internal') {
             'list/featured/all/10/' .
             $strRequestOS .
             '/24.9'
-            );
+        );
     }
     else {
-        funcError('Unknown Internal Request')
+        funcError('Unknown Internal Request');
     }
 }
 elseif ($strRequestScope == 'external') {
@@ -71,7 +71,8 @@ elseif ($strRequestScope == 'external') {
         funcRedirect(
             'https://addons.mozilla.org/firefox/search?q=' .
             $strRequestSearchQuery .
-            '&appver=24.9' );
+            '&appver=24.9'
+        );
     }
     elseif ($strRequestReq == 'recommended') {
         funcRedirect('/');
@@ -86,7 +87,7 @@ elseif ($strRequestScope == 'external') {
         funcRedirect('/extensions/category/web-development/');
     }
     else {
-        funcError('Unknown External Request')
+        funcError('Unknown External Request');
     }
 }
 else {
