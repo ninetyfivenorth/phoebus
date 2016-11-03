@@ -9,31 +9,35 @@ $strPaleMoonID = '{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}';
 $strFirefoxID = '{ec8030f7-c20a-464f-9b0e-13a3a9e97384}';
 $strFirefoxVersion = '28.9';
 
-$arrayComponents = array(
-    'site' => './phoebus/base/website.php',
-    'aus' => './phoebus/components/aus/aus.php',
-    'download' => './phoebus/components/download.php',
-    'integration' => './phoebus/components/integration.php',
-    'discover' => './phoebus/components/discover/discover.php',
-    'playground' => './phoebus/components/playground.php'
-);
-
-$arrayModules = array(
-    'dbExtensions' => './phoebus/modules/db/extensions.php',
-    'dbThemes' => './phoebus/modules/db/themes.php',
-    'dbLangPacks' => './phoebus/modules/db/langPacks.php',
-    'dbSearchPlugins' => './phoebus/modules/db/searchPlugins.php',
-    'dbAUSExternals' => './phoebus/modules/db/ausExternals.php',
-    'dbSiteExternals' => './phoebus/modules/db/siteExternals.php',
-    'dbExtCategories' => './phoebus/modules/db/extCategories.php',
-    'readManifest' => './phoebus/modules/funcReadManifest.php',
-    'processContent' => './phoebus/modules/funcProcessContent.php',
-    'vc' => './phoebus/modules/nsIVersionComparator.php'
-);
-
 $strRequestComponent = funcHTTPGetValue('component');
 $arrayArgsComponent = preg_grep('/^component=(.*)/', explode('&', parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY)));
 $strRequestPath = funcHTTPGetValue('path');
+
+$strApplicationPath = './phoebus/';
+$strComponentsPath = $strApplicationPath . 'components/';
+$strModulesPath = $strApplicationPath . 'modules/';
+
+$arrayComponents = array(
+    'site' => $strApplicationPath . 'base/website.php',
+    'aus' => $strComponentsPath . 'aus/aus.php',
+    'download' => $strComponentsPath . 'download.php',
+    'integration' => $strComponentsPath . 'integration/integration.php',
+    'discover' => $strComponentsPath . 'discover/discover.php',
+    'playground' => $strComponentsPath . 'playground.php'
+);
+
+$arrayModules = array(
+    'dbExtensions' => $strModulesPath . 'db/extensions.php',
+    'dbThemes' => $strModulesPath . 'db/themes.php',
+    'dbLangPacks' => $strModulesPath . 'db/langPacks.php',
+    'dbSearchPlugins' => $strModulesPath . 'db/searchPlugins.php',
+    'dbAUSExternals' => $strModulesPath . 'db/ausExternals.php',
+    'dbSiteExternals' => $strModulesPath . 'db/siteExternals.php',
+    'dbExtCategories' => $strModulesPath . 'db/extCategories.php',
+    'readManifest' => $strModulesPath . 'funcReadManifest.php',
+    'processContent' => $strModulesPath . 'funcProcessContent.php',
+    'vc' => $strModulesPath . 'nsIVersionComparator.php'
+);
 
 // ============================================================================
 
