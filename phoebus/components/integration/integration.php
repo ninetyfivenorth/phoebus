@@ -9,7 +9,7 @@ $strAMOServicesURL = 'https://services.addons.mozilla.org/';
 $strAMOServicesAPIPath = '/firefox/api/1.5/';
 
 // Main Entry Points
-$strRequestScope = funcHTTPGetValue('scope');
+$strRequestType = funcHTTPGetValue('type');
 $strRequestReq = funcHTTPGetValue('request');
 
 // Possible arguments directly passed from the Browser
@@ -23,11 +23,11 @@ $strRequestOS = funcHTTPGetValue('os');
 // == | Main | ================================================================
 
 // Sanity
-if ($strRequestScope == null || $strRequestReq == null) {
-    funcError('Missing minimum arguments (scope or request)');
+if ($strRequestType == null || $strRequestReq == null) {
+    funcError('Missing minimum arguments (type or request)');
 }
 
-if ($strRequestScope == 'internal') {
+if ($strRequestType == 'internal') {
     if ($strRequestReq == 'get') {
         // For the moment we are sending a 'blank' xml response
         funcSendHeader('xml');
@@ -66,7 +66,7 @@ if ($strRequestScope == 'internal') {
         funcError('Unknown Internal Request');
     }
 }
-elseif ($strRequestScope == 'external') {
+elseif ($strRequestType == 'external') {
     if ($strRequestReq == 'search') {
         funcRedirect(
             'https://addons.mozilla.org/firefox/search?q=' .
