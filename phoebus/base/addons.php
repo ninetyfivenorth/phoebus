@@ -46,11 +46,12 @@ function funcGenAddonContent($_isTheme, $_arrayAddonMetadata) {
 
 function funcGenExtensionsCategoryContent($_array) {
     $strExtensionContent = array();
-    $strThemeContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-extensions.xhtml');
+    $strExtensionContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-extensions.xhtml');
+    $strExternalsContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-externals.xhtml');
     foreach ($_array as $_key => $_value) {
         if (is_int($_key)) {
             $_arrayExtensionMetadata = funcReadManifest('extension', $_value, true, false, false, false, false);
-            $_strExtensionContentCatList = $strThemeContentCatList;
+            $_strExtensionContentCatList = $strExtensionContentCatList;
             $_arrayFilterSubstitute = array(
                 '@EXTENSION_SLUG@' => $_arrayExtensionMetadata['metadata']['slug'],
                 '@EXTENSION_NAME@' => $_arrayExtensionMetadata['metadata']['name'],
@@ -64,10 +65,24 @@ function funcGenExtensionsCategoryContent($_array) {
             array_push($strExtensionContent, $_strExtensionContentCatList);
         }
         elseif ($_key == 'externals') {
-            array_push($strExtensionContent, 'externals');
+            foreach($_array['externals'] as $_key2 => $_value2 {
+                $_strExtensionContentCatList = $strExtensionContentCatList;
+                $_arrayFilterSubstitute = array(
+                    '@EXTENSION_ID@' => $_value2['id'],
+                    '@EXTENSION_NAME@' => $_value2['name'],
+                    '@EXTENSION_URL@' => $_value2['url'],
+                    '@EXTENSION_SHORTDESCRIPTION@' => $_value2['shortDescription'],
+                );
+                
+                foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
+                    $_strExtensionContentCatList = str_replace($_fkey, $_fvalue, $_strExtensionContentCatList);
+                }
+                array_push($strExtensionContent, $_strExtensionContentCatList);
+            }
         }
-        
     }
+    
+    asort($strExtensionContent);
     
     $strExtensionContent = implode($strExtensionContent);
     
