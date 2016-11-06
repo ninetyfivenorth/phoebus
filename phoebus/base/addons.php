@@ -68,6 +68,7 @@ function funcGenExtensionsCategoryContent($_array) {
             foreach($_array['externals'] as $_key2 => $_value2) {
                 $_strExtensionContentCatList = $strExternalsContentCatList;
                 $_arrayFilterSubstitute = array(
+                    '@EXTENSION_SLUG@' => $_key2
                     '@EXTENSION_ID@' => $_value2['id'],
                     '@EXTENSION_NAME@' => $_value2['name'],
                     '@EXTENSION_URL@' => $_value2['url'],
