@@ -42,6 +42,46 @@ function funcGenAddonContent($_isTheme, $_arrayAddonMetadata) {
 
 // ============================================================================
 
+// == | funcGenExtensionsCategoryContent | ====================================
+
+function funcGenExtensionsCategoryContent($_array) {
+    $strExtensionContent = array();
+    $strThemeContentCatList = file_get_contents($GLOBALS['strContentBasePath'] . 'addons/category-list-extensions.xhtml');
+    foreach ($_array as $_key => $_value) {
+        if (is_int($_key)) {
+            $_arrayExtensionMetadata = funcReadManifest('extension', $_value, true, false, false, false, false);
+            $_strExtensionContentCatList = $strThemeContentCatList;
+            $_arrayFilterSubstitute = array(
+                '@EXTENSION_SLUG@' => $_arrayExtensionMetadata['metadata']['slug'],
+                '@EXTENSION_NAME@' => $_arrayExtensionMetadata['metadata']['name'],
+                '@EXTENSION_AUTHOR@' => $_arrayExtensionMetadata['metadata']['author'],
+                '@EXTENSION_SHORTDESCRIPTION@' => $_arrayExtensionMetadata['metadata']['shortDescription'],
+            );
+            
+            foreach ($_arrayFilterSubstitute as $_fkey => $_fvalue) {
+                $_strExtensionContentCatList = str_replace($_fkey, $_fvalue, $_strExtensionContentCatList);
+            }
+            array_push($strExtensionContent, $_strExtensionContentCatList);
+        }
+        elseif ($_key == 'externals') {
+            array_push($strExtensionContent, 'externals');
+        }
+        
+    }
+    
+    $strExtensionContent = implode($strExtensionContent);
+    
+    $arrayPage = array(
+        'title' => $_array['title'],
+        'content' => $GLOBALS['strContentBasePath'] . 'addons/category-page-extensions.xhtml',
+        'subContent' => $strExtensionContent
+    );
+    
+    return $arrayPage;
+}
+
+// ============================================================================
+
 // == | funcGenThemesCategoryContent | ========================================
 
 function funcGenThemesCategoryContent() {
@@ -103,12 +143,22 @@ if (startsWith($strRequestPath, '/extensions/')) {
     if ($strRequestPath == '/extensions/') {
         funcSendHeader('404');
     }
+    elseif (startsWith($strRequestPath, '/extensions/category/')) {
+        include_once($arrayModules['dbExtCategories']);
+        $strStrippedPath = str_replace('/', '', str_replace('/extensions/category/', '', $strRequestPath));
+        
+        if (array_key_exists($strStrippedPath,$arrayExtensionCategoriesDB)) {
+            funcGeneratePage(funcGenExtensionsCategoryContent($arrayExtensionCategoriesDB[$strStrippedPath]));
+        }
+        else {
+            funcSendHeader('404');
+        }
+    }
     else {
         $strStrippedPath = str_replace('/', '', str_replace('/extensions/', '', $strRequestPath));
         $ArrayDBFlip = array_flip($arrayExtensionsDB);
 
         if (array_key_exists($strStrippedPath,$ArrayDBFlip)) {
-            header('Content-Type: text/plain');
             funcGeneratePage(funcGenAddonContent(false, funcReadManifest('extension', $strStrippedPath, true, true, false, false, false)));
         }
         else {
