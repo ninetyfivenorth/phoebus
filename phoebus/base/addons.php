@@ -73,7 +73,7 @@ function funcGenExtensionsCategoryContent($_array) {
     
     $arrayPage = array(
         'title' => $_array['title'],
-        'content' => $GLOBALS['strContentBasePath'] . 'addons/category-page-extensions.xhtml',
+        'contentFile' => $GLOBALS['strContentBasePath'] . 'addons/category-page-extensions.xhtml',
         'subContent' => $strExtensionContent
     );
     
