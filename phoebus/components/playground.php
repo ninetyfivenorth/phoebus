@@ -32,7 +32,7 @@ elseif ($strRequestMode == 'cat') {
     
     header('Content-Type: text/plain');
     
-    var_dump($arrayExtCategoriesDB);
+    var_dump($arrayExtensionCategoriesDB);
     
 
 

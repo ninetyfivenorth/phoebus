@@ -4,6 +4,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 $arrayExCat01 = array(
+    'title' => 'Alerts & Updates',
     'externals' => array(
         'flagfox' => array(
             'id' => 'fx-5791',
@@ -39,6 +40,7 @@ $arrayExCat01 = array(
 );
 
 $arrayExCat02 = array(
+    'title' => 'Appearance',
     'addons-manager-fix',
     'aviary-addons-manager',
     'blue-moon-linux',
@@ -109,6 +111,7 @@ $arrayExCat02 = array(
 );
 
 $arrayExCat03 = array(
+    'title' => 'Download Management',
     'base64-encoder',
     'image-toolbox',
     'mozarchiver',
@@ -130,6 +133,7 @@ $arrayExCat03 = array(
 );
 
 $arrayExCat04 = array(
+    'title' => 'Feeds, News, & Blogging',
     'externals' => array(
         'bamboo-feed-reader' => array(
             'id' => 'fx-337410',
@@ -159,6 +163,7 @@ $arrayExCat04 = array(
 );
 
 $arrayExCat05 = array(
+    'title' => 'Privacy & Security',
     'adblock-latitude',
     'change-referer-button',
     'cipherfox',
@@ -214,6 +219,7 @@ $arrayExCat05 = array(
 );
 
 $arrayExCat06 = array(
+    'title' => 'Search Tools',
     'add-to-search-bar',
     'finderbar-tweak',
     'searchload-options-revived',
@@ -234,11 +240,13 @@ $arrayExCat06 = array(
 );
 
 $arrayExCat07 = array(
+    'title' => 'Social & Communication',
     'chatzilla',
     'foxclocks',
 );
 
 $arrayExCat08 = array(
+    'title' => 'Tools & Utilities',
     'date-picker',
     'extension-preferences-menu',
     'guerilla-scripting',
@@ -275,6 +283,7 @@ $arrayExCat08 = array(
 );
 
 $arrayExCat09 => array(
+    'title' => 'Web Development',
     'devtools',
     'externals' => array(
         'alertip' => array(
@@ -305,6 +314,7 @@ $arrayExCat09 => array(
 );
 
 $arrayExCat10 = array(
+    'title' => 'Other',
     'space-advance',
     'externals' => array(
         'epubreader' => array(
