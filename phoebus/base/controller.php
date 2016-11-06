@@ -23,7 +23,6 @@ $arrayComponents = array(
     'download' => $strComponentsPath . 'download.php',
     'integration' => $strComponentsPath . 'integration/integration.php',
     'discover' => $strComponentsPath . 'discover/discover.php',
-    'playground' => $strComponentsPath . 'playground.php'
 );
 
 $arrayModules = array(
