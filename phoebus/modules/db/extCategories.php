@@ -282,7 +282,7 @@ $arrayExCat08 = array(
     ),
 );
 
-$arrayExCat09 => array(
+$arrayExCat09 = array(
     'title' => 'Web Development',
     'devtools',
     'externals' => array(
