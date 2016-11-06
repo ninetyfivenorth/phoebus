@@ -66,7 +66,7 @@ function funcGenExtensionsCategoryContent($_array) {
         }
         elseif ($_key == 'externals') {
             foreach($_array['externals'] as $_key2 => $_value2 {
-                $_strExtensionContentCatList = $strExtensionContentCatList;
+                $_strExtensionContentCatList = $strExternalsContentCatList;
                 $_arrayFilterSubstitute = array(
                     '@EXTENSION_ID@' => $_value2['id'],
                     '@EXTENSION_NAME@' => $_value2['name'],
