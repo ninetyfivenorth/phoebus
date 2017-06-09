@@ -368,6 +368,7 @@ $arrayCategoryList08 = array(
     'toolbarize-menu-button',
     'home-styler',
     'notestruck',
+    'password-backup-tool',
     'externals' => array(
         'history-submenus-2' => array(
             'id' => 'fx-337408',
