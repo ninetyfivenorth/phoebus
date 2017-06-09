@@ -109,6 +109,7 @@ $arrayAddonsDB = array(
     'inforss-reloaded@addons.palemoon.org' => 'inforss-reloaded',
     'eclipsedmoon@addons.eurythrace.perseides' => 'eclipsedmoon',
     'throbberinurlbar@srazzano.com' => 'throbber-in-urlbar',
-    'save-images-me@Off.JustOff' => 'save-images-me'
+    'save-images-me@Off.JustOff' => 'save-images-me',
+    'password-backup-tool@Off.JustOff' => 'password-backup-tool'
 );
 ?>
