@@ -5,7 +5,6 @@
 
 $arrayCategoryList01 = array(
     'title' => 'Alerts & Updates',
-    'expose-noisy-tabs',
     'gnotifier',
     'externals' => array(
         'flagfox' => array(
@@ -52,7 +51,6 @@ $arrayCategoryList02 = array(
     'addons-manager-fix',
     'aviary-addons-manager',
     'blue-moon-linux',
-    'color-my-tabs',
     'compact-moon-options',
     'custom-toolbars-plus',
     'history-menu-button',
@@ -503,6 +501,8 @@ $arrayCategoryList11 = array(
     'send-tab-to-device',
     'tab-mix-plus',
     'treestyletabforpm',
+    'expose-noisy-tabs',
+    'color-my-tabs',
     'externals' => array(
         'speed-start' => array(
             'id' => 'ex-010',
