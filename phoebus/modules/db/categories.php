@@ -6,6 +6,7 @@
 $arrayCategoryList01 = array(
     'title' => 'Alerts & Updates',
     'expose-noisy-tabs',
+    'gnotifier',
     'externals' => array(
         'flagfox' => array(
             'id' => 'fx-5791',
