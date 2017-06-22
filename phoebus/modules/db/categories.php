@@ -178,12 +178,6 @@ $arrayCategoryList04 = array(
             'shortDescription' => 'Feed reader | RSS - ATOM - OPML',
             'url' => 'https://addons.mozilla.org/firefox/addon/bamboo-feed-reader/'
         ),
-        'forecastfox' => array(
-            'id' => 'fx-583250',
-            'name' => 'Forecastfox (fix version)',
-            'shortDescription' => 'Get international weather forecasts.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/forecastfox-fix-version/'
-        ),
         'newsfox' => array(
             'id' => 'fx-629',
             'name' => 'NewsFox',
@@ -369,12 +363,6 @@ $arrayCategoryList08 = array(
     'notestruck',
     'password-backup-tool',
     'externals' => array(
-        'history-submenus-2' => array(
-            'id' => 'fx-337408',
-            'name' => 'History Submenus II',
-            'shortDescription' => 'Add submenus to the History menu for previous days history.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/history-submenus-2/'
-        ),
         'remove-it-permanently' => array(
             'id' => 'default',
             'name' => 'Remove It Permanently',
