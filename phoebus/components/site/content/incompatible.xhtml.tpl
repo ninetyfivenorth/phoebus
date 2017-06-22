@@ -18,7 +18,7 @@
 
 <h3>List of add-ons with known compatibility issues</h3>
 
-<p><strong>Last updated: 2017-06-16</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
+<p><strong>Last updated: 2017-06-22</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
 
 <p><strong>PENDING</strong></p>
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
@@ -31,15 +31,14 @@
                     <li>Emoji Cheatsheet</li>
                     <li>Enjoy Reading</li>
                     <li>Enter Selects</li>
-                    <li>Fastest Search - Browse/Shop Faster!</li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
+                    <li>Fastest Search - Browse/Shop Faster!</li>
                     <li>Flash Killer</li>
                     <li>fx-statistics</li>
-                    <li>Hoxx VPN Proxy</li>
                     <li>HttpFox</li>
                     <li>Keybinder</li>
                 </ul>
@@ -85,16 +84,18 @@
                     <li>Element Hiding Helper for Adblock Plus<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/elemhidehelper/versions/?page=2#version-1.3.2.1-signed" target="_blank">1.3.2</a> in combination with <a href="/addon/adblock-latitude/">Adblock Latitude</a></small></li>
                     <li>Element Inspector<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/element-inspector/versions/?page=1#version-0.0.8.1" target="_blank">0.0.8.1</a></small></li>
                     <li>External Application<br />Buttons 2<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/external-application-button/versions/?page=1#version-0.11.1-signed" target="_blank">0.11.1</a></small></li>
-                    <li>Feedly Notifier<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
+                    <li>Feedly Notifier<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/feedly-notifier/versions/2.11.2" target="_blank">2.11.2</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
+                    <li>FireGestures<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/firegestures/versions/?page=1#version-1.8.7.1-signed" target="_blank">1.8.7.1</a></small></li>
+                    <li>Forecastfox (fix version)<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/forecastfox-fix-version/versions/2.4.8" target="_blank">2.4.8</a></small></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
-                    <li>FireGestures<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/firegestures/versions/?page=1#version-1.8.7.1-signed" target="_blank">1.8.7.1</a></small></li>
                     <li>Google Privacy<br /><small>Use Google search link fix<br />version <a href="https://addons.mozilla.org/firefox/addon/google-search-link-fix/versions/?page=1#version-1.4.9.1-signed" target="_blank">1.4.9.1</a> or <a href="https://addons.mozilla.org/firefox/addon/clean-links/" target="_blank">Clean Links</a></small></li>
                     <li>gTranslate<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/s3google-translator/" target="_blank">S3.Google Translator</a></small></li>
                     <li>Hide Caption Titlebar Plus<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/hide-caption-titlebar-plus-sma/versions/?page=2#version-2.8.7rc" target="_blank">2.8.7rc</a></small></li>
+                    <li>History Submenus II<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/history-submenus-2/versions/3.1.2.1" target="_blank">3.1.2.1</a></small></li>
                     <li>HTitle<br /><small>Use Hide Caption Titlebar Plus version <a href="https://addons.mozilla.org/firefox/addon/hide-caption-titlebar-plus-sma/versions/?page=1#version-2.8.7rc" target="_blank">2.8.7rc</a></small></li>
                     <li>iMacros for Firefox<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/imacros-for-firefox/versions/8.9.7" target="_blank">8.9.7</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>LiveClick<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/liveclick/versions/?page=1#version-1.0.0.1-signed" target="_blank">1.0.0.1</a></small></li>
@@ -211,7 +212,7 @@
                     <li>FindBar Tweak<br /><small>As <a href="/addon/finderbar-tweak/">FinderBar Tweak</a></small></li>
                     <li>Firebug<br /><small>As <a href="/addon/devtools/">Developer Tools</a></small></li>
                     <li>Greasemonkey<br /><small>As <a href="https://github.com/janekptacijarabaci/greasemonkey/releases" target="_blank">Greasemonkey ("Fork" branch)</a></small></li>
-                    <li>HTTPS Everywhere<br /><small>As <a href="/addon/encrypted-web/">Encrypted Web</a></small></li>
+                    <li>HTTPS Everywhere<br /><small>As <a href="/addon/encrypted-web/">Encrypted Web</a> (<strong>NOTE</strong>: This extension has been abandoned and will not work on Pale Moon 27 or above)</small></li>
                     <li>Image Toolbar<br /><small>As <a href="/addon/image-toolbox/">Image Toolbox</a></small></li>
                     <li>Integrated Authentication for Firefox<br /><small>As <a href="/addon/integrated-authentication/">Integrated Authentication for SeaMonkey and Pale Moon</a></small></li>
                     <li>JSView<br /><small>As <a href="/addon/jsview-revive/">JSView Revive</a></small></li>
