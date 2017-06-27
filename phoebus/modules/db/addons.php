@@ -111,6 +111,7 @@ $arrayAddonsDB = array(
     'throbberinurlbar@srazzano.com' => 'throbber-in-urlbar',
     'save-images-me@Off.JustOff' => 'save-images-me',
     'password-backup-tool@Off.JustOff' => 'password-backup-tool',
-    'jid1-OoNOA6XBjznvLQ@jetpack' => 'gnotifier'
+    'jid1-OoNOA6XBjznvLQ@jetpack' => 'gnotifier',
+    'splashed@franklindm' => 'splashed'
 );
 ?>
