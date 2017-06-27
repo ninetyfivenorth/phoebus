@@ -62,6 +62,7 @@ $arrayCategoryList02 = array(
     'advanced-night-mode',
     'theme-shim',
     'throbber-in-urlbar',
+    'splashed',
     'externals' => array(
         'active-stop-button' => array(
             'id' => 'fx-2025',
