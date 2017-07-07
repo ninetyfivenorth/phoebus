@@ -3,6 +3,11 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+$arrayLangPackAppLimits = array(
+    'minAppVersion' => '27.0.0',
+    'maxAppVersion' => '27.3.*'
+);
+
 $arrayLangPackDB = array(
     'langpack-cs@palemoon.org' => array(
         'name' => 'Czech',
