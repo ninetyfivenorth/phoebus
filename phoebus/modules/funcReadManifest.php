@@ -132,9 +132,9 @@ function funcReadManifest($_addonScope, $_addonSlug) {
 
                 // Hack for people using repositories as their homepage
                 if ($_addonManifest['metadata']['repository'] == null && (
-                    strpos($_addonManifest['metadata']['homepageURL'], 'github') > -1 ||
-                    strpos($_addonManifest['metadata']['homepageURL'], 'bitbucket') > -1 ||
-                    strpos($_addonManifest['metadata']['homepageURL'], 'gitlab') > -1)) {
+                    strpos($_addonManifest['metadata']['homepageURL'], 'github.com') > -1 ||
+                    strpos($_addonManifest['metadata']['homepageURL'], 'bitbucket.org') > -1 ||
+                    strpos($_addonManifest['metadata']['homepageURL'], 'gitlab.com') > -1)) {
                     $_addonManifest['metadata']['repository'] = $_addonManifest['metadata']['homepageURL'];
                     $_addonManifest['metadata']['homepageURL'] = null;
                 }

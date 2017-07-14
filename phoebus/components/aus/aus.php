@@ -102,8 +102,8 @@ if ($strRequestAppID == $strPaleMoonID) {
             'xpi' => array(
                         $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi' => array(
                             'version' => $arrayLangPackDB[$strRequestAddonID]['version'],
-                            'minAppVersion' => '27.0.0a1',
-                            'maxAppVersion' => '27.*'))
+                            'minAppVersion' => $arrayLangPackAppLimits['minAppVersion'],
+                            'maxAppVersion' => $arrayLangPackAppLimits['maxAppVersion']))
         );
         
         funcGenerateUpdateXML($arrayLangPack, true);

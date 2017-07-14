@@ -5,7 +5,7 @@
 
 $arrayCategoryList01 = array(
     'title' => 'Alerts & Updates',
-    'expose-noisy-tabs',
+    'gnotifier',
     'externals' => array(
         'flagfox' => array(
             'id' => 'fx-5791',
@@ -51,7 +51,6 @@ $arrayCategoryList02 = array(
     'addons-manager-fix',
     'aviary-addons-manager',
     'blue-moon-linux',
-    'color-my-tabs',
     'compact-moon-options',
     'custom-toolbars-plus',
     'history-menu-button',
@@ -60,10 +59,10 @@ $arrayCategoryList02 = array(
     'stylish-editor-modified',
     'tiny-menu',
     'themetool',
-    'tab-mix-plus',
-    'treestyletabforpm',
     'advanced-night-mode',
     'theme-shim',
+    'throbber-in-urlbar',
+    'splashed',
     'externals' => array(
         'active-stop-button' => array(
             'id' => 'fx-2025',
@@ -119,12 +118,6 @@ $arrayCategoryList02 = array(
             'shortDescription' => 'Adds in-field clear buttons to the URL bar, the Search bar and the Find bar.',
             'url' => 'https://addons.mozilla.org/firefox/addon/xclear/'
         ),
-        'tab-utilities-phoenix' => array(
-            'id' => 'ex-014',
-            'name' => 'Tab Utilities Phoenix',
-            'shortDescription' => 'Open Bookmarks/History/URL/Search in new tabs, and more utilities for tabbed browsing.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/tab-utilities-phoenix/'
-        ),
         'theme-font-size-changer' => array(
             'id' => 'ex-016',
             'name' => 'Theme Font & Size Changer',
@@ -153,6 +146,7 @@ $arrayCategoryList03 = array(
     'mozarchiver',
     'complete-yt-saver',
     'downloads-window',
+    'save-images-me',
     'externals' => array(
         'imagehost-grabber' => array(
             'id' => 'ex-005',
@@ -184,12 +178,6 @@ $arrayCategoryList04 = array(
             'name' => 'Bamboo Feed Reader',
             'shortDescription' => 'Feed reader | RSS - ATOM - OPML',
             'url' => 'https://addons.mozilla.org/firefox/addon/bamboo-feed-reader/'
-        ),
-        'forecastfox' => array(
-            'id' => 'fx-583250',
-            'name' => 'Forecastfox (fix version)',
-            'shortDescription' => 'Get international weather forecasts.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/forecastfox-fix-version/'
         ),
         'newsfox' => array(
             'id' => 'fx-629',
@@ -231,7 +219,7 @@ $arrayCategoryList05 = array(
             'id' => 'fx-317263',
             'name' => 'Clean Links',
             'shortDescription' => 'Converts obfuscated or nested links to genuine clean links.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/clean-links/'
+            'url' => 'https://github.com/diegocr/CleanLinks'
         ),
         'cookiekeeper' => array(
             'id' => 'fx-481410',
@@ -374,13 +362,8 @@ $arrayCategoryList08 = array(
     'toolbarize-menu-button',
     'home-styler',
     'notestruck',
+    'password-backup-tool',
     'externals' => array(
-        'history-submenus-2' => array(
-            'id' => 'fx-337408',
-            'name' => 'History Submenus II',
-            'shortDescription' => 'Add submenus to the History menu for previous days history.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/history-submenus-2/'
-        ),
         'remove-it-permanently' => array(
             'id' => 'default',
             'name' => 'Remove It Permanently',
@@ -445,11 +428,7 @@ $arrayCategoryList10 = array(
     'title' => 'Other',
     'space-advance',
     'moon-pdf-viewer',
-    'add-bookmark-here-2-me',
     'youtube-lazy-load',
-    'send-tab-to-device',
-    'auto-sort-bookmarks',
-    'responsive-bookmarks-toolbar',
     'externals' => array(
         'epubreader' => array(
             'id' => 'fx-45281',
@@ -469,23 +448,11 @@ $arrayCategoryList10 = array(
             'shortDescription' => 'S3.Google Translator adds the power of Google Translate’s automatic translations to your browser! ',
             'url' => 'https://addons.mozilla.org/firefox/addon/s3google-translator/'
         ),
-        'tab-groups-helper' => array(
-            'id' => 'fx-473368',
-            'name' => 'Tab Groups Helper',
-            'shortDescription' => 'Provides an alternative interface for the Tab Groups feature. (Requires the Tab Groups add-on!)',
-            'url' => 'https://addons.mozilla.org/firefox/addon/tab-groups-helper/'
-        ),
         'thumbnail-zoom-plus' => array(
             'id' => 'fx-337643',
             'name' => 'Thumbnail Zoom Plus',
             'shortDescription' => 'Shows the full image when you hover over a thumbnail.',
             'url' => 'https://addons.mozilla.org/firefox/addon/thumbnail-zoom-plus/'
-        ),
-        'speed-start' => array(
-            'id' => 'ex-010',
-            'name' => 'Speed Start',
-            'shortDescription' => 'Speed Dial & Start Page with flexible layout for fast access to sites via visual bookmarks.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/speed-start/'
         ),
         'open-with-google-chrome' => array(
             'id' => 'ex-018',
@@ -514,7 +481,40 @@ $arrayCategoryList10 = array(
     ),
 );
 
-$arrayCategoryList20 = array(
+
+$arrayCategoryList11 = array(
+    'title' => 'Bookmarks & Tabs',
+    'add-bookmark-here-2-me',
+    'auto-sort-bookmarks',
+    'responsive-bookmarks-toolbar',
+    'send-tab-to-device',
+    'tab-mix-plus',
+    'treestyletabforpm',
+    'expose-noisy-tabs',
+    'color-my-tabs',
+    'externals' => array(
+        'speed-start' => array(
+            'id' => 'ex-010',
+            'name' => 'Speed Start',
+            'shortDescription' => 'Speed Dial & Start Page with flexible layout for fast access to sites via visual bookmarks.',
+            'url' => 'https://addons.mozilla.org/firefox/addon/speed-start/'
+        ),
+        'tab-groups-helper' => array(
+            'id' => 'fx-473368',
+            'name' => 'Tab Groups Helper',
+            'shortDescription' => 'Provides an alternative interface for the Tab Groups feature. (Requires the Tab Groups add-on!)',
+            'url' => 'https://addons.mozilla.org/firefox/addon/tab-groups-helper/'
+        ),
+        'tab-utilities-phoenix' => array(
+            'id' => 'ex-014',
+            'name' => 'Tab Utilities Phoenix',
+            'shortDescription' => 'Open Bookmarks/History/URL/Search in new tabs, and more utilities for tabbed browsing.',
+            'url' => 'https://addons.mozilla.org/firefox/addon/tab-utilities-phoenix/'
+        ),
+    ),
+);
+
+$arrayCategoryList50 = array(
     'title' => 'Themes',
     'kempelton-reloaded',
     'white-moon',
@@ -574,6 +574,7 @@ $arrayCategoriesDB = array(
     'tools-and-utilities' => $arrayCategoryList08,
     'web-development' => $arrayCategoryList09,
     'other' => $arrayCategoryList10,
-    'themes' => $arrayCategoryList20
+    'bookmarks-and-tabs' => $arrayCategoryList11,
+    'themes' => $arrayCategoryList50
 );
 ?>

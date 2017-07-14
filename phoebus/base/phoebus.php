@@ -73,7 +73,6 @@ function funcError($_value) {
 // == | Function: funcHTTPGetValue |===========================================
 
 function funcHTTPGetValue($_value) {
-    $_arrayGET = array_unique($_GET);
     if (!isset($_GET[$_value]) || $_GET[$_value] === '' || $_GET[$_value] === null || empty($_GET[$_value])) {
         return null;
     }

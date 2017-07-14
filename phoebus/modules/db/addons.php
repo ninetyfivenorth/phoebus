@@ -107,6 +107,11 @@ $arrayAddonsDB = array(
     'homestyle@lootyhoof-pm' => 'home-styler',
     'notestruck@franklindm' => 'notestruck',
     'inforss-reloaded@addons.palemoon.org' => 'inforss-reloaded',
-    'eclipsedmoon@addons.eurythrace.perseides' => 'eclipsedmoon'
+    'eclipsedmoon@addons.eurythrace.perseides' => 'eclipsedmoon',
+    'throbberinurlbar@srazzano.com' => 'throbber-in-urlbar',
+    'save-images-me@Off.JustOff' => 'save-images-me',
+    'password-backup-tool@Off.JustOff' => 'password-backup-tool',
+    'jid1-OoNOA6XBjznvLQ@jetpack' => 'gnotifier',
+    'splashed@franklindm' => 'splashed'
 );
 ?>
