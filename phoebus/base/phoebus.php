@@ -164,7 +164,7 @@ if ($_SERVER['SERVER_NAME'] == $strPhoebusDevURL) {
         $_strGitBranch = substr($_strGitHead, 16, -1);
         $strPhoebusSiteName = 'Phoebus Development - Version: ' . $strPhoebusVersion . ' - ' .
             'Branch: ' . $_strGitBranch . ' - ' .
-            'Commit: ' . $_strGitSHA1;
+            'Commit: ' . substr($_strGitSHA1, 0, 7);
     }
     else {
         $strPhoebusSiteName = 'Phoebus Development - Version: ' . $strPhoebusVersion;
