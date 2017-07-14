@@ -56,7 +56,7 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
         </RDF:li>
       </RDF:Seq>
     </em:updates>
-  </RDF:Description>'
+  </RDF:Description>';
             
             $_arrayFilterSubstitute = array(
                 '{%ADDON_TYPE)' => $_addonManifest['addon']['type'],
