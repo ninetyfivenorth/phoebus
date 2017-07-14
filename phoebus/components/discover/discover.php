@@ -30,7 +30,7 @@ foreach ($arrayFilterSubstitute as $_key => $_value) {
     $strHTMLTemplate = str_replace($_key, $_value, $strHTMLTemplate);
 }
 
-funcHeader('html');
+funcSendHeader('html');
 print($strHTMLTemplate);
 
 // We are done here...
