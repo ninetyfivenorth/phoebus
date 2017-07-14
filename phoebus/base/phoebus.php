@@ -135,25 +135,20 @@ function funcRedirect($_strURL) {
 // ============================================================================
 
 // == | Functions: startsWith & endsWith |=====================================
-
-function startsWith(strtolower($haystack), strtolower($needle)) {
-    
-    $_length = strlen($needle);
-    $_result = substr($haystack, 0, $_length) === $needle;
-    
-    return $_result;
+function startsWith($haystack, $needle)
+{
+     $length = strlen($needle);
+     return (substr($haystack, 0, $length) === $needle);
 }
 
-function endsWith(strtolower($haystack), strtolower($needle)) {
+function endsWith($haystack, $needle)
+{
     $length = strlen($needle);
-    
     if ($length == 0) {
         return true;
     }
-    
-    $_result = substr($haystack, -$length) === $needle;
 
-    return $_result;
+    return (substr($haystack, -$length) === $needle);
 }
 
 // ============================================================================
