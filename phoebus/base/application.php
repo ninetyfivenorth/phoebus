@@ -3,8 +3,17 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL
 
+// == | application.php | =====================================================
+
+// This file defines the general entry point of the application. It should not
+// contain more than the basic operational logic for defining universal
+// variables, components, and modules as well the default component
+
+// ============================================================================
+
 // == | Vars | ================================================================
 
+// Basic Application defines
 $strPhoebusLiveURL = 'addons.palemoon.org';
 $strPhoebusDevURL = 'dev.addons.palemoon.org';
 $strPhoebusURL = $strPhoebusLiveURL;
@@ -13,6 +22,7 @@ $strPhoebusVersion = '1.6.0a1';
 $strPhoebusDatastore = './datastore/';
 $boolDebugMode = false;
 
+// Known Client GUIDs
 $strPaleMoonID = '{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}';
 $strFossaMailID = '{3550f703-e582-4d05-9a08-453d09bdfdc6}';
 $strFirefoxID = '{ec8030f7-c20a-464f-9b0e-13a3a9e97384}';
@@ -20,21 +30,27 @@ $strThunderbirdID = $strFossaMailID; // {3550f703-e582-4d05-9a08-453d09bdfdc6}
 $strSeaMonkeyID = '{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}';
 $strApplicationID = $strPaleMoonID;
 
+// XXX: Pale Moon only backwards compatiblity with "Independence Era"
 $strMinimumApplicationVersion = '27.0.0';
 $strFirefoxVersion = '27.9';
 $strFirefoxOldVersion = '24.9';
 
+// Pale Moon Language Packs BASE URL
+// XXX: Should move this to the language pack db
 $strLangPackBaseURL = 'http://rm-eu.palemoon.org/langpacks/27.x/';
 
+// $_GET and Path Magic
 $strRequestComponent = funcHTTPGetValue('component');
 $arrayArgsComponent = preg_grep('/^component=(.*)/', explode('&', parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY)));
 $strRequestPath = funcHTTPGetValue('path');
 
+// Define application paths
 $strApplicationPath = $_SERVER['DOCUMENT_ROOT'] . '/phoebus/';
 $strComponentsPath = $strApplicationPath . 'components/';
 $strModulesPath = $strApplicationPath . 'modules/';
 $strGlobalLibPath = $_SERVER['DOCUMENT_ROOT'] . '/lib/';
 
+// Define Components
 $arrayComponents = array(
     'site' => $strComponentsPath . 'site/site.php',
     'aus' => $strComponentsPath . 'aus/aus.php',
@@ -45,116 +61,38 @@ $arrayComponents = array(
     '43893' => $strComponentsPath . 'special/special.php'
 );
 
+// Define Modules
 $arrayModules = array(
-    'dbAddons' => $strModulesPath . 'db/addons.php',
-    'dbLangPacks' => $strModulesPath . 'db/langPacks.php',
-    'dbSearchPlugins' => $strModulesPath . 'db/searchPlugins.php',
-    'dbAUSExternals' => $strModulesPath . 'db/ausExternals.php',
-    'dbCategories' => $strModulesPath . 'db/categories.php',
+    'basicFunctions' => $strModulesPath . 'basicFunctions.php',
     'readManifest' => $strModulesPath . 'funcReadManifest.php',
     'processContent' => $strModulesPath . 'funcProcessContent.php',
     'vc' => $strGlobalLibPath . 'nsIVersionComparator.php',
     'smarty' => $strGlobalLibPath . 'smarty/Smarty.class.php'
 );
 
-// ============================================================================
-
-// == | Function: funcError |==================================================
-
-function funcError($_value) {
-    die('Error: ' . $_value);
-    
-    // We are done here
-    exit();
-}
-
-// ============================================================================
-
-// == | Function: funcHTTPGetValue |===========================================
-
-function funcHTTPGetValue($_value) {
-    if (!isset($_GET[$_value]) || $_GET[$_value] === '' || $_GET[$_value] === null || empty($_GET[$_value])) {
-        return null;
-    }
-    else {    
-        $_finalValue = preg_replace('/[^-a-zA-Z0-9_\-\/\{\}\@\.]/', '', $_GET[$_value]);
-        return $_finalValue;
-    }
-}
-
-// ============================================================================
-
-// == | Function: funcCheckVar | ==============================================
-
-function funcCheckVar($_value) {
-    if ($_value === '' || $_value === 'none' || $_value === null || empty($_value)) {
-        return null;
-    }
-    else {
-        return $_value;
-    }
-}
-
-// ============================================================================
-
-// == | funcSendHeader | ======================================================
-
-function funcSendHeader($_value) {
-    $_arrayHeaders = array(
-        '404' => 'HTTP/1.0 404 Not Found',
-        '501' => 'HTTP/1.0 501 Not Implemented',
-        'html' => 'Content-Type: text/html',
-        'text' => 'Content-Type: text/plain',
-        'xml' => 'Content-Type: text/xml',
-        'css' => 'Content-Type: text/css',
-        'phoebus' => 'X-Phoebus: https://github.com/Pale-Moon-Addons-Team/phoebus/',
-    );
-    
-    if (array_key_exists($_value, $_arrayHeaders)) {
-        header($_arrayHeaders['phoebus']);
-        header($_arrayHeaders[$_value]);
-        
-        if ($_value == '404') {
-            // We are done here
-            exit();
-        }
-    }
-}
-
-// ============================================================================
-
-// == | Function: funcRedirect |===============================================
-
-function funcRedirect($_strURL) {
-	header('Location: ' . $_strURL , true, 302);
-    
-    // We are done here
-    exit();
-}
-
-// ============================================================================
-
-// == | Functions: startsWith & endsWith |=====================================
-function startsWith($haystack, $needle)
-{
-     $length = strlen($needle);
-     return (substr($haystack, 0, $length) === $needle);
-}
-
-function endsWith($haystack, $needle)
-{
-    $length = strlen($needle);
-    if ($length == 0) {
-        return true;
-    }
-
-    return (substr($haystack, -$length) === $needle);
+// Define Database Arrays
+// XXX: These will be merged into arrayModules until they go away with SQL
+$arrayDatabases = array(
+    'dbAddons' => $strModulesPath . 'db/' . 'addons.php',
+    'dbLangPacks' => $strModulesPath . 'db/' . 'langPacks.php',
+    'dbSearchPlugins' => $strModulesPath . 'db/' . 'searchPlugins.php',
+    'dbAUSExternals' => $strModulesPath . 'db/' . 'ausExternals.php',
+    'dbCategories' => $strModulesPath . 'db/' . 'categories.php'
 }
 
 // ============================================================================
 
 // == | Main | ================================================================
 
+// Merge the databases and modules
+$arrayModules = array_merge($arrayModules, $arrayDatabases);
+unset($arrayDatabases);
+
+// Include basic functions
+require_once($arrayModules['basicFunctions');
+
+// Define a Debug/Developer Mode
+// XXX: This should REALLY be a function
 if ($_SERVER['SERVER_NAME'] == $strPhoebusDevURL) {
     $boolDebugMode = true;
     $strPhoebusURL = $strPhoebusDevURL;
