@@ -78,7 +78,7 @@ $arrayDatabases = array(
     'dbSearchPlugins' => $strModulesPath . 'db/' . 'searchPlugins.php',
     'dbAUSExternals' => $strModulesPath . 'db/' . 'ausExternals.php',
     'dbCategories' => $strModulesPath . 'db/' . 'categories.php'
-}
+);
 
 // ============================================================================
 
