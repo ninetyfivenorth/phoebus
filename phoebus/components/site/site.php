@@ -120,7 +120,7 @@ function funcGenCategoryContent($_type, $_array) {
         elseif ($_type == 'language-pack') {
             foreach($_array as $_key3 => $_value3) {
                 $arrayCategory[$_value3['name']] = $_value3;
-                $arrayCategory[$_value3['name']]['url'] = $GLOBALS['strLangPackBaseURL'] . $_value3['locale'] . '.xpi';
+                $arrayCategory[$_value3['name']]['url'] = $GLOBALS['arrayLangPackConstants']['baseURL'] . $_value3['locale'] . '.xpi';
             }
         }
         elseif ($_type == 'search-plugin') {
