@@ -11,13 +11,6 @@
 
 // ============================================================================
 
-// == | Basic Functions | =====================================================
-
-// Include basic functions
-require_once($arrayModules['basicFunctions']);
-
-// ============================================================================
-
 // == | Vars | ================================================================
 
 // Basic Application defines
@@ -87,13 +80,13 @@ $arrayDatabases = array(
     'dbCategories' => $strModulesPath . 'db/' . 'categories.php'
 );
 
-// Merge the databases and modules
-$arrayModules = array_merge($arrayModules, $arrayDatabases);
-unset($arrayDatabases);
-
 // ============================================================================
 
 // == | Main | ================================================================
+
+// Merge the databases and modules
+$arrayModules = array_merge($arrayModules, $arrayDatabases);
+unset($arrayDatabases);
 
 // Define a Debug/Developer Mode
 // XXX: This should REALLY be a function
