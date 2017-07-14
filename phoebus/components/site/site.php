@@ -88,9 +88,10 @@ function funcGenCategoryContent($_type, $_array) {
     foreach ($_array as $_key => $_value) {
         if (($_type == 'extension' || $_type == 'theme') && is_int($_key)) {
             $_arrayAddonMetadata = funcReadManifest('category', $_value);
-            unset($_arrayAddonMetadata['xpi']);
-            $arrayCategory[$_arrayAddonMetadata['metadata']['name']] = $_arrayAddonMetadata;
-            unset($_arrayAddonMetadata);
+            if ($_arrayAddonMetadata != null) {
+                $arrayCategory[$_arrayAddonMetadata['metadata']['name']] = $_arrayAddonMetadata;
+                unset($_arrayAddonMetadata);
+            }
         }
         elseif ($_key == 'externals') {
             foreach($_array['externals'] as $_key2 => $_value2) {

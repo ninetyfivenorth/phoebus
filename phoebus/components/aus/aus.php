@@ -37,21 +37,40 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
     if ($_addonManifest != null) {
             print("\n");
             
-            $_strUpdateXMLBody = file_get_contents('./phoebus/components/aus/content/update-body.xml');
+            $_strUpdateXMLBody = '<RDF:Description about="urn:mozilla:{%ADDON_TYPE}:{%ADDON_ID}">
+    <em:updates>
+      <RDF:Seq>
+        <RDF:li>
+          <RDF:Description>
+            <em:version>{%ADDON_VERSION}</em:version>
+            <em:targetApplication>
+              <RDF:Description>
+                <em:id>{%APPLICATION_ID}</em:id>
+                <em:minVersion>{%ADDON_MINVERSION}</em:minVersion>
+                <em:maxVersion>{%ADDON_MAXVERSION}</em:maxVersion>
+                <em:updateLink>{%ADDON_XPI}</em:updateLink>
+                <em:updateHash>sha256:{%ADDON_HASH}</em:updateHash>
+              </RDF:Description>
+            </em:targetApplication>
+          </RDF:Description>
+        </RDF:li>
+      </RDF:Seq>
+    </em:updates>
+  </RDF:Description>'
             
             $_arrayFilterSubstitute = array(
-                '@ADDON_TYPE@' => $_addonManifest['addon']['type'],
-                '@ADDON_ID@' => $_addonManifest['addon']['id'],
-                '@ADDON_VERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['version'],
-                '@APPLICATION_ID@' => $GLOBALS['strApplicationID'],
-                '@ADDON_MINVERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['minAppVersion'],
-                '@ADDON_MAXVERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['maxAppVersion'],
-                '@ADDON_XPI@' => $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['id'],
-                '@ADDON_HASH@' => $_addonManifest['addon']['hash']
+                '{%ADDON_TYPE)' => $_addonManifest['addon']['type'],
+                '{%ADDON_ID)' => $_addonManifest['addon']['id'],
+                '{%ADDON_VERSION)' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['version'],
+                '{%APPLICATION_ID)' => $GLOBALS['strApplicationID'],
+                '{%ADDON_MINVERSION)' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['minAppVersion'],
+                '{%ADDON_MAXVERSION)' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['maxAppVersion'],
+                '{%ADDON_XPI)' => $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['id'],
+                '{%ADDON_HASH)' => $_addonManifest['addon']['hash']
             );
             
             if ($addonUseFilename == true) {
-                $_arrayFilterSubstitute['@ADDON_XPI@'] = $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['release'];
+                $_arrayFilterSubstitute['{%ADDON_XPI}'] = $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['release'];
             }
             
             foreach ($_arrayFilterSubstitute as $_key => $_value) {
