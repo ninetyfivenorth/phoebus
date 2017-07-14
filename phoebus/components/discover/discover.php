@@ -14,34 +14,27 @@ $arrayPageMetadata = array(
 
 // ============================================================================
 
-// == | funcGenerateDiscover | ================================================
-
-function funcGenerateDiscover($_arrayPage) {
-    $_strHTMLTemplate = file_get_contents($strComponentsPath . 'discover/content/template.xhtml');   
-
-    $_arrayFilterSubstitute = array(
-        '{%PAGE_TITLE}' => $_arrayPage['title'],
-        '{%IMAGE_DISCOVER}' => $_arrayPage['discover'],
-        '{%IMAGE_PALEMOON}' => $_arrayPage['palemoon'],
-        '{%IMAGE_MOZILLA}' => $_arrayPage['mozilla']
-    );
-    
-    foreach ($_arrayFilterSubstitute as $_key => $_value) {
-        $_strHTMLTemplate = str_replace($_key, $_value, $_strHTMLTemplate);
-    }
-    
-    funcHeader('html');
-    print($_strHTMLTemplate);
-    
-    // We are done here...
-    exit();
-}
-
-// ============================================================================
-
 // == | Main | ================================================================
 
-funcGenerateDiscover($arrayPageMetadata);
+$strHTMLTemplate = file_get_contents($strComponentsPath . 'discover/content/template.xhtml') or
+    funcSendHeader('404');   
+
+$arrayFilterSubstitute = array(
+    '{%PAGE_TITLE}' => $arrayPageMetadata['title'],
+    '{%IMAGE_DISCOVER}' => $arrayPageMetadata['discover'],
+    '{%IMAGE_PALEMOON}' => $arrayPageMetadata['palemoon'],
+    '{%IMAGE_MOZILLA}' => $arrayPageMetadata['mozilla']
+);
+
+foreach ($arrayFilterSubstitute as $_key => $_value) {
+    $strHTMLTemplate = str_replace($_key, $_value, $strHTMLTemplate);
+}
+
+funcHeader('html');
+print($strHTMLTemplate);
+
+// We are done here...
+exit();
 
 // ============================================================================
 
