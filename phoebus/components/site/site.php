@@ -182,15 +182,8 @@ function funcGeneratePage($_array) {
     $_strContentTemplate = file_get_contents($_array['contentTemplate']);
 
     // Merge the stylesheet and the content template into the site template
-    $_arrayFilterSubstitute = array(
-        '{%PAGE_CONTENT}' => $_strContentTemplate,
-        '{%SITE_STYLESHEET}' => $_strStyleSheet,
-    );
-
-    foreach ($_arrayFilterSubstitute as $_key => $_value) {
-        $_strSiteTemplate = str_replace($_key, $_value, $_strSiteTemplate);
-    }
-
+    $_strSiteTemplate = str_replace('{%PAGE_CONTENT}', $_strContentTemplate, $_strSiteTemplate);
+    $_strSiteTemplate = str_replace('{%SITE_STYLESHEET}', $_strStyleSheet, $_strSiteTemplate);
     unset($_strStyleSheet);
     unset($_strContentTemplate);
 
@@ -200,7 +193,7 @@ function funcGeneratePage($_array) {
     
     // Configure Smarty
     $libSmarty->caching = 0;
-    $libSmarty->debugging = false;
+    $libSmarty->debugging = $GLOBALS['boolDebugMode'];
     $libSmarty->setCacheDir($GLOBALS['arraySmartyPaths']['cache'])
         ->setCompileDir($GLOBALS['arraySmartyPaths']['compile'])
         ->setConfigDir($GLOBALS['arraySmartyPaths']['config'])
