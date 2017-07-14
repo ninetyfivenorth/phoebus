@@ -11,10 +11,10 @@ function funcReadManifest($_addonScope, $_addonSlug) {
     if (file_exists($_strDatastoreBasePath . $_addonSlug . '/' . $_addonPhoebusManifestFile)) {
         $_addonBasePath = $_strDatastoreBasePath . $_addonSlug . '/';
         $_addonManifestINI = parse_ini_file($_addonBasePath . $_addonPhoebusManifestFile, true)
-            or funcError('Could not parse manifest file for ' . $_addonSlug);
+            or return null;
     }
     else {
-        funcError('Could not find manifest file for ' . $_addonSlug);
+        return null;
     }
     
     // Define base manifest data structure
@@ -52,8 +52,9 @@ function funcReadManifest($_addonScope, $_addonSlug) {
         funcCheckVar($_addonManifest['metadata']['slug']) == null ||
         funcCheckVar($_addonManifest['metadata']['author']) == null ||
         funcCheckVar($_addonManifest['metadata']['shortDescription']) == null ||
-        array_key_exists($_addonManifest['addon']['release'], $_addonManifest) == false) {
-        funcError('Missing minimum required entries in manifest file for ' . $_addonSlug);
+        array_key_exists($_addonManifest['addon']['release'], $_addonManifest) == false)
+    {
+        return null;
     }
     
     // If any value of a metadata subkey is 'none' replace it with null
