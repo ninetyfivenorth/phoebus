@@ -95,7 +95,7 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
 if ($strRequestAddonID == null || $strRequestAddonVersion == null ||
     $strRequestAppID == null || $strRequestAppVersion == null ||
     $strRequestCompatMode == null) {
-    funcError('Missing minimum required arguments.');
+    funcGenerateUpdateXML(null, false);
 }
 
 if ($strRequestAppID == $strPaleMoonID) {
@@ -183,7 +183,7 @@ elseif ($strRequestAppID == $strFossaMailID) {
     }
 }
 else {
-    funcError('Invalid Application ID');
+    funcGenerateUpdateXML(null, false);
 }
 
 // ============================================================================
