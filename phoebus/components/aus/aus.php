@@ -59,14 +59,14 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
   </RDF:Description>';
             
             $_arrayFilterSubstitute = array(
-                '{%ADDON_TYPE)' => $_addonManifest['addon']['type'],
-                '{%ADDON_ID)' => $_addonManifest['addon']['id'],
-                '{%ADDON_VERSION)' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['version'],
-                '{%APPLICATION_ID)' => $GLOBALS['strApplicationID'],
-                '{%ADDON_MINVERSION)' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['minAppVersion'],
-                '{%ADDON_MAXVERSION)' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['maxAppVersion'],
-                '{%ADDON_XPI)' => $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['id'],
-                '{%ADDON_HASH)' => $_addonManifest['addon']['hash']
+                '{%ADDON_TYPE}' => $_addonManifest['addon']['type'],
+                '{%ADDON_ID}' => $_addonManifest['addon']['id'],
+                '{%ADDON_VERSION}' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['version'],
+                '{%APPLICATION_ID}' => $GLOBALS['strApplicationID'],
+                '{%ADDON_MINVERSION}' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['minAppVersion'],
+                '{%ADDON_MAXVERSION}' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['maxAppVersion'],
+                '{%ADDON_XPI}' => $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['id'],
+                '{%ADDON_HASH}' => $_addonManifest['addon']['hash']
             );
             
             if ($addonUseFilename == true) {
