@@ -95,7 +95,12 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
 if ($strRequestAddonID == null || $strRequestAddonVersion == null ||
     $strRequestAppID == null || $strRequestAppVersion == null ||
     $strRequestCompatMode == null) {
-    funcGenerateUpdateXML(null, false);
+    if ($GLOBALS['boolDebugMode'] == true) {
+        funcError('Missing minimum required arguments.');
+    }
+    else {
+        funcGenerateUpdateXML(null, false);
+    }
 }
 
 if ($strRequestAppID == $strPaleMoonID) {
@@ -183,7 +188,12 @@ elseif ($strRequestAppID == $strFossaMailID) {
     }
 }
 else {
-    funcGenerateUpdateXML(null, false);
+    if ($GLOBALS['boolDebugMode'] == true) {
+        funcError('Invalid Application ID');
+    }
+    else {
+        funcGenerateUpdateXML(null, false);
+    }
 }
 
 // ============================================================================
