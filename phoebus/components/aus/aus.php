@@ -116,13 +116,13 @@ if ($strRequestAppID == $strPaleMoonID) {
                         'type' => 'item',
                         'id' => $strRequestAddonID,
                         'release' => $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi',
-                        'baseURL' => $strLangPackBaseURL,
+                        'baseURL' => $arrayLangPackConstants['baseURL'],
                         'hash' => $arrayLangPackDB[$strRequestAddonID]['hash']),
             'xpi' => array(
                         $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi' => array(
                             'version' => $arrayLangPackDB[$strRequestAddonID]['version'],
-                            'minAppVersion' => $arrayLangPackAppLimits['minAppVersion'],
-                            'maxAppVersion' => $arrayLangPackAppLimits['maxAppVersion']))
+                            'minAppVersion' => $arrayLangPackConstants['minAppVersion'],
+                            'maxAppVersion' => $arrayLangPackConstants['maxAppVersion']))
         );
         
         funcGenerateUpdateXML($arrayLangPack, true);
