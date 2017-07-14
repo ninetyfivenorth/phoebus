@@ -10,12 +10,16 @@ function funcReadManifest($_addonScope, $_addonSlug) {
     
     if (file_exists($_strDatastoreBasePath . $_addonSlug . '/' . $_addonPhoebusManifestFile)) {
         $_addonBasePath = $_strDatastoreBasePath . $_addonSlug . '/';
-        $_addonManifestINI = parse_ini_file($_addonBasePath . $_addonPhoebusManifestFile, true)
-            or return null;
+        $_addonManifestINI = parse_ini_file($_addonBasePath . $_addonPhoebusManifestFile, true) or null;
+        if ($_addonManifestINI == null) {
+            return null;
+        }
     }
     else {
         return null;
     }
+    
+    
     
     // Define base manifest data structure
     $_addonManifestBase = array(
