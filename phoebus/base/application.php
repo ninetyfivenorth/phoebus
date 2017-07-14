@@ -89,7 +89,7 @@ $arrayModules = array_merge($arrayModules, $arrayDatabases);
 unset($arrayDatabases);
 
 // Include basic functions
-require_once($arrayModules['basicFunctions'];
+require_once($arrayModules['basicFunctions']);
 
 // Define a Debug/Developer Mode
 // XXX: This should REALLY be a function
