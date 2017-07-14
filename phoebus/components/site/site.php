@@ -48,6 +48,7 @@ function funcGenAddonContent($_strAddonSlug) {
         );
         
         return $arrayPage;
+    }
     else {
         funcError('The requested add-on has a problem with it\'s manifest file');
     }
