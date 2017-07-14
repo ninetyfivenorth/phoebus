@@ -36,17 +36,21 @@ $arrayStaticPages = array(
 // == | funcGenAddonContent | =================================================
 
 function funcGenAddonContent($_strAddonSlug) {
-
     $_arrayAddonMetadata = funcReadManifest('page', $_strAddonSlug);
-    $_arrayAddonMetadata['addon']['basePath'] = substr($_arrayAddonMetadata['addon']['basePath'], 1);
-    
-    $arrayPage = array(
-        'title' => $_arrayAddonMetadata['metadata']['name'],
-        'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'single-addon.tpl',
-        'contentData' => $_arrayAddonMetadata
-    );
-    
-    return $arrayPage;
+
+    if ($_arrayAddonMetadata != null) {
+        $_arrayAddonMetadata['addon']['basePath'] = substr($_arrayAddonMetadata['addon']['basePath'], 1);
+        
+        $arrayPage = array(
+            'title' => $_arrayAddonMetadata['metadata']['name'],
+            'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'single-addon.tpl',
+            'contentData' => $_arrayAddonMetadata
+        );
+        
+        return $arrayPage;
+    else {
+        funcError('The requested add-on has a problem with it\'s manifest file');
+    }
 }
 
 // ============================================================================
@@ -88,9 +92,10 @@ function funcGenCategoryContent($_type, $_array) {
     foreach ($_array as $_key => $_value) {
         if (($_type == 'extension' || $_type == 'theme') && is_int($_key)) {
             $_arrayAddonMetadata = funcReadManifest('category', $_value);
-            unset($_arrayAddonMetadata['xpi']);
-            $arrayCategory[$_arrayAddonMetadata['metadata']['name']] = $_arrayAddonMetadata;
-            unset($_arrayAddonMetadata);
+            if ($_arrayAddonMetadata != null) {
+                $arrayCategory[$_arrayAddonMetadata['metadata']['name']] = $_arrayAddonMetadata;
+                unset($_arrayAddonMetadata);
+            }
         }
         elseif ($_key == 'externals') {
             foreach($_array['externals'] as $_key2 => $_value2) {
