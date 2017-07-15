@@ -18,7 +18,7 @@
 
 <h3>List of add-ons with known compatibility issues</h3>
 
-<p><strong>Last updated: 2017-06-22</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
+<p><strong>Last updated: 2017-07-14</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
 
 <p><strong>PENDING</strong></p>
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
@@ -103,7 +103,6 @@
                     <li>LiveClick<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/liveclick/versions/?page=1#version-1.0.0.1-signed" target="_blank">1.0.0.1</a></small></li>
                     <li>Lucifox<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/lucifox/versions/?page=1#version-0.9.7.1-signed" target="_blank">0.9.7.1</a></small></li>
                     <li>Multiple Tab Handler<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/multiple-tab-handler/versions/?page=1#version-0.7.2014050101.1-signed" target="_blank">0.7.2014050101.1</a></small></li>
-                    <li>NoScript Security Suite<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/noscript/versions/2.9.5.3" target="_blank">2.9.5.3</a></small></li>
                     <li>OmniSidebar<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/omnisidebar/versions/?page=1#version-1.4.7.1-signed" target="_blank">1.4.7.1</a></small></li>
                     <li>Open Bookmarks in New Tab<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/open-bookmarks-in-new-tab/versions/?page=1#version-0.1.2012122901.1-signed" target="_blank">0.1.2012122901.1</a></small></li>
                     <li>Personas Rotator<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/personas-rotator/versions/47.1" target="_blank">47.1</a></small></li>
@@ -127,7 +126,7 @@
                     <li>Session Manager<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/session-manager/versions/?page=1#version-0.8.1.7" target="_blank">0.8.1.7</a></small></li>
                     <li>Share on Twitter (FKA TweetRight)<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/tweetright/versions/?page=1#version-0.43.1.1-signed" target="_blank">0.43.1.1</a></small></li>
                     <li>ShowIP<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/alertip/" target="_blank">AlertIP</a></small></li>
-                    <li>Simple Clocks<br /><small>Use <a href="/addon/foxclocks/">FoxClocks (Pseudo-Static)</a></small></li>
+                    <li>Simple Clocks<br /><small>Use <a href="/addon/foxclocks/">FoxClocks</a></small></li>
                     <li>Social Fixer<br /><small>Use <a href="https://socialfixer.com/download.html" target="_blank">GreaseMonkey version</a></small></li>
                     <li>Stay-Open Menu<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/stay-open-menu/versions/?page=1#version-2.2.2rc" target="_blank">2.2.2rc</a></small></li>
                     <li>Sticky Notes<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/sticky-notes/versions/?page=1#version-0.4.6.1-signed" target="_blank">0.4.6.1</a></small></li>
@@ -187,6 +186,7 @@
                     <li><a href="/addon/gnotifier/">GNotifier</a></li>
                     <li><a href="/addon/i-dont-care-about-cookies/">I don't care about cookies</a></li>
                     <li>NewsFox</li>
+                    <li><a href="/addon/noscript/">NoScript Security Suite</a></li>
                     <li>Open With</li>
                     <li>Play/Pause</li>
                     <li><a href="/addon/print-pages-to-pdf/">Print pages to PDF</a></li>
