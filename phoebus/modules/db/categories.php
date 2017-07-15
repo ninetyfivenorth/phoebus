@@ -214,6 +214,7 @@ $arrayCategoryList05 = array(
     'isadmin',
     'integrated-authentication',
     'eclipsedmoon',
+    'noscript',
     'externals' => array(
         'clean-links' => array(
             'id' => 'fx-317263',
