@@ -112,6 +112,7 @@ $arrayAddonsDB = array(
     'save-images-me@Off.JustOff' => 'save-images-me',
     'password-backup-tool@Off.JustOff' => 'password-backup-tool',
     'jid1-OoNOA6XBjznvLQ@jetpack' => 'gnotifier',
-    'splashed@franklindm' => 'splashed'
+    'splashed@franklindm' => 'splashed',
+    '{73a6fe31-595d-460b-a920-fcc0f8843232}' => 'noscript'
 );
 ?>
