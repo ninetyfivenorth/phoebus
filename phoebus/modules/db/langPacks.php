@@ -91,8 +91,8 @@ $arrayLangPackDB = array(
     'langpack-pt-BR@palemoon.org' => array(
         'name' => 'Portuguese (Brazil)',
         'locale' => 'pt-BR',
-        'version' => '27.4.0',
-        'hash' => 'b89887490ebde3676c29fdefba13317704f3ef24cbeb498adaf5bf17f3744c97',
+        'version' => '27.4.1',
+        'hash' => 'a9eb7915dfa9bc558aa68a3d32728b8cdde2d91fca6b778c15835085bd79f4fe',
     ),
     'langpack-pt-PT@palemoon.org' => array(
         'name' => 'Portuguese (Portugal)',
