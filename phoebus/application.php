@@ -14,12 +14,12 @@
 // == | Vars | ================================================================
 
 // Basic Application defines
-$strPhoebusLiveURL = 'addons.palemoon.org';
-$strPhoebusDevURL = 'dev.addons.palemoon.org';
-$strPhoebusURL = $strPhoebusLiveURL;
-$strPhoebusSiteName = 'Pale Moon - Add-ons';
-$strPhoebusVersion = '1.6.0a1';
-$strPhoebusDatastore = './datastore/';
+$strApplicationLiveURL = 'addons.palemoon.org';
+$strApplicationDevURL = 'dev.addons.palemoon.org';
+$strApplicationURL = $strApplicationLiveURL;
+$strApplicationSiteName = 'Pale Moon - Add-ons';
+$strApplicationVersion = '1.6.0a1';
+$strApplicationDatastore = './datastore/';
 $boolDebugMode = false;
 
 // Known Client GUIDs
@@ -28,7 +28,7 @@ $strFossaMailID = '{3550f703-e582-4d05-9a08-453d09bdfdc6}';
 $strFirefoxID = '{ec8030f7-c20a-464f-9b0e-13a3a9e97384}';
 $strThunderbirdID = $strFossaMailID; // {3550f703-e582-4d05-9a08-453d09bdfdc6}
 $strSeaMonkeyID = '{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}';
-$strApplicationID = $strPaleMoonID;
+$strClientID = $strPaleMoonID;
 
 // XXX: Pale Moon only backwards compatiblity with "Independence Era"
 $strMinimumApplicationVersion = '27.0.0';
@@ -87,19 +87,19 @@ unset($arrayDatabases);
 
 // Define a Debug/Developer Mode
 // XXX: This should REALLY be a function
-if ($_SERVER['SERVER_NAME'] == $strPhoebusDevURL) {
+if ($_SERVER['SERVER_NAME'] == $strApplicationDevURL) {
     $boolDebugMode = true;
-    $strPhoebusURL = $strPhoebusDevURL;
+    $strApplicationURL = $strApplicationDevURL;
     if (file_exists('./.git/HEAD')) {
         $_strGitHead = file_get_contents('./.git/HEAD');
         $_strGitSHA1 = file_get_contents('./.git/' . substr($_strGitHead, 5, -1));
         $_strGitBranch = substr($_strGitHead, 16, -1);
-        $strPhoebusSiteName = 'Phoebus Development - Version: ' . $strPhoebusVersion . ' - ' .
+        $strApplicationSiteName = 'Phoebus Development - Version: ' . $strApplicationVersion . ' - ' .
             'Branch: ' . $_strGitBranch . ' - ' .
             'Commit: ' . substr($_strGitSHA1, 0, 7);
     }
     else {
-        $strPhoebusSiteName = 'Phoebus Development - Version: ' . $strPhoebusVersion;
+        $strApplicationSiteName = 'Phoebus Development - Version: ' . $strApplicationVersion;
     }
     error_reporting(E_ALL);
     ini_set("display_errors", "on");

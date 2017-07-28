@@ -62,7 +62,7 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
                 '{%ADDON_TYPE}' => $_addonManifest['addon']['type'],
                 '{%ADDON_ID}' => $_addonManifest['addon']['id'],
                 '{%ADDON_VERSION}' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['version'],
-                '{%APPLICATION_ID}' => $GLOBALS['strApplicationID'],
+                '{%APPLICATION_ID}' => $GLOBALS['strClientID'],
                 '{%ADDON_MINVERSION}' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['minAppVersion'],
                 '{%ADDON_MAXVERSION}' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['maxAppVersion'],
                 '{%ADDON_XPI}' => $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['id'],
@@ -161,7 +161,7 @@ if ($strRequestAppID == $strPaleMoonID) {
     }
 }
 elseif ($strRequestAppID == $strFossaMailID) {
-    $strApplicationID = $strFossaMailID;
+    $strClientID = $strFossaMailID;
 
     $arrayBadFossaMailDB = array(
         '{a62ef8ec-5fdc-40c2-873c-223b8a6925cc}' => 'gdata',
