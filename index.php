@@ -98,7 +98,7 @@ function endsWith($haystack, $needle) {
 
 // == | Application Entry Point | =============================================
 
-require_once('./phoebus/base/application.php');
+require_once('./phoebus/application.php');
 
 // ============================================================================
 ?>
