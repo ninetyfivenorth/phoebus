@@ -41,39 +41,40 @@ $arrayArgsComponent = preg_grep('/^component=(.*)/', explode('&', parse_url($_SE
 $strRequestPath = funcHTTPGetValue('path');
 
 // Define application paths
-$strApplicationPath = $_SERVER['DOCUMENT_ROOT'] . '/phoebus/';
+$strRootPath = $_SERVER['DOCUMENT_ROOT'];
+$strGlobalLibPath = $strRootPath . '/lib/';
+$strApplicationPath = $strRootPath . '/phoebus/';
 $strComponentsPath = $strApplicationPath . 'components/';
 $strModulesPath = $strApplicationPath . 'modules/';
-$strGlobalLibPath = $_SERVER['DOCUMENT_ROOT'] . '/lib/';
+$strDatabasesPath = $strApplicationPath . 'modules/db/';
 
 // Define Components
 $arrayComponents = array(
     'site' => $strComponentsPath . 'site/site.php',
-    'aus' => $strComponentsPath . 'aus/aus.php',
-    'download' => $strComponentsPath . 'download/download.php',
-    'integration' => $strComponentsPath . 'integration/integration.php',
+    'aus' => $strComponentsPath . 'aus.php',
     'discover' => $strComponentsPath . 'discover/discover.php',
-    'license' => $strComponentsPath . 'license/license.php',
+    'download' => $strComponentsPath . 'download.php',
+    'integration' => $strComponentsPath . 'integration.php',
+    'license' => $strComponentsPath . 'license.php',
     '43893' => $strComponentsPath . 'special/special.php'
 );
 
 // Define Modules
 $arrayModules = array(
-    'basicFunctions' => $strModulesPath . 'basicFunctions.php',
-    'readManifest' => $strModulesPath . 'funcReadManifest.php',
-    'processContent' => $strModulesPath . 'funcProcessContent.php',
     'vc' => $strGlobalLibPath . 'nsIVersionComparator.php',
-    'smarty' => $strGlobalLibPath . 'smarty/Smarty.class.php'
+    'smarty' => $strGlobalLibPath . 'smarty/Smarty.class.php',
+    'readManifest' => $strModulesPath . 'funcReadManifest.php',
+    'processContent' => $strModulesPath . 'funcProcessContent.php'
 );
 
 // Define Database Arrays
 // XXX: These will be merged into arrayModules until they go away with SQL
 $arrayDatabases = array(
-    'dbAddons' => $strModulesPath . 'db/' . 'addons.php',
-    'dbLangPacks' => $strModulesPath . 'db/' . 'langPacks.php',
-    'dbSearchPlugins' => $strModulesPath . 'db/' . 'searchPlugins.php',
-    'dbAUSExternals' => $strModulesPath . 'db/' . 'ausExternals.php',
-    'dbCategories' => $strModulesPath . 'db/' . 'categories.php'
+    'dbAddons' => $strDatabasesPath . 'addons.php',
+    'dbLangPacks' => $strDatabasesPath . 'langPacks.php',
+    'dbSearchPlugins' => $strDatabasesPath . 'searchPlugins.php',
+    'dbAUSExternals' => $strDatabasesPath . 'ausExternals.php',
+    'dbCategories' => $strDatabasesPath . 'categories.php'
 );
 
 // ============================================================================
