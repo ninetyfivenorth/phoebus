@@ -6,7 +6,7 @@ function funcReadManifest($_addonScope, $_addonSlug) {
     $_addonPhoebusManifestFile = 'phoebus.manifest';
     $_addonPhoebusContentFile = 'phoebus.content';
     $_addonPhoebusLicenseFile = 'phoebus.license';
-    $_strDatastoreBasePath = $GLOBALS['strPhoebusDatastore'] . 'addons/';
+    $_strDatastoreBasePath = $GLOBALS['strApplicationDatastore'] . 'addons/';
     
     if (file_exists($_strDatastoreBasePath . $_addonSlug . '/' . $_addonPhoebusManifestFile)) {
         $_addonBasePath = $_strDatastoreBasePath . $_addonSlug . '/';
@@ -230,7 +230,7 @@ function funcReadManifest($_addonScope, $_addonSlug) {
         }
     }
 
-    $_addonManifest['addon']["baseURL"] = 'http://' . $GLOBALS['strPhoebusURL'] . '<![CDATA[/?component=download&id=]]>';
+    $_addonManifest['addon']["baseURL"] = 'http://' . $GLOBALS['strApplicationURL'] . '<![CDATA[/?component=download&id=]]>';
 
     // assign the basePath to the add-on manifest array
     $_addonManifest['addon']['basePath'] = $_addonBasePath;

@@ -93,7 +93,7 @@ function funcGenAllExtensions($_array) {
 
 function funcGenCategoryContent($_type, $_array) {
     $arrayCategory = array();
-    $_strDatastoreBasePath = $GLOBALS['strPhoebusDatastore'] . 'addons/';
+    $_strDatastoreBasePath = $GLOBALS['strApplicationDatastore'] . 'addons/';
     
     foreach ($_array as $_key => $_value) {
         if (($_type == 'extension' || $_type == 'theme') && is_int($_key)) {
@@ -212,11 +212,11 @@ function funcGeneratePage($_array) {
         ->setTemplateDir($GLOBALS['arraySmartyPaths']['templates']);
 
     // Assign data to Smarty
-    $libSmarty->assign('SITE_NAME', $GLOBALS['strPhoebusSiteName']);
-    $libSmarty->assign('SITE_DOMAIN', '//' . $GLOBALS['strPhoebusURL']);
+    $libSmarty->assign('SITE_NAME', $GLOBALS['strApplicationSiteName']);
+    $libSmarty->assign('SITE_DOMAIN', '//' . $GLOBALS['strApplicationURL']);
     $libSmarty->assign('PAGE_TITLE', $_array['title']);
     $libSmarty->assign('BASE_PATH', substr($GLOBALS['strSkinBasePath'], 1));
-    $libSmarty->assign('PHOEBUS_VERSION', $GLOBALS['strPhoebusVersion']);
+    $libSmarty->assign('PHOEBUS_VERSION', $GLOBALS['strApplicationVersion']);
     
     if (array_key_exists('contentData', $_array)) {
         $libSmarty->assign('PAGE_DATA', $_array['contentData']);
