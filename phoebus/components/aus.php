@@ -61,10 +61,10 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
             $_arrayFilterSubstitute = array(
                 '{%ADDON_TYPE}' => $_addonManifest['addon']['type'],
                 '{%ADDON_ID}' => $_addonManifest['addon']['id'],
-                '{%ADDON_VERSION}' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['version'],
+                '{%ADDON_VERSION}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['version'],
                 '{%APPLICATION_ID}' => $GLOBALS['strClientID'],
-                '{%ADDON_MINVERSION}' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['minAppVersion'],
-                '{%ADDON_MAXVERSION}' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['maxAppVersion'],
+                '{%ADDON_MINVERSION}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['minAppVersion'],
+                '{%ADDON_MAXVERSION}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['maxAppVersion'],
                 '{%ADDON_XPI}' => $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['id'],
                 '{%ADDON_HASH}' => $_addonManifest['addon']['hash']
             );
@@ -112,7 +112,7 @@ if ($strRequestAppID == $strPaleMoonID) {
 
     // Search for add-ons in our database
     if (array_key_exists($strRequestAddonID, $arrayAddonsDB)) {
-        funcGenerateUpdateXML(funcReadManifest('aus', $arrayAddonsDB[$strRequestAddonID]), false);
+        funcGenerateUpdateXML(funcReadManifest($arrayAddonsDB[$strRequestAddonID]), false);
     }
     // Language Packs
     elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {
@@ -123,7 +123,7 @@ if ($strRequestAppID == $strPaleMoonID) {
                         'release' => $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi',
                         'baseURL' => $arrayLangPackConstants['baseURL'],
                         'hash' => $arrayLangPackDB[$strRequestAddonID]['hash']),
-            'xpi' => array(
+            'xpinstall' => array(
                         $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi' => array(
                             'version' => $arrayLangPackDB[$strRequestAddonID]['version'],
                             'minAppVersion' => $arrayLangPackConstants['minAppVersion'],

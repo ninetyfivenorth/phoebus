@@ -22,7 +22,7 @@
 <p style="text-align: center; padding: 10px;">
     <a class="dllink_green" href="/?component=download&id={$PAGE_DATA.addon.id}&version=latest">
         <img border="0" src="{$BASE_PATH}download.png" alt="" style="width: 24px; height: 24px; position: relative; top: 7px; right: 4px;" />
-        Install {$PAGE_DATA.metadata.name} {$PAGE_DATA['xpi'][$PAGE_DATA['addon']['release']]['version']}
+        Install {$PAGE_DATA.metadata.name} {$PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['version']}
     </a>
 </p>
 
@@ -34,11 +34,11 @@
         </h3>
 
         <p>
-            Pale Moon {$PAGE_DATA['xpi'][$PAGE_DATA['addon']['release']]['minAppVersion']} to 
-{if $PAGE_DATA['xpi'][$PAGE_DATA['addon']['release']]['maxAppVersion'] == '*'}
+            Pale Moon {$PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['minAppVersion']} to 
+{if $PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['maxAppVersion'] == '*'}
             Unknown
 {else}
-            {$PAGE_DATA['xpi'][$PAGE_DATA['addon']['release']]['maxAppVersion']}
+            {$PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['maxAppVersion']}
 {/if}
         </p>
 
@@ -71,13 +71,13 @@
         </p>
 {/if}
 
-{if $PAGE_DATA.xpi|@count > 1}
+{if $PAGE_DATA.xpinstall|@count > 1}
         <h3>
             Previous Releases
         </h3>
         
-{foreach $PAGE_DATA.xpi as $key}
-{if $key != $PAGE_DATA['xpi'][$PAGE_DATA['addon']['release']]}
+{foreach $PAGE_DATA.xpinstall as $key}
+{if $key != $PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]}
             <p>
                 <a href="/?component=download&id={$PAGE_DATA.addon.id}&version={$key.version}">Version {$key.version}</a><br />
                 <small>

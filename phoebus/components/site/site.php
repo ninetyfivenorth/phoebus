@@ -36,7 +36,7 @@ $arrayStaticPages = array(
 // == | funcGenAddonContent | =================================================
 
 function funcGenAddonContent($_strAddonSlug) {
-    $_arrayAddonMetadata = funcReadManifest('page', $_strAddonSlug);
+    $_arrayAddonMetadata = funcReadManifest($_strAddonSlug);
 
     if ($_arrayAddonMetadata != null) {
         $_arrayAddonMetadata['addon']['basePath'] = substr($_arrayAddonMetadata['addon']['basePath'], 1);
@@ -97,7 +97,7 @@ function funcGenCategoryContent($_type, $_array) {
     
     foreach ($_array as $_key => $_value) {
         if (($_type == 'extension' || $_type == 'theme') && is_int($_key)) {
-            $_arrayAddonMetadata = funcReadManifest('category', $_value);
+            $_arrayAddonMetadata = funcReadManifest($_value);
             if ($_arrayAddonMetadata != null) {
                 $arrayCategory[$_arrayAddonMetadata['metadata']['name']] = $_arrayAddonMetadata;
                 unset($_arrayAddonMetadata);

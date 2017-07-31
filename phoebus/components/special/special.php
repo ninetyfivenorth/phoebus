@@ -56,6 +56,12 @@ elseif ($strRequestFunction == 'checkdup') {
         }
     }
 }
+elseif ($strRequestFunction == 'readManifest2') {
+    funcSendHeader('text');
+    require_once($arrayModules['readManifest2']);
+    $_data = funcReadManifest2('material-moon');
+    var_export($_data);
+}
 else {
     funcError('Incorrect function request');
 }

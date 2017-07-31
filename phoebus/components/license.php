@@ -68,7 +68,7 @@ foreach($arrayIncludes as $_value) {
 unset($arrayIncludes);
 
 if (array_key_exists($strRequestAddonID, $arrayAddonsDB)) {
-    funcDoLicense(funcReadManifest('license', $arrayAddonsDB[$strRequestAddonID]));
+    funcDoLicense(funcReadManifest($arrayAddonsDB[$strRequestAddonID]));
 }
 else {
     funcError('Unknown add-on ' . $strRequestAddonID);

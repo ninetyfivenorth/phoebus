@@ -28,7 +28,7 @@ function funcDownloadXPI($_addonManifest, $_addonVersion) {
     }
     else {
         $_versionMatch = false;
-        foreach ($_addonManifest['xpi'] as $_key => $_value) {
+        foreach ($_addonManifest['xpinstall'] as $_key => $_value) {
             if (in_array($_addonVersion, $_value)) {
                 $_versionMatch = true;
                 $_versionXPI = $_key;
@@ -103,7 +103,7 @@ unset($arrayIncludes);
 // Search for add-ons in our databases
 // Add-ons
 if (array_key_exists($strRequestAddonID, $arrayAddonsDB)) {
-    funcDownloadXPI(funcReadManifest('download', $arrayAddonsDB[$strRequestAddonID]), $strRequestAddonVersion);
+    funcDownloadXPI(funcReadManifest($arrayAddonsDB[$strRequestAddonID]), $strRequestAddonVersion);
 }
 // Search Plugins
 elseif (array_key_exists($strRequestAddonID, $arraySearchPluginsDB)) {

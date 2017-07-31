@@ -19,30 +19,12 @@ $strApplicationDevURL = 'dev.addons.palemoon.org';
 $strApplicationURL = $strApplicationLiveURL;
 $strApplicationSiteName = 'Pale Moon - Add-ons';
 $strApplicationVersion = '1.6.0a1';
-$strApplicationDatastore = './datastore/';
 $boolDebugMode = false;
-
-// Known Client GUIDs
-$strPaleMoonID = '{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}';
-$strFossaMailID = '{3550f703-e582-4d05-9a08-453d09bdfdc6}';
-$strFirefoxID = '{ec8030f7-c20a-464f-9b0e-13a3a9e97384}';
-$strThunderbirdID = $strFossaMailID; // {3550f703-e582-4d05-9a08-453d09bdfdc6}
-$strSeaMonkeyID = '{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}';
-$strClientID = $strPaleMoonID;
-
-// XXX: Pale Moon only backwards compatiblity with "Independence Era"
-$strMinimumApplicationVersion = '27.0.0';
-$strFirefoxVersion = '27.9';
-$strFirefoxOldVersion = '24.9';
-
-// $_GET and Path Magic
-$strRequestComponent = funcHTTPGetValue('component');
-$arrayArgsComponent = preg_grep('/^component=(.*)/', explode('&', parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY)));
-$strRequestPath = funcHTTPGetValue('path');
 
 // Define application paths
 $strRootPath = $_SERVER['DOCUMENT_ROOT'];
 $strGlobalLibPath = $strRootPath . '/lib/';
+$strApplicationDatastore = './datastore/';
 $strApplicationPath = $strRootPath . '/phoebus/';
 $strComponentsPath = $strApplicationPath . 'components/';
 $strModulesPath = $strApplicationPath . 'modules/';
@@ -63,8 +45,7 @@ $arrayComponents = array(
 $arrayModules = array(
     'vc' => $strGlobalLibPath . 'nsIVersionComparator.php',
     'smarty' => $strGlobalLibPath . 'smarty/Smarty.class.php',
-    'readManifest' => $strModulesPath . 'funcReadManifest.php',
-    'processContent' => $strModulesPath . 'funcProcessContent.php'
+    'readManifest' => $strModulesPath . 'funcReadManifest.php'
 );
 
 // Define Database Arrays
@@ -76,6 +57,24 @@ $arrayDatabases = array(
     'dbAUSExternals' => $strDatabasesPath . 'ausExternals.php',
     'dbCategories' => $strDatabasesPath . 'categories.php'
 );
+
+// Known Client GUIDs
+$strPaleMoonID = '{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}';
+$strFossaMailID = '{3550f703-e582-4d05-9a08-453d09bdfdc6}';
+$strFirefoxID = '{ec8030f7-c20a-464f-9b0e-13a3a9e97384}';
+$strThunderbirdID = $strFossaMailID; // {3550f703-e582-4d05-9a08-453d09bdfdc6}
+$strSeaMonkeyID = '{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}';
+$strClientID = $strPaleMoonID;
+
+// XXX: Pale Moon only backwards compatiblity with "Independence Era"
+$strMinimumApplicationVersion = '27.0.0';
+$strFirefoxVersion = '27.9';
+$strFirefoxOldVersion = '24.9';
+
+// $_GET and Path Magic
+$strRequestComponent = funcHTTPGetValue('component');
+$arrayArgsComponent = preg_grep('/^component=(.*)/', explode('&', parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY)));
+$strRequestPath = funcHTTPGetValue('path');
 
 // ============================================================================
 
