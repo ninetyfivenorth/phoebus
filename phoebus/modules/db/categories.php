@@ -365,6 +365,7 @@ $arrayCategoryList08 = array(
     'notestruck',
     'password-backup-tool',
     'restartbrowsernow',
+    'browserviewplus',
     'externals' => array(
         'remove-it-permanently' => array(
             'id' => 'default',
