@@ -15,7 +15,7 @@
 
 // Basic Application defines
 $strApplicationLiveURL = 'addons.palemoon.org';
-$strApplicationDevURL = 'dev.addons.palemoon.org';
+$strApplicationDevURL = 'addons-dev.palemoon.org';
 $strApplicationURL = $strApplicationLiveURL;
 $strApplicationSiteName = 'Pale Moon - Add-ons';
 $strApplicationVersion = '1.6.0a1';
