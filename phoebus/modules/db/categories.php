@@ -63,6 +63,7 @@ $arrayCategoryList02 = array(
     'theme-shim',
     'throbber-in-urlbar',
     'splashed',
+    'quickdialtool',
     'externals' => array(
         'active-stop-button' => array(
             'id' => 'fx-2025',
@@ -365,7 +366,6 @@ $arrayCategoryList08 = array(
     'notestruck',
     'password-backup-tool',
     'restartbrowsernow',
-    'browserviewplus',
     'viewsidebarmgr',
     'externals' => array(
         'remove-it-permanently' => array(
@@ -433,6 +433,7 @@ $arrayCategoryList10 = array(
     'space-advance',
     'moon-pdf-viewer',
     'youtube-lazy-load',
+    'browserviewplus',
     'externals' => array(
         'epubreader' => array(
             'id' => 'fx-45281',

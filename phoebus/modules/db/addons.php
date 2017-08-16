@@ -116,6 +116,7 @@ $arrayAddonsDB = array(
     '{73a6fe31-595d-460b-a920-fcc0f8843232}' => 'noscript',
     '{9c03eb94-a057-42f0-84a6-679103d738bb}' => 'restartbrowsernow',
     '{9bae89f4-fe30-4710-bbed-256c9d6af2c3}' => 'browserviewplus',
-    '{f44a1992-64ff-4b96-acd6-35d65ab61cb3}' => 'viewsidebarmgr'
+    '{f44a1992-64ff-4b96-acd6-35d65ab61cb3}' => 'viewsidebarmgr',
+    '{f227c673-0e00-447a-a486-40eb47bfa9bc}' => 'quickdialtool'
 );
 ?>
