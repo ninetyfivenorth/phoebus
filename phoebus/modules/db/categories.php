@@ -497,6 +497,7 @@ $arrayCategoryList11 = array(
     'treestyletabforpm',
     'expose-noisy-tabs',
     'color-my-tabs',
+    'togglebookmarks',
     'externals' => array(
         'speed-start' => array(
             'id' => 'ex-010',
