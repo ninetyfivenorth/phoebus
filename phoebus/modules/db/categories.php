@@ -148,6 +148,7 @@ $arrayCategoryList03 = array(
     'complete-yt-saver',
     'downloads-window',
     'save-images-me',
+    'fireftpbutton',
     'externals' => array(
         'imagehost-grabber' => array(
             'id' => 'ex-005',
