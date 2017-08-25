@@ -368,6 +368,7 @@ $arrayCategoryList08 = array(
     'password-backup-tool',
     'restartbrowsernow',
     'viewsidebarmgr',
+    'tgsidebar',
     'externals' => array(
         'remove-it-permanently' => array(
             'id' => 'default',
