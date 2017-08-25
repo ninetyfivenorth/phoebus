@@ -119,6 +119,7 @@ $arrayAddonsDB = array(
     '{f44a1992-64ff-4b96-acd6-35d65ab61cb3}' => 'viewsidebarmgr',
     '{f227c673-0e00-447a-a486-40eb47bfa9bc}' => 'quickdialtool',
     '{ca071b68-cfb4-4d37-8e51-2ad2ca85b9e5}' => 'togglebookmarks',
-    '{c0363830-768a-4ab0-8237-59486065e282}' => 'fireftpbutton'
+    '{c0363830-768a-4ab0-8237-59486065e282}' => 'fireftpbutton',
+    'tgsidebar@franklindm' => 'tgsidebar'
 );
 ?>
