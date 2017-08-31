@@ -282,13 +282,13 @@ $arrayCategoryList05 = array(
             'id' => 'ex-012',
             'name' => 'uBlock Origin',
             'shortDescription' => 'Finally, an efficient blocker. Easy on CPU and memory.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/ublock-origin/'
+            'url' => 'https://github.com/gorhill/uBlock/releases/latest/'
         ),
         'umatrix' => array(
             'id' => 'ex-013',
             'name' => 'uMatrix',
             'shortDescription' => 'Point & click to forbid/allow any class of requests made by your browser.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/umatrix/'
+            'url' => 'https://github.com/gorhill/uMatrix/releases/latest/'
         ),
     ),
 );
