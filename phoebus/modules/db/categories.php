@@ -217,6 +217,7 @@ $arrayCategoryList05 = array(
     'integrated-authentication',
     'eclipsedmoon',
     'noscript',
+    'ublock0-updater',
     'externals' => array(
         'clean-links' => array(
             'id' => 'fx-317263',
