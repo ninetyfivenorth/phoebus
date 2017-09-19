@@ -501,6 +501,7 @@ $arrayCategoryList11 = array(
     'expose-noisy-tabs',
     'color-my-tabs',
     'togglebookmarks',
+    'bartab-tycho',
     'externals' => array(
         'speed-start' => array(
             'id' => 'ex-010',
