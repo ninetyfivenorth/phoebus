@@ -121,6 +121,7 @@ $arrayAddonsDB = array(
     '{ca071b68-cfb4-4d37-8e51-2ad2ca85b9e5}' => 'togglebookmarks',
     '{c0363830-768a-4ab0-8237-59486065e282}' => 'fireftpbutton',
     'tgsidebar@franklindm' => 'tgsidebar',
-    'ublock0-updater@Off.JustOff' => 'ublock0-updater'
+    'ublock0-updater@Off.JustOff' => 'ublock0-updater',
+    'bartab@infernozeus' => 'bartab-tycho'
 );
 ?>
