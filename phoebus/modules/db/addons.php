@@ -122,6 +122,7 @@ $arrayAddonsDB = array(
     '{c0363830-768a-4ab0-8237-59486065e282}' => 'fireftpbutton',
     'tgsidebar@franklindm' => 'tgsidebar',
     'ublock0-updater@Off.JustOff' => 'ublock0-updater',
-    'bartab@infernozeus' => 'bartab-tycho'
+    'bartab@infernozeus' => 'bartab-tycho',
+    '{74c822b8-b6d5-4a81-872c-067338334a74}' => 'showdownloadswts'
 );
 ?>
