@@ -149,6 +149,7 @@ $arrayCategoryList03 = array(
     'downloads-window',
     'save-images-me',
     'fireftpbutton',
+    'showdownloadswts',
     'externals' => array(
         'imagehost-grabber' => array(
             'id' => 'ex-005',
