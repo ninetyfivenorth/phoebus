@@ -219,6 +219,7 @@ $arrayCategoryList05 = array(
     'eclipsedmoon',
     'noscript',
     'ublock0-updater',
+    'cookiemasters',
     'externals' => array(
         'clean-links' => array(
             'id' => 'fx-317263',

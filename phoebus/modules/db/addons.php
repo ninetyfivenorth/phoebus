@@ -123,6 +123,7 @@ $arrayAddonsDB = array(
     'tgsidebar@franklindm' => 'tgsidebar',
     'ublock0-updater@Off.JustOff' => 'ublock0-updater',
     'bartab@infernozeus' => 'bartab-tycho',
-    '{74c822b8-b6d5-4a81-872c-067338334a74}' => 'showdownloadswts'
+    '{74c822b8-b6d5-4a81-872c-067338334a74}' => 'showdownloadswts',
+    '{a04a71f3-ce74-4134-8f86-fae693b19e44}' => 'cookiemasters'
 );
 ?>
