@@ -221,12 +221,6 @@ $arrayCategoryList05 = array(
     'ublock0-updater',
     'cookiemasters',
     'externals' => array(
-        'clean-links' => array(
-            'id' => 'fx-317263',
-            'name' => 'Clean Links',
-            'shortDescription' => 'Converts obfuscated or nested links to genuine clean links.',
-            'url' => 'https://github.com/diegocr/CleanLinks'
-        ),
         'cookiekeeper' => array(
             'id' => 'fx-481410',
             'name' => 'CookieKeeper',
