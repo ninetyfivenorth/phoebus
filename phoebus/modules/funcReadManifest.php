@@ -7,7 +7,7 @@ function funcReadManifest($_addonSlug) {
     $_boolRegenerate = false;
     
     // Define locations for files
-    $_strObjDirDatastoreBasePath = $GLOBALS['strObjDirPath'] . 'shadow-manifests/';
+    $_strObjDirDatastoreBasePath = $GLOBALS['strObjDirPath'] . 'shadow-manifests/addons/';
     $_strDatastoreBasePath = $GLOBALS['strApplicationDatastore'] . 'addons/';
     $_addonBasePath = $_strDatastoreBasePath . $_addonSlug . '/';
     
