@@ -28,7 +28,7 @@ $strApplicationDatastore = './datastore/';
 $strApplicationPath = $strRootPath . '/phoebus/';
 $strComponentsPath = $strApplicationPath . 'components/';
 $strModulesPath = $strApplicationPath . 'modules/';
-$strDatabasesPath = $strApplicationPath . 'modules/db/';
+$strDatabasesPath = $strRootPath . 'db/';
 
 // Define Components
 $arrayComponents = array(
