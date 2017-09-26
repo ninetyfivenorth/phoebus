@@ -5,8 +5,8 @@
 
 // == | Vars | ================================================================
 
-$strContentBasePath = './phoebus/components/site/content/';
-$strSkinBasePath = './phoebus/skin/palemoon/';
+$strContentBasePath = './frontend/components/site/content/';
+$strSkinBasePath = './frontend/skin/palemoon/';
 $strObjDirSmartyCachePath = $strObjDirPath . 'smarty/frontend/';
 
 $arraySmartyPaths = array(
