@@ -112,6 +112,18 @@ $arrayAddonsDB = array(
     'save-images-me@Off.JustOff' => 'save-images-me',
     'password-backup-tool@Off.JustOff' => 'password-backup-tool',
     'jid1-OoNOA6XBjznvLQ@jetpack' => 'gnotifier',
-    'splashed@franklindm' => 'splashed'
+    'splashed@franklindm' => 'splashed',
+    '{73a6fe31-595d-460b-a920-fcc0f8843232}' => 'noscript',
+    '{9c03eb94-a057-42f0-84a6-679103d738bb}' => 'restartbrowsernow',
+    '{9bae89f4-fe30-4710-bbed-256c9d6af2c3}' => 'browserviewplus',
+    '{f44a1992-64ff-4b96-acd6-35d65ab61cb3}' => 'viewsidebarmgr',
+    '{f227c673-0e00-447a-a486-40eb47bfa9bc}' => 'quickdialtool',
+    '{ca071b68-cfb4-4d37-8e51-2ad2ca85b9e5}' => 'togglebookmarks',
+    '{c0363830-768a-4ab0-8237-59486065e282}' => 'fireftpbutton',
+    'tgsidebar@franklindm' => 'tgsidebar',
+    'ublock0-updater@Off.JustOff' => 'ublock0-updater',
+    'bartab@infernozeus' => 'bartab-tycho',
+    '{74c822b8-b6d5-4a81-872c-067338334a74}' => 'showdownloadswts',
+    '{a04a71f3-ce74-4134-8f86-fae693b19e44}' => 'cookiemasters'
 );
 ?>

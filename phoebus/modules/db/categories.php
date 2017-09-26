@@ -63,6 +63,7 @@ $arrayCategoryList02 = array(
     'theme-shim',
     'throbber-in-urlbar',
     'splashed',
+    'quickdialtool',
     'externals' => array(
         'active-stop-button' => array(
             'id' => 'fx-2025',
@@ -147,6 +148,8 @@ $arrayCategoryList03 = array(
     'complete-yt-saver',
     'downloads-window',
     'save-images-me',
+    'fireftpbutton',
+    'showdownloadswts',
     'externals' => array(
         'imagehost-grabber' => array(
             'id' => 'ex-005',
@@ -214,13 +217,10 @@ $arrayCategoryList05 = array(
     'isadmin',
     'integrated-authentication',
     'eclipsedmoon',
+    'noscript',
+    'ublock0-updater',
+    'cookiemasters',
     'externals' => array(
-        'clean-links' => array(
-            'id' => 'fx-317263',
-            'name' => 'Clean Links',
-            'shortDescription' => 'Converts obfuscated or nested links to genuine clean links.',
-            'url' => 'https://github.com/diegocr/CleanLinks'
-        ),
         'cookiekeeper' => array(
             'id' => 'fx-481410',
             'name' => 'CookieKeeper',
@@ -279,13 +279,13 @@ $arrayCategoryList05 = array(
             'id' => 'ex-012',
             'name' => 'uBlock Origin',
             'shortDescription' => 'Finally, an efficient blocker. Easy on CPU and memory.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/ublock-origin/'
+            'url' => 'https://github.com/gorhill/uBlock/releases/latest/'
         ),
         'umatrix' => array(
             'id' => 'ex-013',
             'name' => 'uMatrix',
             'shortDescription' => 'Point & click to forbid/allow any class of requests made by your browser.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/umatrix/'
+            'url' => 'https://github.com/gorhill/uMatrix/releases/latest/'
         ),
     ),
 );
@@ -363,6 +363,9 @@ $arrayCategoryList08 = array(
     'home-styler',
     'notestruck',
     'password-backup-tool',
+    'restartbrowsernow',
+    'viewsidebarmgr',
+    'tgsidebar',
     'externals' => array(
         'remove-it-permanently' => array(
             'id' => 'default',
@@ -429,6 +432,7 @@ $arrayCategoryList10 = array(
     'space-advance',
     'moon-pdf-viewer',
     'youtube-lazy-load',
+    'browserviewplus',
     'externals' => array(
         'epubreader' => array(
             'id' => 'fx-45281',
@@ -492,6 +496,8 @@ $arrayCategoryList11 = array(
     'treestyletabforpm',
     'expose-noisy-tabs',
     'color-my-tabs',
+    'togglebookmarks',
+    'bartab-tycho',
     'externals' => array(
         'speed-start' => array(
             'id' => 'ex-010',

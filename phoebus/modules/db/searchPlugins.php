@@ -35,6 +35,7 @@ $arraySearchPluginsDB = array(
     'search-129' => 'urban-dictionary.xml',
     'search-130' => 'webopedia.xml',
     'search-131' => 'wiktionary.xml',
-    'search-132' => 'yandex.xml'
+    'search-132' => 'yandex.xml',
+    'search-133' => 'pale-moon-add-ons-google.xml'
 );
 ?>
