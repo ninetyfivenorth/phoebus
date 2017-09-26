@@ -7,13 +7,14 @@
 
 $strContentBasePath = './phoebus/components/site/content/';
 $strSkinBasePath = './phoebus/skin/palemoon/';
+$strObjDirSmartyCachePath = $strObjDirPath . 'smarty/frontend/';
 
 $arraySmartyPaths = array(
-    'cache' => $strApplicationPath . '.smarty/cache',
-    'compile' => $strApplicationPath . '.smarty/compile',
-    'config' => $strApplicationPath . '.smarty/config',
-    'plugins' => $strApplicationPath . '.smarty/plugins',
-    'templates' => $strApplicationPath . '.smarty/templates',
+    'cache' => $strObjDirSmartyCachePath . 'cache',
+    'compile' => $strObjDirSmartyCachePath . 'compile',
+    'config' => $strObjDirSmartyCachePath . 'config',
+    'plugins' => $strObjDirSmartyCachePath . 'plugins',
+    'templates' => $strObjDirSmartyCachePath . 'templates',
 );
 
 $arrayStaticPages = array(
@@ -28,7 +29,7 @@ $arrayStaticPages = array(
     '/incompatible/' => array(
         'title' => 'Known Incompatible Add-ons',
         'contentTemplate' => $strContentBasePath . 'incompatible.xhtml.tpl',
-    ),
+    )
 );
 
 // ============================================================================

@@ -24,6 +24,7 @@ $boolDebugMode = false;
 // Define application paths
 $strRootPath = $_SERVER['DOCUMENT_ROOT'];
 $strGlobalLibPath = $strRootPath . '/lib/';
+$strObjDirPath = $strRootPath . '/obj-dir/';
 $strApplicationDatastore = './datastore/';
 $strApplicationPath = $strRootPath . '/phoebus/';
 $strComponentsPath = $strApplicationPath . 'components/';
