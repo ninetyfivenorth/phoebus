@@ -433,6 +433,7 @@ $arrayCategoryList10 = array(
     'moon-pdf-viewer',
     'youtube-lazy-load',
     'browserviewplus',
+    'openwithieedge',
     'externals' => array(
         'epubreader' => array(
             'id' => 'fx-45281',
