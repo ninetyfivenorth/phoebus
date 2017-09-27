@@ -18,7 +18,7 @@
 
 <h3>List of add-ons with known compatibility issues</h3>
 
-<p><strong>Last updated: 2017-07-20</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
+<p><strong>Last updated: 2017-09-27</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
 
 <p><strong>PENDING</strong></p>
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
@@ -71,7 +71,6 @@
                     <li>Clippings<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/clippings/versions/5.0.2" target="_blank">5.0.2</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>Color That Site!<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/color-that-site/versions/0.16.1-signed.1-signed" target="_blank">0.16.1</a></small></li>
                     <li>CoLT<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/colt/versions/2.6.5.1-signed" target="_blank">2.6.5.1</a></small></li>
-                    <li>Cookie Monster<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/cookie-monster/versions/1.2.0.1-signed" target="_blank">1.2.0.1</a></small></li>
                     <li>CookieCuller<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/cookiekeeper/" target="_blank">CookieKeeper</a></small></li>
                     <li>Copy goo.gl URL<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/googl-lite/" target="_blank">goo.gl lite</a></small></li>
                     <li>Customize Titlebar<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/customize_titlebar_v2/" target="_blank">customize_titlebar_v2</a></small></li>
@@ -210,7 +209,9 @@
                     <li>Adblock Plus<br /><small>As <a href="/addon/adblock-latitude/">Adblock Latitude</a></small></li>
                     <li>Change Referer Button<br /><small>As <a href="/addon/change-referer-button/">Change Referer Button</a></small></li>
                     <li>Console&sup2;<br /><small>As <a href="/addon/error-console2/">Error Console&sup2;</a></small></li>
+                    <li>Cookie Monster<br /><small>As <a href="/addon/cookiemasters/">Cookie Masters</a></small></li>
                     <li>Dark Background and Light Text<br /><small>As <a href="/addon/advanced-night-mode/">Advanced Night Mode</a></small></li>
+                    <li>Download Manager Tweak<br /><small>As <a href="/addon/showdownloadswts/">Show Downloads: Window, Tab, or Sidebar</a></small></li>
                     <li>Extension Options Menu<br /><small>As <a href="/addon/extension-preferences-menu/">Extension Preferences Menu</a></small></li>
                     <li>FindBar Tweak<br /><small>As <a href="/addon/finderbar-tweak/">FinderBar Tweak</a> (<strong>NOTE</strong>: Does not work on Pale Moon 27 or above)</small></li>
                     <li>Firebug<br /><small>As <a href="/addon/devtools/">Developer Tools</a></small></li>
@@ -254,7 +255,6 @@
                     <li>BugMeNot<br /><small>(Uses older SDK functionality than we support)</small></li>
                     <li>Classic Theme Restorer<br /><small>(There is no Australis to change)</small></li>
                     <li>Compact Menu 2<br /><small>(Problematic add-on, use<br /><a href="/addon/tiny-menu/">Tiny Menu</a> or <a href="https://addons.mozilla.org/firefox/addon/all-menus-button/" target="_blank">All Menus Button</a> instead)</small></li>
-                    <li>Download Manager Tweak</li><small>(Uses old downloads API)</small>
                     <li>Download Status</li><small>(Uses old downloads API)</small>
                 </ul>
             </td>
