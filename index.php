@@ -6,6 +6,7 @@
 // == | Function: funcError | =================================================
 
 function funcError($_value) {
+    header('Content-Type: text/plain');
     die('Error: ' . $_value);
     
     // We are done here
