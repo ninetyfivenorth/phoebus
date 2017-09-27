@@ -31,7 +31,7 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
     $_strUpdateXMLHead = '<?xml version="1.0"?>' . "\n" . '<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">';
     $_strUpdateXMLTail = '</RDF:RDF>';
 
-    header('Content-Type: text/xml');
+    funcSendHeader('xml');
 
     print($_strUpdateXMLHead);
 
