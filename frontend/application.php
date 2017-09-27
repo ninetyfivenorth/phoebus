@@ -18,7 +18,7 @@ $strApplicationLiveURL = 'addons.palemoon.org';
 $strApplicationDevURL = 'addons-dev.palemoon.org';
 $strApplicationURL = $strApplicationLiveURL;
 $strApplicationSiteName = 'Pale Moon - Add-ons';
-$strApplicationVersion = '1.6.0a1';
+$strApplicationVersion = '1.6.0a2';
 $boolDebugMode = false;
 
 // Define application paths
