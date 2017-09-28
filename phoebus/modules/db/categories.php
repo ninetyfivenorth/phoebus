@@ -366,6 +366,7 @@ $arrayCategoryList08 = array(
     'restartbrowsernow',
     'viewsidebarmgr',
     'tgsidebar',
+    'exif-viewer',
     'externals' => array(
         'remove-it-permanently' => array(
             'id' => 'default',
