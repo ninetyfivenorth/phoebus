@@ -40,6 +40,15 @@ body,td,th {
   color: #000000;
   letter-spacing: 0.3px;
 }
+
+a, a:visited, a:active  {
+    color: rgb(22, 54, 101);
+}
+
+a:hover {
+    color: rgb(192, 19, 20);
+}
+
 /* 
 @media all and (min-width: 820px)  {
 #PM-Wrapper {
@@ -112,16 +121,12 @@ body,td,th {
 }
 
 #PM-Content-Sidebar {
-    min-width: 270px;
-    width: 270px;
+    min-width: 280px;
+    width: 280px;
     height: 100%;
     display: table-cell;
     padding: 8px 10px 10px;
     vertical-align: top;
-}
-
-#PM-Content-Sidebar a, #PM-Content-Sidebar a:visited, #PM-Content-Sidebar a:hover {
-    color: #00E;
 }
 
 @keyframes fadeEffect {
@@ -148,11 +153,18 @@ background: linear-gradient(to right, rgba(240,240,240,1) 50%,rgba(255,255,255,0
     margin-right: 20px;
     padding: 4px 8px;
     text-decoration: none;
-    color: black;
+    color: #000;
 }
 
-.fake-table-row-search-plugin:hover {
-    color: #004B97;
+.fake-table-row-search-plugin div{
+    color: #000;
+}
+
+.fake-table-row div:hover, .fake-table-row-search-plugin div:hover {
+    color: #163665;
+}
+.fake-table-row small, .fake-table-row small:hover,  .fake-table-row-search-plugin small .fake-table-row-search-plugin small:hover{
+    color:#000;
 }
 
 h1 {
@@ -200,7 +212,7 @@ hr {
 display: none;
 }
 
-.dllink_green {
+.dllink_green, .dllink_green:hover {
   border: 1px solid rgb(0, 153, 0); 
   padding: 14px; 
   background-color: rgb(153, 255, 153); 
@@ -210,7 +222,7 @@ display: none;
   border-radius: 9px; 
 }
 
-.dllink_blue {
+.dllink_blue, .dllink_blue:hover {
   border: 1px solid rgb(0, 0, 153); 
   padding: 14px; 
   background-color: rgb(153, 153, 255); 

@@ -17,50 +17,26 @@ if ($strRequestFunction == null) {
     funcError('Missing function request');
 }
 
-if ($strRequestFunction == 'phpvars') {
+if ($strRequestFunction == 'phpVars') {
     funcSendHeader('html');
     phpinfo(32);
 }
-elseif ($strRequestFunction == 'checkdup') {
+elseif ($strRequestFunction == 'checkAddons') {
+    $boolDebug = false;
+    require_once($arrayModules['dbAddons']);
+    require_once($arrayModules['readManifest']);
+    
     funcSendHeader('text');
-    $arrayFile = file_get_contents($arrayModules['dbAddons']);
-    $arrayFile = str_replace(');', '', $arrayFile);
-    $arrayFile = str_replace(',', '', $arrayFile);
-    $arrayFile = str_replace('$arrayAddonsDB = array(', '', $arrayFile);
-    
-    $arrayConplex = array(
-        "\/\/ (.*)\n" => "",
-        "\<\?php\n" => "",
-        "\?\>" => "",
-        "^\n" => "",
-        "^    \'(.*)\' \=\> \'(.*)'" => "$1\n$2",
-    );
-
-    foreach ($arrayConplex as $_key => $_value) {
-        $arrayFile = preg_replace('/' . $_key . '/iUm', $_value, $arrayFile);
-    }
-
-    $arrayFile = explode("\n", $arrayFile);
-    $intArrayEnd = array_search('$arrayAddonsOverrideDB = array(', $arrayFile);
-    $arrayFile = array_slice($arrayFile, null, $intArrayEnd, true);
-    $arrayDups = array_diff_key($arrayFile, array_unique($arrayFile));   
-    
-    print('This is by no means perfect detection for the main addons array as improper formatting could throw the initial regex for a loop.. Just don\'t make mistakes!' . "\n\n");
-    
-    if (!$arrayDups) {
-        print('No duplicates were detected');
-    }
-    else {
-        foreach ($arrayDups as $dupKey => $dupValue) {
-            print('Duplicate key or value: ' . $dupValue . "\n");
+    foreach ($arrayAddonsDB as $_key => $_value) {
+        $_addonManifest = funcReadManifest($_value, true);
+        
+        if ($_addonManifest != null) {
+            print($_value . ': PASS ' . "\n");
+        }
+        else {
+            print($_value . ': FAIL' . "\n");
         }
     }
-}
-elseif ($strRequestFunction == 'readManifest2') {
-    funcSendHeader('text');
-    require_once($arrayModules['readManifest2']);
-    $_data = funcReadManifest2('material-moon');
-    var_export($_data);
 }
 else {
     funcError('Incorrect function request');

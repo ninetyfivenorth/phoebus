@@ -1,7 +1,7 @@
 <?php
 // == | funcReadManifest | ==============================================
 
-function funcReadManifest($_addonSlug) {  
+function funcReadManifest($_addonSlug, $_boolLegacy = null) {  
     // Define some vars
     $_boolProcess = false;
     $_boolRegenerate = false;
@@ -47,32 +47,38 @@ function funcReadManifest($_addonSlug) {
         }
     }
  
-    // Determin if the Shadow file exists and decide on a course of action
-    if ($_arrayPhoebusFiles['shadow']['exists'] == false && $_arrayPhoebusFiles['temp']['exists'] == false) {
-        // There is no shadow file so we should generate it
-        // Process the manifest files and generate the shadow file
-        $_boolProcess = true;
-        $_boolRegenerate = true;
-    }
-    elseif ($_arrayPhoebusFiles['shadow']['exists'] == true) {
-        // There is a shadow file so read it and store it as $_addonManifest
-        $_addonManifestShadow = file_get_contents($_strObjDirDatastoreBasePath . $_arrayPhoebusFiles['shadow']['file']);
-        $_addonManifest = json_decode($_addonManifestShadow, true);
-        
-        // If the JSON file is valid json we should consider it good
-        if ($_addonManifest != null) {
-            $_addonManifest['phoebus']['regenerated'] = false;
+    if ($_boolLegacy == null) {
+        // Determin if the Shadow file exists and decide on a course of action
+        if ($_arrayPhoebusFiles['shadow']['exists'] == false && $_arrayPhoebusFiles['temp']['exists'] == false) {
+            // There is no shadow file so we should generate it
+            // Process the manifest files and generate the shadow file
+            $_boolProcess = true;
+            $_boolRegenerate = true;
+        }
+        elseif ($_arrayPhoebusFiles['shadow']['exists'] == true) {
+            // There is a shadow file so read it and store it as $_addonManifest
+            $_addonManifestShadow = file_get_contents($_strObjDirDatastoreBasePath . $_arrayPhoebusFiles['shadow']['file']);
+            $_addonManifest = json_decode($_addonManifestShadow, true);
             
-            // We should only consider regenerating the file if the temporary file does not exist
-            if ($_arrayPhoebusFiles['temp']['exists'] == false) {
-                // Test to see if any phoebus files have changed
-                if ($_addonManifest['phoebus']['manifestHash'] != $_arrayPhoebusFiles['manifest']['hash'] ||
-                $_addonManifest['phoebus']['contentHash'] != $_arrayPhoebusFiles['content']['hash'] ||
-                $_addonManifest['phoebus']['licenseHash'] != $_arrayPhoebusFiles['license']['hash']) {
-                    // Files have changed so we should process the manifest files and regenerate the shadow file
-                    $_boolProcess = true;
-                    $_boolRegenerate = true;
+            // If the JSON file is valid json we should consider it good
+            if ($_addonManifest != null) {
+                $_addonManifest['phoebus']['regenerated'] = false;
+                
+                // We should only consider regenerating the file if the temporary file does not exist
+                if ($_arrayPhoebusFiles['temp']['exists'] == false) {
+                    // Test to see if any phoebus files have changed
+                    if ($_addonManifest['phoebus']['manifestHash'] != $_arrayPhoebusFiles['manifest']['hash'] ||
+                    $_addonManifest['phoebus']['contentHash'] != $_arrayPhoebusFiles['content']['hash'] ||
+                    $_addonManifest['phoebus']['licenseHash'] != $_arrayPhoebusFiles['license']['hash']) {
+                        // Files have changed so we should process the manifest files and regenerate the shadow file
+                        $_boolProcess = true;
+                        $_boolRegenerate = true;
+                    }
                 }
+            }
+            else {
+                // Fall back to on-the-fly and just process the manifest files
+                $_boolProcess = true;
             }
         }
         else {
@@ -81,7 +87,6 @@ function funcReadManifest($_addonSlug) {
         }
     }
     else {
-        // Fall back to on-the-fly and just process the manifest files
         $_boolProcess = true;
     }
 
@@ -176,16 +181,32 @@ function funcReadManifest($_addonSlug) {
         unset($_addonManifestVersions['addon']);
         unset($_addonManifestVersions['metadata']);
         
-        // Reverse sort the keys
-        krsort($_addonManifestVersions, SORT_NATURAL | SORT_FLAG_CASE);
-        
         // mangle filename.xpi sections into a subkey
         // we are now working on the add-on manifest array
         foreach ($_addonManifestVersions as $_key => $_value) {
             unset($_addonManifest[$_key]);
             $_addonManifest['xpinstall'][$_key] = $_value;
+           
+            // Generate a sha256 hash for every filename.xpi
+            if (file_exists($_addonBasePath . $_addonManifest['addon']['release'])) {    
+                $_addonManifest['xpinstall'][$_key]['hash'] = hash_file('sha256', $_addonBasePath . $_key);
+            }
+            else {
+                if ($GLOBALS['boolDebugMode'] == true) {
+                    funcError('Could not find ' . $_addonManifest['xpinstall'][$_key]);
+                }
+                else {
+                    return null;
+                }
+            }
         }
-        
+
+        // Reverse sort the xpinstall keys by version number using an anonymous function and a spaceship..
+        // space.. SPACE! SPAAAAAAAAAAAAAACE!!!!!!!!
+        uasort($_addonManifest['xpinstall'], function ($_xpi1, $_xpi2) {
+            return $_xpi2['version'] <=> $_xpi1['version'];
+        });
+
         // clear the temporary array out of memory
         unset($_addonManifestVersions);
         
@@ -312,20 +333,7 @@ function funcReadManifest($_addonSlug) {
             $_addonManifest['metadata']['licenseText'] = null;
         }
 
-        // Generate a sha256 hash for the current release
-        if (file_exists($_addonBasePath . $_addonManifest['addon']['release'])) {    
-            $_addonManifest['addon']['hash'] = hash_file('sha256', $_addonBasePath . $_addonManifest['addon']['release']);
-        }
-        else {
-            if ($GLOBALS['boolDebugMode'] == true) {
-                funcError('Could not find ' . $_addonManifest["xpi"]);
-            }
-            else {
-                return null;
-            }
-        }
-
-        $_addonManifest['addon']["baseURL"] = 'http://' . $GLOBALS['strApplicationURL'] . '<![CDATA[/?component=download&id=]]>';
+        $_addonManifest['addon']["baseURL"] = 'http://' . $GLOBALS['strApplicationURL'] . '<![CDATA[/?component=download&version=latest&id=]]>';
 
         // assign the basePath to the add-on manifest array
         $_addonManifest['addon']['basePath'] = $_addonBasePath;

@@ -6,7 +6,7 @@
 // == | Vars | ================================================================
 
 $strContentBasePath = './frontend/components/site/content/';
-$strSkinBasePath = './frontend/skin/palemoon/';
+$strSkinBasePath = './frontend/skin/' . $strApplicationSkin . '/';
 $strObjDirSmartyCachePath = $strObjDirPath . 'smarty/frontend/';
 
 $arraySmartyPaths = array(
@@ -205,17 +205,26 @@ function funcGeneratePage($_array) {
     
     // Configure Smarty
     $libSmarty->caching = 0;
-    $libSmarty->debugging = $GLOBALS['boolDebugMode'];
     $libSmarty->setCacheDir($GLOBALS['arraySmartyPaths']['cache'])
         ->setCompileDir($GLOBALS['arraySmartyPaths']['compile'])
         ->setConfigDir($GLOBALS['arraySmartyPaths']['config'])
         ->addPluginsDir($GLOBALS['arraySmartyPaths']['plugins'])
         ->setTemplateDir($GLOBALS['arraySmartyPaths']['templates']);
 
+    // Smarty Debug
+    if ($GLOBALS['strRequestSmartyDebug']) {
+        $libSmarty->debugging = $GLOBALS['boolDebugMode'];
+    }
+    else {
+        $libSmarty->debugging = false;
+    }
+    
     // Assign data to Smarty
+    $libSmarty->assign('APPLICATION_DEBUG', $GLOBALS['boolDebugMode']);
     $libSmarty->assign('SITE_NAME', $GLOBALS['strApplicationSiteName']);
     $libSmarty->assign('SITE_DOMAIN', '//' . $GLOBALS['strApplicationURL']);
     $libSmarty->assign('PAGE_TITLE', $_array['title']);
+    $libSmarty->assign('PAGE_PATH', $GLOBALS['strRequestPath']);
     $libSmarty->assign('BASE_PATH', substr($GLOBALS['strSkinBasePath'], 1));
     $libSmarty->assign('PHOEBUS_VERSION', $GLOBALS['strApplicationVersion']);
     

@@ -40,7 +40,7 @@
         </div>
 {/if}
         
-        <p style="margin-top: 6px;"><strong>{$key.metadata.name}</strong>
+        <div style="margin-top: 6px; height: 64px;"><strong>{$key.metadata.name}</strong>
 {if $key.addon.type == 'external'}
 {if strstr($key.metadata.url, 'addons.mozilla.org')}
             <small>[AMO]</small>
@@ -50,7 +50,7 @@
 {/if}
             <br />
             <small>{$key.metadata.shortDescription}</small>
-        </p>
+        </div>
     </a>
 {/foreach}
 </div>

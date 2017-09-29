@@ -73,11 +73,11 @@
             class="alignleft"
             width="16px"
             height="16px">
-        <p style="margin-top: 0px;">
+        <div style="margin-top: 0px;">
             <strong>
                 {$key.metadata.name}
             </strong>
-        </p>
+        </div>
     </a>
 {/foreach}
 </div>
@@ -89,10 +89,10 @@
             class="alignleft"
             width="32px"
             height="32px">
-        <p style="margin-top: 7px;">
+        <div style="margin-top: 7px;">
             <strong>{$key.name}</strong>
             <small>[{$key.locale}]</small>
-        </p>
+        </div>
     </a>
 {/foreach}
 </div>
@@ -113,3 +113,4 @@
     We're sorry but these are the only languages that actually have a complete translation and have support from (near-)native speakers. We cannot support any other languages without a dedicated community translator for a language. Other languages are in the works but not complete yet.
 </p>
 {/if}
+{$key = null}

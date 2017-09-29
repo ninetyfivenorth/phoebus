@@ -16,11 +16,11 @@
 </p>
 
 {if $PAGE_DATA.metadata.hasPreview == true}
-    <img src="{$PAGE_DATA.metadata.preview}" class="aligncenter"/>
+    <img src="{$PAGE_DATA.metadata.preview}" class="aligncenter" style="max-width: 750px"/>
 {/if}
 
 <p style="text-align: center; padding: 10px;">
-    <a class="dllink_green" href="/?component=download&id={$PAGE_DATA.addon.id}&version=latest">
+    <a class="dllink_green" href="/?component=download&id={$PAGE_DATA.addon.id}&version={$PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['version']}&hash={$PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['hash']}">
         <img border="0" src="{$BASE_PATH}download.png" alt="" style="width: 24px; height: 24px; position: relative; top: 7px; right: 4px;" />
         Install {$PAGE_DATA.metadata.name} {$PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['version']}
     </a>
@@ -75,22 +75,25 @@
         <h3>
             Previous Releases
         </h3>
-        
+        <div id="addonOldVersions" style="overflow-y: hidden; height: 140px; padding: 0px">
 {foreach $PAGE_DATA.xpinstall as $key}
 {if $key != $PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]}
-            <p>
-                <a href="/?component=download&id={$PAGE_DATA.addon.id}&version={$key.version}">Version {$key.version}</a><br />
-                <small>
-                    Works with Pale Moon {$key.minAppVersion} to
+            <a href="/?component=download&id={$PAGE_DATA.addon.id}&version={$key.version}&hash={$key.hash}">Version {$key.version}</a><br />
+            <small>
+                Works with Pale Moon {$key.minAppVersion} to
 {if $key.maxAppVersion == '*'}
-                    Unknown
+                Unknown
 {else}
-                    {$key.maxAppVersion}
+                {$key.maxAppVersion}
 {/if}
-                </small>
-            </p>
+            </small><br /><br />
 {/if}
 {/foreach}
+        </div>
+{if $PAGE_DATA.xpinstall|@count > 4}
+        <br /><small><a id="addonShowMore" href="#" onclick="document.getElementById('addonOldVersions').style.height = null; document.getElementById('addonShowMore').style.display = 'none'">Show all&hellip;</a></small>
+{/if}
 {/if}
     </div>
     <div class="clearfix"></div>
+{$key = null}

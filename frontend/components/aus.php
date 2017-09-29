@@ -95,7 +95,7 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
                 '{%ADDON_MINVERSION}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['minAppVersion'],
                 '{%ADDON_MAXVERSION}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['maxAppVersion'],
                 '{%ADDON_XPI}' => $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['id'],
-                '{%ADDON_HASH}' => $_addonManifest['addon']['hash']
+                '{%ADDON_HASH}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['hash']
             );
             
             if ($addonUseFilename == true) {

@@ -19,6 +19,7 @@ $strApplicationDevURL = 'addons-dev.palemoon.org';
 $strApplicationURL = $strApplicationLiveURL;
 $strApplicationSiteName = 'Pale Moon - Add-ons';
 $strApplicationVersion = '1.6.0a2';
+$strApplicationSkin = 'palemoon';
 $boolDebugMode = false;
 
 // Define application paths
@@ -76,6 +77,7 @@ $strFirefoxOldVersion = '24.9';
 $strRequestComponent = funcHTTPGetValue('component');
 $arrayArgsComponent = preg_grep('/^component=(.*)/', explode('&', parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY)));
 $strRequestPath = funcHTTPGetValue('path');
+$strRequestSmartyDebug = funcHTTPGetValue('smartyDebug');
 
 // ============================================================================
 
