@@ -126,6 +126,7 @@ $arrayAddonsDB = array(
     '{74c822b8-b6d5-4a81-872c-067338334a74}' => 'showdownloadswts',
     '{a04a71f3-ce74-4134-8f86-fae693b19e44}' => 'cookiemasters',
     '{ab91ffec-fe2a-440e-99ca-5260e0ea0c06}' => 'openwithieedge',
-    'exif-viewer@asraskin.org' => 'exif-viewer'
+    'exif-viewer@asraskin.org' => 'exif-viewer',
+    '{1b6b1e6f-d8ac-4cdf-9ead-4719b7e25a0e}' => 'forecastweathersb'
 );
 ?>

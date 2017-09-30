@@ -435,6 +435,7 @@ $arrayCategoryList10 = array(
     'youtube-lazy-load',
     'browserviewplus',
     'openwithieedge',
+    'forecastweathersb'
     'externals' => array(
         'epubreader' => array(
             'id' => 'fx-45281',
