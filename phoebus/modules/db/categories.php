@@ -64,6 +64,7 @@ $arrayCategoryList02 = array(
     'throbber-in-urlbar',
     'splashed',
     'quickdialtool',
+    'location-4-evar',
     'externals' => array(
         'active-stop-button' => array(
             'id' => 'fx-2025',
