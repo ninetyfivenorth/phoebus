@@ -261,7 +261,7 @@ $arrayCategoryList05 = array(
         'cookies-exterminator' => array(
             'id' => 'ex-008',
             'name' => 'Cookies Exterminator',
-            'shortDescription' => 'Auto delete cookies and localStorage objects as soon as they become unused.',
+            'shortDescription' => 'Auto delete cookies, localStorage and IndexedDB objects as soon as they become unused.',
             'url' => 'https://addons.mozilla.org/firefox/addon/cookies-exterminator/'
         ),
         'modify-http-response' => array(
