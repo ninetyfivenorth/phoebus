@@ -193,7 +193,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             }
             else {
                 if ($GLOBALS['boolDebugMode'] == true) {
-                    funcError('Could not find ' . $_addonManifest['addon']['release']);
+                    funcError('Could not find ' . $_key);
                 }
                 else {
                     return null;
