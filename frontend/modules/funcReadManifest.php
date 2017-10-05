@@ -193,7 +193,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             }
             else {
                 if ($GLOBALS['boolDebugMode'] == true) {
-                    funcError('Could not find ' . $_addonManifest['xpinstall'][$_key]);
+                    funcError('Could not find ' . (string)$_addonManifest['xpinstall'][$_key]);
                 }
                 else {
                     return null;
