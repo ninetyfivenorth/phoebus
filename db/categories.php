@@ -64,6 +64,7 @@ $arrayCategoryList02 = array(
     'throbber-in-urlbar',
     'splashed',
     'quickdialtool',
+    'location-4-evar',
     'externals' => array(
         'active-stop-button' => array(
             'id' => 'fx-2025',
@@ -260,7 +261,7 @@ $arrayCategoryList05 = array(
         'cookies-exterminator' => array(
             'id' => 'ex-008',
             'name' => 'Cookies Exterminator',
-            'shortDescription' => 'Auto delete cookies and localStorage objects as soon as they become unused.',
+            'shortDescription' => 'Auto delete cookies, localStorage and IndexedDB objects as soon as they become unused.',
             'url' => 'https://addons.mozilla.org/firefox/addon/cookies-exterminator/'
         ),
         'modify-http-response' => array(
@@ -366,6 +367,7 @@ $arrayCategoryList08 = array(
     'restartbrowsernow',
     'viewsidebarmgr',
     'tgsidebar',
+    'exif-viewer',
     'externals' => array(
         'remove-it-permanently' => array(
             'id' => 'default',
@@ -433,6 +435,8 @@ $arrayCategoryList10 = array(
     'moon-pdf-viewer',
     'youtube-lazy-load',
     'browserviewplus',
+    'openwithieedge',
+    'forecastweathersb',
     'externals' => array(
         'epubreader' => array(
             'id' => 'fx-45281',
