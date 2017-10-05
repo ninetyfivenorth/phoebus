@@ -188,7 +188,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             $_addonManifest['xpinstall'][$_key] = $_value;
            
             // Generate a sha256 hash for every filename.xpi
-            if (file_exists($_addonBasePath . $_addonManifest['addon']['release'])) {    
+            if (file_exists($_addonBasePath . $_key)) {    
                 $_addonManifest['xpinstall'][$_key]['hash'] = hash_file('sha256', $_addonBasePath . $_key);
             }
             else {

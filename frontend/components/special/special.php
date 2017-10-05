@@ -22,7 +22,7 @@ if ($strRequestFunction == 'phpVars') {
     phpinfo(32);
 }
 elseif ($strRequestFunction == 'checkAddons') {
-    $boolDebug = false;
+    $GLOBALS['boolDebugMode'] = false;
     require_once($arrayModules['dbAddons']);
     require_once($arrayModules['readManifest']);
     
