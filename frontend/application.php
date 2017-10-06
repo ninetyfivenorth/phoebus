@@ -32,6 +32,22 @@ $strComponentsPath = $strApplicationPath . 'components/';
 $strModulesPath = $strApplicationPath . 'modules/';
 $strDatabasesPath = $strRootPath . '/db/';
 
+// Define Libs
+$arrayLibs = array(
+    'vc' => $strGlobalLibPath . 'nsIVersionComparator.php',
+    'smarty' => $strGlobalLibPath . 'smarty/Smarty.class.php',
+    'rdf' => $strGlobalLibPath . 'rdf/RdfComponent.php',
+);
+
+// Define Database Arrays
+$arrayDatabases = array(
+    'dbAddons' => $strDatabasesPath . 'addons.php',
+    'dbLangPacks' => $strDatabasesPath . 'langPacks.php',
+    'dbSearchPlugins' => $strDatabasesPath . 'searchPlugins.php',
+    'dbAUSExternals' => $strDatabasesPath . 'ausExternals.php',
+    'dbCategories' => $strDatabasesPath . 'categories.php'
+);
+
 // Define Components
 $arrayComponents = array(
     'site' => $strComponentsPath . 'site/site.php',
@@ -45,19 +61,7 @@ $arrayComponents = array(
 
 // Define Modules
 $arrayModules = array(
-    'vc' => $strGlobalLibPath . 'nsIVersionComparator.php',
-    'smarty' => $strGlobalLibPath . 'smarty/Smarty.class.php',
     'readManifest' => $strModulesPath . 'funcReadManifest.php'
-);
-
-// Define Database Arrays
-// XXX: These will be merged into arrayModules until they go away with SQL
-$arrayDatabases = array(
-    'dbAddons' => $strDatabasesPath . 'addons.php',
-    'dbLangPacks' => $strDatabasesPath . 'langPacks.php',
-    'dbSearchPlugins' => $strDatabasesPath . 'searchPlugins.php',
-    'dbAUSExternals' => $strDatabasesPath . 'ausExternals.php',
-    'dbCategories' => $strDatabasesPath . 'categories.php'
 );
 
 // Known Client GUIDs
@@ -83,7 +87,10 @@ $strRequestSmartyDebug = funcHTTPGetValue('smartyDebug');
 
 // == | Main | ================================================================
 
-// Merge the databases and modules
+// Merge Libs and Databases into Modules then unset
+$arrayModules = array_merge($arrayModules, $arrayLibs);
+unset($arrayLibs);
+
 $arrayModules = array_merge($arrayModules, $arrayDatabases);
 unset($arrayDatabases);
 
@@ -103,11 +110,12 @@ if ($_SERVER['SERVER_NAME'] == $strApplicationDevURL) {
     else {
         $strApplicationSiteName = 'Phoebus Development - Version: ' . $strApplicationVersion;
     }
+    
     error_reporting(E_ALL);
     ini_set("display_errors", "on");
 }
 
-// Deal with unwanted entry points
+// Set the root entry point and ensure insanity isn't happening
 if ($_SERVER['REQUEST_URI'] == '/') {
     $strRequestComponent = 'site';
     $strRequestPath = '/';
