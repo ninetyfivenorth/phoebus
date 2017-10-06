@@ -1,6 +1,6 @@
 <h1>{$PAGE_TITLE}</h1>
 
-{if $PAGE_TYPE == 'cat-extensions' || $PAGE_TYPE == 'cat-all-extensions'}
+{if $PAGE_TYPE == 'cat-all-extensions'}
 <p>
     Extensions are small add-ons that add new functionality to Pale Moon, from a simple toolbar button to a completely new feature. They allow you to customize the browser to fit your own needs and preferences, while letting us keep the core itself light and lean.
 </p>
