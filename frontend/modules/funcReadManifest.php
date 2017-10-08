@@ -37,7 +37,11 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             'exists' => file_exists($_strObjDirDatastoreBasePath . $_addonSlug. '.temp'),
         ),
         'icon' => file_exists($_addonBasePath . '/icon.png'),
-        'preview' => file_exists($_addonBasePath . '/preview.png')
+        'preview' => file_exists($_addonBasePath . '/preview.png'),
+        'xpinstall' => array(
+            'files' => null,
+            'count' => null
+        )
     );
        
     // Iterate through the files and generate a hash where nessisary
@@ -46,6 +50,14 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             $_arrayPhoebusFiles[$_key]['hash'] = hash_file('crc32b', $_strDatastoreBasePath . $_addonSlug . '/' . $_value['file']);
         }
     }
+    
+    // Interate through XPI files in datastore
+    foreach (glob($_addonBasePath . '*.xpi') as $_xpiFile) {
+        $_arrayPhoebusFiles['xpinstall']['files'][] = basename($_xpiFile);
+    }
+    
+    // Count XPI Files
+    $_arrayPhoebusFiles['xpinstall']['count'] = count($_arrayPhoebusFiles['xpinstall']['files']);
  
     if ($_boolLegacy == null) {
         // Determin if the Shadow file exists and decide on a course of action
@@ -69,7 +81,8 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
                     // Test to see if any phoebus files have changed
                     if ($_addonManifest['phoebus']['manifestHash'] != $_arrayPhoebusFiles['manifest']['hash'] ||
                     $_addonManifest['phoebus']['contentHash'] != $_arrayPhoebusFiles['content']['hash'] ||
-                    $_addonManifest['phoebus']['licenseHash'] != $_arrayPhoebusFiles['license']['hash']) {
+                    $_addonManifest['phoebus']['licenseHash'] != $_arrayPhoebusFiles['license']['hash'] ||
+                    $_addonManifest['phoebus']['xpiCount'] != $_arrayPhoebusFiles['xpinstall']['count']) {
                         // Files have changed so we should process the manifest files and regenerate the shadow file
                         $_boolProcess = true;
                         $_boolRegenerate = true;
@@ -92,6 +105,9 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
 
     // Process the manifest files
     if ($_boolProcess == true) {
+        // Load RDF Module
+        require_once($GLOBALS['arrayModules']['rdf']);
+        
         // If phoebus.manifest exists read it
         if ($_arrayPhoebusFiles['manifest']['exists'] = true) {
             $_addonManifestINI = parse_ini_file($_addonBasePath . $_arrayPhoebusFiles['manifest']['file'], true) or null;
@@ -139,6 +155,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
                 'license' => null, // preferred spelling
                 'licence' => null
             ),
+            'xpinstall' => null
         );
         
         // Create a new array that will replace existing values from manifest ini onto the predefined data structure
@@ -151,7 +168,6 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
         if (funcCheckVar($_addonManifest['addon']['type']) == null ||
             funcCheckVar($_addonManifest['addon']['id']) == null ||
             funcCheckVar($_addonManifest['addon']['release']) == null ||
-            funcCheckVar($_addonManifest['metadata']['name']) == null ||
             funcCheckVar($_addonManifest['metadata']['slug']) == null ||
             funcCheckVar($_addonManifest['metadata']['author']) == null ||
             funcCheckVar($_addonManifest['metadata']['shortDescription']) == null ||
@@ -164,36 +180,93 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
                 return null;
             }
         }
-        
+
         // If any value of a metadata subkey is 'none' replace it with null
         foreach ($_addonManifest['metadata'] as $_metadataKey => $_metadataValue) {
             if ($_metadataValue === 'none') {
                 $_addonManifest['metadata'][$_metadataKey] = null;
             }
         }
+
+        // Remove any preset filename.xpi keys from the manifest
+        foreach ($_addonManifest as $_key => $_value) {
+            if (endsWith($_key, '.xpi')) {
+                unset($_addonManifest[$_key]);
+            }
+        }
+
+        // Get data from XPI Files
+        $_addonXPI = new ZipArchive;
+        $_addonRDF = new RdfComponent();
+        $_addonInstallRDF = null;
         
-        // INI has depth and identical section name issues so we need to mangle it
-        // Create a temporary array that we can easily manipulate
-        $_addonManifestVersions = $_addonManifest;
-        
-        // Drop the addon and metadata keys off the temporary array
-        unset($_addonManifestVersions['phoebus']);
-        unset($_addonManifestVersions['addon']);
-        unset($_addonManifestVersions['metadata']);
-        
-        // mangle filename.xpi sections into a subkey
-        // we are now working on the add-on manifest array
-        foreach ($_addonManifestVersions as $_key => $_value) {
-            unset($_addonManifest[$_key]);
-            $_addonManifest['xpinstall'][$_key] = $_value;
-           
-            // Generate a sha256 hash for every filename.xpi
-            if (file_exists($_addonBasePath . $_key)) {    
-                $_addonManifest['xpinstall'][$_key]['hash'] = hash_file('sha256', $_addonBasePath . $_key);
+        $_addonTypes = array(
+            2 => 'extension',
+            4 => 'theme',
+            8 => 'langpack',
+            32 => 'package',
+            64 => 'dictionary',
+        );
+
+        // Create the xpinstall key and populate it
+        foreach ($_arrayPhoebusFiles['xpinstall']['files'] as $_value) {
+            // Open the xpi file
+            if ($_addonXPI->open($_addonBasePath  . '/' . $_value) === true) {
+
+                // Read install.rdf
+                $_addonInstallRDF = $_addonXPI->getFromName('install.rdf');
+
+                // Close the XPI File
+                $_addonXPI->close();
+
+                // Parse install.rdf
+                $_addonInstallRDF = $_addonRDF->parseInstallManifest($_addonInstallRDF);
+                
+                // Consistancy and sanity checks..
+                // If not release XPI they are non-fatal errors and drop the xpi on the floor
+                // But if it IS the release xpi.. then it is fatal... error or return null
+                if ((string)$_addonManifest['addon']['id'] != $_addonInstallRDF['id']) {                   
+                    if ($_value != $_addonManifest['addon']['release']) {
+                        $_addonManifest['errors'][] = $_value . ' has a mismatched add-on id';
+                        continue;
+                    }
+                    else {
+                        if ($GLOBALS['boolDebugMode'] == true) {
+                            funcError('Release XPI id does not match manifest id for ' . $_addonSlug);
+                        }
+                        else {
+                            return null;
+                        }
+                    }
+                }
+                elseif (!array_key_exists($GLOBALS['strPaleMoonID'], $_addonInstallRDF['targetApplication'])) {
+                     if ($_value != $_addonManifest['addon']['id']) {
+                        $_addonManifest['errors'][] = $_value . ' does not have a Pale Moon targetApplication';
+                        continue;
+                    }
+                    else {
+                        if ($GLOBALS['boolDebugMode'] == true) {
+                            funcError('Release XPI does not have a Pale Moon targetApplication for ' . $_addonSlug);
+                        }
+                        else {
+                            return null;
+                        }
+                    }
+                }
+
+                // Fill in xpinstall values from install.rdf
+                $_addonManifest['xpinstall'][$_value]['version'] =
+                    $_addonInstallRDF['version'];
+                $_addonManifest['xpinstall'][$_value]['minAppVersion'] =
+                    $_addonInstallRDF['targetApplication'][$GLOBALS['strPaleMoonID']]['minVersion'];
+                $_addonManifest['xpinstall'][$_value]['maxAppVersion'] =
+                    $_addonInstallRDF['targetApplication'][$GLOBALS['strPaleMoonID']]['maxVersion'];
+
+                $_addonManifest['xpinstall'][$_value]['hash'] = hash_file('sha256', $_addonBasePath . $_value);
             }
             else {
                 if ($GLOBALS['boolDebugMode'] == true) {
-                    funcError('Could not find ' . $_key);
+                    funcError('An XPI file could not be opened ' . $_addonSlug);
                 }
                 else {
                     return null;
@@ -201,15 +274,62 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             }
         }
 
+        // If xpi files failed in some way and the xpinstall key is null then error/return null
+        if ($_addonManifest['xpinstall'] == null) {
+            if ($GLOBALS['boolDebugMode'] == true) {
+                funcError('xpinstall key is null for ' . $_addonSlug);
+            }
+            else {
+                return null;
+            }
+        }
+        
+        // Ensure the release xpi physically exists
+        if (file_exists($_addonBasePath . '/' . $_addonManifest['addon']['release'])) {
+            // Open the xpi file
+            $_addonXPI->open($_addonBasePath  . '/' . $_value);
+
+            // Read install.rdf
+            $_addonInstallRDF = $_addonXPI->getFromName('install.rdf');
+
+            // Close the XPI File
+            $_addonXPI->close();
+
+            // Parse install.rdf
+            $_addonInstallRDF = $_addonRDF->parseInstallManifest($_addonInstallRDF);
+            
+            // Override potentally set values in the manifest file with those from the release XPI
+            if (array_key_exists('name', $_addonInstallRDF)) {
+                $_addonManifest['metadata']['name'] = $_addonInstallRDF['name']['en-US'];
+            }
+            
+            if (array_key_exists('description', $_addonInstallRDF)) {
+                $_addonManifest['metadata']['shortDescription'] = $_addonInstallRDF['description']['en-US'];
+            }
+            
+            if (array_key_exists('creator', $_addonInstallRDF)) {
+                $_addonManifest['metadata']['author'] = $_addonInstallRDF['creator'];
+            }
+            
+            if (array_key_exists('homepageURL', $_addonInstallRDF)) {
+                $_addonManifest['metadata']['homepageURL'] = $_addonInstallRDF['homepageURL'];
+            }
+        }
+        else {
+            if ($GLOBALS['boolDebugMode'] == true) {
+                funcError('Release XPI does not physically exist for ' . $_addonSlug);
+            }
+            else {
+                return null;
+            }
+        }
+        
         // Reverse sort the xpinstall keys by version number using an anonymous function and a spaceship..
         // space.. SPACE! SPAAAAAAAAAAAAAACE!!!!!!!!
         uasort($_addonManifest['xpinstall'], function ($_xpi1, $_xpi2) {
             return $_xpi2['version'] <=> $_xpi1['version'];
         });
-
-        // clear the temporary array out of memory
-        unset($_addonManifestVersions);
-        
+       
         // Set the URL for the add-on to the manifest
         $_addonManifest['metadata']['url'] = '/addon/' . $_addonManifest['metadata']['slug'] . '/';
 
@@ -348,6 +468,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             $_addonManifest['phoebus']['manifestHash'] = $_arrayPhoebusFiles['manifest']['hash'];
             $_addonManifest['phoebus']['contentHash'] = $_arrayPhoebusFiles['content']['hash'];
             $_addonManifest['phoebus']['licenseHash'] = $_arrayPhoebusFiles['license']['hash'];
+            $_addonManifest['phoebus']['xpiCount'] = $_arrayPhoebusFiles['xpinstall']['count'];
             
             // JSON Encode the array
             $_addonManifestShadow = json_encode($_addonManifest, JSON_PRETTY_PRINT);
@@ -375,7 +496,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
         else {
             $_addonManifest['metadata']['icon'] = substr($_strDatastoreBasePath . 'default/' . $_addonManifest['addon']['type'] . '.png', 1);
         }
-        
+
         if ($_arrayPhoebusFiles['preview'] == true) {
             $_addonManifest['metadata']['preview'] = substr($_addonBasePath . 'preview.png', 1);
             $_addonManifest['metadata']['hasPreview'] = true;
@@ -385,7 +506,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             $_addonManifest['metadata']['hasPreview'] = false;
         }
     }
-    
+
     // Return the data structure as an array or null
     return $_addonManifest;
 }
