@@ -215,6 +215,7 @@ $arrayCategoryList05 = array(
     'encrypted-web',
     'i-dont-care-about-cookies',
     'show-my-password',
+    'isadmin',
     'integrated-authentication',
     'eclipsedmoon',
     'noscript',
