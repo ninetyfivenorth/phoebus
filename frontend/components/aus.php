@@ -120,6 +120,8 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
 
 // == | Main | ================================================================
 
+funcCheckUserAgent();
+
 // Sanity
 if ($strRequestAddonID == null || $strRequestAddonVersion == null ||
     $strRequestAppID == null || $strRequestAppVersion == null ||

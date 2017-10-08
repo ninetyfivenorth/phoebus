@@ -7,7 +7,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
     $_boolRegenerate = false;
     
     // Define locations for files
-    $_strObjDirDatastoreBasePath = $GLOBALS['strObjDirPath'] . 'shadow-manifests/addons/';
+    $_strObjDirDatastoreBasePath = $GLOBALS['strObjDirPath'] . 'shadow/addons/';
     $_strDatastoreBasePath = $GLOBALS['strApplicationDatastore'] . 'addons/';
     $_addonBasePath = $_strDatastoreBasePath . $_addonSlug . '/';
     
@@ -29,8 +29,8 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             'hash' => null
         ),
         'shadow' => array(
-            'file' => $_addonSlug. '.shadow',
-            'exists' => file_exists($_strObjDirDatastoreBasePath . $_addonSlug. '.shadow'),
+            'file' => $_addonSlug. '.json',
+            'exists' => file_exists($_strObjDirDatastoreBasePath . $_addonSlug. '.json'),
         ),
         'temp' => array(
             'file' => $_addonSlug. '.temp',

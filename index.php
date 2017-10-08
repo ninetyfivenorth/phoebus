@@ -97,6 +97,17 @@ function endsWith($haystack, $needle) {
 
 // ============================================================================
 
+// == | Function: funcCheckUserAgent |=========================================
+
+function funcCheckUserAgent() {
+    if (startsWith(strtolower($_SERVER['HTTP_USER_AGENT']), 'wget/') ||
+        startsWith(strtolower($_SERVER['HTTP_USER_AGENT']), 'curl/')) {
+        funcSendHeader('404');
+    }
+}
+
+// ============================================================================
+
 // == | Application Entry Point | =============================================
 
 require_once('./frontend/application.php');

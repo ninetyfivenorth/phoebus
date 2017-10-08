@@ -85,6 +85,8 @@ function funcDownloadSearchPlugin($_searchPluginName) {
 
 // == | Main | ================================================================
 
+funcCheckUserAgent();
+
 // Sanity
 if ($strRequestAddonID == null) {
     funcError('Missing minimum required arguments.');

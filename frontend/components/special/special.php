@@ -26,15 +26,15 @@ elseif ($strRequestFunction == 'checkAddons') {
     require_once($arrayModules['dbAddons']);
     require_once($arrayModules['readManifest']);
     
-    funcSendHeader('text');
+    funcSendHeader('html');
     foreach ($arrayAddonsDB as $_key => $_value) {
         $_addonManifest = funcReadManifest($_value, true);
         
         if ($_addonManifest != null) {
-            print($_value . ': PASS ' . "\n");
+            print($_value . ':<span style="color: green">&#09;&#09;<strong>[  OK  ]</strong></span><br />');
         }
         else {
-            print($_value . ': FAIL' . "\n");
+            print($_value . ':<span style="color: red">&#09;&#09;<strong>[ FAIL ]</strong></span><br />');
         }
     }
 }
