@@ -170,8 +170,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             funcCheckVar($_addonManifest['addon']['release']) == null ||
             funcCheckVar($_addonManifest['metadata']['slug']) == null ||
             funcCheckVar($_addonManifest['metadata']['author']) == null ||
-            funcCheckVar($_addonManifest['metadata']['shortDescription']) == null ||
-            array_key_exists($_addonManifest['addon']['release'], $_addonManifest) == false)
+            funcCheckVar($_addonManifest['metadata']['shortDescription']) == null)
         {
             if ($GLOBALS['boolDebugMode'] == true) {
                 funcError('Missing minimum required entries in manifest file for ' . $_addonSlug);
