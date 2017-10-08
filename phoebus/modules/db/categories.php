@@ -397,7 +397,7 @@ $arrayCategoryList08 = array(
             'id' => 'ex-028',
             'name' => 'Greasemonkey for Pale Moon',
             'shortDescription' => 'Greasemonkey is a user script manager for Pale Moon.',
-            'url' => 'https://github.com/janekptacijarabaci/greasemonkey/releases/'
+            'url' => 'https://github.com/janekptacijarabaci/greasemonkey/releases/latest/'
         ),
     ),
 );

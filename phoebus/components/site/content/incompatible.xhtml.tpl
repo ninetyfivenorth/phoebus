@@ -217,7 +217,7 @@
                     <li>Extension Options Menu<br /><small>As <a href="/addon/extension-preferences-menu/">Extension Preferences Menu</a></small></li>
                     <li>FindBar Tweak<br /><small>As <a href="/addon/finderbar-tweak/">FinderBar Tweak</a> (<strong>NOTE</strong>: Does not work on Pale Moon 27 or above)</small></li>
                     <li>Firebug<br /><small>As <a href="/addon/devtools/">Developer Tools</a></small></li>
-                    <li>Greasemonkey<br /><small>As <a href="https://github.com/janekptacijarabaci/greasemonkey/releases" target="_blank">Greasemonkey ("Fork" branch)</a></small></li>
+                    <li>Greasemonkey<br /><small>As <a href="https://github.com/janekptacijarabaci/greasemonkey/releases/latest/" target="_blank">Greasemonkey for Pale Moon</a></small></li>
                     <li>HTTPS Everywhere<br /><small>As <a href="/addon/encrypted-web/">Encrypted Web</a> (<strong>NOTE</strong>: This extension has been abandoned and will not work on Pale Moon 27 or above)</small></li>
                     <li>Image Toolbar<br /><small>As <a href="/addon/image-toolbox/">Image Toolbox</a></small></li>
                     <li>infoRSS<br /><small>As <a href="/addon/inforss-reloaded/">infoRSS Reloaded</a></small></li>
