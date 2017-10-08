@@ -127,6 +127,7 @@ $arrayAddonsDB = array(
     '{ab91ffec-fe2a-440e-99ca-5260e0ea0c06}' => 'openwithieedge',
     'exif-viewer@asraskin.org' => 'exif-viewer',
     '{1b6b1e6f-d8ac-4cdf-9ead-4719b7e25a0e}' => 'forecastweathersb',
-    'location4evar@Off.JustOff' => 'location-4-evar'
+    'location4evar@Off.JustOff' => 'location-4-evar',
+    'phoebus-dev@Off.JustOff' => 'phoebus-dev'
 );
 ?>
