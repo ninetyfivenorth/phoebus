@@ -15,6 +15,18 @@
     {$PAGE_DATA.metadata.longDescription}
 </p>
 
+{if $PAGE_DATA.metadata.license == 'copyright'}
+<h3>
+    Copyright Notice
+</h3>
+<p>
+{if $PAGE_DATA.metadata.licenseDefault == true}
+    The developer of this {$PAGE_DATA.addon.type} has not indicated that it is under any kind of licensing. So, unless otherwise indicated this {$PAGE_DATA.addon.type} is:<br /><br />
+{/if}
+    <a href="/?component=license&id={$PAGE_DATA.addon.id}" target="_blank">{$PAGE_DATA.metadata.licenseName}</a>
+</p>
+{/if}
+
 {if $PAGE_DATA.metadata.hasPreview == true}
     <img src="{$PAGE_DATA.metadata.preview}" class="aligncenter" style="max-width: 750px"/>
 {/if}
@@ -42,7 +54,7 @@
 {/if}
         </p>
 
-{if $PAGE_DATA.metadata.license != null}
+{if $PAGE_DATA.metadata.license != null && $PAGE_DATA.metadata.license != 'copyright'}
         <h3>
             License
         </h3>

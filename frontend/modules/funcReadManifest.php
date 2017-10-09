@@ -153,6 +153,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
                 'supportEmail' => null,
                 'repository' => null,
                 'license' => null, // preferred spelling
+                'licenseDefault' => null,
                 'licence' => null
             ),
             'xpinstall' => null
@@ -168,9 +169,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
         if (funcCheckVar($_addonManifest['addon']['type']) == null ||
             funcCheckVar($_addonManifest['addon']['id']) == null ||
             funcCheckVar($_addonManifest['addon']['release']) == null ||
-            funcCheckVar($_addonManifest['metadata']['slug']) == null ||
-            funcCheckVar($_addonManifest['metadata']['author']) == null ||
-            funcCheckVar($_addonManifest['metadata']['shortDescription']) == null)
+            funcCheckVar($_addonManifest['metadata']['slug']) == null)
         {
             if ($GLOBALS['boolDebugMode'] == true) {
                 funcError('Missing minimum required entries in manifest file for ' . $_addonSlug);
@@ -305,9 +304,15 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             if (array_key_exists('description', $_addonInstallRDF)) {
                 $_addonManifest['metadata']['shortDescription'] = $_addonInstallRDF['description']['en-US'];
             }
+            elseif ($_addonManifest['metadata']['shortDescription'] == null) {
+                $_addonManifest['metadata']['shortDescription'] = 'The ' . $_addonManifest['metadata']['name'] . ' ' . $_addonManifest['addon']['type'];
+            }
             
             if (array_key_exists('creator', $_addonInstallRDF)) {
                 $_addonManifest['metadata']['author'] = $_addonInstallRDF['creator'];
+            }
+            elseif ($_addonManifest['metadata']['author'] == null) {
+                $_addonManifest['metadata']['author'] == 'The ' . $_addonManifest['metadata']['name'] . ' Developers';
             }
             
             if (array_key_exists('homepageURL', $_addonInstallRDF)) {
@@ -332,8 +337,14 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
         // Set the URL for the add-on to the manifest
         $_addonManifest['metadata']['url'] = '/addon/' . $_addonManifest['metadata']['slug'] . '/';
 
-        // shortDescription should be html entity'd
-        $_addonManifest['metadata']['shortDescription'] = htmlentities($_addonManifest['metadata']['shortDescription'], ENT_XHTML);
+        // metadata should be stripped of tags and be html entity'd
+        foreach ($_addonManifest['metadata'] as $_key => $_value) {
+            if (is_string($_value) == true) {
+                $_addonManifest['metadata'][$_key] = preg_replace('/\<(.*)\>/iU', '', $_addonManifest['metadata'][$_key]);
+                $_addonManifest['metadata'][$_key] = htmlentities($_addonManifest['metadata'][$_key], ENT_XHTML);
+            }
+        }
+        
         $_addonFullShortDesc = $_addonManifest['metadata']['shortDescription'];
         if (strlen($_addonManifest['metadata']['shortDescription']) >= 205) {
             $_addonManifest['metadata']['shortDescription'] = substr($_addonManifest['metadata']['shortDescription'], 0, 200) . '...';
@@ -414,7 +425,8 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             'MIT' => 'MIT License',
             'MPL-2.0' => 'Mozilla Public License 2.0',
             'MPL-1.1' => 'Mozilla Public License 1.1',
-            'PD' => 'Public Domain'
+            'PD' => 'Public Domain',
+            'COPYRIGHT' => '&copy;' . ' ' . date("Y") . ' - ' . $_addonManifest['metadata']['author']
         );
 
         $arrayLicenses = array_change_key_case($arrayLicenses, CASE_LOWER);
@@ -450,6 +462,12 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
         }
         else {
             $_addonManifest['metadata']['licenseText'] = null;
+        }
+        
+        if ($_addonManifest['metadata']['license'] == null) {
+            $_addonManifest['metadata']['license'] = 'copyright';
+            $_addonManifest['metadata']['licenseName'] = $arrayLicenses['copyright'];
+            $_addonManifest['metadata']['licenseDefault'] = true;
         }
 
         $_addonManifest['addon']["baseURL"] = 'http://' . $GLOBALS['strApplicationURL'] . '<![CDATA[/?component=download&version=latest&id=]]>';

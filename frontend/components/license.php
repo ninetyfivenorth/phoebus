@@ -39,6 +39,21 @@ Once a submission is placed in the public domain, it is no longer possible to cl
             funcSendHeader('text');
             print($strPublicDomainText);
         }
+        elseif ($_addonManifest['metadata']['license'] == 'copyright') {
+            $strPublicDomainText = 'This add-on is Copyrighted by its author(s); all rights reserved.
+
+This add-on has been posted on this website by the author(s) or one of
+their authorized agents with permission and consent for redistribution
+to the public in unmodified form.
+
+Modification, inclusion in a larger work, verbatim copying of (parts of)
+this add-on\'s code and assets, and/or public redistribution of this
+add-on without the express prior written permission of the author(s)
+is prohibited.';
+
+            funcSendHeader('text');
+            print($strPublicDomainText);
+        }
         else {
             $strLicenseBaseURL = 'https://opensource.org/licenses/';
             funcRedirect($strLicenseBaseURL . $_addonManifest['metadata']['license']);
