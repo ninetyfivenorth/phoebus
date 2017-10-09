@@ -24,8 +24,8 @@ function funcDoLicense($_addonManifest) {
                 funcSendHeader('text');
                 print($_addonManifest['metadata']['licenseText']);
             }
-            elseif (startsWith($_addonManifest['licenseURL'], 'http')) {
-                funcRedirect($_addonManifest['licenseURL']);
+            elseif (startsWith($_addonManifest['metadata']['licenseURL'], 'http')) {
+                funcRedirect($_addonManifest['metadata']['licenseURL']);
             }
             else {
                 funcError($_addonManifest['metadata']['slug'] . ' does not have a license file');
