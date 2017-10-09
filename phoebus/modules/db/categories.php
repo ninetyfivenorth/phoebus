@@ -443,6 +443,7 @@ $arrayCategoryList10 = array(
     'browserviewplus',
     'openwithieedge',
     'forecastweathersb',
+    'fcstweatherbutton',
     'externals' => array(
         'epubreader' => array(
             'id' => 'fx-45281',
