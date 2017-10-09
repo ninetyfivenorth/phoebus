@@ -154,6 +154,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
                 'repository' => null,
                 'license' => null, // preferred spelling
                 'licenseDefault' => null,
+                'licenseURL' => null,
                 'licence' => null
             ),
             'xpinstall' => null
@@ -456,6 +457,9 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
         
         if ($_addonManifest['metadata']['license'] == 'custom' && $_arrayPhoebusFiles['license']['exists'] == true) {
             $_addonManifest['metadata']['licenseText'] = file_get_contents($_addonBasePath . $_arrayPhoebusFiles['license']['file']);
+        }
+        elseif ($_addonManifest['metadata']['license'] == 'custom' && startsWith($_addonManifest['licenseURL', 'http') {
+            $_addonManifest['metadata']['licenseText'] = null;
         }
         elseif ($_addonManifest['metadata']['license'] == 'unknown') {
             $_addonManifest['metadata']['license'] = null;
