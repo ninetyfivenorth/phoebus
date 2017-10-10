@@ -22,7 +22,7 @@ for _value in "${arrayDirs[@]}"; do
     if [ ! -d "$_value" ]; then
       mkdir -p $_value
     fi
-    chown -R palemoon:palemoon .obj
+    chown -R regolith:regolith .obj
 done
 
 
