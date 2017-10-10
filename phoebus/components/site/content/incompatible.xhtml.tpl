@@ -18,7 +18,7 @@
 
 <h3>List of add-ons with known compatibility issues</h3>
 
-<p><strong>Last updated: 2017-10-07</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
+<p><strong>Last updated: 2017-10-10</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
 
 <p><strong>PENDING</strong></p>
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
@@ -86,6 +86,7 @@
                     <li>FireGestures<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/firegestures/versions/1.8.7.1-signed" target="_blank">1.8.7.1</a></small></li>
                     <li>Forecastfox (fix version)<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/forecastfox-fix-version/versions/2.4.8" target="_blank">2.4.8</a></small></li>
                     <li>Faster Video<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/faster-video/versions/2.1.2" target="_blank">2.1.2</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li> 
+                    <li>Googlebar Lite<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                 </ul>
             </td>
 
@@ -98,6 +99,7 @@
                     <li>HTitle<br /><small>Use Hide Caption Titlebar Plus version <a href="https://addons.mozilla.org/firefox/addon/hide-caption-titlebar-plus-sma/versions/2.8.7rc" target="_blank">2.8.7rc</a></small></li>
                     <li>HTTPS Everywhere<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>iMacros for Firefox<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/imacros-for-firefox/versions/8.9.7" target="_blank">8.9.7</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
+                    <li>Load tab on select<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>LiveClick<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/liveclick/versions/1.0.0.1-signed" target="_blank">1.0.0.1</a></small></li>
                     <li>Lucifox<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/lucifox/versions/0.9.7.1-signed" target="_blank">0.9.7.1</a></small></li>
                     <li>Multiple Tab Handler<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/multiple-tab-handler/versions/0.7.2014050101.1-signed" target="_blank">0.7.2014050101.1</a></small></li>
