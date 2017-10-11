@@ -129,6 +129,7 @@ $arrayAddonsDB = array(
     'exif-viewer@asraskin.org' => 'exif-viewer',
     '{1b6b1e6f-d8ac-4cdf-9ead-4719b7e25a0e}' => 'forecastweathersb',
     'location4evar@Off.JustOff' => 'location-4-evar',
-    '{4d60e663-9c10-48d9-895a-801285687ced}' => 'fcstweatherbutton'
+    '{4d60e663-9c10-48d9-895a-801285687ced}' => 'fcstweatherbutton',
+    '{ac2b4139-a75e-4e44-b710-fa4c6201788e}' => 'sidebartoright'
 );
 ?>
