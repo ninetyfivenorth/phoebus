@@ -3,17 +3,45 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL
 
+// == | INFO | ================================================================
+
+// Automatic Update Service for Add-ons responds with a valid RDF file
+// containing update information for known add-ons or sends the request
+// off to AMO (for now) if it is unknown to us.
+
+// FULL GET Arguments for AUS are as follows:
+
+// [query]          [Description]       [Example]                       [Used]
+// ----------------------------------------------------------------------------
+// reqVersion       Request Version     '2'                             false
+// id               Add-on ID           '{GUID}' or 'user@host.tld'     true
+// version          Add-on Version      '1.2.3a1'                       amo
+// maxAppVersion                        '26.5.0'                        false
+// status           Add-on Status       'userEnabled'                   false
+// appID            Client ID           'toolkit@mozilla.org'           true
+// appVersion       Client Version      '27.2.1'                        true
+// appOS            Client OS           'WINNT'                         false
+// appABI           Client ABI          'x86-gcc3'                      false
+// locale           Client Locale       'en-US'                         false    
+// currentAppVersion                    '27.4.2'                        false
+// updateType       Update Type         '32' or '64'                    false
+// compatMode       Compatibility Mode  'normal', 'ignore', or 'strict' amo
+
+// See: https://developer.mozilla.org/Add-ons/Install_Manifests#updateURL
+
+// ============================================================================
+
 // == | Vars | ================================================================
 
+$boolMozXPIUpdate = false;
 $boolAMOKillSwitch = false;
-$boolAMOWhiteList = false;
+$intVcResult = null;
 
 $arrayIncludes = array(
     $arrayModules['dbAddons'],
     $arrayModules['dbLangPacks'],
     $arrayModules['dbAUSExternals'],
     $arrayModules['readManifest'],
-    $arrayModules['vc']
 );
 
 $strRequestAddonID = funcHTTPGetValue('id');
@@ -21,6 +49,7 @@ $strRequestAddonVersion = funcHTTPGetValue('version');
 $strRequestAppID = funcHTTPGetValue('appID');
 $strRequestAppVersion = funcHTTPGetValue('appVersion');
 $strRequestCompatMode = funcHTTPGetValue('compatMode');
+$strRequestMozXPIUpdate = funcHTTPGetValue('Moz-XPI-Update');
 
 // ============================================================================
 
@@ -30,28 +59,47 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
     $_strUpdateXMLHead = '<?xml version="1.0"?>' . "\n" . '<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">';
     $_strUpdateXMLTail = '</RDF:RDF>';
 
-    header('Content-Type: text/xml');
+    funcSendHeader('xml');
 
     print($_strUpdateXMLHead);
 
     if ($_addonManifest != null) {
             print("\n");
             
-            $_strUpdateXMLBody = file_get_contents('./phoebus/components/aus/content/update-body.xml');
+            $_strUpdateXMLBody = '<RDF:Description about="urn:mozilla:{%ADDON_TYPE}:{%ADDON_ID}">
+    <em:updates>
+      <RDF:Seq>
+        <RDF:li>
+          <RDF:Description>
+            <em:version>{%ADDON_VERSION}</em:version>
+            <em:targetApplication>
+              <RDF:Description>
+                <em:id>{%APPLICATION_ID}</em:id>
+                <em:minVersion>{%ADDON_MINVERSION}</em:minVersion>
+                <em:maxVersion>{%ADDON_MAXVERSION}</em:maxVersion>
+                <em:updateLink>{%ADDON_XPI}</em:updateLink>
+                <em:updateHash>sha256:{%ADDON_HASH}</em:updateHash>
+              </RDF:Description>
+            </em:targetApplication>
+          </RDF:Description>
+        </RDF:li>
+      </RDF:Seq>
+    </em:updates>
+  </RDF:Description>';
             
             $_arrayFilterSubstitute = array(
-                '@ADDON_TYPE@' => $_addonManifest['addon']['type'],
-                '@ADDON_ID@' => $_addonManifest['addon']['id'],
-                '@ADDON_VERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['version'],
-                '@APPLICATION_ID@' => $GLOBALS['strApplicationID'],
-                '@ADDON_MINVERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['minAppVersion'],
-                '@ADDON_MAXVERSION@' => $_addonManifest['xpi'][$_addonManifest['addon']['release']]['maxAppVersion'],
-                '@ADDON_XPI@' => $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['id'],
-                '@ADDON_HASH@' => $_addonManifest['addon']['hash']
+                '{%ADDON_TYPE}' => $_addonManifest['addon']['type'],
+                '{%ADDON_ID}' => $_addonManifest['addon']['id'],
+                '{%ADDON_VERSION}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['version'],
+                '{%APPLICATION_ID}' => $GLOBALS['strClientID'],
+                '{%ADDON_MINVERSION}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['minAppVersion'],
+                '{%ADDON_MAXVERSION}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['maxAppVersion'],
+                '{%ADDON_XPI}' => $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['id'],
+                '{%ADDON_HASH}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['hash']
             );
             
             if ($addonUseFilename == true) {
-                $_arrayFilterSubstitute['@ADDON_XPI@'] = $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['release'];
+                $_arrayFilterSubstitute['{%ADDON_XPI}'] = $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['release'];
             }
             
             foreach ($_arrayFilterSubstitute as $_key => $_value) {
@@ -72,13 +120,38 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
 
 // == | Main | ================================================================
 
+funcCheckUserAgent();
+
 // Sanity
 if ($strRequestAddonID == null || $strRequestAddonVersion == null ||
     $strRequestAppID == null || $strRequestAppVersion == null ||
     $strRequestCompatMode == null) {
-    funcError('Missing minimum required arguments.');
+    if ($GLOBALS['boolDebugMode'] == true) {
+        funcError('Missing minimum required arguments.');
+    }
+    else {
+        funcGenerateUpdateXML(null, false);
+    }
 }
 
+// Ensure compatibility paths for older milestone versions
+require_once($arrayModules['vc']);
+$intVcResult = ToolkitVersionComparator::compare($strRequestAppVersion, $strMinimumApplicationVersion);
+
+if (array_key_exists('HTTP_MOZ_XPI_UPDATE', $_SERVER) || $intVcResult < 0 || ($boolDebugMode == true && $strRequestMozXPIUpdate == true)) {
+    $boolMozXPIUpdate = true;
+}
+
+if ($boolMozXPIUpdate == false) {
+    if ($GLOBALS['boolDebugMode'] == true) {
+        funcError('Compatibility check failed.');
+    }
+    else {
+        funcGenerateUpdateXML(null, false);
+    }
+}
+
+// Check for Updates
 if ($strRequestAppID == $strPaleMoonID) {
     // Include modules
     foreach($arrayIncludes as $_value) {
@@ -88,7 +161,7 @@ if ($strRequestAppID == $strPaleMoonID) {
 
     // Search for add-ons in our database
     if (array_key_exists($strRequestAddonID, $arrayAddonsDB)) {
-        funcGenerateUpdateXML(funcReadManifest('aus', $arrayAddonsDB[$strRequestAddonID]), false);
+        funcGenerateUpdateXML(funcReadManifest($arrayAddonsDB[$strRequestAddonID]), false);
     }
     // Language Packs
     elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {
@@ -99,7 +172,7 @@ if ($strRequestAppID == $strPaleMoonID) {
                         'release' => $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi',
                         'baseURL' => $arrayLangPackConstants['baseURL'],
                         'hash' => $arrayLangPackDB[$strRequestAddonID]['hash']),
-            'xpi' => array(
+            'xpinstall' => array(
                         $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi' => array(
                             'version' => $arrayLangPackDB[$strRequestAddonID]['version'],
                             'minAppVersion' => $arrayLangPackConstants['minAppVersion'],
@@ -115,7 +188,6 @@ if ($strRequestAppID == $strPaleMoonID) {
     // Unknown - Send to AMO or to 'bad' update xml
     else {
         if ($boolAMOKillSwitch == false) {
-            $intVcResult = ToolkitVersionComparator::compare($strRequestAppVersion, $strMinimumApplicationVersion);
             $_strFirefoxVersion = $strFirefoxVersion;
             
             if ($intVcResult < 0) {
@@ -137,7 +209,7 @@ if ($strRequestAppID == $strPaleMoonID) {
     }
 }
 elseif ($strRequestAppID == $strFossaMailID) {
-    $strApplicationID = $strFossaMailID;
+    $strClientID = $strFossaMailID;
 
     $arrayBadFossaMailDB = array(
         '{a62ef8ec-5fdc-40c2-873c-223b8a6925cc}' => 'gdata',
@@ -164,7 +236,12 @@ elseif ($strRequestAppID == $strFossaMailID) {
     }
 }
 else {
-    funcError('Invalid Application ID');
+    if ($GLOBALS['boolDebugMode'] == true) {
+        funcError('Invalid Application ID');
+    }
+    else {
+        funcGenerateUpdateXML(null, false);
+    }
 }
 
 // ============================================================================

@@ -5,15 +5,16 @@
 
 // == | Vars | ================================================================
 
-$strContentBasePath = './phoebus/components/site/content/';
-$strSkinBasePath = './phoebus/skin/palemoon/';
+$strContentBasePath = './frontend/components/site/content/';
+$strSkinBasePath = './frontend/skin/' . $strApplicationSkin . '/';
+$strObjDirSmartyCachePath = $strObjDirPath . 'smarty/frontend/';
 
 $arraySmartyPaths = array(
-    'cache' => $strApplicationPath . '.smarty/cache',
-    'compile' => $strApplicationPath . '.smarty/compile',
-    'config' => $strApplicationPath . '.smarty/config',
-    'plugins' => $strApplicationPath . '.smarty/plugins',
-    'templates' => $strApplicationPath . '.smarty/templates',
+    'cache' => $strObjDirSmartyCachePath . 'cache',
+    'compile' => $strObjDirSmartyCachePath . 'compile',
+    'config' => $strObjDirSmartyCachePath . 'config',
+    'plugins' => $strObjDirSmartyCachePath . 'plugins',
+    'templates' => $strObjDirSmartyCachePath . 'templates',
 );
 
 $arrayStaticPages = array(
@@ -28,7 +29,7 @@ $arrayStaticPages = array(
     '/incompatible/' => array(
         'title' => 'Known Incompatible Add-ons',
         'contentTemplate' => $strContentBasePath . 'incompatible.xhtml.tpl',
-    ),
+    )
 );
 
 // ============================================================================
@@ -36,17 +37,27 @@ $arrayStaticPages = array(
 // == | funcGenAddonContent | =================================================
 
 function funcGenAddonContent($_strAddonSlug) {
+    $_arrayAddonMetadata = funcReadManifest($_strAddonSlug);
 
-    $_arrayAddonMetadata = funcReadManifest('page', $_strAddonSlug);
-    $_arrayAddonMetadata['addon']['basePath'] = substr($_arrayAddonMetadata['addon']['basePath'], 1);
-    
-    $arrayPage = array(
-        'title' => $_arrayAddonMetadata['metadata']['name'],
-        'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'single-addon.tpl',
-        'contentData' => $_arrayAddonMetadata
-    );
-    
-    return $arrayPage;
+    if ($_arrayAddonMetadata != null) {
+        $_arrayAddonMetadata['addon']['basePath'] = substr($_arrayAddonMetadata['addon']['basePath'], 1);
+        
+        $arrayPage = array(
+            'title' => $_arrayAddonMetadata['metadata']['name'],
+            'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'single-addon.tpl',
+            'contentData' => $_arrayAddonMetadata
+        );
+        
+        return $arrayPage;
+    }
+    else {
+        if ($GLOBALS['boolDebugMode'] == true) {
+            funcError('The requested add-on has a problem with it\'s manifest file');
+        }
+        else {
+            funcSendHeader('404');
+        }       
+    }
 }
 
 // ============================================================================
@@ -83,14 +94,15 @@ function funcGenAllExtensions($_array) {
 
 function funcGenCategoryContent($_type, $_array) {
     $arrayCategory = array();
-    $_strDatastoreBasePath = $GLOBALS['strPhoebusDatastore'] . 'addons/';
+    $_strDatastoreBasePath = $GLOBALS['strApplicationDatastore'] . 'addons/';
     
     foreach ($_array as $_key => $_value) {
         if (($_type == 'extension' || $_type == 'theme') && is_int($_key)) {
-            $_arrayAddonMetadata = funcReadManifest('category', $_value);
-            unset($_arrayAddonMetadata['xpi']);
-            $arrayCategory[$_arrayAddonMetadata['metadata']['name']] = $_arrayAddonMetadata;
-            unset($_arrayAddonMetadata);
+            $_arrayAddonMetadata = funcReadManifest($_value);
+            if ($_arrayAddonMetadata != null) {
+                $arrayCategory[$_arrayAddonMetadata['metadata']['name']] = $_arrayAddonMetadata;
+                unset($_arrayAddonMetadata);
+            }
         }
         elseif ($_key == 'externals') {
             foreach($_array['externals'] as $_key2 => $_value2) {
@@ -182,15 +194,8 @@ function funcGeneratePage($_array) {
     $_strContentTemplate = file_get_contents($_array['contentTemplate']);
 
     // Merge the stylesheet and the content template into the site template
-    $_arrayFilterSubstitute = array(
-        '{%PAGE_CONTENT}' => $_strContentTemplate,
-        '{%SITE_STYLESHEET}' => $_strStyleSheet,
-    );
-
-    foreach ($_arrayFilterSubstitute as $_key => $_value) {
-        $_strSiteTemplate = str_replace($_key, $_value, $_strSiteTemplate);
-    }
-
+    $_strSiteTemplate = str_replace('{%PAGE_CONTENT}', $_strContentTemplate, $_strSiteTemplate);
+    $_strSiteTemplate = str_replace('{%SITE_STYLESHEET}', $_strStyleSheet, $_strSiteTemplate);
     unset($_strStyleSheet);
     unset($_strContentTemplate);
 
@@ -200,19 +205,28 @@ function funcGeneratePage($_array) {
     
     // Configure Smarty
     $libSmarty->caching = 0;
-    $libSmarty->debugging = false;
     $libSmarty->setCacheDir($GLOBALS['arraySmartyPaths']['cache'])
         ->setCompileDir($GLOBALS['arraySmartyPaths']['compile'])
         ->setConfigDir($GLOBALS['arraySmartyPaths']['config'])
         ->addPluginsDir($GLOBALS['arraySmartyPaths']['plugins'])
         ->setTemplateDir($GLOBALS['arraySmartyPaths']['templates']);
 
+    // Smarty Debug
+    if ($GLOBALS['strRequestSmartyDebug']) {
+        $libSmarty->debugging = $GLOBALS['boolDebugMode'];
+    }
+    else {
+        $libSmarty->debugging = false;
+    }
+    
     // Assign data to Smarty
-    $libSmarty->assign('SITE_NAME', $GLOBALS['strPhoebusSiteName']);
-    $libSmarty->assign('SITE_DOMAIN', '//' . $GLOBALS['strPhoebusURL']);
+    $libSmarty->assign('APPLICATION_DEBUG', $GLOBALS['boolDebugMode']);
+    $libSmarty->assign('SITE_NAME', $GLOBALS['strApplicationSiteName']);
+    $libSmarty->assign('SITE_DOMAIN', '//' . $GLOBALS['strApplicationURL']);
     $libSmarty->assign('PAGE_TITLE', $_array['title']);
+    $libSmarty->assign('PAGE_PATH', $GLOBALS['strRequestPath']);
     $libSmarty->assign('BASE_PATH', substr($GLOBALS['strSkinBasePath'], 1));
-    $libSmarty->assign('PHOEBUS_VERSION', $GLOBALS['strPhoebusVersion']);
+    $libSmarty->assign('PHOEBUS_VERSION', $GLOBALS['strApplicationVersion']);
     
     if (array_key_exists('contentData', $_array)) {
         $libSmarty->assign('PAGE_DATA', $_array['contentData']);

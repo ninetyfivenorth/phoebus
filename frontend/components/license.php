@@ -24,6 +24,9 @@ function funcDoLicense($_addonManifest) {
                 funcSendHeader('text');
                 print($_addonManifest['metadata']['licenseText']);
             }
+            elseif (startsWith($_addonManifest['metadata']['licenseURL'], 'http')) {
+                funcRedirect($_addonManifest['metadata']['licenseURL']);
+            }
             else {
                 funcError($_addonManifest['metadata']['slug'] . ' does not have a license file');
             }
@@ -35,6 +38,21 @@ The author has chosen to place their submission in the public domain.
 This means there is no license attached, the submission is owned by "the public", free for anyone to use, and the author waives any rights (including Copyright) and claims of ownership to it.
 The submission or any part thereof may be used by anyone, in any way they see fit, for any purpose.
 Once a submission is placed in the public domain, it is no longer possible to claim exclusive rights to it, however it may be used as part of other proprietary software without further requirements of disclosure.';
+
+            funcSendHeader('text');
+            print($strPublicDomainText);
+        }
+        elseif ($_addonManifest['metadata']['license'] == 'copyright') {
+            $strPublicDomainText = 'This add-on is Copyrighted by its author(s); all rights reserved.
+
+This add-on has been posted on this website by the author(s) or one of
+their authorized agents with permission and consent for redistribution
+to the public in unmodified form.
+
+Modification, inclusion in a larger work, verbatim copying of (parts of)
+this add-on\'s code and assets, and/or public redistribution of this
+add-on without the express prior written permission of the author(s)
+is prohibited.';
 
             funcSendHeader('text');
             print($strPublicDomainText);
@@ -68,7 +86,7 @@ foreach($arrayIncludes as $_value) {
 unset($arrayIncludes);
 
 if (array_key_exists($strRequestAddonID, $arrayAddonsDB)) {
-    funcDoLicense(funcReadManifest('license', $arrayAddonsDB[$strRequestAddonID]));
+    funcDoLicense(funcReadManifest($arrayAddonsDB[$strRequestAddonID]));
 }
 else {
     funcError('Unknown add-on ' . $strRequestAddonID);
