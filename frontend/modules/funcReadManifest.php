@@ -302,14 +302,14 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
                 $_addonManifest['metadata']['name'] = $_addonInstallRDF['name']['en-US'];
             }
             
-            if (array_key_exists('description', $_addonInstallRDF)) {
+            if (array_key_exists('description', $_addonInstallRDF) && $_addonManifest['metadata']['shortDescription'] == null) {
                 $_addonManifest['metadata']['shortDescription'] = $_addonInstallRDF['description']['en-US'];
             }
             elseif ($_addonManifest['metadata']['shortDescription'] == null) {
                 $_addonManifest['metadata']['shortDescription'] = 'The ' . $_addonManifest['metadata']['name'] . ' ' . $_addonManifest['addon']['type'];
             }
             
-            if (array_key_exists('creator', $_addonInstallRDF)) {
+            if (array_key_exists('creator', $_addonInstallRDF) && $_addonManifest['metadata']['author'] == null) {
                 $_addonManifest['metadata']['author'] = $_addonInstallRDF['creator'];
             }
             elseif ($_addonManifest['metadata']['author'] == null) {
