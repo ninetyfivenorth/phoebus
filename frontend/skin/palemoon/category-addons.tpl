@@ -1,6 +1,6 @@
 <h1>{$PAGE_TITLE}</h1>
 
-{if $PAGE_TYPE == 'cat-extensions' || $PAGE_TYPE == 'cat-all-extensions'}
+{if $PAGE_TYPE == 'cat-all-extensions'}
 <p>
     Extensions are small add-ons that add new functionality to Pale Moon, from a simple toolbar button to a completely new feature. They allow you to customize the browser to fit your own needs and preferences, while letting us keep the core itself light and lean.
 </p>
@@ -40,7 +40,7 @@
         </div>
 {/if}
         
-        <p style="margin-top: 6px;"><strong>{$key.metadata.name}</strong>
+        <div style="margin-top: 6px; height: 64px;"><strong>{$key.metadata.name}</strong>
 {if $key.addon.type == 'external'}
 {if strstr($key.metadata.url, 'addons.mozilla.org')}
             <small>[AMO]</small>
@@ -50,7 +50,7 @@
 {/if}
             <br />
             <small>{$key.metadata.shortDescription}</small>
-        </p>
+        </div>
     </a>
 {/foreach}
 </div>
@@ -63,7 +63,7 @@
         <h1>Categories</h1>
         <a href="/extensions/alerts-and-updates/">Alerts &amp; Updates</a><br />
         <a href="/extensions/appearance/">Appearance</a><br />
-        <a href="/extensions/bookmarks-and-tabs/">Bookmarks & Tabs</a><br />
+        <a href="/extensions/bookmarks-and-tabs/">Bookmarks &amp; Tabs</a><br />
         <a href="/extensions/download-management/">Download Management</a><br />
         <a href="/extensions/feeds-news-and-blogging/">Feeds, News, &amp; Blogging</a><br />
         <a href="/extensions/privacy-and-security/">Privacy &amp; Security</a><br />

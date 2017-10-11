@@ -21,8 +21,20 @@
         <script src="{$BASE_PATH}abfunctions.js" type="text/javascript"></script>
         <div id="PM-Wrapper">
             <div id="PM-Header" class="PM-Wrapper-Width">
-                <img src="{$BASE_PATH}logo.png" class="alignleft" />
-                <img src="{$BASE_PATH}wordmark-palemoon.png" class="alignright" />
+                <img src="
+{if $APPLICATION_DEBUG == true}
+                    {$BASE_PATH}logo-dev.png
+{else}
+                    {$BASE_PATH}logo.png
+{/if}
+                " class="alignleft" />
+                <img src="
+{if $APPLICATION_DEBUG == true}
+                    {$BASE_PATH}wordmark-phoebus.png
+{else}
+                    {$BASE_PATH}wordmark-palemoon.png
+{/if}
+                " class="alignright" />
             </div>
             <div id="PM-Menubar" class="mainmenu">
             <span class="alignleft">
@@ -57,15 +69,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 8px;">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Addons site leaderboard -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-4490583218014683"
-     data-ad-slot="4318962855"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+                <script src="//ap.lijit.com/www/delivery/fpi.js?z=404948&width=728&height=90"></script>
             </div>
             <div style="margin-top: 10px; text-align: center; line-height: 13px; font-size: 10px;">
                 <p><span style="color: rgb(102, 102, 102);">

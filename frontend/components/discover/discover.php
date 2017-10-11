@@ -14,41 +14,27 @@ $arrayPageMetadata = array(
 
 // ============================================================================
 
-// == | funcGenerateDiscover | ================================================
-
-function funcGenerateDiscover($_arrayPage) {
-    $_strHTMLTemplate = file_get_contents('./phoebus/components/discover/content/template.xhtml');
-    $_strHTMLStyle = file_get_contents('./phoebus/components/discover/content/style.css');
-    $_strHTMLContent = file_get_contents('./phoebus/components/discover/content/content.xhtml');
-    
-    $_strHTMLPage = $_strHTMLTemplate;
-
-    header('Content-Type: text/html');
-
-    $_arrayFilterSubstitute = array(
-        '@PAGE_TITLE@' => $_arrayPage['title'],
-        '@PAGE_STYLESHEET@' => $_strHTMLStyle,
-        '@PAGE_CONTENT@' => $_strHTMLContent,
-        '@IMAGE_DISCOVER@' => $_arrayPage['discover'],
-        '@IMAGE_PALEMOON@' => $_arrayPage['palemoon'],
-        '@IMAGE_MOZILLA@' => $_arrayPage['mozilla']
-    );
-    
-    foreach ($_arrayFilterSubstitute as $_key => $_value) {
-        $_strHTMLPage = str_replace($_key, $_value, $_strHTMLPage);
-    }
-    
-    print($_strHTMLPage);
-    
-    // We are done here...
-    exit();
-}
-
-// ============================================================================
-
 // == | Main | ================================================================
 
-funcGenerateDiscover($arrayPageMetadata);
+$strHTMLTemplate = file_get_contents($strComponentsPath . 'discover/content/template.xhtml') or
+    funcSendHeader('404');   
+
+$arrayFilterSubstitute = array(
+    '{%PAGE_TITLE}' => $arrayPageMetadata['title'],
+    '{%IMAGE_DISCOVER}' => $arrayPageMetadata['discover'],
+    '{%IMAGE_PALEMOON}' => $arrayPageMetadata['palemoon'],
+    '{%IMAGE_MOZILLA}' => $arrayPageMetadata['mozilla']
+);
+
+foreach ($arrayFilterSubstitute as $_key => $_value) {
+    $strHTMLTemplate = str_replace($_key, $_value, $strHTMLTemplate);
+}
+
+funcSendHeader('html');
+print($strHTMLTemplate);
+
+// We are done here...
+exit();
 
 // ============================================================================
 
