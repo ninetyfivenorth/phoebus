@@ -68,7 +68,7 @@ $arrayAddonsDB = array(
     '{6a2ffbbc-4f20-42f0-b98e-98e62085837f}' => 'australium',
     '{6e1d3ac8-6069-4b8a-b98e-98e62085837f}' => 'compact-moon-theme',
     '{8a13d488-8657-4dab-b98e-98e62085837f}' => 'qute-legacy',
-    '{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}' => 'isadmin',
+    'isadmin@vdtsoftware.ffext' => 'isadmin',
     '{8eb2e77d-73aa-4620-a9dd-9ddae0602172}' => 'change-referer-button',
     '{20c00d0d-79a4-4af5-b98e-98e62085837f}' => 'maxi4',
     '{55e5dab6-f1cc-11e6-8a72-4981b17b32b7}' => 'jsview-revive',
@@ -129,6 +129,6 @@ $arrayAddonsDB = array(
     'exif-viewer@asraskin.org' => 'exif-viewer',
     '{1b6b1e6f-d8ac-4cdf-9ead-4719b7e25a0e}' => 'forecastweathersb',
     'location4evar@Off.JustOff' => 'location-4-evar',
-    'phoebus-dev@Off.JustOff' => 'phoebus-dev'
+    '{4d60e663-9c10-48d9-895a-801285687ced}' => 'fcstweatherbutton'
 );
 ?>

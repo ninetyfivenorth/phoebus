@@ -393,6 +393,12 @@ $arrayCategoryList08 = array(
             'shortDescription' => 'Custom additions to Stylish extension.',
             'url' => 'https://addons.mozilla.org/firefox/addon/stylish-custom/'
         ),
+        'greasemonkey' => array(
+            'id' => 'ex-028',
+            'name' => 'Greasemonkey for Pale Moon',
+            'shortDescription' => 'Greasemonkey is a user script manager for Pale Moon.',
+            'url' => 'https://github.com/janekptacijarabaci/greasemonkey/releases/latest/'
+        ),
     ),
 );
 
@@ -437,6 +443,7 @@ $arrayCategoryList10 = array(
     'browserviewplus',
     'openwithieedge',
     'forecastweathersb',
+    'fcstweatherbutton',
     'externals' => array(
         'epubreader' => array(
             'id' => 'fx-45281',

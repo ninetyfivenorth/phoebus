@@ -18,7 +18,7 @@
 
 <h3>List of add-ons with known compatibility issues</h3>
 
-<p><strong>Last updated: 2017-10-07</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
+<p><strong>Last updated: 2017-10-10</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
 
 <p><strong>PENDING</strong></p>
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
@@ -86,6 +86,7 @@
                     <li>FireGestures<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/firegestures/versions/1.8.7.1-signed" target="_blank">1.8.7.1</a></small></li>
                     <li>Forecastfox (fix version)<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/forecastfox-fix-version/versions/2.4.8" target="_blank">2.4.8</a></small></li>
                     <li>Faster Video<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/faster-video/versions/2.1.2" target="_blank">2.1.2</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li> 
+                    <li>Googlebar Lite<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                 </ul>
             </td>
 
@@ -98,6 +99,7 @@
                     <li>HTitle<br /><small>Use Hide Caption Titlebar Plus version <a href="https://addons.mozilla.org/firefox/addon/hide-caption-titlebar-plus-sma/versions/2.8.7rc" target="_blank">2.8.7rc</a></small></li>
                     <li>HTTPS Everywhere<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>iMacros for Firefox<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/imacros-for-firefox/versions/8.9.7" target="_blank">8.9.7</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
+                    <li>Load tab on select<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>LiveClick<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/liveclick/versions/1.0.0.1-signed" target="_blank">1.0.0.1</a></small></li>
                     <li>Lucifox<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/lucifox/versions/0.9.7.1-signed" target="_blank">0.9.7.1</a></small></li>
                     <li>Multiple Tab Handler<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/multiple-tab-handler/versions/0.7.2014050101.1-signed" target="_blank">0.7.2014050101.1</a></small></li>
@@ -217,7 +219,7 @@
                     <li>Extension Options Menu<br /><small>As <a href="/addon/extension-preferences-menu/">Extension Preferences Menu</a></small></li>
                     <li>FindBar Tweak<br /><small>As <a href="/addon/finderbar-tweak/">FinderBar Tweak</a> (<strong>NOTE</strong>: Does not work on Pale Moon 27 or above)</small></li>
                     <li>Firebug<br /><small>As <a href="/addon/devtools/">Developer Tools</a></small></li>
-                    <li>Greasemonkey<br /><small>As <a href="https://github.com/janekptacijarabaci/greasemonkey/releases" target="_blank">Greasemonkey ("Fork" branch)</a></small></li>
+                    <li>Greasemonkey<br /><small>As <a href="https://github.com/janekptacijarabaci/greasemonkey/releases/latest/" target="_blank">Greasemonkey for Pale Moon</a></small></li>
                     <li>HTTPS Everywhere<br /><small>As <a href="/addon/encrypted-web/">Encrypted Web</a> (<strong>NOTE</strong>: This extension has been abandoned and will not work on Pale Moon 27 or above)</small></li>
                     <li>Image Toolbar<br /><small>As <a href="/addon/image-toolbox/">Image Toolbox</a></small></li>
                     <li>infoRSS<br /><small>As <a href="/addon/inforss-reloaded/">infoRSS Reloaded</a></small></li>
