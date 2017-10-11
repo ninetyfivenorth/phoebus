@@ -65,6 +65,7 @@ $arrayCategoryList02 = array(
     'splashed',
     'quickdialtool',
     'location-4-evar',
+    'sidebartoright',
     'externals' => array(
         'active-stop-button' => array(
             'id' => 'fx-2025',
