@@ -152,7 +152,6 @@ $arrayCategoryList03 = array(
     'complete-yt-saver',
     'downloads-window',
     'save-images-me',
-    'fireftpbutton',
     'showdownloadswts',
     'externals' => array(
         'imagehost-grabber' => array(
@@ -412,6 +411,7 @@ $arrayCategoryList09 = array(
     'jsview-revive',
     'fireftp',
     'firessh',
+    'fireftpbutton',
     'externals' => array(
         'alertip' => array(
             'id' => 'default',
