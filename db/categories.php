@@ -410,6 +410,8 @@ $arrayCategoryList09 = array(
     'devtools',
     'error-console2',
     'jsview-revive',
+    'fireftp',
+    'firessh',
     'externals' => array(
         'alertip' => array(
             'id' => 'default',

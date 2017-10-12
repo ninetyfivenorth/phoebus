@@ -132,6 +132,8 @@ $arrayAddonsDB = array(
     '{4d60e663-9c10-48d9-895a-801285687ced}' => 'fcstweatherbutton',
     '{ac2b4139-a75e-4e44-b710-fa4c6201788e}' => 'sidebartoright',
     'thinbookmarks@bonsaimind.org' => 'thinbookmarks',
-    'thintabs@bonsaimind.org' => 'thintabs'
+    'thintabs@bonsaimind.org' => 'thintabs',
+    '{a7c6cf7f-112c-4500-a7ea-39801a327e5f}' => 'fireftp',
+    'firessh@nightlight.ws' => 'firessh'
 );
 ?>
