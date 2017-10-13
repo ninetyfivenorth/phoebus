@@ -23,40 +23,16 @@ $strApplicationSkin = 'palemoon';
 $boolDebugMode = false;
 
 // Define application paths
-$strRootPath = $_SERVER['DOCUMENT_ROOT'];
-$strGlobalLibPath = $strRootPath . '/lib/';
-$strObjDirPath = $strRootPath . '/.obj/';
-$strApplicationDatastore = './datastore/';
-$strApplicationPath = $strRootPath . '/frontend/';
+$strApplicationPath = $strRootPath . '/applications/frontend/';
 $strComponentsPath = $strApplicationPath . 'components/';
 $strModulesPath = $strApplicationPath . 'modules/';
-$strDatabasesPath = $strRootPath . '/db/';
-
-// Define Libs
-$arrayLibs = array(
-    'vc' => $strGlobalLibPath . 'nsIVersionComparator.php',
-    'smarty' => $strGlobalLibPath . 'smarty/Smarty.class.php',
-    'rdf' => $strGlobalLibPath . 'rdf/RdfComponent.php',
-);
-
-// Define Database Arrays
-$arrayDatabases = array(
-    'dbAddons' => $strDatabasesPath . 'addons.php',
-    'dbLangPacks' => $strDatabasesPath . 'langPacks.php',
-    'dbSearchPlugins' => $strDatabasesPath . 'searchPlugins.php',
-    'dbAUSExternals' => $strDatabasesPath . 'ausExternals.php',
-    'dbCategories' => $strDatabasesPath . 'categories.php'
-);
 
 // Define Components
 $arrayComponents = array(
     'site' => $strComponentsPath . 'site/site.php',
-    'aus' => $strComponentsPath . 'aus.php',
     'discover' => $strComponentsPath . 'discover/discover.php',
     'download' => $strComponentsPath . 'download.php',
-    'integration' => $strComponentsPath . 'integration.php',
-    'license' => $strComponentsPath . 'license.php',
-    '43893' => $strComponentsPath . 'special/special.php'
+    'license' => $strComponentsPath . 'license.php'
 );
 
 // Define Modules
@@ -64,35 +40,22 @@ $arrayModules = array(
     'readManifest' => $strModulesPath . 'funcReadManifest.php'
 );
 
-// Known Client GUIDs
-$strPaleMoonID = '{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}';
-$strFossaMailID = '{3550f703-e582-4d05-9a08-453d09bdfdc6}';
-$strFirefoxID = '{ec8030f7-c20a-464f-9b0e-13a3a9e97384}';
-$strThunderbirdID = $strFossaMailID; // {3550f703-e582-4d05-9a08-453d09bdfdc6}
-$strSeaMonkeyID = '{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}';
-$strClientID = $strPaleMoonID;
-
-// XXX: Pale Moon only backwards compatiblity with "Independence Era"
-$strMinimumApplicationVersion = '27.0.0';
-$strFirefoxVersion = '27.9';
-$strFirefoxOldVersion = '24.9';
-
-// $_GET and Path Magic
-$strRequestComponent = funcHTTPGetValue('component');
-$arrayArgsComponent = preg_grep('/^component=(.*)/', explode('&', parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY)));
-$strRequestPath = funcHTTPGetValue('path');
+// Smarty Debug
 $strRequestSmartyDebug = funcHTTPGetValue('smartyDebug');
 
 // ============================================================================
 
 // == | Main | ================================================================
 
-// Merge Libs and Databases into Modules then unset
-$arrayModules = array_merge($arrayModules, $arrayLibs);
-unset($arrayLibs);
+// Merge Platform Components and Modules into Application Components and Modules
+// and unset
+$arrayComponents = array_merge($arrayComponents, $arrayPlatformComponents);
+$arrayModules = array_merge($arrayModules, $arrayPlatformModules);
+unset($arrayPlatformComponents);
+unset($arrayPlatformModules);
 
-$arrayModules = array_merge($arrayModules, $arrayDatabases);
-unset($arrayDatabases);
+// Array merging results in numerical string keys being converted to indexes
+$arrayComponents['43893'] = $strComponentsPath . 'special/special.php';
 
 // Define a Debug/Developer Mode
 // XXX: This should REALLY be a function
@@ -115,12 +78,7 @@ if ($_SERVER['SERVER_NAME'] == $strApplicationDevURL) {
     ini_set("display_errors", "on");
 }
 
-// Set the root entry point and ensure insanity isn't happening
-if ($_SERVER['REQUEST_URI'] == '/') {
-    $strRequestComponent = 'site';
-    $strRequestPath = '/';
-}
-elseif ((count($arrayArgsComponent) > 1) || ($strRequestComponent != 'site' && $strRequestPath != null)) {
+if ($strRequestComponent != 'site' && $strRequestPath != null) {
     funcSendHeader('404');
     exit();
 }
@@ -131,11 +89,21 @@ if ($strRequestComponent != null) {
         require_once($arrayComponents[$strRequestComponent]);
     }
     else {
-        funcError($strRequestComponent . ' is an unknown component');
+        if ($boolDebugMode == true) {
+            funcError($strRequestComponent . ' is an unknown component');
+        }
+        else {
+            funcSendHeader('404');
+        }
     }
 }
 else {
-    funcError('You did not specify a component');
+    if ($boolDebugMode == true) {
+        funcError('You did not specify a component');
+    }
+    else {
+        funcSendHeader('404');
+    }
 }
 
 // ============================================================================

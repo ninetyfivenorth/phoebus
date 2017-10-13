@@ -5,8 +5,8 @@
 
 // == | Vars | ================================================================
 
-$strContentBasePath = './frontend/components/site/content/';
-$strSkinBasePath = './frontend/skin/' . $strApplicationSkin . '/';
+$strContentBasePath = './applications/frontend/components/site/content/';
+$strSkinBasePath = './applications/frontend/skin/' . $strApplicationSkin . '/';
 $strObjDirSmartyCachePath = $strObjDirPath . 'smarty/frontend/';
 
 $arraySmartyPaths = array(
