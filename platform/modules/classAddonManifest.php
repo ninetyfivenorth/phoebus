@@ -30,8 +30,8 @@ class classAddonManifest {
         
     }
 
-    // Reads install.rdf, returns filename.xpi keys
-    private function funcProcessXPInstall($_addonSlug, $_xpiFiles) {
+    // Reads install.rdf, returns a filename.xpi key
+    private function funcProcessXPInstall($_addonSlug, $_xpiFile) {
         
     }
 
@@ -45,6 +45,7 @@ class classAddonManifest {
     private function funcUpgradeKey($_addonManifest, $_oldKey, $_newKey) {
         
     }
+
 }
 
 // ============================================================================
