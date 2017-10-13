@@ -17,6 +17,7 @@ ID
 .obj/
 _tools/
 datastore/
+datastore
 
 # Ignore misc files that need not be in the repo
 /robots.txt
