@@ -370,6 +370,7 @@ $arrayCategoryList08 = array(
     'viewsidebarmgr',
     'tgsidebar',
     'exif-viewer',
+    'sidebartogglemenu',
     'externals' => array(
         'remove-it-permanently' => array(
             'id' => 'default',
