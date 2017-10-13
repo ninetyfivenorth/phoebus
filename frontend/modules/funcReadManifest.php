@@ -196,6 +196,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
 
         // Get data from XPI Files
         $_addonXPI = new ZipArchive;
+        $_addonInstallStat = null;
         $_addonRDF = new RdfComponent();
         $_addonInstallRDF = null;
         
@@ -214,6 +215,8 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
 
                 // Read install.rdf
                 $_addonInstallRDF = $_addonXPI->getFromName('install.rdf');
+
+                $_addonInstallStat = $_addonXPI->statName('install.rdf');
 
                 // Close the XPI File
                 $_addonXPI->close();
@@ -238,7 +241,8 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
                         }
                     }
                 }
-                elseif (!array_key_exists($GLOBALS['strPaleMoonID'], $_addonInstallRDF['targetApplication'])) {
+                
+                if (!array_key_exists($GLOBALS['strPaleMoonID'], $_addonInstallRDF['targetApplication'])) {
                      if ($_value != $_addonManifest['addon']['id']) {
                         $_addonManifest['errors'][] = $_value . ' does not have a Pale Moon targetApplication';
                         continue;
@@ -262,6 +266,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
                     $_addonInstallRDF['targetApplication'][$GLOBALS['strPaleMoonID']]['maxVersion'];
 
                 $_addonManifest['xpinstall'][$_value]['hash'] = hash_file('sha256', $_addonBasePath . $_value);
+                $_addonManifest['xpinstall'][$_value]['mtime'] = $_addonInstallStat['mtime'];
             }
             else {
                 if ($GLOBALS['boolDebugMode'] == true) {
@@ -332,7 +337,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
         // Reverse sort the xpinstall keys by version number using an anonymous function and a spaceship..
         // space.. SPACE! SPAAAAAAAAAAAAAACE!!!!!!!!
         uasort($_addonManifest['xpinstall'], function ($_xpi1, $_xpi2) {
-            return $_xpi2['version'] <=> $_xpi1['version'];
+            return $_xpi2['mtime'] <=> $_xpi1['mtime'];
         });
        
         // Set the URL for the add-on to the manifest
