@@ -134,6 +134,7 @@ $arrayAddonsDB = array(
     'thinbookmarks@bonsaimind.org' => 'thinbookmarks',
     'thintabs@bonsaimind.org' => 'thintabs',
     '{a7c6cf7f-112c-4500-a7ea-39801a327e5f}' => 'fireftp',
-    'firessh@nightlight.ws' => 'firessh'
+    'firessh@nightlight.ws' => 'firessh',
+    '{5a92897a-cdf8-4ead-8f56-cf620fd6062f}' => 'sidebartogglemenu'
 );
 ?>
