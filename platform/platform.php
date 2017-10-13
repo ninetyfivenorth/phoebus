@@ -5,7 +5,7 @@
 
 // == | Basic Functions | =====================================================
 
-require_once('./platform/basicFunctions.php');
+require_once('./platform/modules/basicFunctions.php');
 
 // ============================================================================
 
