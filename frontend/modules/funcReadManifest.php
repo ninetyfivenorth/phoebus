@@ -238,7 +238,8 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
                         }
                     }
                 }
-                elseif (!array_key_exists($GLOBALS['strPaleMoonID'], $_addonInstallRDF['targetApplication'])) {
+                
+                if (!array_key_exists($GLOBALS['strPaleMoonID'], $_addonInstallRDF['targetApplication'])) {
                      if ($_value != $_addonManifest['addon']['id']) {
                         $_addonManifest['errors'][] = $_value . ' does not have a Pale Moon targetApplication';
                         continue;
