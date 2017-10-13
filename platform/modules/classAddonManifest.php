@@ -7,7 +7,7 @@ class classAddonManifest {
     // Takes two variables str $_addonSlug and bool $_processOnly
     // Returns an array representing the datastructure of an add-on manifest
     public function funcGetManifest($_addonSlug, $_processOnly = null) {
-
+        
     }
     
     // Get Phoebus files and return array
