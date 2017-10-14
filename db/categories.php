@@ -197,12 +197,6 @@ $arrayCategoryList04 = array(
             'shortDescription' => 'Fixes annoyances, adds features and enhances existing functionality to make FB more fun and efficient.',
             'url' => 'http://socialfixer.com/'
         ),
-        'reader' => array(
-            'id' => 'ex-017',
-            'name' => 'Reader',
-            'shortDescription' => 'Reader is the ultimate Reader tool for Pale Moon.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/reader/'
-        ),
     ),
 );
 
@@ -329,24 +323,6 @@ $arrayCategoryList07 = array(
     'chatzilla',
     'foxclocks',
     'externals' => array(
-        'messenger-for-facebook' => array(
-            'id' => 'default',
-            'name' => 'Messenger for Facebook™',
-            'shortDescription' => 'Messenger for Facebook™ lets you bring a Messenger right into your browser to chat with your friends.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/facebook-messenger/'
-        ),
-        'facebook-toolbar-button' => array(
-            'id' => 'default',
-            'name' => 'Toolbar Button for Facebook™',
-            'shortDescription' => 'Visit your favorite Facebook™ quickly and easily by adding a special button to your Toolbar.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/facebook-messenger/'
-        ),
-        'twitter-app' => array(
-            'id' => 'ex-020',
-            'name' => 'Twitter App',
-            'shortDescription' => 'Twitter App brings Twitter right into your Pale Moon Sidebar.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/twitter-app/'
-        ),
     ),
 );
 
@@ -481,30 +457,6 @@ $arrayCategoryList10 = array(
             'name' => 'Thumbnail Zoom Plus',
             'shortDescription' => 'Shows the full image when you hover over a thumbnail.',
             'url' => 'https://addons.mozilla.org/firefox/addon/thumbnail-zoom-plus/'
-        ),
-        'open-with-google-chrome' => array(
-            'id' => 'ex-018',
-            'name' => 'Open with Google Chrome',
-            'shortDescription' => 'Open With Google Chrome sends pages from Pale Moon to Google Chrome.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/open-with-google-chrome/'
-        ),
-        'open-with-internet-explorer' => array(
-            'id' => 'ex-022',
-            'name' => 'Open with Internet Explorer',
-            'shortDescription' => 'Open With Internet Explorer sends pages from Pale Moon to Internet Explorer.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/open-with-internet-explorer/'
-        ),
-        'google-keep-notes' => array(
-            'id' => 'ex-024',
-            'name' => 'Google Keep Notes',
-            'shortDescription' => 'Google Keep Notes brings Google Keep right into your Pale Moon Sidebar.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/google-keep-notes/'
-        ),
-        'open-with-opera' => array(
-            'id' => 'ex-025',
-            'name' => 'Open with Opera',
-            'shortDescription' => 'Open With Opera sends pages, links, tabs and images from Pale Moon to Opera.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/open-with-opera/'
         ),
     ),
 );
