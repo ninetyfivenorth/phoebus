@@ -135,6 +135,13 @@ $arrayAddonsDB = array(
     'thintabs@bonsaimind.org' => 'thintabs',
     '{a7c6cf7f-112c-4500-a7ea-39801a327e5f}' => 'fireftp',
     'firessh@nightlight.ws' => 'firessh',
-    '{5a92897a-cdf8-4ead-8f56-cf620fd6062f}' => 'sidebartogglemenu'
+    '{5a92897a-cdf8-4ead-8f56-cf620fd6062f}' => 'sidebartogglemenu',
+    '{3C9A65A6-9563-4485-BA4A-4BCD698BCFB4}' => 'backtotop',
+    'CLEO@guid.customsoftwareconsult.com' => 'cleo',
+    '{4BBDD651-70CF-4821-84F8-2B918CF89CA3}' => 'febe',
+    'OPIE@guid.customsoftwareconsult.com' => 'opie',
+    'OPIE2@opie2.customsoftwareconsult.com' => 'opie2',
+    '{36365A44-0C40-4d16-B174-0B803FA14366}' => 'pasteemail',
+    'pasteemailplus@guid.customsoftwareconsult.com' => 'pasteemailplus'
 );
 ?>
