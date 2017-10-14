@@ -223,6 +223,10 @@ $arrayCategoryList05 = array(
     'noscript',
     'ublock0-updater',
     'cookiemasters',
+    'cleo',
+    'febe',
+    'opie',
+    'opie2',
     'externals' => array(
         'cookiekeeper' => array(
             'id' => 'fx-481410',
@@ -450,6 +454,9 @@ $arrayCategoryList10 = array(
     'openwithieedge',
     'forecastweathersb',
     'fcstweatherbutton',
+    'backtotop',
+    'pasteemail',
+    'pasteemailplus',
     'externals' => array(
         'epubreader' => array(
             'id' => 'fx-45281',
