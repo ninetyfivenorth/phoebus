@@ -172,6 +172,12 @@ $arrayCategoryList03 = array(
             'shortDescription' => 'View and manage downloads from a tidy statusbar.',
             'url' => 'https://addons.mozilla.org/firefox/addon/s3download-statusbar/'
         ),
+        'scrapbook-x' => array(
+            'id' => 'ex-029',
+            'name' => 'ScrapBook X',
+            'shortDescription' => 'Helps you save web pages and organize your collection. This addon is based on ScrapBook by Gomita and ScrapBook Plus by haselnuss.',
+            'url' => 'https://addons.mozilla.org/firefox/addon/scrapbook-x/'
+        ),
     ),
 );
 
