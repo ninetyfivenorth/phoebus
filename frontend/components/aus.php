@@ -40,7 +40,6 @@ $intVcResult = null;
 $arrayIncludes = array(
     $arrayModules['dbAddons'],
     $arrayModules['dbLangPacks'],
-    $arrayModules['dbAUSExternals'],
     $arrayModules['readManifest'],
 );
 
