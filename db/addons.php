@@ -129,6 +129,22 @@ $arrayAddonsDB = array(
     'exif-viewer@asraskin.org' => 'exif-viewer',
     '{1b6b1e6f-d8ac-4cdf-9ead-4719b7e25a0e}' => 'forecastweathersb',
     'location4evar@Off.JustOff' => 'location-4-evar',
-    '{4d60e663-9c10-48d9-895a-801285687ced}' => 'fcstweatherbutton'
+    '{4d60e663-9c10-48d9-895a-801285687ced}' => 'fcstweatherbutton',
+    '{ac2b4139-a75e-4e44-b710-fa4c6201788e}' => 'sidebartoright',
+    'thinbookmarks@bonsaimind.org' => 'thinbookmarks',
+    'thintabs@bonsaimind.org' => 'thintabs',
+    '{a7c6cf7f-112c-4500-a7ea-39801a327e5f}' => 'fireftp',
+    'firessh@nightlight.ws' => 'firessh',
+    '{5a92897a-cdf8-4ead-8f56-cf620fd6062f}' => 'sidebartogglemenu',
+    '{3C9A65A6-9563-4485-BA4A-4BCD698BCFB4}' => 'backtotop',
+    'CLEO@guid.customsoftwareconsult.com' => 'cleo',
+    '{4BBDD651-70CF-4821-84F8-2B918CF89CA3}' => 'febe',
+    'OPIE@guid.customsoftwareconsult.com' => 'opie',
+    'OPIE2@opie2.customsoftwareconsult.com' => 'opie2',
+    '{36365A44-0C40-4d16-B174-0B803FA14366}' => 'pasteemail',
+    'pasteemailplus@guid.customsoftwareconsult.com' => 'pasteemailplus',
+    'firefox-tabgroups@mozilla.com' => 'tabgroups',
+    'behind-the-overlay-me@Off.JustOff' => 'behind-the-overlay-me',
+    'phoebus-dev@Off.JustOff' => 'phoebus-dev'
 );
 ?>
