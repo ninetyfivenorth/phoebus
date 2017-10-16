@@ -365,10 +365,11 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             $_addonPhoebusContent = htmlentities($_addonPhoebusContent, ENT_XHTML);
             
             // create a temporary array that contains the strs to simple pseudo-bbcode to real html
+            $_addonPhoebusContent = str_replace("\r\n", "\n", $_addonPhoebusContent);
+            $_addonPhoebusContent = str_replace("\n", "<br />\n", $_addonPhoebusContent);
+            
             $_arrayPhoebusCode = array(
                 'simple' => array(
-                    "\r\n" => "\n",
-                    "\n" => "<br />\n",
                     '[b]' => '<strong>',
                     '[/b]' => '</strong>',
                     '[i]' => '<em>',
@@ -377,6 +378,8 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
                     '[/u]' => '</u>',
                     '[ul]' => '</p>' . "\n" .'<ul>',
                     '[/ul]' => '</ul>' . "\n" . '<p>',
+                    '[ol]' => '</p>' . "\n" .'<ol>',
+                    '[/ol]' => '</ol>' . "\n" . '<p>',
                     '[li]' => '<li>',
                     '[/li]' => '</li>',
                     '[section]' => '</p>' . "\n" . '<h3>',
@@ -399,6 +402,9 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             foreach ($_arrayPhoebusCode['complex'] as $_key => $_value) {
                 $_addonPhoebusContent = preg_replace('/' . $_key . '/iU', $_value, $_addonPhoebusContent);
             }
+
+            $_addonPhoebusContent = str_replace("<ul><br />", "<ul>\n", $_addonPhoebusContent);
+            $_addonPhoebusContent = str_replace("<ol><br />", "<ol>\n", $_addonPhoebusContent);
 
             // Assign parsed phoebus.content to the add-on manifest array
             $_addonManifest['metadata']['longDescription'] = $_addonPhoebusContent;
