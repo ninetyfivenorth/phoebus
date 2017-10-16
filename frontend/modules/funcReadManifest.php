@@ -403,6 +403,9 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
                 $_addonPhoebusContent = preg_replace('/' . $_key . '/iU', $_value, $_addonPhoebusContent);
             }
 
+            $_addonPhoebusContent = str_replace("<ul><br />", "<ul>\n", $_addonPhoebusContent);
+            $_addonPhoebusContent = str_replace("<ol><br />", "<ol>\n", $_addonPhoebusContent);
+
             // Assign parsed phoebus.content to the add-on manifest array
             $_addonManifest['metadata']['longDescription'] = $_addonPhoebusContent;
         }
