@@ -44,7 +44,6 @@ $arrayDatabases = array(
     'dbAddons' => $strDatabasesPath . 'addons.php',
     'dbLangPacks' => $strDatabasesPath . 'langPacks.php',
     'dbSearchPlugins' => $strDatabasesPath . 'searchPlugins.php',
-    'dbAUSExternals' => $strDatabasesPath . 'ausExternals.php',
     'dbCategories' => $strDatabasesPath . 'categories.php'
 );
 
