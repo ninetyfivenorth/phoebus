@@ -181,10 +181,6 @@ if ($strRequestAppID == $strPaleMoonID) {
         
         funcGenerateUpdateXML($arrayLangPack, true);
     }
-    // Externals
-    elseif (array_key_exists($strRequestAddonID, $arrayExternalsDB)) {
-        funcRedirect($arrayExternalsDB[$strRequestAddonID]);
-    }
     // Unknown - Send to AMO or to 'bad' update xml
     else {
         if ($boolAMOKillSwitch == false) {
