@@ -68,6 +68,7 @@ $arrayCategoryList02 = array(
     'sidebartoright',
     'thinbookmarks',
     'thintabs',
+    'behind-the-overlay-me',
     'externals' => array(
         'active-stop-button' => array(
             'id' => 'fx-2025',
