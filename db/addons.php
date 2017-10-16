@@ -144,6 +144,7 @@ $arrayAddonsDB = array(
     '{36365A44-0C40-4d16-B174-0B803FA14366}' => 'pasteemail',
     'pasteemailplus@guid.customsoftwareconsult.com' => 'pasteemailplus',
     'firefox-tabgroups@mozilla.com' => 'tabgroups',
-    'behind-the-overlay-me@Off.JustOff' => 'behind-the-overlay-me'
+    'behind-the-overlay-me@Off.JustOff' => 'behind-the-overlay-me',
+    'phoebus-dev@Off.JustOff' => 'phoebus-dev'
 );
 ?>
