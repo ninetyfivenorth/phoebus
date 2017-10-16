@@ -142,6 +142,7 @@ $arrayAddonsDB = array(
     'OPIE@guid.customsoftwareconsult.com' => 'opie',
     'OPIE2@opie2.customsoftwareconsult.com' => 'opie2',
     '{36365A44-0C40-4d16-B174-0B803FA14366}' => 'pasteemail',
-    'pasteemailplus@guid.customsoftwareconsult.com' => 'pasteemailplus'
+    'pasteemailplus@guid.customsoftwareconsult.com' => 'pasteemailplus',
+    'firefox-tabgroups@mozilla.com' => 'tabgroups'
 );
 ?>

@@ -480,6 +480,7 @@ $arrayCategoryList11 = array(
     'color-my-tabs',
     'togglebookmarks',
     'bartab-tycho',
+    'tabgroups',
     'externals' => array(
         'speed-start' => array(
             'id' => 'ex-010',
