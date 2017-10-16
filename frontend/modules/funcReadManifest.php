@@ -365,10 +365,11 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             $_addonPhoebusContent = htmlentities($_addonPhoebusContent, ENT_XHTML);
             
             // create a temporary array that contains the strs to simple pseudo-bbcode to real html
+            $_addonPhoebusContent = str_replace("\r\n", "\n", $_addonPhoebusContent);
+            $_addonPhoebusContent = str_replace("\n", "<br />\n", $_addonPhoebusContent);
+            
             $_arrayPhoebusCode = array(
                 'simple' => array(
-                    "\r\n" => "\n",
-                    "\n" => "<br />\n",
                     '[b]' => '<strong>',
                     '[/b]' => '</strong>',
                     '[i]' => '<em>',
