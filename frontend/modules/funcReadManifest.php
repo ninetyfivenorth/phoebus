@@ -256,7 +256,11 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
                         }
                     }
                 }
-
+                
+                if (array_key_exists('updateURL', $_addonInstallRDF)) {
+                    continue;
+                }
+                
                 // Fill in xpinstall values from install.rdf
                 $_addonManifest['xpinstall'][$_value]['version'] =
                     $_addonInstallRDF['version'];
@@ -303,6 +307,10 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
 
             // Parse install.rdf
             $_addonInstallRDF = $_addonRDF->parseInstallManifest($_addonInstallRDF);
+            
+            if (array_key_exists('updateURL', $_addonInstallRDF)) {
+                return null;
+            }
             
             // Override potentally set values in the manifest file with those from the release XPI
             if (array_key_exists('name', $_addonInstallRDF)) {
