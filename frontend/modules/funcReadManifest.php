@@ -267,6 +267,8 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
 
                 $_addonManifest['xpinstall'][$_value]['hash'] = hash_file('sha256', $_addonBasePath . $_value);
                 $_addonManifest['xpinstall'][$_value]['mtime'] = $_addonInstallStat['mtime'];
+                $_addonManifest['xpinstall'][$_value]['date'] = date('Y-m-d' ,$_addonInstallStat['mtime']);
+                $_addonManifest['xpinstall'][$_value]['prettyDate'] = date('F j, Y' ,$_addonInstallStat['mtime']);
             }
             else {
                 if ($GLOBALS['boolDebugMode'] == true) {
