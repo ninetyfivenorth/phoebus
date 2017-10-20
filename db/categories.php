@@ -228,6 +228,7 @@ $arrayCategoryList05 = array(
     'febe',
     'opie',
     'opie2',
+    'togglejscript',
     'externals' => array(
         'cookiekeeper' => array(
             'id' => 'fx-481410',
