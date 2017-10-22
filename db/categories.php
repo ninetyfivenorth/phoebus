@@ -248,12 +248,6 @@ $arrayCategoryList05 = array(
             'shortDescription' => 'An advanced proxy management tool that completely replaces Pale Moon&amp;s built-in proxy manager',
             'url' => 'https://addons.mozilla.org/firefox/addon/foxyproxy-standard/'
         ),
-        'js-switch' => array(
-            'id' => 'fx-5757',
-            'name' => 'JS Switch',
-            'shortDescription' => 'Adds a toolbar button and an option in the Tools menu to enable/disable JavaScript.',
-            'url' => 'https://addons.mozilla.org/en-US/firefox/addon/js-switch/'
-        ),
         'secret-agent' => array(
             'id' => 'ex-006',
             'name' => 'Secret Agent',
