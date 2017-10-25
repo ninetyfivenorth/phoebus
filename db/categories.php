@@ -69,6 +69,8 @@ $arrayCategoryList02 = array(
     'thinbookmarks',
     'thintabs',
     'behind-the-overlay-me',
+    'darktoggle',
+    'styletoggle',
     'externals' => array(
         'active-stop-button' => array(
             'id' => 'fx-2025',
@@ -229,8 +231,8 @@ $arrayCategoryList05 = array(
     'opie',
     'opie2',
     'togglejscript',
-	'foxyproxy-basic',
-	'foxyproxy-standard',
+    'foxyproxy-basic',
+    'foxyproxy-standard',
     'externals' => array(
         'cookiekeeper' => array(
             'id' => 'fx-481410',
@@ -425,6 +427,7 @@ $arrayCategoryList10 = array(
     'backtotop',
     'pasteemail',
     'pasteemailplus',
+    'blinkblank',
     'externals' => array(
         'epubreader' => array(
             'id' => 'fx-45281',
