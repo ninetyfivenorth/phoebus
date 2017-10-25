@@ -86,7 +86,7 @@
                     <li>Forecastfox (fix version)<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/forecastfox-fix-version/versions/2.4.8" target="_blank">2.4.8</a></small></li>
                     <li>Faster Video<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/faster-video/versions/2.1.2" target="_blank">2.1.2</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li> 
                     <li>Googlebar Lite<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
-                    <li>Google Privacy<br /><small>Use Google search link fix<br />version <a href="https://addons.mozilla.org/firefox/addon/google-search-link-fix/versions/1.4.9.1-signed" target="_blank">1.4.9.1</a> or <a href="https://addons.mozilla.org/firefox/addon/clean-links/" target="_blank">Clean Links</a></small></li>
+                    <li>Google Privacy<br /><small>Use Google search link fix<br />version <a href="https://addons.mozilla.org/firefox/addon/google-search-link-fix/versions/1.4.9.1-signed" target="_blank">1.4.9.1</a></li>
                 </ul>
             </td>
 
@@ -107,10 +107,10 @@
                     <li>Open Bookmarks in New Tab<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/open-bookmarks-in-new-tab/versions/0.1.2012122901.1-signed" target="_blank">0.1.2012122901.1</a></small></li>
                     <li>Personas Rotator<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/personas-rotator/versions/47.1" target="_blank">47.1</a></small></li>
                     <li>PrefBar<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/prefbar/versions/6.5.0.1-signed" target="_blank">6.5.0.1</a></small></li>
-                    <li>Pure URL<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/clean-links/" target="_blank">Clean Links</a></small></li>
+                    <li>Pure URL<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/redirect-remover/" target="_blank">Redirect Remover</a></small></li>
                     <li>QuickJava<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/quickjava/versions/2.0.4.1-signed" target="_blank">2.0.4.1</a></small></li>
                     <li>Random Agent Spoofer<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/random-agent-spoofer/versions/0.9.5.5" target="_blank">0.9.5.5</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
-                    <li>RedirectCleaner<br /><small>Use <a href="https://github.com/diegocr/CleanLinks" target="_blank">Clean Links</a></small></li>
+                    <li>RedirectCleaner<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/redirect-remover/" target="_blank">Redirect Remover</a></small></li>
                     <li>Redirector<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/redirector/versions/2.9.3" target="_blank">2.9.3</a></small></li>
                     <li>Reddit Enhancement Suite<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/reddit-enhancement-suite/versions/4.6.1" target="_blank">4.6.1</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>ReloadEvery<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/reloadevery/versions/28.0.2.1-signed" target="_blank">28.0.2</a></small></li>
