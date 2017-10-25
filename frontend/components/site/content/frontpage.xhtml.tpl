@@ -10,10 +10,6 @@
 <h3>Language Packs</h3>
 <p>¿Habla español? Parlez-vous français? You can find these and many more to solve your linguistic needs <a href="/language-packs/">here</a>.</p>
 
-<h3>Tab Groups and Pale Moon Commander</h3>
-<p>Please note that the two Pale Moon add-ons created and maintained by Moonchild himself do not reside on the Add-ons Site at this time.</p>
-<p>You can find the Tab Groups add-on <a href="http://www.palemoon.org/tabgroups.shtml">here</a> and Pale Moon Commander <a href="http://www.palemoon.org/commander.shtml">here</a>.</p>
-
 <h3>Some of your add-ons not working since you updated to Pale Moon 27?</h3>
 <p>Please check out <a href="/incompatible/">Known Incompatible Add-ons</a>.
 
