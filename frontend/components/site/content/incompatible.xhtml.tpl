@@ -18,7 +18,7 @@
 
 <h3>List of add-ons with known compatibility issues</h3>
 
-<p><strong>Last updated: 2017-10-10</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
+<p><strong>Last updated: 2017-10-25</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
 
 <p><strong>PENDING</strong></p>
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
@@ -183,7 +183,8 @@
                     <li>Fire IE</li>
                     <li>FlashDisable</li>
                     <li><a href="/addon/foxclocks/">FoxClocks</a></li>
-                    <li>FoxyProxy (All SKUs)</li>
+                    <li><a href="/addon/foxyproxy-basic/">FoxyProxy Basic</a></li>
+					<li><a href="/addon/foxyproxy-standard/">FoxyProxy Standard</a></li>
                     <li><a href="/addon/gnotifier/">GNotifier</a></li>
                     <li><a href="/addon/i-dont-care-about-cookies/">I don't care about cookies</a></li>
                     <li>NewsFox</li>
