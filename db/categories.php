@@ -471,6 +471,7 @@ $arrayCategoryList11 = array(
     'togglebookmarks',
     'bartab-tycho',
     'tabgroups',
+    'multi-links-plus',
     'externals' => array(
         'speed-start' => array(
             'id' => 'ex-010',
