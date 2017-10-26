@@ -37,7 +37,8 @@ $arrayStaticPages = array(
 // == | funcGenAddonContent | =================================================
 
 function funcGenAddonContent($_strAddonSlug) {
-    $_arrayAddonMetadata = funcReadManifest($_strAddonSlug);
+    $_addonManifest = new classAddonManifest();
+    $_arrayAddonMetadata = $_addonManifest->funcGetManifest($_strAddonSlug);
 
     if ($_arrayAddonMetadata != null) {
         $_arrayAddonMetadata['addon']['basePath'] = substr($_arrayAddonMetadata['addon']['basePath'], 1);
@@ -93,12 +94,13 @@ function funcGenAllExtensions($_array) {
 // == | funcGenCategoryContent | ==============================================
 
 function funcGenCategoryContent($_type, $_array) {
+    $_addonManifest = new classAddonManifest();
     $arrayCategory = array();
     $_strDatastoreBasePath = $GLOBALS['strApplicationDatastore'] . 'addons/';
     
     foreach ($_array as $_key => $_value) {
         if (($_type == 'extension' || $_type == 'theme') && is_int($_key)) {
-            $_arrayAddonMetadata = funcReadManifest($_value);
+            $_arrayAddonMetadata = $_addonManifest->funcGetManifest($_value);
             if ($_arrayAddonMetadata != null) {
                 $arrayCategory[$_arrayAddonMetadata['metadata']['name']] = $_arrayAddonMetadata;
                 unset($_arrayAddonMetadata);
@@ -248,11 +250,18 @@ function funcGeneratePage($_array) {
 
 // == | Main | ================================================================
 
-require_once($arrayModules['readManifest']);
+// Do not allow public access to the site component when on addons-dev
+if ($boolDebugMode == true) {
+    require_once($arrayModules['ftpAuth']);
+    $FTPAuth = new classFTPAuth;
+    $isAuthorized = $FTPAuth->doAuth(true);
+}
+
+require_once($arrayModules['addonManifest']);
+$addonManifest = new classAddonManifest();
 
 if (startsWith($strRequestPath, '/addon/')) {
     require_once($arrayModules['dbAddons']);
-    
     $strStrippedPath = str_replace('/', '', str_replace('/addon/', '', $strRequestPath));
     $ArrayDBFlip = array_flip($arrayAddonsDB);
     

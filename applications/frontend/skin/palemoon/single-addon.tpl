@@ -4,7 +4,7 @@
 </h1>
 
 <p style="margin-top: -18px">
-    By: {$PAGE_DATA.metadata.author}
+    By: {$PAGE_DATA.metadata.creator}
 </p>
 
 <h3>
@@ -34,13 +34,20 @@
 <p style="text-align: center; padding: 10px;">
     <a class="dllink_green" href="/?component=download&id={$PAGE_DATA.addon.id}&version={$PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['version']}&hash={$PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['hash']}">
         <img border="0" src="{$BASE_PATH}download.png" alt="" style="width: 24px; height: 24px; position: relative; top: 7px; right: 4px;" />
-        Install {$PAGE_DATA.metadata.name} {$PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['version']}
+        <span>Install {$PAGE_DATA.metadata.name}</span>
     </a>
 </p>
 
 </div> <!-- END DIV ID PM-Content-Body -->
 <div id="PM-Content-Sidebar"> <!-- START PM-Content-Sidebar -->
     <div style="margin-top: 22px;">
+        <h3>Release Information</h3>
+        Version {$PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['version']}<br />
+        Updated on {$PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['prettyDate']}
+        <p>
+            
+        </p>
+        
         <h3>
             Compatibility
         </h3>
@@ -52,6 +59,13 @@
 {else}
             {$PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['maxAppVersion']}
 {/if}
+        </p>
+
+        <h3>
+            
+        </h3>
+        <p>
+            
         </p>
 
 {if $PAGE_DATA.metadata.license != null && $PAGE_DATA.metadata.license != 'copyright'}
@@ -90,7 +104,7 @@
         <div id="addonOldVersions" style="overflow-y: hidden; height: 140px; padding: 0px">
 {foreach $PAGE_DATA.xpinstall as $key}
 {if $key != $PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]}
-            <a href="/?component=download&id={$PAGE_DATA.addon.id}&version={$key.version}&hash={$key.hash}">Version {$key.version}</a><br />
+            <a href="/?component=download&id={$PAGE_DATA.addon.id}&version={$key.version}&hash={$key.hash}">Version {$key.version}</a> <small>[{$key.date}]</small><br />
             <small>
                 Works with Pale Moon {$key.minAppVersion} to
 {if $key.maxAppVersion == '*'}

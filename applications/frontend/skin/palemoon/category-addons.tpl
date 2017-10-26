@@ -14,15 +14,18 @@
 <div>
 {foreach $PAGE_DATA as $key}
     <a
-        class="PM-addon fake-table-row"
         href="{$key.metadata.url}"
 {if $key.addon.type == 'external'}
         target="_blank"
 {if strstr($key.metadata.url, 'addons.mozilla.org')}
         title="This add-on is hosted on Mozilla's Add-ons Site"
+        class="PM-addon fake-table-row amo-externals"
 {else}
         title="This add-on is hosted independently"
+        class="PM-addon fake-table-row real-externals"
 {/if}
+{else}
+        class="PM-addon fake-table-row hosted-extensions"
 {/if}
         style="width: 95%; height: 64px; 
         display: inline-block; margin-left: 15px; margin-right: 20px; text-align: left; vertical-align: top; align: left; padding: 4px 8px; text-decoration: none; color: black;">
@@ -72,6 +75,11 @@
         <a href="/extensions/tools-and-utilities/">Tools &amp; Utilities</a><br />
         <a href="/extensions/web-development/">Web Development</a><br />
         <a href="/extensions/other/">Other</a><br />
+{if $APPLICATION_DEBUG == true}
+        <p>
+            <a href="#" id="addonHideExternals" onclick="var externals = document.getElementsByClassName('amo-externals'); for (var i = 0; i < externals.length; i++){ externals[i].style.display = 'none'; } document.getElementById('addonHideExternals').style.display = 'none';"><small>Temporarily hide all [AMO] listings</small></a><br />
+        </p>
+{/if}
     </div>
     <div class="clearfix"></div>
 {/if}

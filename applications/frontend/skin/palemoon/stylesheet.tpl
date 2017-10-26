@@ -212,22 +212,26 @@ hr {
 display: none;
 }
 
-.dllink_green, .dllink_green:hover {
+.dllink_green {
   border: 1px solid rgb(0, 153, 0); 
   padding: 14px; 
   background-color: rgb(153, 255, 153); 
   font-family: "Museo500Regular",Arial,Helvetica,sans-serif; 
-  color: black; 
+  color: #000; 
   text-decoration: none; 
   border-radius: 9px; 
 }
 
-.dllink_blue, .dllink_blue:hover {
+.dllink_green span, .dllink_green span:hover {
+    color: #000;
+}
+
+.dllink_blue {
   border: 1px solid rgb(0, 0, 153); 
   padding: 14px; 
   background-color: rgb(153, 153, 255); 
   font-family: "Museo500Regular",Arial,Helvetica,sans-serif; 
-  color: black; 
+  color: #000; 
   text-decoration: none; 
   border-radius: 9px; 
 }

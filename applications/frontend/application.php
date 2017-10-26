@@ -14,13 +14,8 @@
 // == | Vars | ================================================================
 
 // Basic Application defines
-$strApplicationLiveURL = 'addons.palemoon.org';
-$strApplicationDevURL = 'addons-dev.palemoon.org';
-$strApplicationURL = $strApplicationLiveURL;
 $strApplicationSiteName = 'Pale Moon - Add-ons';
-$strApplicationVersion = '1.7.0a1';
 $strApplicationSkin = 'palemoon';
-$boolDebugMode = false;
 
 // Define application paths
 $strApplicationPath = $strRootPath . '/applications/frontend/';
@@ -54,14 +49,8 @@ $arrayModules = array_merge($arrayModules, $arrayPlatformModules);
 unset($arrayPlatformComponents);
 unset($arrayPlatformModules);
 
-// Array merging results in numerical string keys being converted to indexes
-$arrayComponents['43893'] = $strComponentsPath . 'special/special.php';
-
-// Define a Debug/Developer Mode
-// XXX: This should REALLY be a function
-if ($_SERVER['SERVER_NAME'] == $strApplicationDevURL) {
-    $boolDebugMode = true;
-    $strApplicationURL = $strApplicationDevURL;
+// Git stuff on debug
+if ($boolDebugMode == true) {
     if (file_exists('./.git/HEAD')) {
         $_strGitHead = file_get_contents('./.git/HEAD');
         $_strGitSHA1 = file_get_contents('./.git/' . substr($_strGitHead, 5, -1));
@@ -73,37 +62,15 @@ if ($_SERVER['SERVER_NAME'] == $strApplicationDevURL) {
     else {
         $strApplicationSiteName = 'Phoebus Development - Version: ' . $strApplicationVersion;
     }
-    
-    error_reporting(E_ALL);
-    ini_set("display_errors", "on");
 }
 
-if ($strRequestComponent != 'site' && $strRequestPath != null) {
+// Set the root entry point and ensure insanity isn't happening
+if ($_SERVER['REQUEST_URI'] == '/') {
+    $strRequestComponent = 'site';
+    $strRequestPath = '/';
+}
+elseif ($strRequestComponent != 'site' && $strRequestPath != null) {
     funcSendHeader('404');
-    exit();
-}
-
-// Load component based on strRequestComponent
-if ($strRequestComponent != null) {
-    if (array_key_exists($strRequestComponent, $arrayComponents)) {
-        require_once($arrayComponents[$strRequestComponent]);
-    }
-    else {
-        if ($boolDebugMode == true) {
-            funcError($strRequestComponent . ' is an unknown component');
-        }
-        else {
-            funcSendHeader('404');
-        }
-    }
-}
-else {
-    if ($boolDebugMode == true) {
-        funcError('You did not specify a component');
-    }
-    else {
-        funcSendHeader('404');
-    }
 }
 
 // ============================================================================

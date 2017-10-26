@@ -7,7 +7,15 @@
 
 function funcError($_value) {
     header('Content-Type: text/plain');
-    die('Error: ' . $_value);
+    die(
+        '=== | ' .
+        $GLOBALS['strProductName'] .
+        ' ' .
+        $GLOBALS['strApplicationVersion'] .
+        ' | ===' .
+        "\n\n" .
+        $_value
+    );
     
     // We are done here
     exit();
@@ -79,7 +87,7 @@ function funcRedirect($_strURL) {
 
 // ============================================================================
 
-// == | Functions: startsWith & endsWith |=====================================
+// == | Functions: startsWith, endsWith, contains |=====================================
 
 function startsWith($haystack, $needle) {
      $length = strlen($needle);
@@ -93,6 +101,17 @@ function endsWith($haystack, $needle) {
     }
 
     return (substr($haystack, -$length) === $needle);
+}
+
+function contains($haystack, $needle) {
+    if (!empty($haystack) && !empty($needle)) {
+        if (strpos($haystack, $needle) !== false) {
+            // $needle was found in $haystack, return true
+            return true;
+        }
+        return false;
+    }
+    return false;
 }
 
 // ============================================================================

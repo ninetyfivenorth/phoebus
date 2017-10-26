@@ -9,7 +9,7 @@ $arrayIncludes = array(
     $arrayModules['dbAddons'],
     $arrayModules['dbLangPacks'],
     $arrayModules['dbSearchPlugins'],
-    $arrayModules['readManifest'],
+    $arrayModules['addonManifest'],
 );
 
 $strRequestAddonID = funcHTTPGetValue('id');
@@ -102,10 +102,13 @@ foreach($arrayIncludes as $_value) {
 }
 unset($arrayIncludes);
 
+// classAddonManifest
+$addonManifest = new classAddonManifest();
+
 // Search for add-ons in our databases
 // Add-ons
 if (array_key_exists($strRequestAddonID, $arrayAddonsDB)) {
-    funcDownloadXPI(funcReadManifest($arrayAddonsDB[$strRequestAddonID]), $strRequestAddonVersion);
+    funcDownloadXPI($addonManifest->funcGetManifest($arrayAddonsDB[$strRequestAddonID]), $strRequestAddonVersion);
 }
 // Search Plugins
 elseif (array_key_exists($strRequestAddonID, $arraySearchPluginsDB)) {

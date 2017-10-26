@@ -40,8 +40,7 @@ $intVcResult = null;
 $arrayIncludes = array(
     $arrayModules['dbAddons'],
     $arrayModules['dbLangPacks'],
-    $arrayModules['dbAUSExternals'],
-    $arrayModules['readManifest'],
+    $arrayModules['addonManifest'],
 );
 
 $strRequestAddonID = funcHTTPGetValue('id');
@@ -77,7 +76,7 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
                 <em:id>{%APPLICATION_ID}</em:id>
                 <em:minVersion>{%ADDON_MINVERSION}</em:minVersion>
                 <em:maxVersion>{%ADDON_MAXVERSION}</em:maxVersion>
-                <em:updateLink>{%ADDON_XPI}</em:updateLink>
+                <em:updateLink><![CDATA[{%ADDON_XPI}]]></em:updateLink>
                 <em:updateHash>sha256:{%ADDON_HASH}</em:updateHash>
               </RDF:Description>
             </em:targetApplication>
@@ -159,9 +158,12 @@ if ($strRequestAppID == $strPaleMoonID) {
     }
     unset($arrayIncludes);
 
+    // classAddonManifest
+    $addonManifest = new classAddonManifest();
+
     // Search for add-ons in our database
     if (array_key_exists($strRequestAddonID, $arrayAddonsDB)) {
-        funcGenerateUpdateXML(funcReadManifest($arrayAddonsDB[$strRequestAddonID]), false);
+        funcGenerateUpdateXML($addonManifest->funcGetManifest($arrayAddonsDB[$strRequestAddonID]), false);
     }
     // Language Packs
     elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {
