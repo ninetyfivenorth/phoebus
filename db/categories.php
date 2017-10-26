@@ -69,6 +69,8 @@ $arrayCategoryList02 = array(
     'thinbookmarks',
     'thintabs',
     'behind-the-overlay-me',
+    'darktoggle',
+    'styletoggle',
     'externals' => array(
         'active-stop-button' => array(
             'id' => 'fx-2025',
@@ -228,30 +230,15 @@ $arrayCategoryList05 = array(
     'febe',
     'opie',
     'opie2',
+    'togglejscript',
+    'foxyproxy-basic',
+    'foxyproxy-standard',
     'externals' => array(
         'cookiekeeper' => array(
             'id' => 'fx-481410',
             'name' => 'CookieKeeper',
             'shortDescription' => 'Extended Cookie Manager - Keep only wanted cookies.',
             'url' => 'https://addons.mozilla.org/firefox/addon/cookiekeeper/'
-        ),
-        'foxyproxy-basic' => array(
-            'id' => 'fx-15023',
-            'name' => 'FoxyProxy Basic',
-            'shortDescription' => 'A simple on/off proxy switcher',
-            'url' => 'https://addons.mozilla.org/firefox/addon/foxyproxy-basic/'
-        ),
-        'foxyproxy-standard' => array(
-            'id' => 'fx-2464',
-            'name' => 'FoxyProxy Standard',
-            'shortDescription' => 'An advanced proxy management tool that completely replaces Pale Moon&amp;s built-in proxy manager',
-            'url' => 'https://addons.mozilla.org/firefox/addon/foxyproxy-standard/'
-        ),
-        'js-switch' => array(
-            'id' => 'fx-5757',
-            'name' => 'JS Switch',
-            'shortDescription' => 'Adds a toolbar button and an option in the Tools menu to enable/disable JavaScript.',
-            'url' => 'https://addons.mozilla.org/en-US/firefox/addon/js-switch/'
         ),
         'secret-agent' => array(
             'id' => 'ex-006',
@@ -440,6 +427,7 @@ $arrayCategoryList10 = array(
     'backtotop',
     'pasteemail',
     'pasteemailplus',
+    'blinkblank',
     'externals' => array(
         'epubreader' => array(
             'id' => 'fx-45281',

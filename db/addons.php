@@ -145,6 +145,12 @@ $arrayAddonsDB = array(
     'pasteemailplus@guid.customsoftwareconsult.com' => 'pasteemailplus',
     'firefox-tabgroups@mozilla.com' => 'tabgroups',
     'behind-the-overlay-me@Off.JustOff' => 'behind-the-overlay-me',
-    'phoebus-dev@Off.JustOff' => 'phoebus-dev'
+    'phoebus-dev@Off.JustOff' => 'phoebus-dev',
+    '{b5af16a6-105d-4a14-a5a6-c2b358b06a04}' => 'togglejscript',
+    'foxyproxy-basic@eric.h.jung' => 'foxyproxy-basic',
+    'foxyproxy@eric.h.jung' => 'foxyproxy-standard',
+    'blinkblank@joe04' => 'blinkblank',
+    'darktoggle@joe04' => 'darktoggle',
+    'styletoggle@joe04' => 'styletoggle'
 );
 ?>
