@@ -99,7 +99,7 @@ public $arrayFinalAddons;
     }
 
     private function failAuth() {
-        header('WWW-Authenticate: Basic realm="' . $GLOBALS['strProductName'] . ' ' . $GLOBALS['strApplicationVersion'] . '"');
+        header('WWW-Authenticate: Basic realm="' . $GLOBALS['strProductName'] '"');
         header('HTTP/1.0 401 Unauthorized');
         echo "You need to enter a valid username and password.";
         exit();
