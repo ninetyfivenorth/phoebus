@@ -151,6 +151,7 @@ $arrayAddonsDB = array(
     'foxyproxy@eric.h.jung' => 'foxyproxy-standard',
     'blinkblank@joe04' => 'blinkblank',
     'darktoggle@joe04' => 'darktoggle',
-    'styletoggle@joe04' => 'styletoggle'
+    'styletoggle@joe04' => 'styletoggle',
+    'classicpasswordeditor@daniel.dawson' => 'classic-password-editor'
 );
 ?>

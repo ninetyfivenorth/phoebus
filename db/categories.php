@@ -233,6 +233,7 @@ $arrayCategoryList05 = array(
     'togglejscript',
     'foxyproxy-basic',
     'foxyproxy-standard',
+    'classic-password-editor',
     'externals' => array(
         'cookiekeeper' => array(
             'id' => 'fx-481410',
