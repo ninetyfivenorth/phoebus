@@ -19,31 +19,23 @@
         target="_blank"
 {if strstr($key.metadata.url, 'addons.mozilla.org')}
         title="This add-on is hosted on Mozilla's Add-ons Site"
-        class="PM-addon fake-table-row amo-externals"
+        class="fake-table-row category-addon amo-externals"
 {else}
         title="This add-on is hosted independently"
-        class="PM-addon fake-table-row real-externals"
+        class="fake-table-row category-addon real-externals"
 {/if}
 {else}
-        class="PM-addon fake-table-row hosted-extensions"
+        class="fake-table-row category-addon hosted-extensions"
 {/if}
-        style="width: 95%; height: 64px; 
-        display: inline-block; margin-left: 15px; margin-right: 20px; text-align: left; vertical-align: top; align: left; padding: 4px 8px; text-decoration: none; color: black;">
+        >
 
-        <img
-            src="{$key.metadata.icon}"
-            style="padding-top: 8px; padding-bottom: 16px;" class="alignleft"
-            width="32px"
-            height="32px">
+        <img src="{$key.metadata.icon}" class="category-addon-icon alignleft" width="32px" height="32px" />
 
 {if $PAGE_TYPE == 'cat-themes'}
-        <div
-            class="alignright"
-            style="background: linear-gradient(to bottom, #f0f0f0 0%,#d4d9f7 100%); background-repeat: no-repeat; background-image: url('{$key.metadata.preview}'); align: center; margin-top: 4px; width: 240px; height: 60px; border:1px solid #aaaaaa; overflow: hidden;">
-        </div>
+        <div class="category-theme-preview alignright" style="background-image: url('{$key.metadata.preview}');"> </div>
 {/if}
         
-        <div style="margin-top: 6px; height: 64px;"><strong>{$key.metadata.name}</strong>
+        <div class="category-addon-content"><strong>{$key.metadata.name}</strong>
 {if $key.addon.type == 'external'}
 {if strstr($key.metadata.url, 'addons.mozilla.org')}
             <small>[AMO]</small>
@@ -62,7 +54,7 @@
 {if $PAGE_TYPE == 'cat-extensions' || $PAGE_TYPE == 'cat-all-extensions'}
 </div> <!-- END DIV ID PM-Content-Body -->
 <div id="PM-Content-Sidebar"> <!-- START PM-Content-Sidebar -->
-    <div>
+    <div class="category-extensions-list">
         <h1>Categories</h1>
         <a href="/extensions/alerts-and-updates/">Alerts &amp; Updates</a><br />
         <a href="/extensions/appearance/">Appearance</a><br />

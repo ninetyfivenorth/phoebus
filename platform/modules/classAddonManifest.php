@@ -651,7 +651,7 @@ class classAddonManifest {
         if ($_addonManifest['metadata']['homepageURL'] != null) {
             $_arrayHomepageRepos = array('github.com', 'bitbucket.com', 'gitlab.com');
             foreach ($_arrayHomepageRepos as $_value) {
-                if (strpos($_addonManifest['metadata']['homepageURL'], $_value) > -1) {
+                if (contains($_addonManifest['metadata']['homepageURL'], $_value) == true) {
                     if ($_addonManifest['metadata']['repository'] == null) {
                         $_addonManifest['metadata']['repository'] = $_addonManifest['metadata']['homepageURL'];
                     }

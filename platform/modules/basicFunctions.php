@@ -104,14 +104,12 @@ function endsWith($haystack, $needle) {
 }
 
 function contains($haystack, $needle) {
-    if (!empty($haystack) && !empty($needle)) {
-        if (strpos($haystack, $needle) !== false) {
-            // $needle was found in $haystack, return true
-            return true;
-        }
+    if (strpos($haystack, $needle) > -1) {
+        return true;
+    }
+    else {
         return false;
     }
-    return false;
 }
 
 // ============================================================================
