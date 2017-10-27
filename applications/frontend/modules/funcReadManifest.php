@@ -243,7 +243,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
                 }
                 
                 if (!array_key_exists($GLOBALS['strPaleMoonID'], $_addonInstallRDF['targetApplication'])) {
-                     if ($_value != $_addonManifest['addon']['id']) {
+                     if ($_value != $GLOBALS['strPaleMoonID']) {
                         $_addonManifest['errors'][] = $_value . ' does not have a Pale Moon targetApplication';
                         continue;
                     }
@@ -256,11 +256,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
                         }
                     }
                 }
-                
-                if (array_key_exists('updateURL', $_addonInstallRDF)) {
-                    continue;
-                }
-                
+
                 // Fill in xpinstall values from install.rdf
                 $_addonManifest['xpinstall'][$_value]['version'] =
                     $_addonInstallRDF['version'];
@@ -271,8 +267,6 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
 
                 $_addonManifest['xpinstall'][$_value]['hash'] = hash_file('sha256', $_addonBasePath . $_value);
                 $_addonManifest['xpinstall'][$_value]['mtime'] = $_addonInstallStat['mtime'];
-                $_addonManifest['xpinstall'][$_value]['date'] = date('Y-m-d' ,$_addonInstallStat['mtime']);
-                $_addonManifest['xpinstall'][$_value]['prettyDate'] = date('F j, Y' ,$_addonInstallStat['mtime']);
             }
             else {
                 if ($GLOBALS['boolDebugMode'] == true) {
@@ -308,23 +302,19 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             // Parse install.rdf
             $_addonInstallRDF = $_addonRDF->parseInstallManifest($_addonInstallRDF);
             
-            if (array_key_exists('updateURL', $_addonInstallRDF)) {
-                return null;
-            }
-            
             // Override potentally set values in the manifest file with those from the release XPI
             if (array_key_exists('name', $_addonInstallRDF)) {
                 $_addonManifest['metadata']['name'] = $_addonInstallRDF['name']['en-US'];
             }
             
-            if (array_key_exists('description', $_addonInstallRDF) && $_addonManifest['metadata']['shortDescription'] == null) {
+            if (array_key_exists('description', $_addonInstallRDF)) {
                 $_addonManifest['metadata']['shortDescription'] = $_addonInstallRDF['description']['en-US'];
             }
             elseif ($_addonManifest['metadata']['shortDescription'] == null) {
                 $_addonManifest['metadata']['shortDescription'] = 'The ' . $_addonManifest['metadata']['name'] . ' ' . $_addonManifest['addon']['type'];
             }
             
-            if (array_key_exists('creator', $_addonInstallRDF) && $_addonManifest['metadata']['author'] == null) {
+            if (array_key_exists('creator', $_addonInstallRDF)) {
                 $_addonManifest['metadata']['author'] = $_addonInstallRDF['creator'];
             }
             elseif ($_addonManifest['metadata']['author'] == null) {
@@ -362,8 +352,8 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
         }
         
         $_addonFullShortDesc = $_addonManifest['metadata']['shortDescription'];
-        if (strlen($_addonManifest['metadata']['shortDescription']) >= 205) {
-            $_addonManifest['metadata']['shortDescription'] = substr($_addonManifest['metadata']['shortDescription'], 0, 200) . '...';
+        if (strlen($_addonManifest['metadata']['shortDescription']) >= 365) {
+            $_addonManifest['metadata']['shortDescription'] = substr($_addonManifest['metadata']['shortDescription'], 0, 360) . '...';
         }
 
         // Deal with phoebus.content   
@@ -418,6 +408,7 @@ function funcReadManifest($_addonSlug, $_boolLegacy = null) {
             $_addonPhoebusContent = str_replace("</ul><br />", "</ul>\n", $_addonPhoebusContent);
             $_addonPhoebusContent = str_replace("<ol><br />", "<ol>\n", $_addonPhoebusContent);
             $_addonPhoebusContent = str_replace("</ol><br />", "</ol>\n", $_addonPhoebusContent);
+
 
             // Assign parsed phoebus.content to the add-on manifest array
             $_addonManifest['metadata']['longDescription'] = $_addonPhoebusContent;

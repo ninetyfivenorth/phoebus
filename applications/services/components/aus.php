@@ -39,8 +39,8 @@ $intVcResult = null;
 
 $arrayIncludes = array(
     $arrayModules['dbAddons'],
-    $arrayModules['dbLangPacks'],
-    $arrayModules['readManifest'],
+    $arrayModules['langPacks'],
+    $arrayModules['addonManifest'],
 );
 
 $strRequestAddonID = funcHTTPGetValue('id');
@@ -54,7 +54,7 @@ $strRequestMozXPIUpdate = funcHTTPGetValue('Moz-XPI-Update');
 
 // == | funcGenerateUpdateXML | ===============================================
 
-function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
+function funcGenerateUpdateXML($_addonManifest) {
     $_strUpdateXMLHead = '<?xml version="1.0"?>' . "\n" . '<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">';
     $_strUpdateXMLTail = '</RDF:RDF>';
 
@@ -76,7 +76,7 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
                 <em:id>{%APPLICATION_ID}</em:id>
                 <em:minVersion>{%ADDON_MINVERSION}</em:minVersion>
                 <em:maxVersion>{%ADDON_MAXVERSION}</em:maxVersion>
-                <em:updateLink>{%ADDON_XPI}</em:updateLink>
+                <em:updateLink><![CDATA[{%ADDON_XPI}]]></em:updateLink>
                 <em:updateHash>sha256:{%ADDON_HASH}</em:updateHash>
               </RDF:Description>
             </em:targetApplication>
@@ -96,11 +96,7 @@ function funcGenerateUpdateXML($_addonManifest, $addonUseFilename) {
                 '{%ADDON_XPI}' => $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['id'],
                 '{%ADDON_HASH}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['hash']
             );
-            
-            if ($addonUseFilename == true) {
-                $_arrayFilterSubstitute['{%ADDON_XPI}'] = $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['release'];
-            }
-            
+
             foreach ($_arrayFilterSubstitute as $_key => $_value) {
                 $_strUpdateXMLBody = str_replace($_key, $_value, $_strUpdateXMLBody);
             }
@@ -158,27 +154,21 @@ if ($strRequestAppID == $strPaleMoonID) {
     }
     unset($arrayIncludes);
 
+    // classAddonManifest
+    $addonManifest = new classAddonManifest();
+
+    // classLangPacks
+    $langPacks = new classLangPacks;
+    $arrayLangPackDB = $langPacks->funcGetLanguagePacks();
+
     // Search for add-ons in our database
+    // Add-ons
     if (array_key_exists($strRequestAddonID, $arrayAddonsDB)) {
-        funcGenerateUpdateXML(funcReadManifest($arrayAddonsDB[$strRequestAddonID]), false);
+        funcGenerateUpdateXML($addonManifest->funcGetManifest($arrayAddonsDB[$strRequestAddonID]));
     }
     // Language Packs
-    elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {
-        $arrayLangPack = array(
-            'addon' => array(
-                        'type' => 'item',
-                        'id' => $strRequestAddonID,
-                        'release' => $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi',
-                        'baseURL' => $arrayLangPackConstants['baseURL'],
-                        'hash' => $arrayLangPackDB[$strRequestAddonID]['hash']),
-            'xpinstall' => array(
-                        $arrayLangPackDB[$strRequestAddonID]['locale'] . '.xpi' => array(
-                            'version' => $arrayLangPackDB[$strRequestAddonID]['version'],
-                            'minAppVersion' => $arrayLangPackConstants['minAppVersion'],
-                            'maxAppVersion' => $arrayLangPackConstants['maxAppVersion']))
-        );
-        
-        funcGenerateUpdateXML($arrayLangPack, true);
+    elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {        
+        funcGenerateUpdateXML($arrayLangPackDB[$strRequestAddonID]);
     }
     // Unknown - Send to AMO or to 'bad' update xml
     else {

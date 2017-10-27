@@ -14,7 +14,7 @@
     Please note the installation instructions, just installing the language pack and letting Pale Moon restart is not enough! Also keep in mind that these language packs are a convenience and that the browser is and remains an English language product at its heart, so something like the Safe Mode dialog, about box and default bookmarks folder names will be in English.
 </p>
 
-<div style="border: 2px solid rgb(204, 204, 255); padding: 5px 10px; background-color: rgb(240, 240, 255);">
+<div class="instruction-infobox">
     <h3>Installation instructions</h3>
 
     <p>
@@ -62,7 +62,7 @@
 {/if}
 
 {if $PAGE_TYPE == 'cat-search-plugins'}
-<div style="-moz-column-count: 3; width: 100%;">
+<div class="category-other">
 {foreach $PAGE_DATA as $key}
     <a onclick="window.external.AddSearchProvider('{$SITE_DOMAIN}/?component=download&id={$key.addon.id}');"
        href="#{$key.metadata.slug}"
@@ -82,16 +82,16 @@
 {/foreach}
 </div>
 {elseif $PAGE_TYPE == 'cat-language-packs'}
-<div style="-moz-column-count: 3; width: 100%;">
+<div class="category-other">
 {foreach $PAGE_DATA as $key}
-    <a href="{$key.url}" class="fake-table-row-search-plugin" style="height: 36px;">
-        <img src="/datastore/langpacks/icons/{$key.locale}.png"
+    <a href="{$key.addon.baseURL}{$key.addon.id}" class="fake-table-row-search-plugin" style="height: 36px;">
+        <img src="/datastore/langpacks/icons/{$key.metadata.slug}.png"
             class="alignleft"
             width="32px"
             height="32px">
         <div style="margin-top: 7px;">
-            <strong>{$key.name}</strong>
-            <small>[{$key.locale}]</small>
+            <strong>{$key.metadata.name}</strong>
+            <small>[{$key.metadata.slug}]</small>
         </div>
     </a>
 {/foreach}
