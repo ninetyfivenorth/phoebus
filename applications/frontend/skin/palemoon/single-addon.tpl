@@ -4,7 +4,7 @@
 </h1>
 
 <p style="margin-top: -18px">
-    By: {$PAGE_DATA.metadata.author}
+    By: {$PAGE_DATA.metadata.creator}
 </p>
 
 <h3>
@@ -34,7 +34,7 @@
 <p style="text-align: center; padding: 10px;">
     <a class="dllink_green" href="/?component=download&id={$PAGE_DATA.addon.id}&version={$PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['version']}&hash={$PAGE_DATA['xpinstall'][$PAGE_DATA['addon']['release']]['hash']}">
         <img border="0" src="{$BASE_PATH}download.png" alt="" style="width: 24px; height: 24px; position: relative; top: 7px; right: 4px;" />
-        Install {$PAGE_DATA.metadata.name}
+        <span>Install {$PAGE_DATA.metadata.name}</span>
     </a>
 </p>
 

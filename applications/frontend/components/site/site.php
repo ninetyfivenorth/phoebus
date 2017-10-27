@@ -5,8 +5,8 @@
 
 // == | Vars | ================================================================
 
-$strContentBasePath = './frontend/components/site/content/';
-$strSkinBasePath = './frontend/skin/' . $strApplicationSkin . '/';
+$strContentBasePath = './applications/frontend/components/site/content/';
+$strSkinBasePath = './applications/frontend/skin/' . $strApplicationSkin . '/';
 $strObjDirSmartyCachePath = $strObjDirPath . 'smarty/frontend/';
 
 $arraySmartyPaths = array(
@@ -37,7 +37,8 @@ $arrayStaticPages = array(
 // == | funcGenAddonContent | =================================================
 
 function funcGenAddonContent($_strAddonSlug) {
-    $_arrayAddonMetadata = funcReadManifest($_strAddonSlug);
+    $_addonManifest = new classAddonManifest();
+    $_arrayAddonMetadata = $_addonManifest->funcGetManifest($_strAddonSlug);
 
     if ($_arrayAddonMetadata != null) {
         $_arrayAddonMetadata['addon']['basePath'] = substr($_arrayAddonMetadata['addon']['basePath'], 1);
@@ -93,12 +94,13 @@ function funcGenAllExtensions($_array) {
 // == | funcGenCategoryContent | ==============================================
 
 function funcGenCategoryContent($_type, $_array) {
+    $_addonManifest = new classAddonManifest();
     $arrayCategory = array();
     $_strDatastoreBasePath = $GLOBALS['strApplicationDatastore'] . 'addons/';
     
     foreach ($_array as $_key => $_value) {
         if (($_type == 'extension' || $_type == 'theme') && is_int($_key)) {
-            $_arrayAddonMetadata = funcReadManifest($_value);
+            $_arrayAddonMetadata = $_addonManifest->funcGetManifest($_value);
             if ($_arrayAddonMetadata != null) {
                 $arrayCategory[$_arrayAddonMetadata['metadata']['name']] = $_arrayAddonMetadata;
                 unset($_arrayAddonMetadata);
@@ -131,8 +133,7 @@ function funcGenCategoryContent($_type, $_array) {
         }
         elseif ($_type == 'language-pack') {
             foreach($_array as $_key3 => $_value3) {
-                $arrayCategory[$_value3['name']] = $_value3;
-                $arrayCategory[$_value3['name']]['url'] = $GLOBALS['arrayLangPackConstants']['baseURL'] . $_value3['locale'] . '.xpi';
+                $arrayCategory[$_value3['metadata']['name']] = $_value3;
             }
         }
         elseif ($_type == 'search-plugin') {
@@ -248,11 +249,18 @@ function funcGeneratePage($_array) {
 
 // == | Main | ================================================================
 
-require_once($arrayModules['readManifest']);
+// Do not allow public access to the site component when on addons-dev
+if ($boolDebugMode == true) {
+    require_once($arrayModules['ftpAuth']);
+    $FTPAuth = new classFTPAuth;
+    $isAuthorized = $FTPAuth->doAuth(true);
+}
+
+require_once($arrayModules['addonManifest']);
+$addonManifest = new classAddonManifest();
 
 if (startsWith($strRequestPath, '/addon/')) {
     require_once($arrayModules['dbAddons']);
-    
     $strStrippedPath = str_replace('/', '', str_replace('/addon/', '', $strRequestPath));
     $ArrayDBFlip = array_flip($arrayAddonsDB);
     
@@ -288,7 +296,9 @@ elseif (startsWith($strRequestPath, '/extensions/') || startsWith($strRequestPat
     }
 }
 elseif ($strRequestPath == '/language-packs/') {
-    require_once($arrayModules['dbLangPacks']);
+    require_once($arrayModules['langPacks']);
+    $langPacks = new classLangPacks;
+    $arrayLangPackDB = $langPacks->funcGetLanguagePacks();
     
     funcGeneratePage(funcGenCategoryContent('language-pack', $arrayLangPackDB));
 }

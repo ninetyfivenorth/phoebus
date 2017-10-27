@@ -14,9 +14,10 @@ ID
 .*.sw[a-z]
 
 # Directories
-/.obj/
-/_tools/
-/datastore/
+.obj/
+_tools/
+datastore/
+datastore
 
 # Ignore misc files that need not be in the repo
 /robots.txt
