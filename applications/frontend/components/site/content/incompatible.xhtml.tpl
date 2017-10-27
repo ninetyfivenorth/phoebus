@@ -18,7 +18,7 @@
 
 <h3>List of add-ons with known compatibility issues</h3>
 
-<p><strong>Last updated: 2017-10-10</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
+<p><strong>Last updated: 2017-10-25</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
 
 <p><strong>PENDING</strong></p>
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
@@ -73,7 +73,6 @@
                     <li>CoLT<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/colt/versions/2.6.5.1-signed" target="_blank">2.6.5.1</a></small></li>
                     <li>CookieCuller<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/cookiekeeper/" target="_blank">CookieKeeper</a></small></li>
                     <li>Copy goo.gl URL<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/googl-lite/" target="_blank">goo.gl lite</a></small></li>
-                    <li>Customize Titlebar<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/customize_titlebar_v2/" target="_blank">customize_titlebar_v2</a></small></li>
                     <li>Dashlane<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/lastpass-password-manager/" target="_blank">LastPass Password Manager</a></small></li>
                     <li>Disconnect Search<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>Download Status Bar<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/s3download-statusbar/" target="_blank">Download Manager (S3)</a></small></li>
@@ -87,12 +86,12 @@
                     <li>Forecastfox (fix version)<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/forecastfox-fix-version/versions/2.4.8" target="_blank">2.4.8</a></small></li>
                     <li>Faster Video<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/faster-video/versions/2.1.2" target="_blank">2.1.2</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li> 
                     <li>Googlebar Lite<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
+                    <li>Google Privacy<br /><small>Use Google search link fix<br />version <a href="https://addons.mozilla.org/firefox/addon/google-search-link-fix/versions/1.4.9.1-signed" target="_blank">1.4.9.1</a></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
-                    <li>Google Privacy<br /><small>Use Google search link fix<br />version <a href="https://addons.mozilla.org/firefox/addon/google-search-link-fix/versions/1.4.9.1-signed" target="_blank">1.4.9.1</a> or <a href="https://addons.mozilla.org/firefox/addon/clean-links/" target="_blank">Clean Links</a></small></li>
                     <li>gTranslate<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/s3google-translator/" target="_blank">S3.Google Translator</a></small></li>
                     <li>Hide Caption Titlebar Plus<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/hide-caption-titlebar-plus-sma/versions/?page=2#version-2.8.7rc" target="_blank">2.8.7rc</a></small></li>
                     <li>History Submenus II<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/history-submenus-2/versions/3.1.2.1" target="_blank">3.1.2.1</a></small></li>
@@ -108,10 +107,10 @@
                     <li>Open Bookmarks in New Tab<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/open-bookmarks-in-new-tab/versions/0.1.2012122901.1-signed" target="_blank">0.1.2012122901.1</a></small></li>
                     <li>Personas Rotator<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/personas-rotator/versions/47.1" target="_blank">47.1</a></small></li>
                     <li>PrefBar<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/prefbar/versions/6.5.0.1-signed" target="_blank">6.5.0.1</a></small></li>
-                    <li>Pure URL<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/clean-links/" target="_blank">Clean Links</a></small></li>
+                    <li>Pure URL<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/redirect-remover/" target="_blank">Redirect Remover</a></small></li>
                     <li>QuickJava<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/quickjava/versions/2.0.4.1-signed" target="_blank">2.0.4.1</a></small></li>
                     <li>Random Agent Spoofer<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/random-agent-spoofer/versions/0.9.5.5" target="_blank">0.9.5.5</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
-                    <li>RedirectCleaner<br /><small>Use <a href="https://github.com/diegocr/CleanLinks" target="_blank">Clean Links</a></small></li>
+                    <li>RedirectCleaner<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/redirect-remover/" target="_blank">Redirect Remover</a></small></li>
                     <li>Redirector<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/redirector/versions/2.9.3" target="_blank">2.9.3</a></small></li>
                     <li>Reddit Enhancement Suite<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/reddit-enhancement-suite/versions/4.6.1" target="_blank">4.6.1</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>ReloadEvery<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/reloadevery/versions/28.0.2.1-signed" target="_blank">28.0.2</a></small></li>
@@ -140,7 +139,7 @@
                     <li>Twitch Now<br /><small>Install version <a href=https://addons.mozilla.org/firefox/addon/twitch-now/versions/1.1.187 target="_blank">1.1.187</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>Toggle Document Colors<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/toggledocumentcolors-198916/" target="_blank">ToggleDocumentColors_</a><br />or <a href="https://addons.mozilla.org/firefox/addon/page-colors-fonts-buttons/" target="_blank">Page Colors & Fonts Buttons</a></small></li>
                     <li>Toggle Document Fonts<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/page-colors-fonts-buttons/" target="_blank">Page Colors & Fonts Buttons</a></small></li>
-                    <li>Toggle Javascript<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/js-switch/" target="_blank">JS Switch</a> or <a href="https://addons.mozilla.org/firefox/addon/quickjs/" target="_blank">QuickJS</a></small></li>
+                    <li>Toggle Javascript<br /><small>Use <a href="http://addons.palemoon.org/addon/togglejscript/" target="_blank">Toggle JavaScript [Enabled/Disabled]</a> or <a href="https://addons.mozilla.org/firefox/addon/quickjs/" target="_blank">QuickJS</a></small></li>
                     <li>Update Scanner<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/update-scanner/versions/3.1.13.1-signed" target="_blank">3.1.13.1</a></small></li>
                     <li>User Agent Overrider<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/user-agent-overrider/versions/0.2.4.1-signed" target="_blank">0.2.4.1</a></small></li>
                     <li>Video DownloadHelper<br /><small>Use <a href="/addon/complete-yt-saver/">Complete YouTube Saver</a></small></li>
@@ -183,7 +182,8 @@
                     <li>Fire IE</li>
                     <li>FlashDisable</li>
                     <li><a href="/addon/foxclocks/">FoxClocks</a></li>
-                    <li>FoxyProxy (All SKUs)</li>
+                    <li><a href="/addon/foxyproxy-basic/">FoxyProxy Basic</a></li>
+					<li><a href="/addon/foxyproxy-standard/">FoxyProxy Standard</a></li>
                     <li><a href="/addon/gnotifier/">GNotifier</a></li>
                     <li><a href="/addon/i-dont-care-about-cookies/">I don't care about cookies</a></li>
                     <li>NewsFox</li>

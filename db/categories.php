@@ -233,6 +233,7 @@ $arrayCategoryList05 = array(
     'togglejscript',
     'foxyproxy-basic',
     'foxyproxy-standard',
+    'classic-password-editor',
     'externals' => array(
         'cookiekeeper' => array(
             'id' => 'fx-481410',
@@ -470,6 +471,7 @@ $arrayCategoryList11 = array(
     'togglebookmarks',
     'bartab-tycho',
     'tabgroups',
+    'multi-links-plus',
     'externals' => array(
         'speed-start' => array(
             'id' => 'ex-010',
