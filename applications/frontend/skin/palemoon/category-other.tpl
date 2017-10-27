@@ -84,14 +84,14 @@
 {elseif $PAGE_TYPE == 'cat-language-packs'}
 <div class="category-other">
 {foreach $PAGE_DATA as $key}
-    <a href="{$key.url}" class="fake-table-row-search-plugin" style="height: 36px;">
-        <img src="/datastore/langpacks/icons/{$key.locale}.png"
+    <a href="{$key.addon.baseURL}{$key.addon.id}" class="fake-table-row-search-plugin" style="height: 36px;">
+        <img src="/datastore/langpacks/icons/{$key.metadata.slug}.png"
             class="alignleft"
             width="32px"
             height="32px">
         <div style="margin-top: 7px;">
-            <strong>{$key.name}</strong>
-            <small>[{$key.locale}]</small>
+            <strong>{$key.metadata.name}</strong>
+            <small>[{$key.metadata.slug}]</small>
         </div>
     </a>
 {/foreach}

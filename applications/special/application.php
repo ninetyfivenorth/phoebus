@@ -21,7 +21,7 @@ $strModulesPath = $strApplicationPath . 'modules/';
 // Define Components
 $arrayComponents = array(
     'phpInfo' => $strComponentsPath . 'phpInfo.php',
-    'addonStatusReport' => $strComponentsPath . 'addonStatusReport.php',
+    'addonStatusReport' => $strComponentsPath . 'addonStatusReport.php'
 );
 
 // Define Modules
@@ -42,7 +42,7 @@ unset($arrayPlatformModules);
 if ($strRequestPath == '/special/addon-status/') {
     $strRequestComponent = 'addonStatusReport';
 }
-else {
+elseif ($strRequestComponent == 'site') {
     funcSendHeader('404');
 }
 

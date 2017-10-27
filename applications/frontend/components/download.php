@@ -7,7 +7,7 @@
 
 $arrayIncludes = array(
     $arrayModules['dbAddons'],
-    $arrayModules['dbLangPacks'],
+    $arrayModules['langPacks'],
     $arrayModules['dbSearchPlugins'],
     $arrayModules['addonManifest'],
 );
@@ -105,10 +105,18 @@ unset($arrayIncludes);
 // classAddonManifest
 $addonManifest = new classAddonManifest();
 
+// classLangPacks
+$langPacks = new classLangPacks;
+$arrayLangPackDB = $langPacks->funcGetLanguagePacks();
+
 // Search for add-ons in our databases
 // Add-ons
 if (array_key_exists($strRequestAddonID, $arrayAddonsDB)) {
     funcDownloadXPI($addonManifest->funcGetManifest($arrayAddonsDB[$strRequestAddonID]), $strRequestAddonVersion);
+}
+// Language Packs
+elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {
+    funcDownloadXPI($arrayLangPackDB[$strRequestAddonID], $strRequestAddonVersion);
 }
 // Search Plugins
 elseif (array_key_exists($strRequestAddonID, $arraySearchPluginsDB)) {

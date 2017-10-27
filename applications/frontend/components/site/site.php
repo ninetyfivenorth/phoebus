@@ -133,8 +133,7 @@ function funcGenCategoryContent($_type, $_array) {
         }
         elseif ($_type == 'language-pack') {
             foreach($_array as $_key3 => $_value3) {
-                $arrayCategory[$_value3['name']] = $_value3;
-                $arrayCategory[$_value3['name']]['url'] = $GLOBALS['arrayLangPackConstants']['baseURL'] . $_value3['locale'] . '.xpi';
+                $arrayCategory[$_value3['metadata']['name']] = $_value3;
             }
         }
         elseif ($_type == 'search-plugin') {
@@ -297,7 +296,9 @@ elseif (startsWith($strRequestPath, '/extensions/') || startsWith($strRequestPat
     }
 }
 elseif ($strRequestPath == '/language-packs/') {
-    require_once($arrayModules['dbLangPacks']);
+    require_once($arrayModules['langPacks']);
+    $langPacks = new classLangPacks;
+    $arrayLangPackDB = $langPacks->funcGetLanguagePacks();
     
     funcGeneratePage(funcGenCategoryContent('language-pack', $arrayLangPackDB));
 }

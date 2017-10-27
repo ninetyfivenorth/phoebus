@@ -39,7 +39,6 @@ $arrayLibs = array(
 // Define Database Arrays
 $arrayDatabases = array(
     'dbAddons' => $strDatabasesPath . 'addons.php',
-    'dbLangPacks' => $strDatabasesPath . 'langPacks.php',
     'dbSearchPlugins' => $strDatabasesPath . 'searchPlugins.php',
     'dbCategories' => $strDatabasesPath . 'categories.php'
 );
@@ -48,6 +47,7 @@ $arrayPlatformComponents = array();
 
 $arrayPlatformModules = array(
     'addonManifest' => $strPlatformModulesPath . 'classAddonManifest.php',
+    'langPacks' => $strPlatformModulesPath . 'classLangPacks.php',
     'ftpAuth' => $strPlatformModulesPath . 'classFTPAuth.php'
 );
 
