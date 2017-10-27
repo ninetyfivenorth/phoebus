@@ -429,6 +429,7 @@ $arrayCategoryList10 = array(
     'pasteemail',
     'pasteemailplus',
     'blinkblank',
+	'translatethis',
     'externals' => array(
         'epubreader' => array(
             'id' => 'fx-45281',
