@@ -51,7 +51,7 @@ $arrayComponents = array(
 
 // Define Modules
 $arrayModules = array(
-    'vc' => $strLibPath . 'nsIVersionComparator.php',
+    'vc' => $strModulesPath . 'nsIVersionComparator.php',
     'addonManifest' => $strModulesPath . 'classAddonManifest.php',
     'langPacks' => $strModulesPath . 'classLangPacks.php',
     'ftpAuth' => $strModulesPath . 'classFTPAuth.php'
