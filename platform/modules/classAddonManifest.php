@@ -416,6 +416,11 @@ class classAddonManifest {
             // Parse install.rdf
             $_addonInstallRDF = $_addonRDF->parseInstallManifest($_addonInstallRDF);
             
+            if (is_string($_addonInstallRDF)) {
+                return $this->funcAddonError($_basePath . $_xpiFile, 'error',
+                    'XPI File Dropped - Install.rdf Parsing error reported as: ' . $_addonInstallRDF);
+            }
+            
             if ($_addonID != $_addonInstallRDF['id']) {
                 return $this->funcAddonError($_basePath . $_xpiFile, 'warning',
                     'XPI File Dropped - add-on id mismatch');
