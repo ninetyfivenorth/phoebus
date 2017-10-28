@@ -31,9 +31,7 @@ $arrayComponents = array(
 );
 
 // Define Modules
-$arrayModules = array(
-    'readManifest' => $strModulesPath . 'funcReadManifest.php'
-);
+$arrayModules = array();
 
 // Smarty Debug
 $strRequestSmartyDebug = funcHTTPGetValue('smartyDebug');

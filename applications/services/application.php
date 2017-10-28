@@ -25,9 +25,7 @@ $arrayComponents = array(
 );
 
 // Define Modules
-$arrayModules = array(
-    'readManifest' => $strRootPath . '/applications/frontend/modules/funcReadManifest.php'
-);
+$arrayModules = array();
 
 // ============================================================================
 
