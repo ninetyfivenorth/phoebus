@@ -21,6 +21,5 @@ Lib
 The code contained in `lib` is vendor'd from multiple sources. We will try to keep this list updated.
 
 - Smarty - *GNU Lesser General Public License 3.0*
-- RDFComponent/Rdf_parser - *MPL 1.1/GPL 2.0/LGPL 2.1*
+- RDFComponent/Rdf_parser - *MPL 1.1/GPL 2.0/LGPL 2.1 Tri-License*
 - PHP-RQL - *Apache License 2.0*
-
