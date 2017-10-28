@@ -72,7 +72,7 @@ $strFirefoxVersion = '27.9';
 $strFirefoxOldVersion = '24.9';
 
 // Include basicFunctions
-require_once('./platform/modules/basicFunctions.php');
+require_once('./modules/basicFunctions.php');
 
 // $_GET and Path Magic
 $strRequestComponent = funcHTTPGetValue('component');
