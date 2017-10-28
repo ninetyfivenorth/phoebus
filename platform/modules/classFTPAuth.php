@@ -79,7 +79,6 @@ public $arrayFinalAddons;
                 $this->arrayAdminDB[$_value['username']] = $_value['password'];
             }
         }
-        $this->arrayAdminDB['testout'] = 'time03';
         unset($_arrayAdminJSON);
 
         // Glob all json files
