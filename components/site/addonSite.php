@@ -5,9 +5,13 @@
 
 // == | Vars | ================================================================
 
-$strContentBasePath = './applications/frontend/components/site/content/';
-$strSkinBasePath = './applications/frontend/skin/' . $strApplicationSkin . '/';
+$strApplicationSiteName = 'Pale Moon - Add-ons';
+$strApplicationSkin = 'palemoon';
+$strContentBasePath = './components/site/content/';
+$strSkinBasePath = './skin/' . $strApplicationSkin . '/';
 $strObjDirSmartyCachePath = $strObjDirPath . 'smarty/frontend/';
+
+$strRequestSmartyDebug = false;
 
 $arraySmartyPaths = array(
     'cache' => $strObjDirSmartyCachePath . 'cache',
@@ -186,7 +190,7 @@ function funcGenCategoryContent($_type, $_array) {
 
 // ============================================================================
 
-// == | funcGenerateStaticPage | ==============================================
+// == | funcGeneratePage | ====================================================
 
 function funcGeneratePage($_array) {
     // Get the required template files
@@ -249,11 +253,25 @@ function funcGeneratePage($_array) {
 
 // == | Main | ================================================================
 
-// Do not allow public access to the site component when on addons-dev
+// Debug Conditions
 if ($boolDebugMode == true) {
+    // Do not allow public access to the site component when on addons-dev
     require_once($arrayModules['ftpAuth']);
     $FTPAuth = new classFTPAuth;
     $isAuthorized = $FTPAuth->doAuth(true);
+
+    // Git stuff
+    if (file_exists('./.git/HEAD')) {
+        $_strGitHead = file_get_contents('./.git/HEAD');
+        $_strGitSHA1 = file_get_contents('./.git/' . substr($_strGitHead, 5, -1));
+        $_strGitBranch = substr($_strGitHead, 16, -1);
+        $strApplicationSiteName = 'Phoebus Development - Version: ' . $strApplicationVersion . ' - ' .
+            'Branch: ' . $_strGitBranch . ' - ' .
+            'Commit: ' . substr($_strGitSHA1, 0, 7);
+    }
+    else {
+        $strApplicationSiteName = 'Phoebus Development - Version: ' . $strApplicationVersion;
+    }    
 }
 
 require_once($arrayModules['addonManifest']);
