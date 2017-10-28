@@ -5,8 +5,10 @@
 
 // == | Vars | ================================================================
 
-$strContentBasePath = './applications/frontend/components/site/content/';
-$strSkinBasePath = './applications/frontend/skin/' . $strApplicationSkin . '/';
+$strApplicationSiteName = 'Pale Moon - Add-ons';
+$strApplicationSkin = 'palemoon';
+$strContentBasePath = './components/site/content/';
+$strSkinBasePath = './skin/' . $strApplicationSkin . '/';
 $strObjDirSmartyCachePath = $strObjDirPath . 'smarty/frontend/';
 
 $arraySmartyPaths = array(
