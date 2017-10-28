@@ -47,20 +47,7 @@ $arrayModules = array_merge($arrayModules, $arrayPlatformModules);
 unset($arrayPlatformComponents);
 unset($arrayPlatformModules);
 
-// Git stuff on debug
-if ($boolDebugMode == true) {
-    if (file_exists('./.git/HEAD')) {
-        $_strGitHead = file_get_contents('./.git/HEAD');
-        $_strGitSHA1 = file_get_contents('./.git/' . substr($_strGitHead, 5, -1));
-        $_strGitBranch = substr($_strGitHead, 16, -1);
-        $strApplicationSiteName = 'Phoebus Development - Version: ' . $strApplicationVersion . ' - ' .
-            'Branch: ' . $_strGitBranch . ' - ' .
-            'Commit: ' . substr($_strGitSHA1, 0, 7);
-    }
-    else {
-        $strApplicationSiteName = 'Phoebus Development - Version: ' . $strApplicationVersion;
-    }
-}
+
 
 // Set the root entry point and ensure insanity isn't happening
 if ($_SERVER['REQUEST_URI'] == '/') {
