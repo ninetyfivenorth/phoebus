@@ -23,8 +23,8 @@ $strObjDirPath = $strRootPath . '/.obj/';
 $strApplicationDatastore = './datastore/';
 $strDatabasesPath = $strRootPath . '/db/';
 $strLibPath = $strRootPath . '/lib/';
-$strComponentsPath = $strRootPath . 'components/';
-$strModulesPath = $strRootPath . 'modules/';
+$strComponentsPath = $strRootPath . '/components/';
+$strModulesPath = $strRootPath . '/modules/';
 
 // Define Libs
 $arrayLibs = array(
