@@ -154,6 +154,7 @@ $arrayAddonsDB = array(
     'styletoggle@joe04' => 'styletoggle',
     'classicpasswordeditor@daniel.dawson' => 'classic-password-editor',
     'multilinksplus@hugsmile.eu' => 'multi-links-plus',
-	'{8701e193-7b0a-4871-b1f8-8f89857c46a1}' => 'translatethis'
+    '{8701e193-7b0a-4871-b1f8-8f89857c46a1}' => 'translatethis',
+    'autoplay-toggle@lakora.us' => 'autoplay-toggle-nonrestartless'
 );
 ?>
