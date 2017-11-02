@@ -116,7 +116,7 @@ elseif (startsWith($_SERVER['REQUEST_URI'], '/special/')) {
     // The special component is well.. Special load it up
     $strRequestComponent = 'special';
 }
-+elseif (startsWith($_SERVER['REQUEST_URI'], '/services/')) {
+elseif (startsWith($_SERVER['REQUEST_URI'], '/services/')) {
     // In 1.7.0 we went a little too far and this happened
     // so be sure this can still happen before nginx is re-adjusted
     if ($strRequestComponent != 'aus' || $strRequestComponent != 'integration') {
