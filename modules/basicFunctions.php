@@ -82,7 +82,7 @@ function funcSendHeader($_value) {
     }
     else {
         // Fallback to text
-        header($_arrayHeaders['text'])
+        header($_arrayHeaders['text']);
     }
 }
 
