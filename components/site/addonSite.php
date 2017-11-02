@@ -11,7 +11,7 @@ $strContentBasePath = './components/site/content/';
 $strSkinBasePath = './skin/' . $strApplicationSkin . '/';
 $strObjDirSmartyCachePath = $strObjDirPath . 'smarty/frontend/';
 
-$strRequestSmartyDebug = false;
+$strRequestSmartyDebug = funcHTTPGetValue('smartyDebug');
 
 $arraySmartyPaths = array(
     'cache' => $strObjDirSmartyCachePath . 'cache',

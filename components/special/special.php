@@ -14,35 +14,23 @@
 // == | Vars | ================================================================
 
 // Define application paths
-$strApplicationPath = $strRootPath . '/applications/special/';
-$strComponentsPath = $strApplicationPath . 'components/';
-$strModulesPath = $strApplicationPath . 'modules/';
+$strSpecialComponentsPath = $strRootPath . '/components/special/';
 
 // Define Components
-$arrayComponents = array(
-    'phpInfo' => $strComponentsPath . 'phpInfo.php',
-    'addonStatusReport' => $strComponentsPath . 'addonStatusReport.php'
+$arraySpecialComponents = array(
+    'phpInfo' => $strSpecialComponentsPath . 'phpInfo.php',
+    'addonStatusReport' => $strSpecialComponentsPath . 'addonStatusReport.php'
 );
-
-// Define Modules
-$arrayModules = array();
 
 // ============================================================================
 
 // == | Main | ================================================================
 
-// Merge Platform Components and Modules into Application Components and Modules
-// and unset
-$arrayComponents = array_merge($arrayComponents, $arrayPlatformComponents);
-$arrayModules = array_merge($arrayModules, $arrayPlatformModules);
-unset($arrayPlatformComponents);
-unset($arrayPlatformModules);
-
 // URL to Component assignment
 if ($strRequestPath == '/special/addon-status/') {
-    $strRequestComponent = 'addonStatusReport';
+    require_once($arraySpecialComponents['addonStatusReport']);
 }
-elseif ($strRequestComponent == 'site') {
+else {
     funcSendHeader('404');
 }
 

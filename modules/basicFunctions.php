@@ -5,6 +5,7 @@
 
 // == | Function: funcError | =================================================
 
+// This function simply relays an error message and dies
 function funcError($_value) {
     header('Content-Type: text/plain');
     die(
@@ -25,12 +26,16 @@ function funcError($_value) {
 
 // == | Function: funcHTTPGetValue |===========================================
 
+// This function gets HTTP GET arguments and performs /very/ basic filtering
+// or returns a predictable null
 function funcHTTPGetValue($_value) {
-    if (!isset($_GET[$_value]) || $_GET[$_value] === '' || $_GET[$_value] === null || empty($_GET[$_value])) {
+    if (!isset($_GET[$_value]) || $_GET[$_value] === '' ||
+        $_GET[$_value] === null || empty($_GET[$_value])) {
         return null;
     }
     else {    
-        $_finalValue = preg_replace('/[^-a-zA-Z0-9_\-\/\{\}\@\.\%\s]/', '', $_GET[$_value]);
+        $_finalValue =
+            preg_replace('/[^-a-zA-Z0-9_\-\/\{\}\@\.\%\s]/', '', $_GET[$_value]);
         return $_finalValue;
     }
 }
@@ -39,6 +44,8 @@ function funcHTTPGetValue($_value) {
 
 // == | Function: funcCheckVar | ==============================================
 
+// This function is good for truely knowing if an /existing/ variable has
+// a useable value or returns a predictable null
 function funcCheckVar($_value) {
     if ($_value === '' || $_value === 'none' || $_value === null || empty($_value)) {
         return null;
@@ -52,6 +59,7 @@ function funcCheckVar($_value) {
 
 // == | funcSendHeader | ======================================================
 
+// This function allows easy sending of common header types
 function funcSendHeader($_value) {
     $_arrayHeaders = array(
         '404' => 'HTTP/1.0 404 Not Found',
@@ -72,12 +80,17 @@ function funcSendHeader($_value) {
             exit();
         }
     }
+    else {
+        // Fallback to text
+        header($_arrayHeaders['text']);
+    }
 }
 
 // ============================================================================
 
 // == | Function: funcRedirect |===============================================
 
+// This function sends a redirect header
 function funcRedirect($_strURL) {
 	header('Location: ' . $_strURL , true, 302);
     
@@ -87,8 +100,45 @@ function funcRedirect($_strURL) {
 
 // ============================================================================
 
-// == | Functions: startsWith, endsWith, contains |=====================================
+// == | Function: funcRealArray | =============================================
 
+// Sometimes classes and crap can send array-like objects instead of true
+// arrays.. This uses a quick and dirty method of converting them to real arrays
+// using json encode/decode.. IF the input is not an object or array OR json
+// fails it will return null (we hope)
+function funcRealArray($_value, $_isMD = true) {
+    if (is_object($_value) || is_array($_value)) {
+        if ($_isMD == true) {
+            $_result = json_decode(json_encode($_value), true);
+        }
+        else {
+            $_result = json_decode(json_encode($_value));
+        }
+    }
+    else {
+        return null;
+    }
+    
+    return $_result;
+}
+
+// ============================================================================
+
+// == | Function: funcCheckUserAgent |=========================================
+
+// YEAH well.. bite me!
+function funcCheckUserAgent() {
+    if (startsWith(strtolower($_SERVER['HTTP_USER_AGENT']), 'wget/') ||
+        startsWith(strtolower($_SERVER['HTTP_USER_AGENT']), 'curl/')) {
+        funcSendHeader('404');
+    }
+}
+
+// ============================================================================
+
+// == | Functions: startsWith, endsWith, contains |============================
+
+// These functions are stolen.. They may be suboptimal but are very useful
 function startsWith($haystack, $needle) {
      $length = strlen($needle);
      return (substr($haystack, 0, $length) === $needle);
@@ -109,17 +159,6 @@ function contains($haystack, $needle) {
     }
     else {
         return false;
-    }
-}
-
-// ============================================================================
-
-// == | Function: funcCheckUserAgent |=========================================
-
-function funcCheckUserAgent() {
-    if (startsWith(strtolower($_SERVER['HTTP_USER_AGENT']), 'wget/') ||
-        startsWith(strtolower($_SERVER['HTTP_USER_AGENT']), 'curl/')) {
-        funcSendHeader('404');
     }
 }
 

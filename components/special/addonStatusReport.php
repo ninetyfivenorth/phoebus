@@ -15,10 +15,6 @@ $arrayAddonsDB = array();
 
 // == | Main | ================================================================
 
-if($strRequestPath != '/special/addon-status/') {
-    funcRedirect('/special/addon-status/');
-}
-
 require_once($arrayModules['ftpAuth']);
 
 $FTPAuth = new classFTPAuth;
@@ -44,7 +40,7 @@ $addonManifest = new classAddonManifest();
 
 funcSendHeader('html');
 
-print(file_get_contents($strPlatformPath . 'skin/default/template-header.xhtml'));
+print(file_get_contents($strSkinPath . 'default/template-header.xhtml'));
 
 print('<h1>Check Add-on Status</h1>');
 print('<div class="description">Did you know that Phoebus is another name for Apollo?</div>');
@@ -81,7 +77,7 @@ if ($strRequest != null && $_addonManifest != null) {
     );
 }
 
-print(file_get_contents($strPlatformPath . 'skin/default/template-footer.xhtml'));
+print(file_get_contents($strSkinPath . 'default/template-footer.xhtml'));
 
 // ============================================================================
 ?>
