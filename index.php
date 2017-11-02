@@ -103,7 +103,7 @@ if ($_SERVER['SERVER_NAME'] == $strApplicationDevURL) {
     ini_set("display_errors", "on");
 }
 else {
-    error_reporting(0)
+    error_reporting(0);
 }
 
 // Set inital URL-based entry points
