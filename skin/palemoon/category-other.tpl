@@ -18,7 +18,7 @@
     <h3>Installation instructions</h3>
 
     <p>
-        A few simple steps is all that is needed to install these language packs. You have the choice of 2 different methods, either by installing the Zing extension or by using the instructions to perform a one-time preference change:
+        A few simple steps is all that is needed to install these language packs. You have the choice of 2 different methods, either by installing the Locale Switcher extension or by using the instructions to perform a one-time preference change:
     </p>
     
     <p>
@@ -27,7 +27,7 @@
 
     <ol>
         <li>Download the language pack .xpi from this page (below). Choose to immediately "install" in the Pale Moon browser (the default when left-clicking), skipping the need to save it first.</li>
-        <li>Install <a href="/addon/locale-switcher/">Pale Moon locale switcher from this site.</a></li>
+        <li>Install <a href="/addon/locale-switcher/">Pale Moon Locale Switcher from this site.</a></li>
         <li>Click the new globe icon with colored bubbles in your toolbar, and select the language you prefer from the drop-down.</li>
         <li>Let the browser restart when asked.</li>
     </ol>
