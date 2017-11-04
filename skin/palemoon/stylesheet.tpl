@@ -127,6 +127,7 @@ a:hover {
 
 #PM-Content-Sidebar {
     min-width: 280px;
+    max-width: 280px;
     width: 280px;
     height: 100%;
     display: table-cell;

@@ -5,14 +5,14 @@
 
 // == | Vars | ================================================================
 
-$strRequest = funcHTTPGetValue('type');
+$strRequest = funcHTTPGetValue('view');
 
 // ============================================================================
 
 // == | Main | ================================================================
 
 if ($strRequest == null) {
-    funcError('Incorrect number of arguments');
+    $strRequest = 'vars';
 }
 
 if ($strRequest == 'all') {

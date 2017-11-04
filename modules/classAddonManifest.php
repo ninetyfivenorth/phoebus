@@ -153,6 +153,12 @@ class classAddonManifest {
             if ($_addonManifest != null) {
                 $_addonManifest['phoebus']['debug'] = $this->addonErrors;
             }
+            
+            // Flatten Data structure
+            $_addonManifestFlatten = array_merge($_addonManifest['addon'], $_addonManifest['metadata']);
+            $_addonManifestFlatten['phoebus'] = $_addonManifest['phoebus'];
+            $_addonManifestFlatten['xpinstall'] = $_addonManifest['xpinstall'];
+            $_addonManifest = $_addonManifestFlatten;
         }
 
         // We are supposed to regenerate the shadow file
@@ -165,23 +171,23 @@ class classAddonManifest {
             substr(str_replace($_addonSlug, 'default', $_arrayPhoebusFiles['basePath']), 1);
 
         if ($_arrayPhoebusFiles['icon'] == true) {
-            $_addonManifest['metadata']['icon'] =
+            $_addonManifest['icon'] =
                 substr($_arrayPhoebusFiles['basePath'] . 'icon.png', 1);
         }
         else {
-            $_addonManifest['metadata']['icon'] =
+            $_addonManifest['icon'] =
                 $_arrayPhoebusFiles['defaultPath'] . 'icon.png';
         }
         
         if ($_arrayPhoebusFiles['preview'] == true) {
-            $_addonManifest['metadata']['preview'] =
+            $_addonManifest['preview'] =
                 substr($_arrayPhoebusFiles['basePath'] . 'preview.png', 1);
-            $_addonManifest['metadata']['hasPreview'] = true;
+            $_addonManifest['hasPreview'] = true;
         }
         else {
-            $_addonManifest['metadata']['preview'] =
+            $_addonManifest['preview'] =
                 $_arrayPhoebusFiles['defaultPath'] . 'preview.png';
-            $_addonManifest['metadata']['hasPreview'] = false;
+            $_addonManifest['hasPreview'] = false;
         }
 
         // Return the manifest or null
@@ -439,13 +445,7 @@ class classAddonManifest {
             // Set the keys from install.rdf to the xpinstall array
             $_arrayXPInstall['version'] =
                 $_addonInstallRDF['version'];
-                
-            $_arrayXPInstall['minAppVersion'] =
-                $_addonInstallRDF['targetApplication'][$GLOBALS['strPaleMoonID']]['minVersion'];
-                
-            $_arrayXPInstall['maxAppVersion'] =
-                $_addonInstallRDF['targetApplication'][$GLOBALS['strPaleMoonID']]['maxVersion'];
-                
+
             $_arrayXPInstall['hash'] =
                 hash_file('sha256', $_basePath . $_xpiFile);
 
@@ -457,6 +457,9 @@ class classAddonManifest {
 
             $_arrayXPInstall['prettyDate'] =
                 date('F j, Y' ,$_addonInstallStat['mtime']);
+
+            $_arrayXPInstall['targetApplication'] =
+                $_addonInstallRDF['targetApplication'];
         }
         else{
             return $this->funcAddonError($_basePath . $_xpiFile, 'error',
@@ -584,6 +587,9 @@ class classAddonManifest {
             $this->funcAddonError($_addonManifest['metadata']['slug'], 'warning',
                     'Obsolete author key in manifest file - Please use em:creator in install.rdf.. DO NOT EVER REPLACE EXISTING XPI FILES');
         }
+        else {
+            unset($_addonManifest['metadata']['author']);
+        }
 
         if (array_key_exists('creator', $_addonReleaseRDF)) {
             $_addonManifest['metadata']['creator'] = $_addonReleaseRDF['creator'];
@@ -670,6 +676,9 @@ class classAddonManifest {
                 }
             }
         }
+        
+        // Remove unused crap
+        unset($_addonManifest['addon']['unstable']);
         
         return $_addonManifest;
     }

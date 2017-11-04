@@ -14,10 +14,10 @@
 <div>
 {foreach $PAGE_DATA as $key}
     <a
-        href="{$key.metadata.url}"
-{if $key.addon.type == 'external'}
+        href="{$key.url}"
+{if $key.type == 'external'}
         target="_blank"
-{if strstr($key.metadata.url, 'addons.mozilla.org')}
+{if strstr($key.url, 'addons.mozilla.org')}
         title="This add-on is hosted on Mozilla's Add-ons Site"
         class="fake-table-row category-addon amo-externals"
 {else}
@@ -29,22 +29,22 @@
 {/if}
         >
 
-        <img src="{$key.metadata.icon}" class="category-addon-icon alignleft" width="32px" height="32px" />
+        <img src="{$key.icon}" class="category-addon-icon alignleft" width="32px" height="32px" />
 
 {if $PAGE_TYPE == 'cat-themes'}
-        <div class="category-theme-preview alignright" style="background-image: url('{$key.metadata.preview}');"> </div>
+        <div class="category-theme-preview alignright" style="background-image: url('{$key.preview}');"> </div>
 {/if}
         
-        <div class="category-addon-content"><strong>{$key.metadata.name}</strong>
-{if $key.addon.type == 'external'}
-{if strstr($key.metadata.url, 'addons.mozilla.org')}
+        <div class="category-addon-content"><strong>{$key.name}</strong>
+{if $key.type == 'external'}
+{if strstr($key.url, 'addons.mozilla.org')}
             <small>[AMO]</small>
 {else}
             <small>[External]</small>
 {/if}
 {/if}
             <br />
-            <small>{$key.metadata.shortDescription}</small>
+            <small>{$key.shortDescription}</small>
         </div>
     </a>
 {/foreach}

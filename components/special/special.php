@@ -17,18 +17,25 @@
 $strSpecialComponentsPath = $strRootPath . '/components/special/';
 
 // Define Components
-$arraySpecialComponents = array(
-    'phpInfo' => $strSpecialComponentsPath . 'phpInfo.php',
-    'addonStatusReport' => $strSpecialComponentsPath . 'addonStatusReport.php'
+$arraySpecialFunctions = array(
+    'phpinfo' => $strSpecialComponentsPath . 'phpInfo.php',
+    'addon-status' => $strSpecialComponentsPath . 'addonStatusReport.php'
 );
 
 // ============================================================================
 
 // == | Main | ================================================================
 
-// URL to Component assignment
-if ($strRequestPath == '/special/addon-status/') {
-    require_once($arraySpecialComponents['addonStatusReport']);
+// URL to Function assignment
+if (startsWith($strRequestPath, '/special/')) {
+    $strStrippedPath = str_replace('/', '', str_replace('/special/', '', $strRequestPath));
+    
+    if (array_key_exists($strStrippedPath, $arraySpecialFunctions)) {
+        require_once($arraySpecialFunctions[$strStrippedPath]);
+    }
+    else {
+        funcSendHeader('404');
+    }
 }
 else {
     funcSendHeader('404');

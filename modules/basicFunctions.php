@@ -136,6 +136,17 @@ function funcCheckUserAgent() {
 
 // ============================================================================
 
+// == | Function: funcPrintVar |===============================================
+
+// YEAH well.. bite me!
+function funcPrintVar($_var) {
+    funcSendHeader('text');
+    var_export($_var);
+    die();
+}
+
+// ============================================================================
+
 // == | Functions: startsWith, endsWith, contains |============================
 
 // These functions are stolen.. They may be suboptimal but are very useful
