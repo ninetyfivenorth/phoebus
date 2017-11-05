@@ -37,12 +37,6 @@ $arrayCategoryList01 = array(
             'shortDescription' => 'Monitors your Yandex Mail account(s) and notifies you when you have new mail.',
             'url' => 'https://sites.google.com/site/sonthakit/yandexmailwatcher'
         ),
-        'gmail-mail-sidebar' => array(
-            'id' => 'ex-023',
-            'name' => 'Gmail Mail Sidebar',
-            'shortDescription' => 'Gmail Mail Sidebar brings Gmail right into your Pale Moon Sidebar.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/gmail-mail-sidebar/'
-        ),
     ),
 );
 
@@ -102,12 +96,6 @@ $arrayCategoryList02 = array(
             'name' => 'Page Colors & Fonts Buttons',
             'shortDescription' => 'Adds toolbar buttons to switch between page-defined and user-defined colors/fonts for web pages.',
             'url' => 'https://addons.mozilla.org/firefox/addon/page-colors-fonts-buttons/'
-        ),
-        'persona-switcher' => array(
-            'id' => 'fx-285807',
-            'name' => 'Persona Switcher',
-            'shortDescription' => 'Quickly switch between your personas via the Tools menu or with a key combination.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/personaswitcher/'
         ),
         'stylish' => array(
             'id' => 'fx-2108',
@@ -537,12 +525,6 @@ $arrayCategoryList50 = array(
     'winstripe-moon',
     'stratum',
     'externals' => array(
-        'lavafox' => array(
-            'id' => 'default',
-            'name' => 'LavaFox V2',
-            'shortDescription' => 'LavaFox - A dark and hot theme for Pale Moon. Fully skinned and animated.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/lavafox-v1/'
-        ),
     ),
 );
 
