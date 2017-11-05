@@ -71,6 +71,7 @@ $arrayCategoryList02 = array(
     'behind-the-overlay-me',
     'darktoggle',
     'styletoggle',
+    'personamaker',
     'externals' => array(
         'active-stop-button' => array(
             'id' => 'fx-2025',
