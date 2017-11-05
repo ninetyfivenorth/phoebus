@@ -396,12 +396,6 @@ $arrayCategoryList09 = array(
             'shortDescription' => 'Shift-right-click any element to open it in DOM Inspector.',
             'url' => 'https://addons.mozilla.org/firefox/addon/element-inspector/'
         ),
-        'screengrab' => array(
-            'id' => 'fx-355813',
-            'name' => 'Screengrab (fix version)',
-            'shortDescription' => 'Screengrab! saves webpages as images.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/screengrab-fix-version/'
-        ),
     ),
 );
 
