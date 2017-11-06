@@ -18,19 +18,19 @@ $strRequestAddonID = funcHTTPGetValue('id');
 // == | funcDoLicense | =======================================================
 
 function funcDoLicense($_addonManifest) {
-    if ($_addonManifest['metadata']['license'] != null) {
-        if ($_addonManifest['metadata']['license'] == 'custom') {
-            if($_addonManifest['metadata']['licenseText'] != null) {
-                return $_addonManifest['metadata']['licenseText'];
+    if ($_addonManifest['license'] != null) {
+        if ($_addonManifest['license'] == 'custom') {
+            if($_addonManifest['licenseText'] != null) {
+                return $_addonManifest['licenseText'];
             }
-            elseif (startsWith($_addonManifest['metadata']['licenseURL'], 'http')) {
-                funcRedirect($_addonManifest['metadata']['licenseURL']);
+            elseif (startsWith($_addonManifest['licenseURL'], 'http')) {
+                funcRedirect($_addonManifest['licenseURL']);
             }
             else {
-                funcError($_addonManifest['metadata']['slug'] . ' does not have a license file');
+                funcError($_addonManifest['slug'] . ' does not have a license file');
             }
         }
-        elseif ($_addonManifest['metadata']['license'] == 'pd') {
+        elseif ($_addonManifest['license'] == 'pd') {
             return 'Public Domain
  
 The author has chosen to place their submission in the public domain.
@@ -38,7 +38,7 @@ This means there is no license attached, the submission is owned by "the public"
 The submission or any part thereof may be used by anyone, in any way they see fit, for any purpose.
 Once a submission is placed in the public domain, it is no longer possible to claim exclusive rights to it, however it may be used as part of other proprietary software without further requirements of disclosure.';
         }
-        elseif ($_addonManifest['metadata']['license'] == 'copyright') {
+        elseif ($_addonManifest['license'] == 'copyright') {
             return 'This add-on is Copyrighted by its author(s); all rights reserved.
 
 This add-on has been posted on this website by the author(s) or one of
@@ -52,11 +52,11 @@ is prohibited.';
         }
         else {
             $strLicenseBaseURL = 'https://opensource.org/licenses/';
-            funcRedirect($strLicenseBaseURL . $_addonManifest['metadata']['license']);
+            funcRedirect($strLicenseBaseURL . $_addonManifest['license']);
         }
     }
     else {
-        funcError($_addonManifest['metadata']['slug'] . ' does not have a known license');
+        funcError($_addonManifest['slug'] . ' does not have a known license');
     }
     
     // We are done here...
