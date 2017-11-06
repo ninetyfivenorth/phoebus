@@ -18,7 +18,7 @@
     <h3>Installation instructions</h3>
 
     <p>
-        A few simple steps is all that is needed to install these language packs. You have the choice of 2 different methods, either by installing the Zing extension or by using the instructions to perform a one-time preference change:
+        A few simple steps is all that is needed to install these language packs. You have the choice of 2 different methods, either by installing the Locale Switcher extension or by using the instructions to perform a one-time preference change:
     </p>
     
     <p>
@@ -27,7 +27,7 @@
 
     <ol>
         <li>Download the language pack .xpi from this page (below). Choose to immediately "install" in the Pale Moon browser (the default when left-clicking), skipping the need to save it first.</li>
-        <li>Install <a href="/addon/locale-switcher/">Pale Moon locale switcher from this site.</a></li>
+        <li>Install <a href="/addon/locale-switcher/">Pale Moon Locale Switcher from this site.</a></li>
         <li>Click the new globe icon with colored bubbles in your toolbar, and select the language you prefer from the drop-down.</li>
         <li>Let the browser restart when asked.</li>
     </ol>
@@ -64,18 +64,18 @@
 {if $PAGE_TYPE == 'cat-search-plugins'}
 <div class="category-other">
 {foreach $PAGE_DATA as $key}
-    <a onclick="window.external.AddSearchProvider('{$SITE_DOMAIN}/?component=download&id={$key.addon.id}');"
-       href="#{$key.metadata.slug}"
-       name="#{$key.metadata.slug}"
+    <a onclick="window.external.AddSearchProvider('{$SITE_DOMAIN}/?component=download&id={$key.id}');"
+       href="#{$key.slug}"
+       name="#{$key.slug}"
        class="fake-table-row-search-plugin">
 
-        <img src="{$key.metadata.icon}"
+        <img src="{$key.icon}"
             class="alignleft"
             width="16px"
             height="16px">
         <div style="margin-top: 0px;">
             <strong>
-                {$key.metadata.name}
+                {$key.name}
             </strong>
         </div>
     </a>
@@ -84,14 +84,14 @@
 {elseif $PAGE_TYPE == 'cat-language-packs'}
 <div class="category-other">
 {foreach $PAGE_DATA as $key}
-    <a href="{$key.addon.baseURL}{$key.addon.id}" class="fake-table-row-search-plugin" style="height: 36px;">
-        <img src="/datastore/langpacks/icons/{$key.metadata.slug}.png"
+    <a href="{$key.baseURL}{$key.id}" class="fake-table-row-search-plugin" style="height: 36px;">
+        <img src="/datastore/langpacks/icons/{$key.slug}.png"
             class="alignleft"
             width="32px"
             height="32px">
         <div style="margin-top: 7px;">
-            <strong>{$key.metadata.name}</strong>
-            <small>[{$key.metadata.slug}]</small>
+            <strong>{$key.name}</strong>
+            
         </div>
     </a>
 {/foreach}
@@ -112,5 +112,20 @@
     Can't find your language?<br />
     We're sorry but these are the only languages that actually have a complete translation and have support from (near-)native speakers. We cannot support any other languages without a dedicated community translator for a language. Other languages are in the works but not complete yet.
 </p>
+{/if}
+{if $PAGE_TYPE == 'cat-language-packs' && false}
+</div> <!-- END DIV ID PM-Content-Body -->
+<div id="PM-Content-Sidebar"> <!-- START PM-Content-Sidebar -->
+<div class="category-extensions-list">
+<h1>Install</h1>
+{foreach $PAGE_DATA as $key}
+    <img src="/datastore/langpacks/icons/{$key.slug}.png"
+        class="alignright"
+        style="margin-top: 3px;"
+        width="16px"
+        height="16px">
+    <a href="{$key.baseURL}{$key.id}" style="margin: 0px">{$key.name}</a><small> [{$key.slug}]</small><br />
+{/foreach}
+</div>
 {/if}
 {$key = null}

@@ -45,10 +45,10 @@ function funcGenAddonContent($_strAddonSlug) {
     $_arrayAddonMetadata = $_addonManifest->funcGetManifest($_strAddonSlug);
 
     if ($_arrayAddonMetadata != null) {
-        $_arrayAddonMetadata['addon']['basePath'] = substr($_arrayAddonMetadata['addon']['basePath'], 1);
+        $_arrayAddonMetadata['basePath'] = substr($_arrayAddonMetadata['basePath'], 1);
         
         $arrayPage = array(
-            'title' => $_arrayAddonMetadata['metadata']['name'],
+            'title' => $_arrayAddonMetadata['name'],
             'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'single-addon.tpl',
             'contentData' => $_arrayAddonMetadata
         );
@@ -103,50 +103,49 @@ function funcGenCategoryContent($_type, $_array) {
     $_strDatastoreBasePath = $GLOBALS['strApplicationDatastore'] . 'addons/';
     
     foreach ($_array as $_key => $_value) {
-        if (($_type == 'extension' || $_type == 'theme') && is_int($_key)) {
+        if (($_type === 'extension' || $_type == 'theme') && is_int($_key)) {
             $_arrayAddonMetadata = $_addonManifest->funcGetManifest($_value);
             if ($_arrayAddonMetadata != null) {
-                $arrayCategory[$_arrayAddonMetadata['metadata']['name']] = $_arrayAddonMetadata;
+                $arrayCategory[$_arrayAddonMetadata['name']] = $_arrayAddonMetadata;
                 unset($_arrayAddonMetadata);
             }
         }
-        elseif ($_key == 'externals') {
+        elseif ($_key === 'externals') {
             foreach($_array['externals'] as $_key2 => $_value2) {
-                $arrayCategory[$_value2['name']]['addon']['type'] = 'external';
-                $arrayCategory[$_value2['name']]['metadata']['name'] = $_value2['name'];
-                $arrayCategory[$_value2['name']]['metadata']['slug'] = $_value2['id'];
-                $arrayCategory[$_value2['name']]['metadata']['url'] = $_value2['url'];
-                $arrayCategory[$_value2['name']]['metadata']['shortDescription'] = $_value2['shortDescription'];
+                $arrayCategory[$_value2['name']]['type'] = 'external';
+                $arrayCategory[$_value2['name']]['name'] = $_value2['name'];
+                $arrayCategory[$_value2['name']]['slug'] = $_value2['id'];
+                $arrayCategory[$_value2['name']]['url'] = $_value2['url'];
+                $arrayCategory[$_value2['name']]['shortDescription'] = $_value2['shortDescription'];
 
                 if ($_value2['id'] != 'default' && file_exists($_strDatastoreBasePath . $_value2['id'] . '/icon.png')) {
-                    $arrayCategory[$_value2['name']]['metadata']['icon'] = substr($_strDatastoreBasePath . $_value2['id'] . '/icon.png', 1);
+                    $arrayCategory[$_value2['name']]['icon'] = substr($_strDatastoreBasePath . $_value2['id'] . '/icon.png', 1);
                 }
                 else {
-                    $arrayCategory[$_value2['name']]['metadata']['icon'] = substr($_strDatastoreBasePath . 'default/' . $_type . '.png', 1);
+                    $arrayCategory[$_value2['name']]['icon'] = substr($_strDatastoreBasePath . 'default/' . $_type . '.png', 1);
                     
                 }
                 
                 if ($_value2['id'] != 'default' && file_exists($_strDatastoreBasePath . $_value2['id'] . '/preview.png')) {
-                    $arrayCategory[$_value2['name']]['metadata']['preview'] = substr($_strDatastoreBasePath . $_value2['id'] . '/preview.png', 1);
+                    $arrayCategory[$_value2['name']]['preview'] = substr($_strDatastoreBasePath . $_value2['id'] . '/preview.png', 1);
                 }
                 else {
-                    $arrayCategory[$_value2['name']]['metadata']['preview'] = substr($_strDatastoreBasePath . 'default/preview.png', 1);
+                    $arrayCategory[$_value2['name']]['preview'] = substr($_strDatastoreBasePath . 'default/preview.png', 1);
                 }                
-
             }
         }
-        elseif ($_type == 'language-pack') {
+        elseif ($_type === 'language-pack') {
             foreach($_array as $_key3 => $_value3) {
-                $arrayCategory[$_value3['metadata']['name']] = $_value3;
+                $arrayCategory[$_value3['name']] = $_value3;
             }
         }
-        elseif ($_type == 'search-plugin') {
+        elseif ($_type === 'search-plugin') {
             $_arrayAddonMetadata = simplexml_load_file('./datastore/searchplugins/' . $_value);
-            $arrayCategory[(string)$_arrayAddonMetadata->ShortName]['addon']['type'] = 'search-plugin';
-            $arrayCategory[(string)$_arrayAddonMetadata->ShortName]['addon']['id'] = $_key;
-            $arrayCategory[(string)$_arrayAddonMetadata->ShortName]['metadata']['name'] = (string)$_arrayAddonMetadata->ShortName;
-            $arrayCategory[(string)$_arrayAddonMetadata->ShortName]['metadata']['slug'] = substr($_value, 0, -4);
-            $arrayCategory[(string)$_arrayAddonMetadata->ShortName]['metadata']['icon'] = (string)$_arrayAddonMetadata->Image;
+            $arrayCategory[(string)$_arrayAddonMetadata->ShortName]['type'] = 'search-plugin';
+            $arrayCategory[(string)$_arrayAddonMetadata->ShortName]['id'] = $_key;
+            $arrayCategory[(string)$_arrayAddonMetadata->ShortName]['name'] = (string)$_arrayAddonMetadata->ShortName;
+            $arrayCategory[(string)$_arrayAddonMetadata->ShortName]['slug'] = substr($_value, 0, -4);
+            $arrayCategory[(string)$_arrayAddonMetadata->ShortName]['icon'] = (string)$_arrayAddonMetadata->Image;
             unset($_arrayAddonMetadata);
         }
     }

@@ -87,14 +87,14 @@ function funcGenerateUpdateXML($_addonManifest) {
   </RDF:Description>';
             
             $_arrayFilterSubstitute = array(
-                '{%ADDON_TYPE}' => $_addonManifest['addon']['type'],
-                '{%ADDON_ID}' => $_addonManifest['addon']['id'],
-                '{%ADDON_VERSION}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['version'],
+                '{%ADDON_TYPE}' => $_addonManifest['type'],
+                '{%ADDON_ID}' => $_addonManifest['id'],
+                '{%ADDON_VERSION}' => $_addonManifest['xpinstall'][$_addonManifest['release']]['version'],
                 '{%APPLICATION_ID}' => $GLOBALS['strClientID'],
-                '{%ADDON_MINVERSION}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['minAppVersion'],
-                '{%ADDON_MAXVERSION}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['maxAppVersion'],
-                '{%ADDON_XPI}' => $_addonManifest['addon']['baseURL'] . $_addonManifest['addon']['id'],
-                '{%ADDON_HASH}' => $_addonManifest['xpinstall'][$_addonManifest['addon']['release']]['hash']
+                '{%ADDON_MINVERSION}' => $_addonManifest['xpinstall'][$_addonManifest['release']]['targetApplication'][$GLOBALS['strPaleMoonID']]['minVersion'],
+                '{%ADDON_MAXVERSION}' => $_addonManifest['xpinstall'][$_addonManifest['release']]['targetApplication'][$GLOBALS['strPaleMoonID']]['maxVersion'],
+                '{%ADDON_XPI}' => $_addonManifest['baseURL'] . $_addonManifest['id'],
+                '{%ADDON_HASH}' => $_addonManifest['xpinstall'][$_addonManifest['release']]['hash']
             );
 
             foreach ($_arrayFilterSubstitute as $_key => $_value) {

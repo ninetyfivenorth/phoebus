@@ -7,7 +7,8 @@
 
 // This function simply relays an error message and dies
 function funcError($_value) {
-    header('Content-Type: text/plain');
+    ob_get_clean();
+    header('Content-Type: text/plain', false);
     die(
         '=== | ' .
         $GLOBALS['strProductName'] .
@@ -132,6 +133,18 @@ function funcCheckUserAgent() {
         startsWith(strtolower($_SERVER['HTTP_USER_AGENT']), 'curl/')) {
         funcSendHeader('404');
     }
+}
+
+// ============================================================================
+
+// == | Function: funcPrintVar |===============================================
+
+// Does something I manually typed too many time...
+function funcPrintVar($_var) {
+    ob_get_clean();
+    funcSendHeader('text');
+    var_export($_var);
+    die();
 }
 
 // ============================================================================

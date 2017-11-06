@@ -34,7 +34,7 @@ class classLangPacks {
                 $_arrayLangPacks = $this->funcReadJSON($_strDatastoreBasePath . $_strPaleMoonManifest);
                 
                 if ($_arrayLangPacks != null) {
-                    return $_arrayLangPacks;
+                    return $this->funcFlatten($_arrayLangPacks);
                 }
                 else {
                     return array();
@@ -115,8 +115,8 @@ class classLangPacks {
                 // Rename the temp file to the manifest file
                 rename($_strDatastoreBasePath . $_strPaleMoonTemp, $_strDatastoreBasePath . $_strPaleMoonManifest);
             };
-            
-            return $_arrayLangPacks;
+
+            return $this->funcFlatten($_arrayLangPacks);
         }
     }
 
@@ -188,6 +188,23 @@ class classLangPacks {
         }
         
         return $_arrayXPInstall;
+    }
+
+    // ------------------------------------------------------------------------
+
+    private function funcFlatten($_langPacks) {
+        $_langPacksFlatten = array();
+        foreach ($_langPacks as $_key3 => $_value3) {
+            $_temp = array_merge($_value3['addon'], $_value3['metadata']);
+            $_temp['xpinstall'][$_value3['addon']['release']]['version'] = $_value3['xpinstall'][$_value3['addon']['release']]['version'];
+            $_temp['xpinstall'][$_value3['addon']['release']]['hash'] = $_value3['xpinstall'][$_value3['addon']['release']]['hash'];
+            $_temp['xpinstall'][$_value3['addon']['release']]['targetApplication'][$GLOBALS['strPaleMoonID']]['minVersion'] = $_value3['xpinstall'][$_value3['addon']['release']]['minAppVersion'];
+            $_temp['xpinstall'][$_value3['addon']['release']]['targetApplication'][$GLOBALS['strPaleMoonID']]['maxVersion'] = $_value3['xpinstall'][$_value3['addon']['release']]['maxAppVersion'];
+            
+            $_langPacksFlatten[$_key3] = $_temp;
+        }
+        
+        return $_langPacksFlatten;
     }
 
     // ------------------------------------------------------------------------

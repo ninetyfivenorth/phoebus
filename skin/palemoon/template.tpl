@@ -54,6 +54,7 @@
                     <li class="li_nc"><a href="#">More&hellip;</a>
                         <ul class="ul_ch">
                             <li class="li_nc"><a href="/incompatible/">Incompatible Extensions</a></li>
+                            <li class="li_nc"><a href="/special/validate/" target="_blank">Add-on Validator Tool</a></li>
                             <li class="li_nc"><a href="http://developer.palemoon.org/" target="_blank">Add-on Development</a></li>
                             <li class="li_nc"><a href="https://addons.mozilla.org/firefox/" target="_blank">Mozilla's Add-ons Site</a></li>
                         </ul>
@@ -69,6 +70,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 8px;">
+                <span class="ad-1" style="color: rgb(102, 102, 102);"><small>- Advertisement -</small></span><br />
                 <script src="//ap.lijit.com/www/delivery/fpi.js?z=404948&width=728&height=90"></script>
             </div>
             <div style="margin-top: 10px; text-align: center; line-height: 13px; font-size: 10px;">

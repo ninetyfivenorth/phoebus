@@ -23,8 +23,8 @@ function funcDownloadXPI($_addonManifest, $_addonVersion) {
     $_versionXPI = null;
     
     if ($_addonVersion == 'latest') {
-        $_versionXPI = $_addonManifest['addon']['release'];
-        $_addonFile = $_addonManifest['addon']['basePath'] . $_versionXPI;
+        $_versionXPI = $_addonManifest['release'];
+        $_addonFile = $_addonManifest['basePath'] . $_versionXPI;
     }
     else {
         $_versionMatch = false;
@@ -37,7 +37,7 @@ function funcDownloadXPI($_addonManifest, $_addonVersion) {
         }
         
         if ($_versionMatch == true) { 
-            $_addonFile = $_addonManifest['addon']['basePath'] . $_versionXPI;
+            $_addonFile = $_addonManifest['basePath'] . $_versionXPI;
         }
         else {
             funcError('Unknown XPI version');
