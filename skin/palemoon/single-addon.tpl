@@ -110,7 +110,7 @@
 {if $key['targetApplication']['{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}']['maxVersion'] == '*'}
                 Unknown
 {else}
-                {$key['targetApplication']['{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}']['minVersion']}
+                {$key['targetApplication']['{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}']['maxVersion']}
 {/if}
             </small><br /><br />
 {/if}
