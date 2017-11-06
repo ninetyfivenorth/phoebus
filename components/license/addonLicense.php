@@ -85,13 +85,13 @@ if (array_key_exists($strRequestAddonID, $arrayAddonsDB)) {
     
     funcSendHeader('html');
     
-    print(file_get_contents($strPlatformPath . 'skin/default/template-header.xhtml'));
+    print(file_get_contents($strSkinPath . 'default/template-header.xhtml'));
 
     print('<h1>License</h1>');
 
     print('<pre>' . $strContent . '</pre>');
     
-    print(file_get_contents($strPlatformPath . 'skin/default/template-footer.xhtml'));
+    print(file_get_contents($strSkinPath . 'default/template-footer.xhtml'));
 }
 else {
     funcError('Unknown add-on ' . $strRequestAddonID);
