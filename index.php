@@ -13,7 +13,7 @@ $boolDebugMode = false;
 
 // Version
 $strProductName = 'Phoebus';
-$strApplicationVersion = '1.8.0a1';
+$strApplicationVersion = '1.7.5b1';
 
 // URLs
 $strApplicationLiveURL = 'addons.palemoon.org';
