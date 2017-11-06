@@ -81,7 +81,7 @@
     </a>
 {/foreach}
 </div>
-{elseif $PAGE_TYPE == 'cat-language-packs' && false}
+{elseif $PAGE_TYPE == 'cat-language-packs'}
 <div class="category-other">
 {foreach $PAGE_DATA as $key}
     <a href="{$key.baseURL}{$key.id}" class="fake-table-row-search-plugin" style="height: 36px;">
@@ -91,7 +91,7 @@
             height="32px">
         <div style="margin-top: 7px;">
             <strong>{$key.name}</strong>
-            <small>[{$key.slug}]</small>
+            
         </div>
     </a>
 {/foreach}
@@ -113,7 +113,7 @@
     We're sorry but these are the only languages that actually have a complete translation and have support from (near-)native speakers. We cannot support any other languages without a dedicated community translator for a language. Other languages are in the works but not complete yet.
 </p>
 {/if}
-{if $PAGE_TYPE == 'cat-language-packs'}
+{if $PAGE_TYPE == 'cat-language-packs' && false}
 </div> <!-- END DIV ID PM-Content-Body -->
 <div id="PM-Content-Sidebar"> <!-- START PM-Content-Sidebar -->
 <div class="category-extensions-list">
@@ -124,9 +124,7 @@
         style="margin-top: 3px;"
         width="16px"
         height="16px">
-    <a href="{$key.baseURL}{$key.id}" style="margin: 0px">
-            {$key.name}
-    </a><br />
+    <a href="{$key.baseURL}{$key.id}" style="margin: 0px">{$key.name}</a><small> [{$key.slug}]</small><br />
 {/foreach}
 </div>
 {/if}
