@@ -70,7 +70,7 @@ foreach ($arrayAddonsDB as $_value) {
 
 if ($strRequest != null && $_addonManifest != null) {
     unset($_addonManifest['phoebus']);
-    $_addonManifest['xpinstall'] = json_encode($_addonManifest['xpinstall'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    //$_addonManifest['xpinstall'] = json_encode($_addonManifest['xpinstall'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     print(
         '<h2>Add-on data structure</h2><pre>' .
         htmlentities(var_export($_addonManifest, true), ENT_XHTML) .
