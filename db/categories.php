@@ -335,6 +335,7 @@ $arrayCategoryList08 = array(
     'tgsidebar',
     'exif-viewer',
     'sidebartogglemenu',
+    'colorpicker-moonedition',
     'externals' => array(
         'remove-it-permanently' => array(
             'id' => 'default',
