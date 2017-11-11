@@ -84,12 +84,6 @@ $strRequestPath = funcHTTPGetValue('path');
 
 // == | Main | ================================================================
 
-// Merge Libs and Databases into Modules then unset
-$arrayModules = array_merge($arrayModules, $arrayLibs);
-$arrayModules = array_merge($arrayModules, $arrayDatabases);
-unset($arrayLibs);
-unset($arrayDatabases);
-
 // Define a Debug/Developer Mode
 if ($_SERVER['SERVER_NAME'] == $strApplicationDevURL) {
     // Flip the var
@@ -97,6 +91,10 @@ if ($_SERVER['SERVER_NAME'] == $strApplicationDevURL) {
     
     // Use dev URL
     $strApplicationURL = $strApplicationDevURL;
+
+    // Use RELEASE DB Arrays
+    $arrayDatabases['dbAddons'] = '../' . $strApplicationLiveURL . '/db/addons.php';
+    $arrayDatabases['dbCategories'] = '../' . $strApplicationLiveURL . '/db/categories.php';
     
     // Enable all errors
     error_reporting(E_ALL);
@@ -105,6 +103,12 @@ if ($_SERVER['SERVER_NAME'] == $strApplicationDevURL) {
 else {
     error_reporting(0);
 }
+
+// Merge Libs and Databases into Modules then unset
+$arrayModules = array_merge($arrayModules, $arrayLibs);
+$arrayModules = array_merge($arrayModules, $arrayDatabases);
+unset($arrayLibs);
+unset($arrayDatabases);
 
 // Set inital URL-based entry points
 if ($_SERVER['REQUEST_URI'] == '/') {
