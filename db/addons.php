@@ -157,6 +157,7 @@ $arrayAddonsDB = array(
     '{8701e193-7b0a-4871-b1f8-8f89857c46a1}' => 'translatethis',
     'autoplay-toggle@lakora.us' => 'autoplay-toggle-nonrestartless',
     '{f0220cf6-8b2c-4103-9e8c-5b7215db3158}' => 'personamaker',
-    '{89850e1c-c80b-4179-81fe-79a9f313400d}' => 'colorpicker-moonedition'
+    '{89850e1c-c80b-4179-81fe-79a9f313400d}' => 'colorpicker-moonedition',
+    'lwthemes-manager@193d9009' => 'lighttheme-mgr'
 );
 ?>
