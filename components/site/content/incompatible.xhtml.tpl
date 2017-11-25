@@ -18,39 +18,66 @@
 
 <h3>List of add-ons with known compatibility issues</h3>
 
-<p><strong>Last updated: 2017-10-25</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
+<p><strong>Last updated: 2017-11-25</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
 
-<p><strong>PENDING</strong></p>
+<p><strong>FIXED</strong></p>
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
     <tbody>
         <tr>
             <td style="vertical-align:top; width:33%">
                 <ul>
-                    <li>AutoPager</li>
-                    <li>cliget</li>
-                    <li>Emoji Cheatsheet</li>
-                    <li>Enjoy Reading</li>
-                    <li>Enter Selects</li>
+                    <li>Add URL to Window Title</li>
+                    <li><a href="/addon/auto-sort-bookmarks/">Auto-Sort Bookmarks</a></li>
+                    <li><a href="/addon/backtotop/">Back To Top</a></li>
+                    <li>Bamboo Feed Reader</li>
+                    <li><a href="/addon/classic-password-editor/">Classic Password Editor</a></li>
+                    <li><a href="/addon/cleo/">CLEO</a></li>
+                    <li><a href="/addon/complete-yt-saver/">Complete YouTube Saver</a></li>
+                    <li>Context Search X</li>
+                    <li>CookieKeeper</li>
+                    <li><a href="/addon/decentraleyes/">Decentraleyes</a></li>
+                    <li><a href="/addon/downloads-window/">Downloads Window</a></li>
+                    <li>DOM Inspector</li>
+                    <li><a href="/addon/febe/">FEBE</a></li>
+                    <li><a href="/addon/fireftp">FireFTP</a></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
-                    <li>Fastest Search - Browse/Shop Faster!</li>
-                    <li>Flash Killer</li>
-                    <li>fx-statistics</li>
-                    <li>HttpFox</li>
-                    <li>Keybinder</li>
+                    <li>Fire IE</li>
+                    <li><a href="/addon/firessh">FireSSH</a></li>
+                    <li>FlashDisable</li>
+                    <li><a href="/addon/foxclocks/">FoxClocks</a></li>
+                    <li><a href="/addon/foxyproxy-basic/">FoxyProxy Basic</a></li>
+                    <li><a href="/addon/foxyproxy-standard/">FoxyProxy Standard</a></li>
+                    <li><a href="/addon/gnotifier/">GNotifier</a></li>
+                    <li><a href="/addon/i-dont-care-about-cookies/">I don't care about cookies</a></li>
+                    <li><a href="/addon/multi-links-plus/">Multi Links Plus</a></li>
+                    <li>NewsFox</li>
+                    <li><a href="/addon/noscript/">NoScript Security Suite</a></li>
+                    <li><a href="/addon/opie/">OPIE</a></li>
+                    <li><a href="/addon/opie2/">OPIE2</a></li>
+                    <li><a href="/addon/pasteemail/">Paste Email (original)</a></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
-                    <li>mpv-youtube-dl-binding</li>
-                    <li>Private Tab</li>
-                    <li>Random Bookmark</li>
-                    <li>Scroll To Top</li>
-                    <li>Simple YouTube MP3 Button</li>
+                    <li><a href="/addon/pasteemailplus/">Paste Email Plus</a></li>
+                    <li>Play/Pause</li>
+                    <li><a href="/addon/print-pages-to-pdf/">Print pages to PDF</a></li>
+                    <li>QuickPasswords</li>
+                    <li>Reload Plus</li>
+                    <li>Secret Agent</li>
+                    <li>Tab Groups Helper</li>
+                    <li><a href="/addon/thinbookmarks/">Thin Bookmarks</a></li>
+                    <li><a href="/addon/thintabs/">Thin Tabs</a></li>
+                    <li><a href="/addon/tab-mix-plus">Tab Mix Plus</a></li>
+                    <li>Who stole my pictures?</li>
+                    <li>YesScript</li>
+                    <li>YouTube ALL HTML5</li>
+                    <li>Zombie Keys (Multilanguage Keyboard)</li>
                 </ul>
             </td>
         </tr>
@@ -64,21 +91,22 @@
             <td style="vertical-align:top; width:33%">
                 <ul>
                     <li>1Password<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
+                    <li>Add to Search Bar<br /><small>Use <a href="/addon/add-to-search-bar/">Add to Search Bar (Pseudo-Static)</a></small></li>
                     <li>Archive.is Now<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>Blacken<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/blacken/versions/2.1.14.1-signed" target="_blank">2.1.14</a></small></li>
                     <li>Blur<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/donottrackplus/versions/4.5.1334.1-signed" target="_blank">4.5.1334.1</a></small></li>
                     <li>CacheViewer<br /><small>Use CacheViewer2 version <a href="https://addons.mozilla.org/firefox/addon/cacheviewer2/versions/1.6.1-signed.1-signed" target="_blank">1.6</a></small></li>
+                    <li>ChatZilla<br />Use <a href="/addon/chatzilla/">ChatZilla (Pseudo-Static)</a></small></li>
                     <li>Clippings<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/clippings/versions/5.0.2" target="_blank">5.0.2</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>Color That Site!<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/color-that-site/versions/0.16.1-signed.1-signed" target="_blank">0.16.1</a></small></li>
                     <li>CoLT<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/colt/versions/2.6.5.1-signed" target="_blank">2.6.5.1</a></small></li>
                     <li>CookieCuller<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/cookiekeeper/" target="_blank">CookieKeeper</a></small></li>
                     <li>Copy goo.gl URL<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/googl-lite/" target="_blank">goo.gl lite</a></small></li>
-                    <li>Dashlane<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/lastpass-password-manager/" target="_blank">LastPass Password Manager</a></small></li>
+                    <li>Date Picker/Calendar<br /><small>Use <a href="/addon/date-picker/">Date Picker/Calendar (Pseudo-Static)</a></small></li>
                     <li>Disconnect Search<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
-                    <li>Download Status Bar<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/s3download-statusbar/" target="_blank">Download Manager (S3)</a></small></li>
                     <li>DownThemAll!<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/downthemall/versions/2.0.18.1-signed.1-let-fixed" target="_blank">2.0.18</a></small></li>
                     <li>DragIt (formerly Drag de Go)<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/dragit-formerly-drag-de-go/versions/3.2.1.1-signed" target="_blank">3.2.1.1</a></small></li>
-                    <li>DuckDuckGo Plus<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
+                    <li>DuckDuckGo Plus<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/duckduckgo-for-firefox/versions/1.1.5" target="_blank">1.1.5</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>Element Hiding Helper for Adblock Plus<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/elemhidehelper/versions/1.3.2.1-signed" target="_blank">1.3.2</a> in combination with <a href="/addon/adblock-latitude/">Adblock Latitude</a></small></li>
                     <li>External Application<br />Buttons 2<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/external-application-button/versions/0.11.1-signed" target="_blank">0.11.1</a></small></li>
                     <li>Feedly Notifier<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/feedly-notifier/versions/2.11.2" target="_blank">2.11.2</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
@@ -96,7 +124,7 @@
                     <li>Hide Caption Titlebar Plus<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/hide-caption-titlebar-plus-sma/versions/?page=2#version-2.8.7rc" target="_blank">2.8.7rc</a></small></li>
                     <li>History Submenus II<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/history-submenus-2/versions/3.1.2.1" target="_blank">3.1.2.1</a></small></li>
                     <li>HTitle<br /><small>Use Hide Caption Titlebar Plus version <a href="https://addons.mozilla.org/firefox/addon/hide-caption-titlebar-plus-sma/versions/2.8.7rc" target="_blank">2.8.7rc</a></small></li>
-                    <li>HTTPS Everywhere<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
+                    <li>HTTPS Everywhere<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/https-everywhere/versions/5.2.21>5.2.21</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>iMacros for Firefox<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/imacros-for-firefox/versions/8.9.7" target="_blank">8.9.7</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>Load tab on select<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>LiveClick<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/liveclick/versions/1.0.0.1-signed" target="_blank">1.0.0.1</a></small></li>
@@ -105,6 +133,7 @@
                     <li>Multifox<br /><small>Use version <a href="https://github.com/hultmann/multifox/releases/tag/2.0.7" target="_blank">2.0.7</a></small></li>
                     <li>OmniSidebar<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/omnisidebar/versions/1.4.7.1-signed" target="_blank">1.4.7.1</a></small></li>
                     <li>Open Bookmarks in New Tab<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/open-bookmarks-in-new-tab/versions/0.1.2012122901.1-signed" target="_blank">0.1.2012122901.1</a></small></li>
+                    <li>Open With<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/open-with/versions/6.8.6>6.8.6</a></small></li>
                     <li>Personas Rotator<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/personas-rotator/versions/47.1" target="_blank">47.1</a></small></li>
                     <li>PrefBar<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/prefbar/versions/6.5.0.1-signed" target="_blank">6.5.0.1</a></small></li>
                     <li>Pure URL<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/redirect-remover/" target="_blank">Redirect Remover</a></small></li>
@@ -122,6 +151,7 @@
             <td style="vertical-align:top; width:33%">
                 <ul>
                     <li>Scientific Calculator<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/scientific-calculator/versions/5.0.2.1-signed" target="_blank">5.0.2.1</a></small></li>
+                    <li>Screengrab!<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/screengrab-fix-version/versions/0.99.12" target="_blank">0.99.12</a></small></li>
                     <li>Self-Destructing Cookies<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/cookies-exterminator/" target="_blank">Cookies Exterminator</a> or <a href="/addon/crush-those-cookies/">Crush Those Cookies</a></small></li>
                     <li>Session Manager<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/session-manager/versions/0.8.1.7" target="_blank">0.8.1.7</a></small></li>
                     <li>Share on Twitter (FKA TweetRight)<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/tweetright/versions/0.43.1.1-signed" target="_blank">0.43.1.1</a></small></li>
@@ -130,6 +160,7 @@
                     <li>Social Fixer<br /><small>Use <a href="https://socialfixer.com/download.html" target="_blank">GreaseMonkey version</a></small></li>
                     <li>Stay-Open Menu<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/stay-open-menu/versions/2.2.2rc" target="_blank">2.2.2rc</a></small></li>
                     <li>Sticky Notes<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/sticky-notes/versions/0.4.6.1-signed" target="_blank">0.4.6.1</a></small></li>
+                    <li>Stylish<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/stylish/versions/2.1.1" target="_blank">2.1.1</a></small></li>
                     <li>StylRRR<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>Super Start<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/super-start/versions/7.2.1-signed" target="_blank">7.2.1</a></small></li>
                     <li>Tab Groups Manager<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/tabgroups-manager-revived/" target="_blank">TabGroups Manager revived</a></small></li>
@@ -140,6 +171,7 @@
                     <li>Toggle Document Colors<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/toggledocumentcolors-198916/" target="_blank">ToggleDocumentColors_</a><br />or <a href="https://addons.mozilla.org/firefox/addon/page-colors-fonts-buttons/" target="_blank">Page Colors & Fonts Buttons</a></small></li>
                     <li>Toggle Document Fonts<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/page-colors-fonts-buttons/" target="_blank">Page Colors & Fonts Buttons</a></small></li>
                     <li>Toggle Javascript<br /><small>Use <a href="http://addons.palemoon.org/addon/togglejscript/" target="_blank">Toggle JavaScript [Enabled/Disabled]</a> or <a href="https://addons.mozilla.org/firefox/addon/quickjs/" target="_blank">QuickJS</a></small></li>
+                    <li>uMatrix<br /><small>Use version <a href="https://github.com/gorhill/uMatrix/releases/tag/1.1.4" target="_blank">1.1.4</a></small></li>
                     <li>Update Scanner<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/update-scanner/versions/3.1.13.1-signed" target="_blank">3.1.13.1</a></small></li>
                     <li>User Agent Overrider<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/user-agent-overrider/versions/0.2.4.1-signed" target="_blank">0.2.4.1</a></small></li>
                     <li>Video DownloadHelper<br /><small>Use <a href="/addon/complete-yt-saver/">Complete YouTube Saver</a></small></li>
@@ -152,96 +184,59 @@
     </tbody>
 </table>
 
-<p>
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
-        <tbody>
-            <tr>
-                <td style="vertical-align:top; width:33%"><strong>FIXED</strong></td>
-                <td style="vertical-align:top; width:33%"><strong>FORKED</strong></td>
-                <td style="vertical-align:top; width:33%"><strong>PSEUDO-STATIC&#39;D</strong></td>
-            </tr>
-        </tbody>
-    </table>
-</p>
-
+<p><strong>FORKED</strong></p>
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
     <tbody>
         <tr>
-            <td style="vertical-align:top; width:33%">
-                <ul>
-                    <li>Add URL to Window Title</li>
-                    <li><a href="/addon/auto-sort-bookmarks/">Auto-Sort Bookmarks</a></li>
-                    <li>Bamboo Feed Reader</li>
-                    <li><a href="/addon/complete-yt-saver/">Complete YouTube Saver</a></li>
-                    <li>Context Search X</li>
-                    <li>CookieKeeper</li>
-                    <li><a href="/addon/decentraleyes/">Decentraleyes</a></li>
-                    <li>DOM Inspector</li>
-                    <li>EPUBReader</li>
-                    <li>FireFTP</li>
-                    <li>Fire IE</li>
-                    <li>FlashDisable</li>
-                    <li><a href="/addon/foxclocks/">FoxClocks</a></li>
-                    <li><a href="/addon/foxyproxy-basic/">FoxyProxy Basic</a></li>
-					<li><a href="/addon/foxyproxy-standard/">FoxyProxy Standard</a></li>
-                    <li><a href="/addon/gnotifier/">GNotifier</a></li>
-                    <li><a href="/addon/i-dont-care-about-cookies/">I don't care about cookies</a></li>
-                    <li>NewsFox</li>
-                    <li><a href="/addon/noscript/">NoScript Security Suite</a></li>
-                    <li>Open With</li>
-                    <li>Play/Pause</li>
-                    <li><a href="/addon/print-pages-to-pdf/">Print pages to PDF</a></li>
-                    <li>QuickPasswords</li>
-                    <li>Reload Plus</li>
-                    <li>ScreenGrab (fix version)</li>
-                    <li>Secret Agent</li>
-                    <li>Stylish</li>
-                    <li>Tab Groups Helper</li>
-                    <li><a href="/addon/tab-mix-plus">Tab Mix Plus</a></li>
-                    <li>Who stole my pictures?</li>
-                    <li>YesScript</li>
-                    <li>YouTube ALL HTML5</li>
-                    <li>Zombie Keys (Multilanguage Keyboard)</li>
-                </ul>
-            </td>
-
             <td style="vertical-align:top; width:33%">
                 <ul>
                     <li>Add Bookmark Here &sup2;<br /><small>As <a href="/addon/add-bookmark-here-2-me/">Add Bookmark Here &sup2; (Moon Edition)</a></small></li>
                     <li>Adblock Plus<br /><small>As <a href="/addon/adblock-latitude/">Adblock Latitude</a></small></li>
                     <li>All-in-One Sidebar<br /><small>As <a href="/addon/tgsidebar/">The Good 'ol Sidebar</a></small></li>
                     <li>BarTab<br /><small>As <a href="/addon/bartab-tycho/">BarTab Tycho</a></small></li>
+                    <li>Behind The Overlay<br /><small>As <a href="/addon/behind-the-overlay-me/">Behind The Overlay (Moon Edition)</a></small></li>
                     <li>Change Referer Button<br /><small>As <a href="/addon/change-referer-button/">Change Referer Button</a></small></li>
                     <li>Console&sup2;<br /><small>As <a href="/addon/error-console2/">Error Console&sup2;</a></small></li>
+                    <li>colorPicker<br /><small>As <a href="/colorpicker-moonedition/">ColorPicker (Moon Edition)</a></small></li>
                     <li>Cookie Monster<br /><small>As <a href="/addon/cookiemasters/">Cookie Masters</a></small></li>
                     <li>Dark Background and Light Text<br /><small>As <a href="/addon/advanced-night-mode/">Advanced Night Mode</a></small></li>
                     <li>Download Manager Tweak<br /><small>As <a href="/addon/showdownloadswts/">Show Downloads: Window, Tab, or Sidebar</a></small></li>
+                    <li>Download Statusbar<br /><small>As <a href="/addon/downloadstatusbar-pm/">Download Statusbar (Moon Edition)</a></small></li>
+                </ul>
+            </td>
+
+            <td style="vertical-align:top; width:33%">
+                <ul>
                     <li>Extension Options Menu<br /><small>As <a href="/addon/extension-preferences-menu/">Extension Preferences Menu</a></small></li>
                     <li>FindBar Tweak<br /><small>As <a href="/addon/finderbar-tweak/">FinderBar Tweak</a> (<strong>NOTE</strong>: Does not work on Pale Moon 27 or above)</small></li>
                     <li>Firebug<br /><small>As <a href="/addon/devtools/">Developer Tools</a></small></li>
+                    <li>Google™ Weather<br /><small>As <a href="/addon/fcstweatherbutton/">Forecast & Weather on the Button</a></small></li>
                     <li>Greasemonkey<br /><small>As <a href="https://github.com/janekptacijarabaci/greasemonkey/releases/latest/" target="_blank">Greasemonkey for Pale Moon</a></small></li>
                     <li>HTTPS Everywhere<br /><small>As <a href="/addon/encrypted-web/">Encrypted Web</a> (<strong>NOTE</strong>: This extension has been abandoned and will not work on Pale Moon 27 or above)</small></li>
                     <li>Image Toolbar<br /><small>As <a href="/addon/image-toolbox/">Image Toolbox</a></small></li>
                     <li>infoRSS<br /><small>As <a href="/addon/inforss-reloaded/">infoRSS Reloaded</a></small></li>
                     <li>Integrated Authentication for Firefox<br /><small>As <a href="/addon/integrated-authentication/">Integrated Authentication for SeaMonkey and Pale Moon</a></small></li>
                     <li>JSView<br /><small>As <a href="/addon/jsview-revive/">JSView Revive</a></small></li>
+                    <li>Lightweight Themes Manager<br /><small>As <a href="/addon/lighttheme-mgr/">Persona/Light Theme Manager</a></small></li>
                     <li>Mozilla Archive Format<br /><small>As <a href="/addon/mozarchiver/">MozArchiver</a></small></li>
                     <li>Notepad (QuickFox)<br /><small>As <a href="/addon/notestruck/">NoteStruck</a></small></li>
-                    <li>Pentadactyl<br /><small>As <a href="/addon/pentadactyl/">Pentadactyl</a></small></li>
-                    <li>PDF.js<br /><small>As <a href="/addon/moon-pdf-viewer/">Moon PDF Viewer</a></small></li>
-                    <li>Quick Locale Switcher<br /><small>As <a href="/addon/rosetta-qls/">Rosetta Quick Locale Switcher</a></small></li>
-                    <li>Send Tab to Device<br /><small>As <a href="/addon/send-tab-to-device/">Send Tab to Device (Moon Edition)</a></small></li>
-                    <li>Space Next<br /><small>As <a href="/addon/space-advance/">Space Advance</a></small></li>
-                    <li>Splash!<br /><small>As <a href="/addon/splashed/">Splashed!</a></small></li>
-                    <li>Tree Style Tab<br /><small>As <a href="/addon/treestyletabforpm/">Tree Style Tab for Pale Moon</a></small></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
-                    <li><a href="/addon/add-to-search-bar/">Add to Search Bar</a></li>
-                    <li><a href="/addon/chatzilla/">ChatZilla</a></li>
-                    <li><a href="/addon/date-picker/">Date Picker</a></li>
+                    <li>Password Exporter<br /><small>As <a href="/addon/password-backup-tool/">Password Backup Tool</a></small></li>
+                    <li>Pentadactyl<br /><small>As <a href="/addon/pentadactyl/">Pentadactyl</a></small></li>
+                    <li>PDF.js<br /><small>As <a href="/addon/moon-pdf-viewer/">Moon PDF Viewer</a></small></li>
+                    <li>Quick Locale Switcher<br /><small>As <a href="/addon/rosetta-qls/">Rosetta Quick Locale Switcher</a></small></li>
+                    <li>Save Images<br /><small>As <a href="/addon/save-images-me/">Save Images (Moon Edition)</a></small></li>
+                    <li>Send Tab to Device<br /><small>As <a href="/addon/send-tab-to-device/">Send Tab to Device (Moon Edition)</a></small></li>
+                    <li>Sidebars List<br /><small>As <a href=/addon/sidebartogglemenu/">Sidebar Toggle & Menu</a></small></li>
+                    <li>Send Tab to Device<br /><small>As <a href="/addon/send-tab-to-device/">Send Tab to Device (Moon Edition)</a></small></li>
+                    <li>Space Next<br /><small>As <a href="/addon/space-advance/">Space Advance</a></small></li>
+                    <li>Splash!<br /><small>As <a href="/addon/splashed/">Splashed!</a></small></li>
+                    <li>Translate This!<br /><small>As <a href="/addon/translatethis/">Translate This! (Moon Edition)</a></small></li>
+                    <li>Tree Style Tab<br /><small>As <a href="/addon/treestyletabforpm/">Tree Style Tab for Pale Moon</a></small></li>
                 </ul>
             </td>
         </tr>
