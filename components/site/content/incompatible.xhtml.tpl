@@ -96,7 +96,7 @@
                     <li>Blacken<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/blacken/versions/2.1.14.1-signed" target="_blank">2.1.14</a></small></li>
                     <li>Blur<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/donottrackplus/versions/4.5.1334.1-signed" target="_blank">4.5.1334.1</a></small></li>
                     <li>CacheViewer<br /><small>Use CacheViewer2 version <a href="https://addons.mozilla.org/firefox/addon/cacheviewer2/versions/1.6.1-signed.1-signed" target="_blank">1.6</a></small></li>
-                    <li>ChatZilla<br />Use <a href="/addon/chatzilla/">ChatZilla (Pseudo-Static)</a></small></li>
+                    <li>ChatZilla<br /><small>Use <a href="/addon/chatzilla/">ChatZilla (Pseudo-Static)</a></small></li>
                     <li>Clippings<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/clippings/versions/5.0.2" target="_blank">5.0.2</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>Color That Site!<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/color-that-site/versions/0.16.1-signed.1-signed" target="_blank">0.16.1</a></small></li>
                     <li>CoLT<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/colt/versions/2.6.5.1-signed" target="_blank">2.6.5.1</a></small></li>
@@ -145,12 +145,12 @@
                     <li>ReloadEvery<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/reloadevery/versions/28.0.2.1-signed" target="_blank">28.0.2</a></small></li>
                     <li>Re-Pagination<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/re-pagination/" target="_blank">RE-Pagination</a></small></li>
                     <li>RoboForm Toolbar<br /><small>After installing the RoboForm desktop application, manually install 'roboform.xpi' from 'C:\Program Files (x86)\Siber Systems\AI RoboForm\Firefox' (64-bit Windows)</small></li>
+                    <li>Scientific Calculator<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/scientific-calculator/versions/5.0.2.1-signed" target="_blank">5.0.2.1</a></small></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
-                    <li>Scientific Calculator<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/scientific-calculator/versions/5.0.2.1-signed" target="_blank">5.0.2.1</a></small></li>
                     <li>Screengrab!<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/screengrab-fix-version/versions/0.99.12" target="_blank">0.99.12</a></small></li>
                     <li>Self-Destructing Cookies<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/cookies-exterminator/" target="_blank">Cookies Exterminator</a> or <a href="/addon/crush-those-cookies/">Crush Those Cookies</a></small></li>
                     <li>Session Manager<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/session-manager/versions/0.8.1.7" target="_blank">0.8.1.7</a></small></li>
@@ -202,12 +202,12 @@
                     <li>Dark Background and Light Text<br /><small>As <a href="/addon/advanced-night-mode/">Advanced Night Mode</a></small></li>
                     <li>Download Manager Tweak<br /><small>As <a href="/addon/showdownloadswts/">Show Downloads: Window, Tab, or Sidebar</a></small></li>
                     <li>Download Statusbar<br /><small>As <a href="/addon/downloadstatusbar-pm/">Download Statusbar (Moon Edition)</a></small></li>
+                    <li>Extension Options Menu<br /><small>As <a href="/addon/extension-preferences-menu/">Extension Preferences Menu</a></small></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
-                    <li>Extension Options Menu<br /><small>As <a href="/addon/extension-preferences-menu/">Extension Preferences Menu</a></small></li>
                     <li>FindBar Tweak<br /><small>As <a href="/addon/finderbar-tweak/">FinderBar Tweak</a> (<strong>NOTE</strong>: Does not work on Pale Moon 27 or above)</small></li>
                     <li>Firebug<br /><small>As <a href="/addon/devtools/">Developer Tools</a></small></li>
                     <li>Google™ Weather<br /><small>As <a href="/addon/fcstweatherbutton/">Forecast & Weather on the Button</a></small></li>
@@ -219,12 +219,12 @@
                     <li>JSView<br /><small>As <a href="/addon/jsview-revive/">JSView Revive</a></small></li>
                     <li>Lightweight Themes Manager<br /><small>As <a href="/addon/lighttheme-mgr/">Persona/Light Theme Manager</a></small></li>
                     <li>Mozilla Archive Format<br /><small>As <a href="/addon/mozarchiver/">MozArchiver</a></small></li>
-                    <li>Notepad (QuickFox)<br /><small>As <a href="/addon/notestruck/">NoteStruck</a></small></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
+                    <li>Notepad (QuickFox)<br /><small>As <a href="/addon/notestruck/">NoteStruck</a></small></li>
                     <li>Password Exporter<br /><small>As <a href="/addon/password-backup-tool/">Password Backup Tool</a></small></li>
                     <li>Pentadactyl<br /><small>As <a href="/addon/pentadactyl/">Pentadactyl</a></small></li>
                     <li>PDF.js<br /><small>As <a href="/addon/moon-pdf-viewer/">Moon PDF Viewer</a></small></li>
