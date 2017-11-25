@@ -146,6 +146,7 @@ $arrayCategoryList03 = array(
     'downloads-window',
     'save-images-me',
     'showdownloadswts',
+    'downloadstatusbar-pm',
     'externals' => array(
         'imagehost-grabber' => array(
             'id' => 'ex-005',
