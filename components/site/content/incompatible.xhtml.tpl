@@ -38,6 +38,7 @@
                     <li><a href="/addon/decentraleyes/">Decentraleyes</a></li>
                     <li><a href="/addon/downloads-window/">Downloads Window</a></li>
                     <li>DOM Inspector</li>
+                    <li>Enjoy Reading</li>
                     <li><a href="/addon/febe/">FEBE</a></li>
                     <li><a href="/addon/fireftp">FireFTP</a></li>
                 </ul>
@@ -74,10 +75,70 @@
                     <li><a href="/addon/thinbookmarks/">Thin Bookmarks</a></li>
                     <li><a href="/addon/thintabs/">Thin Tabs</a></li>
                     <li><a href="/addon/tab-mix-plus">Tab Mix Plus</a></li>
+                    <li>uBlock Origin</li>
                     <li>Who stole my pictures?</li>
                     <li>YesScript</li>
                     <li>YouTube ALL HTML5</li>
                     <li>Zombie Keys (Multilanguage Keyboard)</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p><strong>FORKED</strong></p>
+<table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
+    <tbody>
+        <tr>
+            <td style="vertical-align:top; width:33%">
+                <ul>
+                    <li>Add Bookmark Here &sup2;<br /><small>As <a href="/addon/add-bookmark-here-2-me/">Add Bookmark Here &sup2; (Moon Edition)</a></small></li>
+                    <li>Adblock Plus<br /><small>As <a href="/addon/adblock-latitude/">Adblock Latitude</a></small></li>
+                    <li>All-in-One Sidebar<br /><small>As <a href="/addon/tgsidebar/">The Good 'ol Sidebar</a></small></li>
+                    <li>BarTab<br /><small>As <a href="/addon/bartab-tycho/">BarTab Tycho</a></small></li>
+                    <li>Behind The Overlay<br /><small>As <a href="/addon/behind-the-overlay-me/">Behind The Overlay (Moon Edition)</a></small></li>
+                    <li>Change Referer Button<br /><small>As <a href="/addon/change-referer-button/">Change Referer Button</a></small></li>
+                    <li>Console&sup2;<br /><small>As <a href="/addon/error-console2/">Error Console&sup2;</a></small></li>
+                    <li>colorPicker<br /><small>As <a href="/colorpicker-moonedition/">ColorPicker (Moon Edition)</a></small></li>
+                    <li>Cookie Monster<br /><small>As <a href="/addon/cookiemasters/">Cookie Masters</a></small></li>
+                    <li>Dark Background and Light Text<br /><small>As <a href="/addon/advanced-night-mode/">Advanced Night Mode</a></small></li>
+                    <li>Download Manager Tweak<br /><small>As <a href="/addon/showdownloadswts/">Show Downloads: Window, Tab, or Sidebar</a></small></li>
+                    <li>Download Statusbar<br /><small>As <a href="/addon/downloadstatusbar-pm/">Download Statusbar (Moon Edition)</a></small></li>
+                    <li>Extension Options Menu<br /><small>As <a href="/addon/extension-preferences-menu/">Extension Preferences Menu</a></small></li>
+                </ul>
+            </td>
+
+            <td style="vertical-align:top; width:33%">
+                <ul>
+                    <li>FindBar Tweak<br /><small>As <a href="/addon/finderbar-tweak/">FinderBar Tweak</a> (<strong>NOTE</strong>: Does not work on Pale Moon 27 or above)</small></li>
+                    <li>Firebug<br /><small>As <a href="/addon/devtools/">Developer Tools</a></small></li>
+                    <li>Google™ Weather<br /><small>As <a href="/addon/fcstweatherbutton/">Forecast & Weather on the Button</a></small></li>
+                    <li>Greasemonkey<br /><small>As <a href="https://github.com/janekptacijarabaci/greasemonkey/releases/latest/" target="_blank">Greasemonkey for Pale Moon</a></small></li>
+                    <li>HTTPS Everywhere<br /><small>As <a href="/addon/encrypted-web/">Encrypted Web</a> (<strong>NOTE</strong>: This extension has been abandoned and will not work on Pale Moon 27 or above)</small></li>
+                    <li>Image Toolbar<br /><small>As <a href="/addon/image-toolbox/">Image Toolbox</a></small></li>
+                    <li>infoRSS<br /><small>As <a href="/addon/inforss-reloaded/">infoRSS Reloaded</a></small></li>
+                    <li>Integrated Authentication for Firefox<br /><small>As <a href="/addon/integrated-authentication/">Integrated Authentication for SeaMonkey and Pale Moon</a></small></li>
+                    <li>JSView<br /><small>As <a href="/addon/jsview-revive/">JSView Revive</a></small></li>
+                    <li>Lightweight Themes Manager<br /><small>As <a href="/addon/lighttheme-mgr/">Persona/Light Theme Manager</a></small></li>
+                    <li>Mozilla Archive Format<br /><small>As <a href="/addon/mozarchiver/">MozArchiver</a></small></li>
+                </ul>
+            </td>
+
+            <td style="vertical-align:top; width:33%">
+                <ul>
+                    <li>Notepad (QuickFox)<br /><small>As <a href="/addon/notestruck/">NoteStruck</a></small></li>
+                    <li>Password Exporter<br /><small>As <a href="/addon/password-backup-tool/">Password Backup Tool</a></small></li>
+                    <li>Pentadactyl<br /><small>As <a href="/addon/pentadactyl/">Pentadactyl</a></small></li>
+                    <li>PDF.js<br /><small>As <a href="/addon/moon-pdf-viewer/">Moon PDF Viewer</a></small></li>
+                    <li>Quick Locale Switcher<br /><small>As <a href="/addon/rosetta-qls/">Rosetta Quick Locale Switcher</a></small></li>
+                    <li>Save Images<br /><small>As <a href="/addon/save-images-me/">Save Images (Moon Edition)</a></small></li>
+                    <li>Send Tab to Device<br /><small>As <a href="/addon/send-tab-to-device/">Send Tab to Device (Moon Edition)</a></small></li>
+                    <li>Sidebars List<br /><small>As <a href=/addon/sidebartogglemenu/">Sidebar Toggle & Menu</a></small></li>
+                    <li>Send Tab to Device<br /><small>As <a href="/addon/send-tab-to-device/">Send Tab to Device (Moon Edition)</a></small></li>
+                    <li>Space Next<br /><small>As <a href="/addon/space-advance/">Space Advance</a></small></li>
+                    <li>Splash!<br /><small>As <a href="/addon/splashed/">Splashed!</a></small></li>
+                    <li>Translate This!<br /><small>As <a href="/addon/translatethis/">Translate This! (Moon Edition)</a></small></li>
+                    <li>Tree Style Tab<br /><small>As <a href="/addon/treestyletabforpm/">Tree Style Tab for Pale Moon</a></small></li>
                 </ul>
             </td>
         </tr>
@@ -178,65 +239,6 @@
                     <li>Watch with MPV<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>Yet Another Remove It Permanently<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/remove-it-permanently/" target="_blank">Remove It Permanently</a></small></li>
                     <li>YouTube Video and Audio Downloader<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
-                </ul>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-<p><strong>FORKED</strong></p>
-<table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
-    <tbody>
-        <tr>
-            <td style="vertical-align:top; width:33%">
-                <ul>
-                    <li>Add Bookmark Here &sup2;<br /><small>As <a href="/addon/add-bookmark-here-2-me/">Add Bookmark Here &sup2; (Moon Edition)</a></small></li>
-                    <li>Adblock Plus<br /><small>As <a href="/addon/adblock-latitude/">Adblock Latitude</a></small></li>
-                    <li>All-in-One Sidebar<br /><small>As <a href="/addon/tgsidebar/">The Good 'ol Sidebar</a></small></li>
-                    <li>BarTab<br /><small>As <a href="/addon/bartab-tycho/">BarTab Tycho</a></small></li>
-                    <li>Behind The Overlay<br /><small>As <a href="/addon/behind-the-overlay-me/">Behind The Overlay (Moon Edition)</a></small></li>
-                    <li>Change Referer Button<br /><small>As <a href="/addon/change-referer-button/">Change Referer Button</a></small></li>
-                    <li>Console&sup2;<br /><small>As <a href="/addon/error-console2/">Error Console&sup2;</a></small></li>
-                    <li>colorPicker<br /><small>As <a href="/colorpicker-moonedition/">ColorPicker (Moon Edition)</a></small></li>
-                    <li>Cookie Monster<br /><small>As <a href="/addon/cookiemasters/">Cookie Masters</a></small></li>
-                    <li>Dark Background and Light Text<br /><small>As <a href="/addon/advanced-night-mode/">Advanced Night Mode</a></small></li>
-                    <li>Download Manager Tweak<br /><small>As <a href="/addon/showdownloadswts/">Show Downloads: Window, Tab, or Sidebar</a></small></li>
-                    <li>Download Statusbar<br /><small>As <a href="/addon/downloadstatusbar-pm/">Download Statusbar (Moon Edition)</a></small></li>
-                    <li>Extension Options Menu<br /><small>As <a href="/addon/extension-preferences-menu/">Extension Preferences Menu</a></small></li>
-                </ul>
-            </td>
-
-            <td style="vertical-align:top; width:33%">
-                <ul>
-                    <li>FindBar Tweak<br /><small>As <a href="/addon/finderbar-tweak/">FinderBar Tweak</a> (<strong>NOTE</strong>: Does not work on Pale Moon 27 or above)</small></li>
-                    <li>Firebug<br /><small>As <a href="/addon/devtools/">Developer Tools</a></small></li>
-                    <li>Google™ Weather<br /><small>As <a href="/addon/fcstweatherbutton/">Forecast & Weather on the Button</a></small></li>
-                    <li>Greasemonkey<br /><small>As <a href="https://github.com/janekptacijarabaci/greasemonkey/releases/latest/" target="_blank">Greasemonkey for Pale Moon</a></small></li>
-                    <li>HTTPS Everywhere<br /><small>As <a href="/addon/encrypted-web/">Encrypted Web</a> (<strong>NOTE</strong>: This extension has been abandoned and will not work on Pale Moon 27 or above)</small></li>
-                    <li>Image Toolbar<br /><small>As <a href="/addon/image-toolbox/">Image Toolbox</a></small></li>
-                    <li>infoRSS<br /><small>As <a href="/addon/inforss-reloaded/">infoRSS Reloaded</a></small></li>
-                    <li>Integrated Authentication for Firefox<br /><small>As <a href="/addon/integrated-authentication/">Integrated Authentication for SeaMonkey and Pale Moon</a></small></li>
-                    <li>JSView<br /><small>As <a href="/addon/jsview-revive/">JSView Revive</a></small></li>
-                    <li>Lightweight Themes Manager<br /><small>As <a href="/addon/lighttheme-mgr/">Persona/Light Theme Manager</a></small></li>
-                    <li>Mozilla Archive Format<br /><small>As <a href="/addon/mozarchiver/">MozArchiver</a></small></li>
-                </ul>
-            </td>
-
-            <td style="vertical-align:top; width:33%">
-                <ul>
-                    <li>Notepad (QuickFox)<br /><small>As <a href="/addon/notestruck/">NoteStruck</a></small></li>
-                    <li>Password Exporter<br /><small>As <a href="/addon/password-backup-tool/">Password Backup Tool</a></small></li>
-                    <li>Pentadactyl<br /><small>As <a href="/addon/pentadactyl/">Pentadactyl</a></small></li>
-                    <li>PDF.js<br /><small>As <a href="/addon/moon-pdf-viewer/">Moon PDF Viewer</a></small></li>
-                    <li>Quick Locale Switcher<br /><small>As <a href="/addon/rosetta-qls/">Rosetta Quick Locale Switcher</a></small></li>
-                    <li>Save Images<br /><small>As <a href="/addon/save-images-me/">Save Images (Moon Edition)</a></small></li>
-                    <li>Send Tab to Device<br /><small>As <a href="/addon/send-tab-to-device/">Send Tab to Device (Moon Edition)</a></small></li>
-                    <li>Sidebars List<br /><small>As <a href=/addon/sidebartogglemenu/">Sidebar Toggle & Menu</a></small></li>
-                    <li>Send Tab to Device<br /><small>As <a href="/addon/send-tab-to-device/">Send Tab to Device (Moon Edition)</a></small></li>
-                    <li>Space Next<br /><small>As <a href="/addon/space-advance/">Space Advance</a></small></li>
-                    <li>Splash!<br /><small>As <a href="/addon/splashed/">Splashed!</a></small></li>
-                    <li>Translate This!<br /><small>As <a href="/addon/translatethis/">Translate This! (Moon Edition)</a></small></li>
-                    <li>Tree Style Tab<br /><small>As <a href="/addon/treestyletabforpm/">Tree Style Tab for Pale Moon</a></small></li>
                 </ul>
             </td>
         </tr>
