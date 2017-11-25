@@ -98,12 +98,6 @@ $arrayCategoryList02 = array(
             'shortDescription' => 'Adds toolbar buttons to switch between page-defined and user-defined colors/fonts for web pages.',
             'url' => 'https://addons.mozilla.org/firefox/addon/page-colors-fonts-buttons/'
         ),
-        'stylish' => array(
-            'id' => 'fx-2108',
-            'name' => 'Stylish',
-            'shortDescription' => 'Restyle the web with Stylish, a user styles manager.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/stylish/'
-        ),
         'toggledocumentcolors' => array(
             'id' => 'fx-198916',
             'name' => 'ToggleDocumentColors',
@@ -268,12 +262,6 @@ $arrayCategoryList05 = array(
             'shortDescription' => 'Finally, an efficient blocker. Easy on CPU and memory.',
             'url' => 'https://github.com/gorhill/uBlock/releases/latest/'
         ),
-        'umatrix' => array(
-            'id' => 'ex-013',
-            'name' => 'uMatrix',
-            'shortDescription' => 'Point & click to forbid/allow any class of requests made by your browser.',
-            'url' => 'https://github.com/gorhill/uMatrix/releases/latest/'
-        ),
     ),
 );
 
@@ -294,12 +282,6 @@ $arrayCategoryList06 = array(
             'name' => 'Who stole my pictures?',
             'shortDescription' => 'Search for copies of images using Yandex.ru, Tineye.com, Google.com and VK.com via the right-click menu.',
             'url' => 'https://addons.mozilla.org/firefox/addon/who-stole-my-pictures/'
-        ),
-        'google-reverse-image-search' => array(
-            'id' => 'ex-021',
-            'name' => 'Google Reverse Image Search',
-            'shortDescription' => 'Search the images reversely on Google Images and find the other copies of the very image you are looking for on the web.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/google-reverse-image-search/'
         ),
     ),
 );
@@ -418,12 +400,6 @@ $arrayCategoryList10 = array(
     'translatethis',
     'autoplay-toggle-nonrestartless',
     'externals' => array(
-        'epubreader' => array(
-            'id' => 'fx-45281',
-            'name' => 'EPUBReader',
-            'shortDescription' => 'With EPUBReader you can read ePub files right inside Pale Moon. No additional software needed!',
-            'url' => 'https://addons.mozilla.org/firefox/addon/epubreader/'
-        ),
         'fire-ie' => array(
             'id' => 'fx-372869',
             'name' => 'Fire IE',
