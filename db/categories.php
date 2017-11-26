@@ -493,7 +493,6 @@ $arrayCategoryList50 = array(
     'tangerinemoon',
     'tangomoon',
     'noia-moon-theme',
-    'darkness',
     'darkpitch',
     'maxi3',
     'maxi4',
