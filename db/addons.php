@@ -78,7 +78,6 @@ $arrayAddonsDB = array(
     '{87a59598-d2b6-45ba-b98e-98e62085837f}' => 'pmchrome',
     '{98a2ae55-3a75-4354-a460-9176594d05c3}' => 'open-about-config',
     '{302dd086-df72-4fbf-835f-dc1f296049eb}' => 'extension-preferences-menu',
-    '{434de990-fa69-4811-b98e-98e62085837f}' => 'darkness',
     '{626cf6f3-deae-4cf8-b98e-98e62085837f}' => 'opresto',
     '{854a7ddc-f008-4263-b98e-98e62085837f}' => 'littlemoon',
     '{6075f33c-14bf-48b3-9aa0-aa0e607640b9}' => 'tiny-menu',
