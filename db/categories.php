@@ -128,6 +128,18 @@ $arrayCategoryList02 = array(
             'shortDescription' => 'Adds icons to buttons and/or menus.',
             'url' => 'https://addons.mozilla.org/firefox/addon/cutebuttons-crystal-svg/'
         ),
+        'fierr' => array(
+            'id' => 'ex-030',
+            'name' => 'Fierr',
+            'shortDescription' => 'Replaces the error page with a more stylish appearance with additional features.',
+            'url' => 'https://realityripple.com/Software/Mozilla-Extensions/Fierr/'
+        ),
+        'about-add-ons' => array(
+            'id' => 'ex-033',
+            'name' => 'About Add-ons',
+            'shortDescription' => 'Adds an About button to extensions, themes, and languages in the Add-ons list.',
+            'url' => 'https://realityripple.com/Software/Mozilla-Extensions/About-Add-ons/'
+        ),
     ),
 );
 
@@ -291,6 +303,12 @@ $arrayCategoryList07 = array(
     'chatzilla',
     'foxclocks',
     'externals' => array(
+        'gaiaformat' => array(
+            'id' => 'ex-032',
+            'name' => 'GaiaFormat',
+            'shortDescription' => 'An enhanced text formatter for GaiaOnline Forums, Private Messages, Guilds, and Profile comments.',
+            'url' => 'https://realityripple.com/Software/Mozilla-Extensions/GaiaFormat/'
+        ),
     ),
 );
 
@@ -350,6 +368,12 @@ $arrayCategoryList08 = array(
             'name' => 'Greasemonkey for Pale Moon',
             'shortDescription' => 'Greasemonkey is a user script manager for Pale Moon.',
             'url' => 'https://github.com/janekptacijarabaci/greasemonkey/releases/latest/'
+        ),
+        'timerfox' => array(
+            'id' => 'ex-034',
+            'name' => 'TimerFox',
+            'shortDescription' => 'Easily counts down from a predefined number and alarms you when the count has reached zero.',
+            'url' => 'https://realityripple.com/Software/Mozilla-Extensions/TimerFox/'
         ),
     ),
 );
@@ -498,6 +522,12 @@ $arrayCategoryList50 = array(
     'winstripe-moon',
     'stratum',
     'externals' => array(
+        'in-the-dark' => array(
+            'id' => 'ex-031',
+            'name' => 'In The Dark',
+            'shortDescription' => 'A dark, simple, grayscale theme for Pale Moon.',
+            'url' => 'https://realityripple.com/Software/Themes/In-The-Dark/Pale-Moon/'
+        ),
     ),
 );
 
