@@ -30,6 +30,7 @@
                     <li><a href="/addon/auto-sort-bookmarks/">Auto-Sort Bookmarks</a></li>
                     <li><a href="/addon/backtotop/">Back To Top</a></li>
                     <li>Bamboo Feed Reader</li>
+                    <li><a href="/addon/calendate/">Calendate</a></li>
                     <li><a href="/addon/classic-password-editor/">Classic Password Editor</a></li>
                     <li><a href="/addon/cleo/">CLEO</a></li>
                     <li><a href="/addon/complete-yt-saver/">Complete YouTube Saver</a></li>
@@ -40,12 +41,12 @@
                     <li>DOM Inspector</li>
                     <li>Enjoy Reading</li>
                     <li><a href="/addon/febe/">FEBE</a></li>
-                    <li><a href="/addon/fireftp">FireFTP</a></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
+                    <li><a href="/addon/fireftp">FireFTP</a></li>
                     <li>Fire IE</li>
                     <li><a href="/addon/firessh">FireSSH</a></li>
                     <li>FlashDisable</li>
@@ -103,7 +104,7 @@
                     <li>Cookie Monster<br /><small>As <a href="/addon/cookiemasters/">Cookie Masters</a></small></li>
                     <li>Dark Background and Light Text<br /><small>As <a href="/addon/advanced-night-mode/">Advanced Night Mode</a></small></li>
                     <li>Download Manager Tweak<br /><small>As <a href="/addon/showdownloadswts/">Show Downloads: Window, Tab, or Sidebar</a></small></li>
-                    <li>Download Statusbar<br /><small>As <a href="/addon/downloadstatusbar-pm/">Download Statusbar (Moon Edition)</a></small></li>
+                    <li>Download Status Bar<br /><small>As <a href="/addon/downloadstatusbar-pm/">Download Status Bar (Moon Edition)</a></small></li>
                     <li>Extension Options Menu<br /><small>As <a href="/addon/extension-preferences-menu/">Extension Preferences Menu</a></small></li>
                 </ul>
             </td>
@@ -157,13 +158,11 @@
                     <li>Blacken<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/blacken/versions/2.1.14.1-signed" target="_blank">2.1.14</a></small></li>
                     <li>Blur<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/donottrackplus/versions/4.5.1334.1-signed" target="_blank">4.5.1334.1</a></small></li>
                     <li>CacheViewer<br /><small>Use CacheViewer2 version <a href="https://addons.mozilla.org/firefox/addon/cacheviewer2/versions/1.6.1-signed.1-signed" target="_blank">1.6</a></small></li>
-                    <li>ChatZilla<br /><small>Use <a href="/addon/chatzilla/">ChatZilla (Pseudo-Static)</a></small></li>
                     <li>Clippings<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/clippings/versions/5.0.2" target="_blank">5.0.2</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>Color That Site!<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/color-that-site/versions/0.16.1-signed.1-signed" target="_blank">0.16.1</a></small></li>
                     <li>CoLT<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/colt/versions/2.6.5.1-signed" target="_blank">2.6.5.1</a></small></li>
                     <li>CookieCuller<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/cookiekeeper/" target="_blank">CookieKeeper</a></small></li>
                     <li>Copy goo.gl URL<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/googl-lite/" target="_blank">goo.gl lite</a></small></li>
-                    <li>Date Picker/Calendar<br /><small>Use <a href="/addon/date-picker/">Date Picker/Calendar (Pseudo-Static)</a></small></li>
                     <li>Disconnect Search<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>DownThemAll!<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/downthemall/versions/2.0.18.1-signed.1-let-fixed" target="_blank">2.0.18</a></small></li>
                     <li>DragIt (formerly Drag de Go)<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/dragit-formerly-drag-de-go/versions/3.2.1.1-signed" target="_blank">3.2.1.1</a></small></li>
@@ -176,14 +175,14 @@
                     <li>Faster Video<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/faster-video/versions/2.1.2" target="_blank">2.1.2</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li> 
                     <li>Googlebar Lite<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>Google Privacy<br /><small>Use Google search link fix<br />version <a href="https://addons.mozilla.org/firefox/addon/google-search-link-fix/versions/1.4.9.1-signed" target="_blank">1.4.9.1</a></li>
+                    <li>gTranslate<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/s3google-translator/" target="_blank">S3.Google Translator</a></small></li>
+                    <li>Hide Caption Titlebar Plus<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/hide-caption-titlebar-plus-sma/versions/?page=2#version-2.8.7rc" target="_blank">2.8.7rc</a></small></li>
+                    <li>History Submenus II<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/history-submenus-2/versions/3.1.2.1" target="_blank">3.1.2.1</a></small></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
-                    <li>gTranslate<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/s3google-translator/" target="_blank">S3.Google Translator</a></small></li>
-                    <li>Hide Caption Titlebar Plus<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/hide-caption-titlebar-plus-sma/versions/?page=2#version-2.8.7rc" target="_blank">2.8.7rc</a></small></li>
-                    <li>History Submenus II<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/history-submenus-2/versions/3.1.2.1" target="_blank">3.1.2.1</a></small></li>
                     <li>HTitle<br /><small>Use Hide Caption Titlebar Plus version <a href="https://addons.mozilla.org/firefox/addon/hide-caption-titlebar-plus-sma/versions/2.8.7rc" target="_blank">2.8.7rc</a></small></li>
                     <li>HTTPS Everywhere<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/https-everywhere/versions/5.2.21>5.2.21</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>iMacros for Firefox<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/imacros-for-firefox/versions/8.9.7" target="_blank">8.9.7</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
@@ -207,12 +206,12 @@
                     <li>Re-Pagination<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/re-pagination/" target="_blank">RE-Pagination</a></small></li>
                     <li>RoboForm Toolbar<br /><small>After installing the RoboForm desktop application, manually install 'roboform.xpi' from 'C:\Program Files (x86)\Siber Systems\AI RoboForm\Firefox' (64-bit Windows)</small></li>
                     <li>Scientific Calculator<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/scientific-calculator/versions/5.0.2.1-signed" target="_blank">5.0.2.1</a></small></li>
+                    <li>Screengrab!<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/screengrab-fix-version/versions/0.99.12" target="_blank">0.99.12</a></small></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
-                    <li>Screengrab!<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/screengrab-fix-version/versions/0.99.12" target="_blank">0.99.12</a></small></li>
                     <li>Self-Destructing Cookies<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/cookies-exterminator/" target="_blank">Cookies Exterminator</a> or <a href="/addon/crush-those-cookies/">Crush Those Cookies</a></small></li>
                     <li>Session Manager<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/session-manager/versions/0.8.1.7" target="_blank">0.8.1.7</a></small></li>
                     <li>Share on Twitter (FKA TweetRight)<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/tweetright/versions/0.43.1.1-signed" target="_blank">0.43.1.1</a></small></li>
