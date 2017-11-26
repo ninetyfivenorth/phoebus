@@ -26,6 +26,7 @@
         <tr>
             <td style="vertical-align:top; width:33%">
                 <ul>
+                    <li>About Add-ons</li>
                     <li>Add URL to Window Title</li>
                     <li><a href="/addon/auto-sort-bookmarks/">Auto-Sort Bookmarks</a></li>
                     <li><a href="/addon/backtotop/">Back To Top</a></li>
@@ -46,6 +47,7 @@
 
             <td style="vertical-align:top; width:33%">
                 <ul>
+                    <li>Fierr</li>
                     <li><a href="/addon/fireftp">FireFTP</a></li>
                     <li>Fire IE</li>
                     <li><a href="/addon/firessh">FireSSH</a></li>
@@ -53,6 +55,7 @@
                     <li><a href="/addon/foxclocks/">FoxClocks</a></li>
                     <li><a href="/addon/foxyproxy-basic/">FoxyProxy Basic</a></li>
                     <li><a href="/addon/foxyproxy-standard/">FoxyProxy Standard</a></li>
+                    <li>GaiaFormat</li>
                     <li><a href="/addon/gnotifier/">GNotifier</a></li>
                     <li><a href="/addon/i-dont-care-about-cookies/">I don't care about cookies</a></li>
                     <li><a href="/addon/multi-links-plus/">Multi Links Plus</a></li>
@@ -73,9 +76,10 @@
                     <li>Reload Plus</li>
                     <li>Secret Agent</li>
                     <li>Tab Groups Helper</li>
+                    <li><a href="/addon/tab-mix-plus">Tab Mix Plus</a></li>
                     <li><a href="/addon/thinbookmarks/">Thin Bookmarks</a></li>
                     <li><a href="/addon/thintabs/">Thin Tabs</a></li>
-                    <li><a href="/addon/tab-mix-plus">Tab Mix Plus</a></li>
+                    <li>TimerFox</li>
                     <li>uBlock Origin</li>
                     <li>Who stole my pictures?</li>
                     <li>YesScript</li>
