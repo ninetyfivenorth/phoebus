@@ -158,6 +158,7 @@ $arrayAddonsDB = array(
     '{f0220cf6-8b2c-4103-9e8c-5b7215db3158}' => 'personamaker',
     '{89850e1c-c80b-4179-81fe-79a9f313400d}' => 'colorpicker-moonedition',
     'lwthemes-manager@193d9009' => 'lighttheme-mgr',
-    '{d2b7fa3e-d4ed-4355-bda8-ac95888c5bbb}' => 'downloadstatusbar-pm'
+    '{d2b7fa3e-d4ed-4355-bda8-ac95888c5bbb}' => 'downloadstatusbar-pm',
+    '{1111dd1e-dd02-4c30-956f-f23c44dfea8e}' => 'readerview'
 );
 ?>
