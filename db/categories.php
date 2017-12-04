@@ -338,6 +338,7 @@ $arrayCategoryList08 = array(
     'exif-viewer',
     'sidebartogglemenu',
     'colorpicker-moonedition',
+    'readerview',
     'externals' => array(
         'remove-it-permanently' => array(
             'id' => 'default',
