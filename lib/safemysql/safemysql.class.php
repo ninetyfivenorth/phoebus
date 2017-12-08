@@ -521,6 +521,9 @@ class SafeMySQL
 				case '?a':
 					$part = $this->createIN($value);
 					break;
+				case '?k':
+					$part = $this->createKIdent($value);
+					break;
 				case '?u':
 					$part = $this->createSET($value);
 					break;
@@ -560,6 +563,15 @@ class SafeMySQL
 		return	"'".mysqli_real_escape_string($this->conn,$value)."'";
 	}
 
+	protected function escapeStringK($value)
+	{
+		if ($value === NULL)
+		{
+			return 'NULL';
+		}
+		return	"`".mysqli_real_escape_string($this->conn,$value)."`";
+	}
+
 	protected function escapeIdent($value)
 	{
 		if ($value)
@@ -585,6 +597,26 @@ class SafeMySQL
 		foreach ($data as $value)
 		{
 			$query .= $comma.$this->escapeString($value);
+			$comma  = ",";
+		}
+		return $query;
+	}
+
+	protected function createKIdent($data)
+	{
+		if (!is_array($data))
+		{
+			$this->error("Value for (?k) placeholder should be array");
+			return;
+		}
+		if (!$data)
+		{
+			return 'NULL';
+		}
+		$query = $comma = '';
+		foreach ($data as $value)
+		{
+			$query .= $comma.$this->escapeStringK($value);
 			$comma  = ",";
 		}
 		return $query;
