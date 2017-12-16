@@ -34,6 +34,7 @@ $strSkinPath = $strRootPath . '/skin/';
 $arrayLibs = array(
     'smarty' => $strLibPath . 'smarty/Smarty.class.php',
     'rdf' => $strLibPath . 'rdf/RdfComponent.php',
+    'sql' => $strLibPath . 'safemysql/safemysql.class.php'
 );
 
 // Define Database Arrays
@@ -58,6 +59,7 @@ $arrayComponents = array(
 $arrayModules = array(
     'vc' => $strModulesPath . 'nsIVersionComparator.php',
     'addonManifest' => $strModulesPath . 'classAddonManifest.php',
+    'readManifest' => $strModulesPath . 'classReadManifest.php',
     'langPacks' => $strModulesPath . 'classLangPacks.php',
     'ftpAuth' => $strModulesPath . 'classFTPAuth.php'
 );
@@ -110,6 +112,9 @@ $arrayModules = array_merge($arrayModules, $arrayDatabases);
 unset($arrayLibs);
 unset($arrayDatabases);
 
+// Always Require SQL
+require_once($arrayModules['sql']);
+
 // Set inital URL-based entry points
 if ($_SERVER['REQUEST_URI'] == '/') {
     // Root (/) won't send a component or path
@@ -119,13 +124,6 @@ if ($_SERVER['REQUEST_URI'] == '/') {
 elseif (startsWith($_SERVER['REQUEST_URI'], '/special/')) {
     // The special component is well.. Special load it up
     $strRequestComponent = 'special';
-}
-elseif (startsWith($_SERVER['REQUEST_URI'], '/services/')) {
-    // In 1.7.0 we went a little too far and this happened
-    // so be sure this can still happen before nginx is re-adjusted
-    if ($strRequestComponent != 'aus' || $strRequestComponent != 'integration') {
-        funcSendHeader('404');
-    }
 }
 elseif ($strRequestComponent != 'site' && $strRequestPath != null) {
     // If for some reason the SITE component was sent but no path.. 404
