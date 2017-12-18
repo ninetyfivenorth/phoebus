@@ -26,9 +26,9 @@ class classReadManifest {
 
         // These are the SQL Query strings we will use to accomplish basic functions
         $this->addonSQL = array(
-            'categorySingle' => "SELECT `id`, `slug`, `type`, `name`, `description`, `reviewed`, `active` FROM `addon` WHERE `category` = ?s ORDER BY `name`",
-            'categoryAllExtensions' => "SELECT `id`, `slug`, `type`, `name`, `description`, `reviewed`, `active` FROM `addon` WHERE `type` = 'extension' OR (`type` = 'external' AND NOT `category` = 'theme') ORDER BY `name`",
-            'addonBasic' => "SELECT `id`, `slug`, `type`, `releaseXPI`, `reviewed`, `active`, `xpinstall` FROM `addon` WHERE `id` = ?s AND NOT `type` = 'external'",
+            'categorySingle' => "SELECT `id`, `slug`, `type`, `name`, `description`, `url`, `reviewed`, `active` FROM `addon` WHERE `category` = ?s ORDER BY `name`",
+            'categoryAllExtensions' => "SELECT `id`, `slug`, `type`, `name`, `description`, `url`, `reviewed`, `active` FROM `addon` WHERE `type` = 'extension' AND NOT `category` = 'unlisted' OR (`type` = 'external' AND NOT `category` = 'theme') ORDER BY `name`",
+            'addonBasic' => "SELECT `id`, `slug`, `type`, `creator`, `license`, `licenseText`, `licenseURL`, `releaseXPI`, `reviewed`, `active`, `xpinstall` FROM `addon` WHERE `id` = ?s AND NOT `type` = 'external'",
             'addonComplete' => "SELECT * FROM `addon` WHERE `slug` = ?s AND NOT `type` = 'external'"
         );
         
@@ -165,6 +165,7 @@ class classReadManifest {
         $addonManifest['active'] = (bool)$addonManifest['active'];
         
         // Check to see if an add-on is reviewed and/or active
+        // If not then don't return the add-on manifest
         if ($addonManifest['reviewed'] == false || $addonManifest['active'] == false) {
             return null;
         }
@@ -201,7 +202,7 @@ class classReadManifest {
         }
         
         // Truncate description if it is too long..
-        if (strlen($addonManifest['description']) >= 235) {
+        if (array_key_exists('description', $addonManifest) && strlen($addonManifest['description']) >= 235) {
             $addonManifest['description'] =
                 substr($addonManifest['description'], 0, 230) . '&hellip;';
             
@@ -240,22 +241,25 @@ class classReadManifest {
             $_defaultPath = str_replace($addonManifest['slug'], 'default', $_addonPath);
         }
 
-        // Detect Icon
-        if (file_exists($addonManifest['basePath'] . 'icon.png')) {
-            $addonManifest['icon'] = $_addonPath . 'icon.png';
-        }
-        else {
-            $addonManifest['icon'] = $_defaultPath . 'icon.png';
-        }
+        // We want to not have to hit this unless we are coming from the SITE
+        if (array_key_exists('name', $addonManifest)) {
+            // Detect Icon
+            if (file_exists($addonManifest['basePath'] . 'icon.png')) {
+                $addonManifest['icon'] = $_addonPath . 'icon.png';
+            }
+            else {
+                $addonManifest['icon'] = $_defaultPath . 'icon.png';
+            }
 
-        // Detect Preview
-        if (file_exists($addonManifest['basePath'] . 'preview.png')) {
-            $addonManifest['preview'] = $_addonPath . 'preview.png';
-            $addonManifest['hasPreview'] = true;
-        }
-        else {
-            $addonManifest['preview'] = $_defaultPath . 'preview.png';
-            $addonManifest['hasPreview'] = false;
+            // Detect Preview
+            if (file_exists($addonManifest['basePath'] . 'preview.png')) {
+                $addonManifest['preview'] = $_addonPath . 'preview.png';
+                $addonManifest['hasPreview'] = true;
+            }
+            else {
+                $addonManifest['preview'] = $_defaultPath . 'preview.png';
+                $addonManifest['hasPreview'] = false;
+            }
         }
 
         // Return Add-on Manifest to internal caller
