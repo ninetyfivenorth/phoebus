@@ -5,12 +5,6 @@
 
 // == | Vars | ================================================================
 
-$arrayIncludes = array(
-    $arrayModules['dbAddons'],
-    $arrayModules['addonManifest'],
-    
-);
-
 $strRequestAddonID = funcHTTPGetValue('id');
 
 // ============================================================================
@@ -73,15 +67,14 @@ if ($strRequestAddonID == null) {
 }
 
 // Includes
-foreach($arrayIncludes as $_value) {
-    require_once($_value);
-}
-unset($arrayIncludes);
+require_once($arrayModules['readManifest']);
 
-if (array_key_exists($strRequestAddonID, $arrayAddonsDB)) {
-    $addonManifest = new classAddonManifest();
-    
-    $strContent = funcDoLicense($addonManifest->funcGetManifest($arrayAddonsDB[$strRequestAddonID]));
+$readManifest = new classReadManifest();
+
+$addonManifest = $readManifest->getAddonByID($strRequestAddonID);
+
+if ($addonManifest != null) {   
+    $strContent = funcDoLicense($addonManifest);
     
     funcSendHeader('html');
     

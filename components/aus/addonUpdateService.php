@@ -38,9 +38,8 @@ $boolAMOKillSwitch = false;
 $intVcResult = null;
 
 $arrayIncludes = array(
-    $arrayModules['dbAddons'],
     $arrayModules['langPacks'],
-    $arrayModules['addonManifest'],
+    $arrayModules['readManifest'],
 );
 
 $strRequestAddonID = funcHTTPGetValue('id');
@@ -154,42 +153,44 @@ if ($strRequestAppID == $strPaleMoonID) {
     }
     unset($arrayIncludes);
 
-    // classAddonManifest
-    $addonManifest = new classAddonManifest();
-
     // classLangPacks
     $langPacks = new classLangPacks;
     $arrayLangPackDB = $langPacks->funcGetLanguagePacks();
 
     // Search for add-ons in our database
-    // Add-ons
-    if (array_key_exists($strRequestAddonID, $arrayAddonsDB)) {
-        funcGenerateUpdateXML($addonManifest->funcGetManifest($arrayAddonsDB[$strRequestAddonID]));
-    }
     // Language Packs
-    elseif (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {        
+    if (array_key_exists($strRequestAddonID, $arrayLangPackDB)) {        
         funcGenerateUpdateXML($arrayLangPackDB[$strRequestAddonID]);
     }
-    // Unknown - Send to AMO or to 'bad' update xml
+    // Search SQL else send to AMO
     else {
-        if ($boolAMOKillSwitch == false) {
-            $_strFirefoxVersion = $strFirefoxVersion;
-            
-            if ($intVcResult < 0) {
-                $_strFirefoxVersion = $strFirefoxOldVersion;
-            }
-            
-            $strAMOLink = 'https://versioncheck.addons.mozilla.org/update/VersionCheck.php?reqVersion=2' .
-            '&id=' . $strRequestAddonID .
-            '&version=' . $strRequestAddonVersion .
-            '&appID=' . $strFirefoxID .
-            '&appVersion=' . $_strFirefoxVersion .
-            '&compatMode=' . $strRequestCompatMode;
-            
-            funcRedirect($strAMOLink);
+        $readManifest = new classReadManifest();
+        $addonManifest = $readManifest->getAddonByID($strRequestAddonID);
+        
+        if ($addonManifest != null) {
+            $addonManifest['release'] = $addonManifest['releaseXPI'];
+            funcGenerateUpdateXML($addonManifest);
         }
         else {
-            funcGenerateUpdateXML(null);
+            if ($boolAMOKillSwitch == false) {
+                $_strFirefoxVersion = $strFirefoxVersion;
+                
+                if ($intVcResult < 0) {
+                    $_strFirefoxVersion = $strFirefoxOldVersion;
+                }
+                
+                $strAMOLink = 'https://versioncheck.addons.mozilla.org/update/VersionCheck.php?reqVersion=2' .
+                '&id=' . $strRequestAddonID .
+                '&version=' . $strRequestAddonVersion .
+                '&appID=' . $strFirefoxID .
+                '&appVersion=' . $_strFirefoxVersion .
+                '&compatMode=' . $strRequestCompatMode;
+                
+                funcRedirect($strAMOLink);
+            }
+            else {
+                funcGenerateUpdateXML(null);
+            }
         }
     }
 }
