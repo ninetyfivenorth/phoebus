@@ -44,7 +44,7 @@
 {/if}
 {/if}
             <br />
-            <small>{$key.shortDescription}</small>
+            <small>{$key.description}</small>
         </div>
     </a>
 {/foreach}

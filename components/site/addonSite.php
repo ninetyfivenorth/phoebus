@@ -41,47 +41,33 @@ $arrayStaticPages = array(
 // == | funcGenAddonContent | =================================================
 
 function funcGenAddonContent($_strAddonSlug) {
-    $_addonManifest = new classAddonManifest();
-    $_arrayAddonMetadata = $_addonManifest->funcGetManifest($_strAddonSlug);
+    $_arrayAddonMetadata = $GLOBALS['addonManifest']->getAddonBySlug($_strAddonSlug);
 
-    if ($_arrayAddonMetadata != null) {
-        $_arrayAddonMetadata['basePath'] = substr($_arrayAddonMetadata['basePath'], 1);
-        
+    if ($_arrayAddonMetadata != null) {       
         $arrayPage = array(
             'title' => $_arrayAddonMetadata['name'],
             'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'single-addon.tpl',
             'contentData' => $_arrayAddonMetadata
         );
-        
-        return $arrayPage;
     }
     else {
         if ($GLOBALS['boolDebugMode'] == true) {
-            funcError('The requested add-on has a problem with it\'s manifest file');
+            funcError('The requested add-on has a problem with it\'s manifest');
         }
         else {
             funcSendHeader('404');
         }       
     }
+
+    return $arrayPage;
 }
 
 // ============================================================================
 
 // == | funcGenAllExtensions | ================================================
 
-function funcGenAllExtensions($_array) {
-    $arrayCategory = array();
-    
-    foreach ($_array as $_key => $_value) {
-        if ($_key != 'themes') {
-            $_arraySingleCategory = funcGenCategoryContent('extension', $_value);
-            foreach ($_arraySingleCategory["contentData"] as $_key2 => $_value2) {
-                $arrayCategory[$_key2] = $_value2;
-            }
-        }
-    }
-    
-    ksort($arrayCategory, SORT_NATURAL | SORT_FLAG_CASE);
+function funcGenAllExtensions() {
+    $arrayCategory = $GLOBALS['addonManifest']->getAllExtensions();
     
     $arrayPage = array(
         'title' => 'Extensions',
@@ -97,44 +83,45 @@ function funcGenAllExtensions($_array) {
 
 // == | funcGenCategoryContent | ==============================================
 
-function funcGenCategoryContent($_type, $_array) {
-    $_addonManifest = new classAddonManifest();
+function funcGenCategoryContent($_categorySlug, $_pageTitle) {
+    $arrayCategory = $GLOBALS['addonManifest']->getCategory($_categorySlug);
+
+    if ($arrayCategory != null) {
+        if ($_categorySlug == 'themes') {
+            $arrayPage = array(
+                'title' => 'Themes',
+                'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'category-addons.tpl',
+                'contentType' => 'cat-themes',
+                'contentData' => $arrayCategory
+            );
+        }
+        else {
+            $arrayPage = array(
+                'title' => $_pageTitle,
+                'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'category-addons.tpl',
+                'contentType' => 'cat-extensions',
+                'contentData' => $arrayCategory
+            );
+        }
+    }
+    else {
+        if ($GLOBALS['boolDebugMode'] == true) {
+            funcError('The requested category has a problem');
+        }
+        else {
+            funcSendHeader('404');
+        }       
+    }
+
+    return $arrayPage;
+}
+
+function funcGenCategoryOtherContent($_type, $_array) {
     $arrayCategory = array();
     $_strDatastoreBasePath = $GLOBALS['strApplicationDatastore'] . 'addons/';
     
     foreach ($_array as $_key => $_value) {
-        if (($_type === 'extension' || $_type == 'theme') && is_int($_key)) {
-            $_arrayAddonMetadata = $_addonManifest->funcGetManifest($_value);
-            if ($_arrayAddonMetadata != null) {
-                $arrayCategory[$_arrayAddonMetadata['name']] = $_arrayAddonMetadata;
-                unset($_arrayAddonMetadata);
-            }
-        }
-        elseif ($_key === 'externals') {
-            foreach($_array['externals'] as $_key2 => $_value2) {
-                $arrayCategory[$_value2['name']]['type'] = 'external';
-                $arrayCategory[$_value2['name']]['name'] = $_value2['name'];
-                $arrayCategory[$_value2['name']]['slug'] = $_value2['id'];
-                $arrayCategory[$_value2['name']]['url'] = $_value2['url'];
-                $arrayCategory[$_value2['name']]['shortDescription'] = $_value2['shortDescription'];
-
-                if ($_value2['id'] != 'default' && file_exists($_strDatastoreBasePath . $_value2['id'] . '/icon.png')) {
-                    $arrayCategory[$_value2['name']]['icon'] = substr($_strDatastoreBasePath . $_value2['id'] . '/icon.png', 1);
-                }
-                else {
-                    $arrayCategory[$_value2['name']]['icon'] = substr($_strDatastoreBasePath . 'default/' . $_type . '.png', 1);
-                    
-                }
-                
-                if ($_value2['id'] != 'default' && file_exists($_strDatastoreBasePath . $_value2['id'] . '/preview.png')) {
-                    $arrayCategory[$_value2['name']]['preview'] = substr($_strDatastoreBasePath . $_value2['id'] . '/preview.png', 1);
-                }
-                else {
-                    $arrayCategory[$_value2['name']]['preview'] = substr($_strDatastoreBasePath . 'default/preview.png', 1);
-                }                
-            }
-        }
-        elseif ($_type === 'language-pack') {
+        if ($_type === 'language-pack') {
             foreach($_array as $_key3 => $_value3) {
                 $arrayCategory[$_value3['name']] = $_value3;
             }
@@ -151,23 +138,7 @@ function funcGenCategoryContent($_type, $_array) {
     }
     ksort($arrayCategory, SORT_NATURAL | SORT_FLAG_CASE);
     
-    if ($_type == 'extension') {
-        $arrayPage = array(
-            'title' => $_array['title'],
-            'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'category-addons.tpl',
-            'contentType' => 'cat-extensions',
-            'contentData' => $arrayCategory
-        );
-    }
-    elseif ($_type == 'theme') {
-        $arrayPage = array(
-            'title' => $_array['title'],
-            'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'category-addons.tpl',
-            'contentType' => 'cat-themes',
-            'contentData' => $arrayCategory
-        );
-    }
-    elseif ($_type == 'language-pack') {
+    if ($_type == 'language-pack') {
         $arrayPage = array(
             'title' => 'Language Packs',
             'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'category-other.tpl',
@@ -257,7 +228,7 @@ if ($boolDebugMode == true) {
     // Do not allow public access to the site component when on addons-dev
     require_once($arrayModules['ftpAuth']);
     $FTPAuth = new classFTPAuth;
-    $isAuthorized = $FTPAuth->doAuth(true);
+    //$isAuthorized = $FTPAuth->doAuth(true);
 
     // Git stuff
     if (file_exists('./.git/HEAD')) {
@@ -273,40 +244,43 @@ if ($boolDebugMode == true) {
     }    
 }
 
-require_once($arrayModules['addonManifest']);
-$addonManifest = new classAddonManifest();
+require_once($arrayModules['readManifest']);
+$addonManifest = new classReadManifest();
 
 if (startsWith($strRequestPath, '/addon/')) {
-    require_once($arrayModules['dbAddons']);
-    $strStrippedPath = str_replace('/', '', str_replace('/addon/', '', $strRequestPath));
-    $ArrayDBFlip = array_flip($arrayAddonsDB);
-    
-    if (array_key_exists($strStrippedPath,$ArrayDBFlip)) {
-        funcGeneratePage(funcGenAddonContent($strStrippedPath));
-    }
-    else {
-        funcSendHeader('404');
-    }
+    $strStrippedPath = str_replace('/', '', str_replace('/addon/', '', $strRequestPath));    
+    funcGeneratePage(funcGenAddonContent($strStrippedPath));
 }
-elseif (startsWith($strRequestPath, '/extensions/') || startsWith($strRequestPath, '/themes/')) {
-    require_once($arrayModules['dbCategories']);
-    
+elseif (startsWith($strRequestPath, '/extensions/') || startsWith($strRequestPath, '/themes/')) {    
     if ($strRequestPath == '/extensions/') {
-        funcGeneratePage(funcGenAllExtensions($arrayCategoriesDB));
+        funcGeneratePage(funcGenAllExtensions());
     }
     elseif (startsWith($strRequestPath, '/extensions/')) {
         $strStrippedPath = str_replace('/', '', str_replace('/extensions/', '', $strRequestPath));
+
+        $arrayCategoriesDB = array(
+            'alerts-and-updates' => 'Alerts & Updates',
+            'appearance' => 'Appearance',
+            'download-management' => 'Download Management',
+            'feeds-news-and-blogging' => 'Feeds, News, & Blogging',
+            'privacy-and-security' => 'Privacy & Security',
+            'search-tools' => 'Search Tools',
+            'social-and-communication' => 'Social & Communication',
+            'tools-and-utilities' => 'Tools & Utilities',
+            'web-development' => 'Web Development',
+            'other' => 'Other',
+            'bookmarks-and-tabs' => 'Bookmarks & Tabs',
+        );
         
-        if (array_key_exists($strStrippedPath,$arrayCategoriesDB) && $strStrippedPath != 'themes') {
-            funcGeneratePage(funcGenCategoryContent('extension', $arrayCategoriesDB[$strStrippedPath]));
+        if (array_key_exists($strStrippedPath, $arrayCategoriesDB) && $strStrippedPath != 'themes')  {
+            funcGeneratePage(funcGenCategoryContent($strStrippedPath, $arrayCategoriesDB[$strStrippedPath]));
         }
         else {
-            // Nginx cannot easily handle the condition of non-matching-category slug so send non-matching slugs to /addon/[slug] and let that 404 if it isn't an extension
-            funcRedirect('/addon/' . $strStrippedPath);
+            funcSendHeader('404');
         }
     }
     elseif ($strRequestPath == '/themes/') {
-        funcGeneratePage(funcGenCategoryContent('theme', $arrayCategoriesDB['themes']));
+        funcGeneratePage(funcGenCategoryContent('themes', null));
     }
     else {
         funcSendHeader('404');
@@ -317,12 +291,12 @@ elseif ($strRequestPath == '/language-packs/') {
     $langPacks = new classLangPacks;
     $arrayLangPackDB = $langPacks->funcGetLanguagePacks();
     
-    funcGeneratePage(funcGenCategoryContent('language-pack', $arrayLangPackDB));
+    funcGeneratePage(funcGenCategoryOtherContent('language-pack', $arrayLangPackDB));
 }
 elseif ($strRequestPath == '/search-plugins/') {
     require_once($arrayModules['dbSearchPlugins']);
     
-    funcGeneratePage(funcGenCategoryContent('search-plugin', $arraySearchPluginsDB));
+    funcGeneratePage(funcGenCategoryOtherContent('search-plugin', $arraySearchPluginsDB));
 }
 else {
     if (array_key_exists($strRequestPath, $arrayStaticPages)) {

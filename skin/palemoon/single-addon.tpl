@@ -12,7 +12,7 @@
 </h3>
 
 <p>
-    {$PAGE_DATA.longDescription}
+    {$PAGE_DATA.content}
 </p>
 
 {if $PAGE_DATA.license == 'copyright'}
@@ -32,7 +32,7 @@
 {/if}
 
 <p style="text-align: center; padding: 10px;">
-    <a class="dllink_green" href="/?component=download&id={$PAGE_DATA.id}&version={$PAGE_DATA['xpinstall'][$PAGE_DATA['release']]['version']}&hash={$PAGE_DATA['xpinstall'][$PAGE_DATA['release']]['hash']}">
+    <a class="dllink_green" href="/?component=download&id={$PAGE_DATA.id}&version={$PAGE_DATA['xpinstall'][$PAGE_DATA['releaseXPI']]['version']}&hash={$PAGE_DATA['xpinstall'][$PAGE_DATA['releaseXPI']]['hash']}">
         <img border="0" src="{$BASE_PATH}download.png" alt="" style="width: 24px; height: 24px; position: relative; top: 7px; right: 4px;" />
         <span>Install {$PAGE_DATA.name}</span>
     </a>
@@ -42,8 +42,8 @@
 <div id="PM-Content-Sidebar"> <!-- START PM-Content-Sidebar -->
     <div style="margin-top: 22px;">
         <h3>Release Information</h3>
-        Version {$PAGE_DATA['xpinstall'][$PAGE_DATA['release']]['version']}<br />
-        Updated on {$PAGE_DATA['xpinstall'][$PAGE_DATA['release']]['prettyDate']}
+        Version {$PAGE_DATA['xpinstall'][$PAGE_DATA['releaseXPI']]['version']}<br />
+        Updated on {$PAGE_DATA['xpinstall'][$PAGE_DATA['releaseXPI']]['prettyDate']}
         <p>
             
         </p>
@@ -53,11 +53,11 @@
         </h3>
 
         <p>
-            Pale Moon {$PAGE_DATA['xpinstall'][$PAGE_DATA['release']]['targetApplication']['{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}']['minVersion']} to 
-{if $PAGE_DATA['xpinstall'][$PAGE_DATA['release']]['targetApplication']['{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}']['maxVersion'] == '*'}
+            Pale Moon {$PAGE_DATA['xpinstall'][$PAGE_DATA['releaseXPI']]['targetApplication']['{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}']['minVersion']} to 
+{if $PAGE_DATA['xpinstall'][$PAGE_DATA['releaseXPI']]['targetApplication']['{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}']['maxVersion'] == '*'}
             Unknown
 {else}
-            {$PAGE_DATA['xpinstall'][$PAGE_DATA['release']]['targetApplication']['{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}']['maxVersion']}
+            {$PAGE_DATA['xpinstall'][$PAGE_DATA['releaseXPI']]['targetApplication']['{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}']['maxVersion']}
 {/if}
         </p>
 
@@ -103,7 +103,7 @@
         </h3>
         <div id="addonOldVersions" style="overflow-y: hidden; height: 140px; padding: 0px">
 {foreach $PAGE_DATA.xpinstall as $key}
-{if $key != $PAGE_DATA['xpinstall'][$PAGE_DATA['release']]}
+{if $key != $PAGE_DATA['xpinstall'][$PAGE_DATA['releaseXPI']]}
             <a href="/?component=download&id={$PAGE_DATA.id}&version={$key.version}&hash={$key.hash}">Version {$key.version}</a> <small>[{$key.date}]</small><br />
             <small>
                 Works with Pale Moon {$key['targetApplication']['{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}']['minVersion']} to
