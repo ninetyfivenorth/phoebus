@@ -462,6 +462,7 @@ $arrayCategoryList11 = array(
     'bartab-tycho',
     'tabgroups',
     'multi-links-plus',
+    'tabkit2',
     'externals' => array(
         'speed-start' => array(
             'id' => 'ex-010',
