@@ -111,12 +111,6 @@ $arrayCategoryList02 = array(
             'shortDescription' => 'Adds in-field clear buttons to the URL bar, the Search bar and the Find bar.',
             'url' => 'https://addons.mozilla.org/firefox/addon/xclear/'
         ),
-        'theme-font-size-changer' => array(
-            'id' => 'ex-016',
-            'name' => 'Theme Font & Size Changer',
-            'shortDescription' => 'Lets you change the global font size and font family used for the user interface in Pale Moon.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/theme-font-size-changer/'
-        ),
         'browser-backgrounds' => array(
             'id' => 'ex-019',
             'name' => 'Browser Backgrounds',
