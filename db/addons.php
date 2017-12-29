@@ -161,6 +161,7 @@ $arrayAddonsDB = array(
     '{d2b7fa3e-d4ed-4355-bda8-ac95888c5bbb}' => 'downloadstatusbar-pm',
     '{1111dd1e-dd02-4c30-956f-f23c44dfea8e}' => 'readerview',
     'blankprivatebrowsingpage@ipotable.github.com' => 'blank-private-browsing-page',
-    'tabkit2@pikachuexe.amateur.hk' => 'tabkit2'
+    'tabkit2@pikachuexe.amateur.hk' => 'tabkit2',
+    'ConfigCommentsk@gracious1.cat' => 'config-comments'
 );
 ?>
