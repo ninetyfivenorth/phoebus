@@ -162,6 +162,7 @@ $arrayAddonsDB = array(
     '{1111dd1e-dd02-4c30-956f-f23c44dfea8e}' => 'readerview',
     'blankprivatebrowsingpage@ipotable.github.com' => 'blank-private-browsing-page',
     'tabkit2@pikachuexe.amateur.hk' => 'tabkit2',
-    'ConfigCommentsk@gracious1.cat' => 'config-comments'
+    'ConfigCommentsk@gracious1.cat' => 'config-comments',
+    'jid0-gRmSxW9ByuHwGjLhtXJg27YnZRs@jetpack' => 'scroll-to-top'
 );
 ?>

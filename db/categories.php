@@ -335,6 +335,7 @@ $arrayCategoryList08 = array(
     'colorpicker-moonedition',
     'readerview',
     'config-comments',
+    'scroll-to-top',
     'externals' => array(
         'remove-it-permanently' => array(
             'id' => 'default',
