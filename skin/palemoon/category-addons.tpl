@@ -10,7 +10,7 @@
 </p>
 {/if}
 
-{if $PAGE_TYPE == 'cat-extensions' || $PAGE_TYPE == 'cat-all-extensions' || $PAGE_TYPE == 'cat-themes'}
+{if $PAGE_TYPE == 'cat-extensions' || $PAGE_TYPE == 'cat-all-extensions' || $PAGE_TYPE == 'cat-themes' || $PAGE_TYPE == 'search'}
 <div>
 {foreach $PAGE_DATA as $key}
     <a

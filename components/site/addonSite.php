@@ -26,10 +26,6 @@ $arrayStaticPages = array(
         'title' => 'Your browser, your way!',
         'contentTemplate' => $strContentBasePath . 'frontpage.xhtml.tpl',
     ),
-    '/search/' => array(
-        'title' => 'Search',
-        'contentTemplate' => $strContentBasePath . 'search.xhtml.tpl',
-    ),
     '/incompatible/' => array(
         'title' => 'Known Incompatible Add-ons',
         'contentTemplate' => $strContentBasePath . 'incompatible.xhtml.tpl',
@@ -52,7 +48,7 @@ function funcGenAddonContent($_strAddonSlug) {
     }
     else {
         if ($GLOBALS['boolDebugMode'] == true) {
-            funcError('The requested add-on has a problem with it\'s manifest');
+            funcError('The requested add-on has a problem');
         }
         else {
             funcSendHeader('404');
@@ -68,13 +64,23 @@ function funcGenAddonContent($_strAddonSlug) {
 
 function funcGenAllExtensions() {
     $arrayCategory = $GLOBALS['addonManifest']->getAllExtensions();
-    
-    $arrayPage = array(
-        'title' => 'Extensions',
-        'contentType' => 'cat-all-extensions',
-        'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'category-addons.tpl',
-        'contentData' => $arrayCategory
-    );
+
+    if ($arrayCategory != null) {
+        $arrayPage = array(
+            'title' => 'Extensions',
+            'contentType' => 'cat-all-extensions',
+            'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'category-addons.tpl',
+            'contentData' => $arrayCategory
+        );
+    }
+    else {
+        if ($GLOBALS['boolDebugMode'] == true) {
+            funcError('The requested category has a problem');
+        }
+        else {
+            funcSendHeader('404');
+        }       
+    }
 
     return $arrayPage;
 }
@@ -155,6 +161,34 @@ function funcGenCategoryOtherContent($_type, $_array) {
         );
     }
     
+    return $arrayPage;
+}
+
+// ============================================================================
+
+// == | funcGenSearchResults | ================================================
+
+function funcGenSearchResults($_searchTerms) {
+        //$_searchTermsRegEx = str_replace(' ', '|', $_searchTerms);
+        $arrayResults = $GLOBALS['addonManifest']->getSearchResults($_searchTerms);
+
+    if ($_searchTerms == null || $arrayResults == null) {
+        $arrayPage = array(
+            'title' => 'No Results',
+            'contentType' => 'search',
+            'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'category-addons.tpl',
+            'contentData' => null
+        );
+    }
+    else {
+        $arrayPage = array(
+            'title' => 'Search Results for "' . $_searchTerms . '"',
+            'contentType' => 'search',
+            'contentTemplate' => $GLOBALS['strSkinBasePath'] . 'category-addons.tpl',
+            'contentData' => $arrayResults
+        );
+    }
+
     return $arrayPage;
 }
 
@@ -297,6 +331,11 @@ elseif ($strRequestPath == '/search-plugins/') {
     require_once($arrayModules['dbSearchPlugins']);
     
     funcGeneratePage(funcGenCategoryOtherContent('search-plugin', $arraySearchPluginsDB));
+}
+elseif ($strRequestPath == '/search/') {
+    $strRequestSearchTerms = funcHTTPGetValue('terms');
+    
+    funcGeneratePage(funcGenSearchResults($strRequestSearchTerms));
 }
 else {
     if (array_key_exists($strRequestPath, $arrayStaticPages)) {

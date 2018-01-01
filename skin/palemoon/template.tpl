@@ -62,6 +62,9 @@
                 </ul>
             </span>
             <span class="alignright" style="margin-top: 2px; margin-right: 15px;">
+                <form id="addonSearchForm" method="get" action="/search/">
+                        <input type="text" class="addonSearchInput" name="terms" size="21" maxlength="120"> <input type="submit" value="Search" class="addonSearchButton">
+                </form>
             </span>
             </div>
             <div id="PM-Content">
