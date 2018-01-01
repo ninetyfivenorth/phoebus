@@ -60,6 +60,7 @@ $arrayModules = array(
     'vc' => $strModulesPath . 'nsIVersionComparator.php',
     'addonManifest' => $strModulesPath . 'classAddonManifest.php',
     'readManifest' => $strModulesPath . 'classReadManifest.php',
+    'generatePage' => $strModulesPath . 'classGeneratePage.php',
     'langPacks' => $strModulesPath . 'classLangPacks.php',
     'ftpAuth' => $strModulesPath . 'classFTPAuth.php'
 );
