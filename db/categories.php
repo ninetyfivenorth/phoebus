@@ -421,6 +421,7 @@ $arrayCategoryList10 = array(
     'blinkblank',
     'translatethis',
     'autoplay-toggle-nonrestartless',
+    'forecastfox-pm',
     'externals' => array(
         'fire-ie' => array(
             'id' => 'fx-372869',
