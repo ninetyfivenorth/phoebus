@@ -163,6 +163,7 @@ $arrayAddonsDB = array(
     'blankprivatebrowsingpage@ipotable.github.com' => 'blank-private-browsing-page',
     'tabkit2@pikachuexe.amateur.hk' => 'tabkit2',
     'ConfigCommentsk@gracious1.cat' => 'config-comments',
-    'jid0-gRmSxW9ByuHwGjLhtXJg27YnZRs@jetpack' => 'scroll-to-top'
+    'jid0-gRmSxW9ByuHwGjLhtXJg27YnZRs@jetpack' => 'scroll-to-top',
+    '{0631f4e8-ca63-4be8-960e-d2b375ddb306}' => 'forecastfox-pm'
 );
 ?>
