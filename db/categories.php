@@ -422,6 +422,7 @@ $arrayCategoryList10 = array(
     'translatethis',
     'autoplay-toggle-nonrestartless',
     'forecastfox-pm',
+    'popup-english-dictionary',
     'externals' => array(
         'fire-ie' => array(
             'id' => 'fx-372869',
