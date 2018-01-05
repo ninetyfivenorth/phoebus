@@ -125,8 +125,13 @@ if ($strRequestAddonID == null || $strRequestAddonVersion == null ||
         funcError('Missing minimum required arguments.');
     }
     else {
-        funcGenerateUpdateXML(null, false);
+        funcGenerateUpdateXML(null);
     }
+}
+
+// Send blank (bad) response for default theme in Mozilla applications
+if ($strRequestAddonID == '{972ce4c6-7e08-4474-a285-3208198ce6fd}') {
+    funcGenerateUpdateXML(null);
 }
 
 // Ensure compatibility paths for older milestone versions
@@ -142,7 +147,7 @@ if ($boolMozXPIUpdate == false) {
         funcError('Compatibility check failed.');
     }
     else {
-        funcGenerateUpdateXML(null, false);
+        funcGenerateUpdateXML(null);
     }
 }
 
@@ -225,7 +230,7 @@ else {
         funcError('Invalid Application ID');
     }
     else {
-        funcGenerateUpdateXML(null, false);
+        funcGenerateUpdateXML(null);
     }
 }
 
