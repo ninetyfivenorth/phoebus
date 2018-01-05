@@ -132,7 +132,7 @@ if ($strRequestAddonID == null || $strRequestAddonVersion == null ||
 // Send a no updates response for default theme in applications regardless of any other factors
 if ($strRequestAddonID == '{972ce4c6-7e08-4474-a285-3208198ce6fd}') {
     // XML Header
-    funcSendHeader('xml')
+    funcSendHeader('xml');
     
     // XML Response
     print('<?xml version="1.0"?>
