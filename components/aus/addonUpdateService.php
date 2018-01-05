@@ -129,9 +129,24 @@ if ($strRequestAddonID == null || $strRequestAddonVersion == null ||
     }
 }
 
-// Send blank (bad) response for default theme in Mozilla applications
+// Send a no updates response for default theme in applications regardless of any other factors
 if ($strRequestAddonID == '{972ce4c6-7e08-4474-a285-3208198ce6fd}') {
-    funcGenerateUpdateXML(null);
+    // XML Header
+    funcSendHeader('xml');
+    
+    // XML Response
+    print('<?xml version="1.0"?>
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+  <RDF:Description about="urn:mozilla:theme:{972ce4c6-7e08-4474-a285-3208198ce6fd}">
+    <em:updates>
+      <RDF:Seq>
+      </RDF:Seq>
+    </em:updates>
+  </RDF:Description>
+</RDF:RDF>');
+    
+    // We are done here...
+    exit();
 }
 
 // Ensure compatibility paths for older milestone versions
