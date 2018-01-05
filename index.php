@@ -65,6 +65,13 @@ $arrayModules = array(
     'ftpAuth' => $strModulesPath . 'classFTPAuth.php'
 );
 
+// Define Skins
+$arraySkins = array(
+    'default' => $strSkinPath . 'default',
+    'palemoon' => $strSkinPath . 'palemoon',
+    'basilisk' => $strSkinPath . 'basilisk'
+)
+
 // Known Client GUIDs
 $strPaleMoonID = '{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}';
 $strFossaMailID = '{3550f703-e582-4d05-9a08-453d09bdfdc6}';
