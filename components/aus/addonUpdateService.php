@@ -139,6 +139,8 @@ if ($strRequestAddonID == '{972ce4c6-7e08-4474-a285-3208198ce6fd}') {
 <RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
   <RDF:Description about="urn:mozilla:theme:{972ce4c6-7e08-4474-a285-3208198ce6fd}">
     <em:updates>
+      <RDF:Seq>
+      </RDF:Seq>
     </em:updates>
   </RDF:Description>
 </RDF:RDF>');
