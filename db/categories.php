@@ -423,6 +423,7 @@ $arrayCategoryList10 = array(
     'autoplay-toggle-nonrestartless',
     'forecastfox-pm',
     'popup-english-dictionary',
+    'dir-up-moon-edition',
     'externals' => array(
         'fire-ie' => array(
             'id' => 'fx-372869',

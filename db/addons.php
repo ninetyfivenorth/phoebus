@@ -165,6 +165,7 @@ $arrayAddonsDB = array(
     'ConfigCommentsk@gracious1.cat' => 'config-comments',
     'jid0-gRmSxW9ByuHwGjLhtXJg27YnZRs@jetpack' => 'scroll-to-top',
     '{0631f4e8-ca63-4be8-960e-d2b375ddb306}' => 'forecastfox-pm',
-    '{efb0aee9-a019-4341-bbeb-11e1630492f3}' => 'popup-english-dictionary'
+    '{efb0aee9-a019-4341-bbeb-11e1630492f3}' => 'popup-english-dictionary',
+    '{b3e15674-2f14-4a47-973e-fb9718b5e892}' => 'dir-up-moon-edition'
 );
 ?>
