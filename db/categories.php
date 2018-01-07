@@ -226,6 +226,7 @@ $arrayCategoryList05 = array(
     'foxyproxy-basic',
     'foxyproxy-standard',
     'classic-password-editor',
+    'sdc-moon-edition',
     'externals' => array(
         'cookiekeeper' => array(
             'id' => 'fx-481410',
