@@ -70,7 +70,7 @@ $arraySkins = array(
     'default' => $strSkinPath . 'default',
     'palemoon' => $strSkinPath . 'palemoon',
     'basilisk' => $strSkinPath . 'basilisk'
-)
+);
 
 // Known Client GUIDs
 $strPaleMoonID = '{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}';
