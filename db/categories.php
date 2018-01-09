@@ -425,6 +425,7 @@ $arrayCategoryList10 = array(
     'forecastfox-pm',
     'popup-english-dictionary',
     'dir-up-moon-edition',
+    'gtranslator-moon-edition',
     'externals' => array(
         'fire-ie' => array(
             'id' => 'fx-372869',
