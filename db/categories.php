@@ -68,6 +68,7 @@ $arrayCategoryList02 = array(
     'personamaker',
     'lighttheme-mgr',
     'blank-private-browsing-page',
+    'theme-tweaker',
     'externals' => array(
         'active-stop-button' => array(
             'id' => 'fx-2025',
