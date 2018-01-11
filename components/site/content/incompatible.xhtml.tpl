@@ -5,7 +5,7 @@
 <p>While we have strived for compatibility with Firefox add-ons, Pale Moon and Firefox are separate products. There are many possible reasons why an add-on is or has become incompatible with Pale Moon:</p>
 
 <ul>
-    <li><strong>The change in the Pale Moon globally unique identifier (GUID)</strong><br />In Pale Moon 25, the GUID was changed to reflect the continuing divergence between the browser and its sibling. Most of the time a modification to chrome.manifest or bootstrap.js to add/change the hard-coded GUID is a simple solution to issues with add-ons. The Pale Moon add-ons team will do this for some of the most used add-ons where a developer has chosen not to support Pale Moon, thus creating a pseudo-static version of the add-on as a Pale Moon-specific one.</li>
+    <li><strong>The change in the Pale Moon globally unique identifier (GUID)</strong><br />In Pale Moon 25, the GUID was changed to reflect the continuing divergence between the browser and its sibling. Most of the time a modification to chrome.manifest or bootstrap.js to add/change the hard-coded GUID is a simple solution to issues with add-ons.</li>
     <li><strong>Australis</strong><br />In Firefox 29, Mozilla adopted a nearly completely rewritten user interface and theme as well as some technologies that Pale Moon has chosen not to implement. Add-ons targeting these features without fall-backs to the more time-tested and more commonly used features in all Mozilla-based programs will not be supported.</li>
     <li><strong>Jetpack/SDK</strong><br />In Pale Moon 27.0, support for the Add-On SDK (AKA Jetpack) was dropped as a framework for extensions, making multiple extensions incompatible with Pale Moon. If this is the case, then the Add-On Manager inside the browser will inform you of it with an explanatory text. In Pale Moon 27.1, <strong>PMKit</strong> was added as a compatibility layer, to allow SDK add-ons that choose to support Pale Moon to work correctly. For those that have not been converted, but have been built with JPM (i.e. compatible with Firefox 38.0a1), the extension <a href="https://addons.palemoon.org/addon/moon-tester-tool/">Moon Tester Tool</a> can be used to force installation. This type of installation is unsupported however, and may result in instability. Use with caution!</li>
     <li><strong>WebExtensions</strong><br />From Firefox 57 onwards, WebExtensions will be the only supported extension framework in Firefox. This framework is not and will not be supported in Pale Moon, therefore anything using it will not be compatible.</li>
@@ -18,7 +18,7 @@
 
 <h3>List of add-ons with known compatibility issues</h3>
 
-<p><strong>Last updated: 2018-01-03</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
+<p><strong>Last updated: 2018-01-11</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
 
 <p><strong>FIXED</strong></p>
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
@@ -58,17 +58,18 @@
                     <li>GaiaFormat</li>
                     <li><a href="/addon/gnotifier/">GNotifier</a></li>
                     <li><a href="/addon/i-dont-care-about-cookies/">I don't care about cookies</a></li>
+                    <li>Lucifox</li>
                     <li><a href="/addon/multi-links-plus/">Multi Links Plus</a></li>
                     <li>NewsFox</li>
                     <li><a href="/addon/noscript/">NoScript Security Suite</a></li>
                     <li><a href="/addon/opie/">OPIE</a></li>
                     <li><a href="/addon/opie2/">OPIE2</a></li>
-                    <li><a href="/addon/pasteemail/">Paste Email (original)</a></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
+                    <li><a href="/addon/pasteemail/">Paste Email (original)</a></li>
                     <li><a href="/addon/pasteemailplus/">Paste Email Plus</a></li>
                     <li>Play/Pause</li>
                     <li><a href="/addon/print-pages-to-pdf/">Print pages to PDF</a></li>
@@ -107,6 +108,7 @@
                     <li>colorPicker<br /><small>As <a href="/colorpicker-moonedition/">ColorPicker (Moon Edition)</a></small></li>
                     <li>Cookie Monster<br /><small>As <a href="/addon/cookiemasters/">Cookie Masters</a></small></li>
                     <li>Dark Background and Light Text<br /><small>As <a href="/addon/advanced-night-mode/">Advanced Night Mode</a></small></li>
+                    <li>Dir Up<br /><small>As <a href="/addon/dir-up-moon-edition/">Dir Up (Moon Edition)</a></small></li>
                     <li>Download Manager Tweak<br /><small>As <a href="/addon/showdownloadswts/">Show Downloads: Window, Tab, or Sidebar</a></small></li>
                     <li>Download Status Bar<br /><small>As <a href="/addon/downloadstatusbar-pm/">Download Status Bar (Moon Edition)</a></small></li>
                     <li>Extension Options Menu<br /><small>As <a href="/addon/extension-preferences-menu/">Extension Preferences Menu</a></small></li>
@@ -118,6 +120,7 @@
                     <li>FindBar Tweak<br /><small>As <a href="/addon/finderbar-tweak/">FinderBar Tweak</a> (<strong>NOTE</strong>: Does not work on Pale Moon 27 or above)</small></li>
                     <li>Firebug<br /><small>As <a href="/addon/devtools/">Developer Tools</a></small></li>
                     <li>Forecastfox<br /><small>As <a href="/addon/forecastfox-pm">Forecastfox for Pale Moon</a></small></li>
+                    <li>Google Translator for Firefox<br /><small>As <a href="/addon/gtranslator-moon-edition"/>Google Translator for Pale Moon</a></small></li>
                     <li>Google™ Weather<br /><small>As <a href="/addon/fcstweatherbutton/">Forecast & Weather on the Button</a></small></li>
                     <li>Greasemonkey<br /><small>As <a href="https://github.com/janekptacijarabaci/greasemonkey/releases/latest/" target="_blank">Greasemonkey for Pale Moon</a></small></li>
                     <li>HTTPS Everywhere<br /><small>As <a href="/addon/encrypted-web/">Encrypted Web</a> (<strong>NOTE</strong>: This extension has been abandoned and will not work on Pale Moon 27 or above)</small></li>
@@ -127,22 +130,25 @@
                     <li>JSView<br /><small>As <a href="/addon/jsview-revive/">JSView Revive</a></small></li>
                     <li>Lightweight Themes Manager<br /><small>As <a href="/addon/lighttheme-mgr/">Persona/Light Theme Manager</a></small></li>
                     <li>Mozilla Archive Format<br /><small>As <a href="/addon/mozarchiver/">MozArchiver</a></small></li>
+                    <li>Notepad (QuickFox)<br /><small>As <a href="/addon/notestruck/">NoteStruck</a></small></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
-                    <li>Notepad (QuickFox)<br /><small>As <a href="/addon/notestruck/">NoteStruck</a></small></li>
+                    <li>One Click Popup Dictionary<br /><small>As <a href="/addon/popup-english-dictionary/">Popup English Dictionary</a></small></li>
                     <li>Password Exporter<br /><small>As <a href="/addon/password-backup-tool/">Password Backup Tool</a></small></li>
                     <li>Pentadactyl<br /><small>As <a href="/addon/pentadactyl/">Pentadactyl</a></small></li>
                     <li>PDF.js<br /><small>As <a href="/addon/moon-pdf-viewer/">Moon PDF Viewer</a></small></li>
                     <li>Quick Locale Switcher<br /><small>As <a href="/addon/rosetta-qls/">Rosetta Quick Locale Switcher</a></small></li>
                     <li>Save Images<br /><small>As <a href="/addon/save-images-me/">Save Images (Moon Edition)</a></small></li>
+                    <li>Self-Destructing Cookies<br /><small>As <a href="/addon/sdc-moon-edition/">Self-Destructing Cookies for Pale Moon</a></small></li>
                     <li>Send Tab to Device<br /><small>As <a href="/addon/send-tab-to-device/">Send Tab to Device (Moon Edition)</a></small></li>
                     <li>Sidebars List<br /><small>As <a href=/addon/sidebartogglemenu/">Sidebar Toggle & Menu</a></small></li>
                     <li>Send Tab to Device<br /><small>As <a href="/addon/send-tab-to-device/">Send Tab to Device (Moon Edition)</a></small></li>
                     <li>Space Next<br /><small>As <a href="/addon/space-advance/">Space Advance</a></small></li>
                     <li>Splash!<br /><small>As <a href="/addon/splashed/">Splashed!</a></small></li>
+                    <li>Theme Font & Size Changer<br /><small>As <a href="/addon/theme-tweaker/">Theme Tweaker</a></small></li>
                     <li>Translate This!<br /><small>As <a href="/addon/translatethis/">Translate This! (Moon Edition)</a></small></li>
                     <li>Tree Style Tab<br /><small>As <a href="/addon/treestyletabforpm/">Tree Style Tab for Pale Moon</a></small></li>
                 </ul>
@@ -182,17 +188,16 @@
                     <li>gTranslate<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/s3google-translator/" target="_blank">S3.Google Translator</a></small></li>
                     <li>Hide Caption Titlebar Plus<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/hide-caption-titlebar-plus-sma/versions/?page=2#version-2.8.7rc" target="_blank">2.8.7rc</a></small></li>
                     <li>History Submenus II<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/history-submenus-2/versions/3.1.2.1" target="_blank">3.1.2.1</a></small></li>
-                    <li>HTitle<br /><small>Use Hide Caption Titlebar Plus version <a href="https://addons.mozilla.org/firefox/addon/hide-caption-titlebar-plus-sma/versions/2.8.7rc" target="_blank">2.8.7rc</a></small></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
+                    <li>HTitle<br /><small>Use Hide Caption Titlebar Plus version <a href="https://addons.mozilla.org/firefox/addon/hide-caption-titlebar-plus-sma/versions/2.8.7rc" target="_blank">2.8.7rc</a></small></li>
                     <li>HTTPS Everywhere<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/https-everywhere/versions/5.2.21>5.2.21</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>iMacros for Firefox<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/imacros-for-firefox/versions/8.9.7" target="_blank">8.9.7</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>Load tab on select<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
                     <li>LiveClick<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/liveclick/versions/1.0.0.1-signed" target="_blank">1.0.0.1</a></small></li>
-                    <li>Lucifox<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/lucifox/versions/0.9.7.1-signed" target="_blank">0.9.7.1</a></small></li>
                     <li>Multiple Tab Handler<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/multiple-tab-handler/versions/0.7.2014050101.1-signed" target="_blank">0.7.2014050101.1</a></small></li>
                     <li>Multifox<br /><small>Use version <a href="https://github.com/hultmann/multifox/releases/tag/2.0.7" target="_blank">2.0.7</a></small></li>
                     <li>OmniSidebar<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/omnisidebar/versions/1.4.7.1-signed" target="_blank">1.4.7.1</a></small></li>
@@ -211,13 +216,12 @@
                     <li>RoboForm Toolbar<br /><small>After installing the RoboForm desktop application, manually install 'roboform.xpi' from 'C:\Program Files (x86)\Siber Systems\AI RoboForm\Firefox' (64-bit Windows)</small></li>
                     <li>Scientific Calculator<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/scientific-calculator/versions/5.0.2.1-signed" target="_blank">5.0.2.1</a></small></li>
                     <li>Screengrab!<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/screengrab-fix-version/versions/0.99.12" target="_blank">0.99.12</a></small></li>
+                    <li>Session Manager<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/session-manager/versions/0.8.1.7" target="_blank">0.8.1.7</a></small></li>
                 </ul>
             </td>
 
             <td style="vertical-align:top; width:33%">
                 <ul>
-                    <li>Self-Destructing Cookies<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/cookies-exterminator/" target="_blank">Cookies Exterminator</a> or <a href="/addon/crush-those-cookies/">Crush Those Cookies</a></small></li>
-                    <li>Session Manager<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/session-manager/versions/0.8.1.7" target="_blank">0.8.1.7</a></small></li>
                     <li>Share on Twitter (FKA TweetRight)<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/tweetright/versions/0.43.1.1-signed" target="_blank">0.43.1.1</a></small></li>
                     <li>ShowIP<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/alertip/" target="_blank">AlertIP</a></small></li>
                     <li>Simple Clocks<br /><small>Use <a href="/addon/foxclocks/">FoxClocks</a></small></li>
@@ -277,7 +281,7 @@
                     <li>Mouse Gestures Redox<br /><small>(Doesn&#39;t exist anymore)</small></li>
                     <li>Nightly Tester Tools<br /><small>(We are not Firefox and we do not offer &quot;Nightlies&quot;)</small></li>
                     <li>Nimbus Screen Capture</li>
-                    <li>Privacy Badger<br /><small>(Problematic add-on, use <a href="https://addons.mozilla.org/firefox/addon/ublock-origin/" target="_blank">uBlock Origin</a> instead)</small></li>
+                    <li>Privacy Badger<br /><small>(Problematic add-on, use <a href="https://github.com/gorhill/uBlock/releases/latest/" target="_blank">uBlock Origin</a> instead)</small></li>
                 </ul>
             </td>
 
