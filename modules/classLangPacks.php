@@ -71,7 +71,7 @@ class classLangPacks {
                 'ru' => 'Russian',
                 'sv-SE' => 'Swedish (Sweden)',
                 'tr' => 'Turkish',
-                'uk' => 'Ukranian',
+                'uk' => 'Ukrainian',
                 'zh-CN' => 'Chinese (Simplified)'
             );
         
