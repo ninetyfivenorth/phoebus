@@ -51,12 +51,14 @@ class classLangPacks {
         // Process langpacks
         if ($_boolProcess == true) {
             $_arrayLangPackNames = array(
+                'bg' => 'Bulgarian',
                 'cs' => 'Czech',
                 'de' => 'German',
                 'en-GB' => 'English (United Kingdom)',
                 'es-AR' => 'Spanish (Argentina)',
                 'es-ES' => 'Spanish (Spain)',
                 'es-MX' => 'Spanish (Mexico)',
+                'el' => 'Greek',
                 'fr' => 'French',
                 'hu' => 'Hungarian',
                 'it' => 'Italian',
@@ -69,6 +71,7 @@ class classLangPacks {
                 'ru' => 'Russian',
                 'sv-SE' => 'Swedish (Sweden)',
                 'tr' => 'Turkish',
+                'uk' => 'Ukranian',
                 'zh-CN' => 'Chinese (Simplified)'
             );
         
