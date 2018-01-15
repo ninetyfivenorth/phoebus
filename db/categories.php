@@ -271,6 +271,12 @@ $arrayCategoryList05 = array(
             'shortDescription' => 'Finally, an efficient blocker. Easy on CPU and memory.',
             'url' => 'https://github.com/gorhill/uBlock/releases/latest/'
         ),
+        'uir-header' => array(
+            'id' => 'ex-036',
+            'name' => 'UIR Header',
+            'shortDescription' => 'Add the Upgrade-Insecure-Requests header to all HTTP requests.',
+            'url' => 'https://realityripple.com/Software/Mozilla-Extensions/UIR-Header/'
+        ),
     ),
 );
 
@@ -374,6 +380,12 @@ $arrayCategoryList08 = array(
             'name' => 'TimerFox',
             'shortDescription' => 'Easily counts down from a predefined number and alarms you when the count has reached zero.',
             'url' => 'https://realityripple.com/Software/Mozilla-Extensions/TimerFox/'
+        ),
+        'extexp' => array(
+            'id' => 'ex-035',
+            'name' => 'ExtExp',
+            'shortDescription' => 'Places an Export Button on each extension and theme in your Add-ons Manager.',
+            'url' => 'https://realityripple.com/Software/Mozilla-Extensions/ExtExp/'
         ),
     ),
 );
