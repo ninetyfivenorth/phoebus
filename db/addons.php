@@ -169,6 +169,7 @@ $arrayAddonsDB = array(
     '{b3e15674-2f14-4a47-973e-fb9718b5e892}' => 'dir-up-moon-edition',
     '{1607f7ec-8262-4016-b51f-f9f5b43d43f1}' => 'sdc-moon-edition',
     '{ed31eaf0-5e61-49eb-89b3-808f4697c54e}' => 'gtranslator-moon-edition',
-    '{d9990772-0e04-4731-b98e-98e62085837f}' => 'theme-tweaker'
+    '{d9990772-0e04-4731-b98e-98e62085837f}' => 'theme-tweaker',
+    'superstart@2eba088bac04' => 'superstart-moon-edition'
 );
 ?>

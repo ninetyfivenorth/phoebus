@@ -18,7 +18,7 @@
 
 <h3>List of add-ons with known compatibility issues</h3>
 
-<p><strong>Last updated: 2018-01-11</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
+<p><strong>Last updated: 2018-01-15</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
 
 <p><strong>FIXED</strong></p>
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
@@ -105,12 +105,12 @@
                     <li>Behind The Overlay<br /><small>As <a href="/addon/behind-the-overlay-me/">Behind The Overlay (Moon Edition)</a></small></li>
                     <li>Change Referer Button<br /><small>As <a href="/addon/change-referer-button/">Change Referer Button</a></small></li>
                     <li>Console&sup2;<br /><small>As <a href="/addon/error-console2/">Error Console&sup2;</a></small></li>
-                    <li>colorPicker<br /><small>As <a href="/colorpicker-moonedition/">ColorPicker (Moon Edition)</a></small></li>
+                    <li>colorPicker<br /><small>As <a href="/colorpicker-moonedition/">Color Identifier</a></small></li>
                     <li>Cookie Monster<br /><small>As <a href="/addon/cookiemasters/">Cookie Masters</a></small></li>
                     <li>Dark Background and Light Text<br /><small>As <a href="/addon/advanced-night-mode/">Advanced Night Mode</a></small></li>
-                    <li>Dir Up<br /><small>As <a href="/addon/dir-up-moon-edition/">Dir Up (Moon Edition)</a></small></li>
+                    <li>Dir Up<br /><small>As <a href="/addon/dir-up-moon-edition/">Directory Up</a></small></li>
                     <li>Download Manager Tweak<br /><small>As <a href="/addon/showdownloadswts/">Show Downloads: Window, Tab, or Sidebar</a></small></li>
-                    <li>Download Status Bar<br /><small>As <a href="/addon/downloadstatusbar-pm/">Download Status Bar (Moon Edition)</a></small></li>
+                    <li>Download Status Bar<br /><small>As <a href="/addon/downloadstatusbar-pm/">Downloads Statusbar</a></small></li>
                     <li>Extension Options Menu<br /><small>As <a href="/addon/extension-preferences-menu/">Extension Preferences Menu</a></small></li>
                 </ul>
             </td>
@@ -136,7 +136,7 @@
 
             <td style="vertical-align:top; width:33%">
                 <ul>
-                    <li>One Click Popup Dictionary<br /><small>As <a href="/addon/popup-english-dictionary/">Popup English Dictionary</a></small></li>
+                    <li>One Click Popup Dictionary<br /><small>As <a href="/addon/popup-english-dictionary/">Popup English Dictionary with Audio</a></small></li>
                     <li>Password Exporter<br /><small>As <a href="/addon/password-backup-tool/">Password Backup Tool</a></small></li>
                     <li>Pentadactyl<br /><small>As <a href="/addon/pentadactyl/">Pentadactyl</a></small></li>
                     <li>PDF.js<br /><small>As <a href="/addon/moon-pdf-viewer/">Moon PDF Viewer</a></small></li>
@@ -145,11 +145,11 @@
                     <li>Self-Destructing Cookies<br /><small>As <a href="/addon/sdc-moon-edition/">Self-Destructing Cookies for Pale Moon</a></small></li>
                     <li>Send Tab to Device<br /><small>As <a href="/addon/send-tab-to-device/">Send Tab to Device (Moon Edition)</a></small></li>
                     <li>Sidebars List<br /><small>As <a href=/addon/sidebartogglemenu/">Sidebar Toggle & Menu</a></small></li>
-                    <li>Send Tab to Device<br /><small>As <a href="/addon/send-tab-to-device/">Send Tab to Device (Moon Edition)</a></small></li>
                     <li>Space Next<br /><small>As <a href="/addon/space-advance/">Space Advance</a></small></li>
                     <li>Splash!<br /><small>As <a href="/addon/splashed/">Splashed!</a></small></li>
+                    <li>Super Start<br /><small>As <a href="/addon/superstart-moon-edition/">Super Start Speed Dial</a></small></li>
                     <li>Theme Font & Size Changer<br /><small>As <a href="/addon/theme-tweaker/">Theme Tweaker</a></small></li>
-                    <li>Translate This!<br /><small>As <a href="/addon/translatethis/">Translate This! (Moon Edition)</a></small></li>
+                    <li>Translate This!<br /><small>As <a href="/addon/translatethis/">Translate This Page, Text, or Link</a></small></li>
                     <li>Tree Style Tab<br /><small>As <a href="/addon/treestyletabforpm/">Tree Style Tab for Pale Moon</a></small></li>
                 </ul>
             </td>
@@ -230,7 +230,6 @@
                     <li>Sticky Notes<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/sticky-notes/versions/0.4.6.1-signed" target="_blank">0.4.6.1</a></small></li>
                     <li>Stylish<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/stylish/versions/2.1.1" target="_blank">2.1.1</a></small></li>
                     <li>StylRRR<br /><small>Install using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
-                    <li>Super Start<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/super-start/versions/7.2.1-signed" target="_blank">7.2.1</a></small></li>
                     <li>Tab Groups Manager<br /><small>Use <a href="https://addons.mozilla.org/firefox/addon/tabgroups-manager-revived/" target="_blank">TabGroups Manager revived</a></small></li>
                     <li>Tab Scope<br /><small>Use version <a href="https://addons.mozilla.org/firefox/addon/tab-scope/versions/1.6.1.1-signed" target="_blank">1.6.1.1</a></small></li>
                     <li>The Camelizer<br /><small>Install version <a href="https://addons.mozilla.org/firefox/addon/the-camelizer-price-history-ch/versions/2.9.2" target="_blank">2.9.2</a> using <a href="/addon/moon-tester-tool/">Moon Tester Tool</a></small></li>
