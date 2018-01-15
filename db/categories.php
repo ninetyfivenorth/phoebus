@@ -465,6 +465,7 @@ $arrayCategoryList11 = array(
     'tabgroups',
     'multi-links-plus',
     'tabkit2',
+    'superstart-moon-edition',
     'externals' => array(
         'speed-start' => array(
             'id' => 'ex-010',
