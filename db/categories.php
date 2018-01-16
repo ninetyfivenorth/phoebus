@@ -298,6 +298,12 @@ $arrayCategoryList06 = array(
             'shortDescription' => 'Search for copies of images using Yandex.ru, Tineye.com, Google.com and VK.com via the right-click menu.',
             'url' => 'https://addons.mozilla.org/firefox/addon/who-stole-my-pictures/'
         ),
+        'track-package' => array(
+            'id' => 'ex-037',
+            'name' => 'Track Package',
+            'shortDescription' => 'Track Packages from the right-click menu.',
+            'url' => 'https://realityripple.com/Software/Mozilla-Extensions/Track-Package/'
+        ),
     ),
 );
 
