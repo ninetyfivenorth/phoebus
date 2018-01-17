@@ -18,7 +18,7 @@
 
 <h3>List of add-ons with known compatibility issues</h3>
 
-<p><strong>Last updated: 2018-01-15</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
+<p><strong>Last updated: 2018-01-17</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
 
 <p><strong>FIXED</strong></p>
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
@@ -119,6 +119,7 @@
                 <ul>
                     <li>FindBar Tweak<br /><small>As <a href="/addon/finderbar-tweak/">FinderBar Tweak</a> (<strong>NOTE</strong>: Does not work on Pale Moon 27 or above)</small></li>
                     <li>Firebug<br /><small>As <a href="/addon/devtools/">Developer Tools</a></small></li>
+                    <li>Firesomething<br /><small>As <a href="https://realityripple.com/Software/Mozilla-Extensions/Palesomething/" target="_blank">Palesomething</a></small></li>
                     <li>Forecastfox<br /><small>As <a href="/addon/forecastfox-pm">Forecastfox for Pale Moon</a></small></li>
                     <li>Google Translator for Firefox<br /><small>As <a href="/addon/gtranslator-moon-edition"/>Google Translator for Pale Moon</a></small></li>
                     <li>Google™ Weather<br /><small>As <a href="/addon/fcstweatherbutton/">Forecast & Weather on the Button</a></small></li>
