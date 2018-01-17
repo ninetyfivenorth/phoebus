@@ -136,6 +136,12 @@ $arrayCategoryList02 = array(
             'shortDescription' => 'Adds an About button to extensions, themes, and languages in the Add-ons list.',
             'url' => 'https://realityripple.com/Software/Mozilla-Extensions/About-Add-ons/'
         ),
+        'palesomething' => array(
+            'id' => 'ex-038',
+            'name' => 'Palesomething',
+            'shortDescription' => 'Change the product name in various parts of the browser. Random name generation ensures perpetual humor.',
+            'url' => 'https://realityripple.com/Software/Mozilla-Extensions/Palesomething/'
+        ),
     ),
 );
 
