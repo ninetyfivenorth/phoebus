@@ -18,7 +18,7 @@
 
 <h3>List of add-ons with known compatibility issues</h3>
 
-<p><strong>Last updated: 2018-01-17</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
+<p><strong>Last updated: 2018-01-22</strong> (compatible with Pale Moon 27.1+, released 2017-02-09)</p>
 
 <p><strong>FIXED</strong></p>
 <table align="center" border="0" cellpadding="0" cellspacing="0" style="width:100%">
@@ -140,6 +140,7 @@
                     <li>One Click Popup Dictionary<br /><small>As <a href="/addon/popup-english-dictionary/">Popup English Dictionary with Audio</a></small></li>
                     <li>Password Exporter<br /><small>As <a href="/addon/password-backup-tool/">Password Backup Tool</a></small></li>
                     <li>Pentadactyl<br /><small>As <a href="/addon/pentadactyl/">Pentadactyl</a></small></li>
+                    <li>Permit Cookies 2<br /><small>As <a href="/addon/cookie-permissions/">Cookie Permissions</a></small></li>
                     <li>PDF.js<br /><small>As <a href="/addon/moon-pdf-viewer/">Moon PDF Viewer</a></small></li>
                     <li>Quick Locale Switcher<br /><small>As <a href="/addon/rosetta-qls/">Rosetta Quick Locale Switcher</a></small></li>
                     <li>Save Images<br /><small>As <a href="/addon/save-images-me/">Save Images (Moon Edition)</a></small></li>
