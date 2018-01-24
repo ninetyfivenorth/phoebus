@@ -357,6 +357,7 @@ $arrayCategoryList08 = array(
     'readerview',
     'config-comments',
     'scroll-to-top',
+    'profile-switcher',
     'externals' => array(
         'remove-it-permanently' => array(
             'id' => 'default',
