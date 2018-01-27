@@ -318,6 +318,7 @@ $arrayCategoryList07 = array(
     'title' => 'Social & Communication',
     'chatzilla',
     'foxclocks',
+    'pmforum-smart-preview',
     'externals' => array(
         'gaiaformat' => array(
             'id' => 'ex-032',
