@@ -236,12 +236,6 @@ $arrayCategoryList05 = array(
     'sdc-moon-edition',
     'cookie-permissions',
     'externals' => array(
-        'cookiekeeper' => array(
-            'id' => 'fx-481410',
-            'name' => 'CookieKeeper',
-            'shortDescription' => 'Extended Cookie Manager - Keep only wanted cookies.',
-            'url' => 'https://addons.mozilla.org/firefox/addon/cookiekeeper/'
-        ),
         'secret-agent' => array(
             'id' => 'ex-006',
             'name' => 'Secret Agent',
