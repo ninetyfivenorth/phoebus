@@ -266,12 +266,6 @@ $arrayCategoryList05 = array(
             'shortDescription' => 'Restrict Proxy by Private Windows, Tabs and Domain List.',
             'url' => 'https://addons.mozilla.org/firefox/addon/proxy-privacy-ruler/'
         ),
-        'ublock-0' => array(
-            'id' => 'ex-012',
-            'name' => 'uBlock Origin',
-            'shortDescription' => 'Finally, an efficient blocker. Easy on CPU and memory.',
-            'url' => 'https://github.com/gorhill/uBlock/releases/latest/'
-        ),
         'uir-header' => array(
             'id' => 'ex-036',
             'name' => 'UIR Header',
