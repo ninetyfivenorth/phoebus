@@ -173,6 +173,7 @@ $arrayAddonsDB = array(
     'superstart@2eba088bac04' => 'superstart-moon-edition',
     '{8e05f2af-03be-443e-a2b5-b4375a3a1930}' => 'cookie-permissions',
     'profileswitcher@projects.binaryoutcast.com' => 'profile-switcher',
-    'pmforum-smart-preview@Off.JustOff' => 'pmforum-smart-preview'
+    'pmforum-smart-preview@Off.JustOff' => 'pmforum-smart-preview',
+    'halloween@whatever.fyb' => 'halloween'
 );
 ?>

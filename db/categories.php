@@ -541,6 +541,7 @@ $arrayCategoryList50 = array(
     'material-moon',
     'winstripe-moon',
     'stratum',
+    'halloween',
     'externals' => array(
         'in-the-dark' => array(
             'id' => 'ex-031',
